@@ -31,7 +31,7 @@ DECORATION = re.compile(r' <!-- source-meta -->.*?<!-- /source-meta -->')
 LEGAL = re.compile(r'^(licen[cs]e|copying|copyright|notice|authors|third[-_]party)', re.I)
 ALLOWED = {'MIT', 'Apache-2.0', 'BSD-2-Clause', 'BSD-3-Clause', '0BSD', 'ISC',
            'Unlicense', 'CC0-1.0', 'CC-BY-4.0', 'CC-BY-SA-4.0',
-           'GPL-2.0', 'GPL-3.0', 'LGPL-2.1', 'LGPL-3.0', 'MPL-2.0'}
+           'GPL-2.0', 'GPL-3.0', 'LGPL-2.1', 'LGPL-3.0', 'MPL-2.0', 'LicenseRef-Public-Domain'}
 MAX_DOWNLOAD = 32 * 1024 * 1024
 MAX_EXPANDED = 128 * 1024 * 1024
 MAX_SNAPSHOT = 32 * 1024 * 1024
@@ -56,7 +56,7 @@ class SafeRedirect(urllib.request.HTTPRedirectHandler):
 
 def get(url: str, limit: int = 4 * 1024 * 1024) -> bytes:
     parsed = urllib.parse.urlsplit(url)
-    if parsed.scheme != 'https' or parsed.hostname not in {'api.github.com', 'codeload.github.com'}:
+    if parsed.scheme != 'https' or parsed.hostname not in {'api.github.com', 'codeload.github.com', 'raw.githubusercontent.com'}:
         raise SyncError('unexpected download host')
     headers = {'User-Agent': 'awesome-ai-taste-source-sync', 'Accept': 'application/vnd.github+json'}
     token = os.environ.get('GH_TOKEN') or os.environ.get('GITHUB_TOKEN')
@@ -195,6 +195,83 @@ def unpack(data: bytes, dest: Path, scopes: list[str], license_path: str) -> lis
     return sorted(skipped)
 
 
+
+def download_scoped(repo: str, head: str, dest: Path, scopes: list[str], license_path: str) -> list[str]:
+    """Walk only selected Git subtrees and verify each raw file against its Git blob SHA.
+
+    This avoids downloading a large monorepo just to retain one small skill. Every
+    tree and raw URL is pinned to the same commit, not a moving branch. No links or
+    submodules are followed. A truncated listing is an error, never an empty tree.
+    """
+    if not REPO.fullmatch(repo) or not SHA.fullmatch(head):
+        raise SyncError('invalid pinned source')
+    pending, records, skipped, seen = [('', head)], [], [], set()
+    entries = requests = total = 0
+    interests = scopes + [license_path]
+    while pending:
+        prefix, tree_sha = pending.pop()
+        requests += 1
+        if requests > 200:
+            raise SyncError('selected source requires too many tree requests')
+        tree = api(f'{repo}/git/trees/{tree_sha}')
+        if tree.get('truncated') or not isinstance(tree.get('tree'), list):
+            raise SyncError('incomplete Git tree; refusing partial snapshot')
+        for item in tree['tree']:
+            entries += 1
+            if entries > MAX_MEMBERS:
+                raise SyncError('selected tree has too many members')
+            name = str(safe_path(item['path']))
+            if '/' in name:
+                raise SyncError('non-recursive Git tree contains a nested path')
+            path = prefix + name
+            safe_path(path)
+            if path in seen:
+                raise SyncError('duplicate Git tree path')
+            seen.add(path)
+            sha = item.get('sha', '')
+            if not SHA.fullmatch(sha):
+                raise SyncError('invalid Git object SHA')
+            if item.get('type') == 'tree':
+                if any(s == '.' or path == s or path.startswith(s + '/') or
+                       s.startswith(path + '/') for s in interests):
+                    pending.append((path + '/', sha))
+                continue
+            if not selected(path, scopes) and path != license_path:
+                continue
+            if item.get('type') != 'blob' or item.get('mode') not in {'100644', '100755'}:
+                skipped.append(path + ' (non-regular file/submodule; not followed)')
+                continue
+            relative = PurePosixPath(path)
+            if relative.name.lower() in EXCLUDED_NAMES or relative.suffix.lower() in EXCLUDED_SUFFIXES:
+                skipped.append(path + ' (excluded metadata/font)')
+                continue
+            size = item.get('size')
+            if not isinstance(size, int) or size < 0 or size > MAX_FILE:
+                raise SyncError('selected file exceeds limit or has invalid size')
+            total += size
+            if total > MAX_SNAPSHOT:
+                raise SyncError('snapshot exceeds 32 MiB; narrow the scope')
+            records.append((path, sha, size, item['mode']))
+    names = {r[0] for r in records}
+    if license_path not in names:
+        raise SyncError('approved license is missing from selected tree')
+    for scope in scopes:
+        if scope != '.' and not any(p == scope or p.startswith(scope + '/') for p in names):
+            raise SyncError(f'selected scope is missing: {scope}')
+    for path, sha, size, mode in records:
+        data = get(f'https://raw.githubusercontent.com/{repo}/{head}/{urllib.parse.quote(path)}', MAX_FILE)
+        blob = hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()
+        if len(data) != size or blob != sha:
+            raise SyncError('downloaded file differs from pinned Git blob')
+        if data.startswith(b'version https://git-lfs.github.com/spec/v1\n'):
+            skipped.append(path + ' (LFS pointer retained; object not downloaded)')
+        target = dest / path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(data)
+        target.chmod(0o755 if mode == '100755' else 0o644)
+    return sorted(skipped)
+
+
 def digest_tree(path: Path) -> tuple[str, int, int]:
     digest = hashlib.sha256()
     count = size = 0
@@ -294,11 +371,15 @@ def update_one(root: Path, key: str, repo: str, cfg: dict, old: dict, write: boo
         record['status'] = 'update-available'
         return record
     approval = licensed(repo, head, cfg, old)
-    data = get(f'https://codeload.github.com/{repo}/tar.gz/{head}', MAX_DOWNLOAD)
+    fetch_mode = cfg.get('fetch', 'archive')
+    if fetch_mode not in {'archive', 'git-tree'}:
+        raise SyncError('unsupported fetch mode')
+    data = get(f'https://codeload.github.com/{repo}/tar.gz/{head}', MAX_DOWNLOAD) if fetch_mode == 'archive' else None
     with tempfile.TemporaryDirectory(prefix='.source-stage-', dir=root) as temp:
         staged = Path(temp) / 'snapshot'
         staged.mkdir()
-        skipped = unpack(data, staged, scopes, approval['path'])
+        skipped = (unpack(data, staged, scopes, approval['path']) if data is not None else
+                   download_scoped(repo, head, staged, scopes, approval['path']))
         license_data = (staged / approval['path']).read_bytes()
         blob = hashlib.sha1(b'blob ' + str(len(license_data)).encode() + b'\0' + license_data).hexdigest()
         if blob != approval['sha']:
@@ -306,7 +387,8 @@ def update_one(root: Path, key: str, repo: str, cfg: dict, old: dict, write: boo
         digest, count, size = digest_tree(staged)
         replace_snapshot(staged, target)
     record.update(copied_sha=head, license=approval, tree_sha256=digest,
-                  archive_sha256=hashlib.sha256(data).hexdigest(), files=count,
+                  archive_sha256=hashlib.sha256(data).hexdigest() if data is not None else None,
+                  fetch_mode=fetch_mode, files=count,
                   bytes=size, exclusions=skipped, status='current')
     record.pop('error', None)
     return record

@@ -1,6 +1,8 @@
 {
   "anthropics/skills": {
-    "paths": ["skills/frontend-design"],
+    "paths": [
+      "skills/frontend-design"
+    ],
     "license": {
       "path": "skills/frontend-design/LICENSE.txt",
       "sha": "f433b1a53f5b830a205fd2df78e2b34974656c7b",
@@ -8,12 +10,38 @@
     }
   },
   "financial-times/chart-doctor": {
-    "paths": ["visual-vocabulary"]
+    "paths": [
+      "visual-vocabulary/README.md",
+      "visual-vocabulary/poster.png",
+      "visual-vocabulary/Visual-vocabulary-cn-simplified.pdf",
+      "visual-vocabulary/Visual-vocabulary-en.pdf"
+    ],
+    "fetch": "git-tree"
   },
   "k-dense-ai/scientific-agent-skills": {
-    "paths": ["skills/scientific-visualization"]
+    "paths": [
+      "skills/scientific-visualization"
+    ],
+    "fetch": "git-tree"
   },
   "jimliu/baoyu-skills": {
-    "paths": ["skills/baoyu-infographic", "skills/baoyu-slide-deck"]
+    "paths": [
+      "skills/baoyu-infographic",
+      "skills/baoyu-slide-deck"
+    ]
+  },
+  "pbakaus/impeccable": {
+    "paths": [
+      "README.md",
+      "skill"
+    ],
+    "fetch": "git-tree"
+  },
+  "ruanyf/document-style-guide": {
+    "license": {
+      "path": "README.md",
+      "sha": "84b7e4c5f32e0b8116b26245f033062db416e25a",
+      "spdx": "LicenseRef-Public-Domain"
+    }
   }
 }

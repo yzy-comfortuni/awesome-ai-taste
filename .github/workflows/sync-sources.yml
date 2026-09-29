@@ -9,8 +9,8 @@ on:
     paths:
       - README.md
       - sources.config.json
-      - scripts/sync_sources.py
-      - tests/test_sync_sources.py
+      - scripts/**
+      - tests/**
       - .github/workflows/sync-sources.yml
 
 permissions:
