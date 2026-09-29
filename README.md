@@ -35,6 +35,7 @@
 
 - [Frontend Slides](https://github.com/zarazhangrui/frontend-slides) — HTML 幻灯片的版式与视觉指南，区分演讲型和阅读型内容密度。[设计规则](https://github.com/zarazhangrui/frontend-slides/blob/main/SKILL.md#design-aesthetics)
 - [Baoyu Slide Deck](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-slide-deck) — 面向阅读与分享的逐页图片演示稿，从背景材质、配色、字体和内容密度组合风格。[风格指南](https://github.com/JimLiu/baoyu-skills/blob/main/skills/baoyu-slide-deck/SKILL.md#style-system)
+- [Assertion-Evidence](https://www.assertion-evidence.com/) — 科研与技术演示的逐页表达方法：标题直接说结论，图形呈现证据，次要细节放入备注；适合现场讲解。[教程](https://www.craftscicom.org/ae_tutorial.html)
 
 ---
 
