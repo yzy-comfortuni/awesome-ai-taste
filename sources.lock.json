@@ -30,7 +30,7 @@
       "repository": "anthropics/skills",
       "branch": "main",
       "upstream_sha": "33375500bcea98d610eb30ce10ac4e59b89c390d",
-      "stars": 178826,
+      "stars": 178830,
       "archived": false,
       "scope": [
         "skills/frontend-design"
@@ -53,20 +53,32 @@
       "repository": "pbakaus/impeccable",
       "branch": "main",
       "upstream_sha": "114ea1d3838fca73b253af45f873b9c4f5f213c8",
-      "stars": 72135,
+      "stars": 72138,
       "archived": false,
       "scope": [
-        "."
+        "README.md",
+        "skill"
       ],
-      "config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "status": "blocked",
-      "error": "snapshot exceeds 32 MiB; narrow the scope"
+      "config_sha256": "67454a40f9ddcedc9d2a2d277bcac3898ade57857396a0c19411b09b67224eba",
+      "status": "current",
+      "copied_sha": "114ea1d3838fca73b253af45f873b9c4f5f213c8",
+      "license": {
+        "spdx": "Apache-2.0",
+        "path": "LICENSE",
+        "sha": "bb3f6d23b1f8025514a62a12b51b47d73e3c9aa9"
+      },
+      "tree_sha256": "a9f97fbaf780063ed92e0b73a4fc0efcc8be427def1368925ab4f6c195a7b750",
+      "archive_sha256": null,
+      "fetch_mode": "git-tree",
+      "files": 57,
+      "bytes": 2194833,
+      "exclusions": []
     },
     "leonxlnx/taste-skill": {
       "repository": "Leonxlnx/taste-skill",
       "branch": "main",
       "upstream_sha": "ce26fc25c0e5e8cab638f883de62d9a86ee5e45b",
-      "stars": 90938,
+      "stars": 90939,
       "archived": false,
       "scope": [
         "."
@@ -137,7 +149,7 @@
       "repository": "emilkowalski/skills",
       "branch": "main",
       "upstream_sha": "d16ebe60d09a5ba2afcb7054ede9d0a10c9f6128",
-      "stars": 41668,
+      "stars": 41669,
       "archived": false,
       "scope": [
         "."
@@ -185,7 +197,7 @@
       "repository": "blader/humanizer",
       "branch": "main",
       "upstream_sha": "225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8",
-      "stars": 52665,
+      "stars": 52668,
       "archived": false,
       "scope": [
         "."
@@ -208,7 +220,7 @@
       "repository": "op7418/Humanizer-zh",
       "branch": "main",
       "upstream_sha": "f4518a8eab97b8bfebc66a89d34320a89bef6930",
-      "stars": 18665,
+      "stars": 18667,
       "archived": false,
       "scope": [
         "."
@@ -236,9 +248,20 @@
       "scope": [
         "."
       ],
-      "config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "status": "blocked",
-      "error": "GitHub HTTP 404; rate limits/permissions may apply"
+      "config_sha256": "a2222443431f792de588e2462b4ab7ff0c7f68ffbba46a3256f99cf8e771f03b",
+      "status": "current",
+      "copied_sha": "571951731efb4b83b1939af1d3dd830441ebef45",
+      "license": {
+        "spdx": "LicenseRef-Public-Domain",
+        "path": "README.md",
+        "sha": "84b7e4c5f32e0b8116b26245f033062db416e25a"
+      },
+      "tree_sha256": "d26b0f59a873ff4ff07a557edf3e577f0d2fa8e0c99a4ce34c2af83f26e0e48b",
+      "archive_sha256": "9cb00ba281c721eb3d4d176033281f3d020b26eb0a25460ac422177a4d6ff0cc",
+      "fetch_mode": "archive",
+      "files": 8,
+      "bytes": 18115,
+      "exclusions": []
     },
     "sparanoid/chinese-copywriting-guidelines": {
       "repository": "sparanoid/chinese-copywriting-guidelines",
@@ -270,11 +293,25 @@
       "stars": 3352,
       "archived": false,
       "scope": [
-        "visual-vocabulary"
+        "visual-vocabulary/README.md",
+        "visual-vocabulary/Visual-vocabulary-cn-simplified.pdf",
+        "visual-vocabulary/Visual-vocabulary-en.pdf",
+        "visual-vocabulary/poster.png"
       ],
-      "config_sha256": "a2d2c7c42dd866c5194d63c1d56d4fec374d0985d7f3ee375365fa97c73856a6",
-      "status": "blocked",
-      "error": "selected file exceeds 8 MiB; narrow the scope"
+      "config_sha256": "2cf42749eded759f8c3bf70624cf0929c53368cd8751d744ab74c44c1ee067d7",
+      "status": "current",
+      "copied_sha": "befb9cba21849432a4029d0cfdda938819ae733f",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "sha": "42383880001ed528599f4d0a66d4c82d6b34c8dd"
+      },
+      "tree_sha256": "f53b2861fa74b923baca02af2c72ce99c7e169ce35bd8b8ae21c6b66454e2f2f",
+      "archive_sha256": null,
+      "fetch_mode": "git-tree",
+      "files": 5,
+      "bytes": 6325196,
+      "exclusions": []
     },
     "antvis/chart-visualization-skills": {
       "repository": "antvis/chart-visualization-skills",
@@ -303,14 +340,25 @@
       "repository": "K-Dense-AI/scientific-agent-skills",
       "branch": "main",
       "upstream_sha": "065b734670d7d990627dbc06a05b5a99be33f1f1",
-      "stars": 47001,
+      "stars": 47005,
       "archived": false,
       "scope": [
         "skills/scientific-visualization"
       ],
-      "config_sha256": "0da7df21da6e691a3f0b1ac200285ad6e7a3f9514d8dcda44a923e515778fa48",
-      "status": "blocked",
-      "error": "download exceeds 32 MiB"
+      "config_sha256": "4e2a40273daad962cae3273b6aa7ad09d405bf64443828eb8f841e7505b879aa",
+      "status": "current",
+      "copied_sha": "065b734670d7d990627dbc06a05b5a99be33f1f1",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE.md",
+        "sha": "eb246475fd5a66b9bb56176f3a718984632dd98d"
+      },
+      "tree_sha256": "46c32bfb8285c512e859285e079174af044dcd91ec2d6efbbac0ae8b101f5f57",
+      "archive_sha256": null,
+      "fetch_mode": "git-tree",
+      "files": 19,
+      "bytes": 192141,
+      "exclusions": []
     },
     "nicobailon/visual-explainer": {
       "repository": "nicobailon/visual-explainer",
@@ -339,7 +387,7 @@
       "repository": "JimLiu/baoyu-skills",
       "branch": "main",
       "upstream_sha": "1567581c26ec29f4216c6e6835415bf30343b0e3",
-      "stars": 26205,
+      "stars": 26206,
       "archived": false,
       "scope": [
         "skills/baoyu-infographic",
@@ -363,7 +411,7 @@
       "repository": "zarazhangrui/frontend-slides",
       "branch": "main",
       "upstream_sha": "9906a34d640d2111f724544cbc50f7f130569ae1",
-      "stars": 29934,
+      "stars": 29935,
       "archived": false,
       "scope": [
         "."
