@@ -1,0 +1,173 @@
+# Agentic Plugin Marketplace
+
+> Production-ready agentic workflow building blocks: **94 plugins**, **202 agents**,
+> **184 skills**, **105 commands** — built for Claude Code and consumed natively by
+> OpenAI Codex CLI, Cursor, OpenCode, the Antigravity CLI, GitHub Copilot, and Pi from a single Markdown source.
+
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-native-blueviolet)](#claude-code) [![Codex CLI](https://img.shields.io/badge/Codex%20CLI-supported-black)](docs/harnesses.md) [![Cursor](https://img.shields.io/badge/Cursor-supported-purple)](docs/harnesses.md) [![OpenCode](https://img.shields.io/badge/OpenCode-supported-green)](docs/harnesses.md) [![Antigravity CLI](https://img.shields.io/badge/Antigravity%20CLI-supported-blue)](docs/harnesses.md) [![Copilot](https://img.shields.io/badge/Copilot-supported-lightgrey)](docs/harnesses.md) [![Pi](https://img.shields.io/badge/Pi-supported-orange)](docs/harnesses.md)
+
+> [!NOTE]
+> One source-of-truth (`plugins/`), six target harnesses. Each harness gets idiomatic,
+> harness-native artifacts — not lowest-common-denominator translations.
+> See [docs/harnesses.md](docs/harnesses.md) for the capability matrix.
+
+## Quick start
+
+Pick your harness:
+
+### Claude Code
+
+```bash
+/plugin marketplace add wshobson/agents
+/plugin install python-development          # or any of 94 plugins
+```
+
+[→ Full Claude Code setup, troubleshooting, and plugin catalog](docs/usage.md)
+
+### Codex CLI · Cursor · OpenCode · Antigravity CLI · Copilot · Pi
+
+Codex and Cursor install natively from the committed registries (which point at the source `plugins/`):
+
+```bash
+npx codex-marketplace add wshobson/agents        # Codex; then install individual plugins
+# Cursor: add the marketplace, then `/plugin install <name>` (reads .cursor-plugin/ + source)
+```
+
+Antigravity, OpenCode, and Pi install via clone + generate (the transformed trees are gitignored):
+
+```bash
+gh repo clone wshobson/agents ~/agents && cd ~/agents
+make generate HARNESS=antigravity && make install-antigravity  # Antigravity (agy)
+make install-opencode                                          # OpenCode (runs generate + symlinks)
+make generate HARNESS=pi && make install-pi                    # Pi
+```
+
+### Skills only: `gh skill` · `npx skills`
+
+Both Agent Skills installers read `plugins/*/skills/` straight from GitHub, into whichever agent you use. No clone, no marketplace, no generate step. Skills only: no agents, commands, or hooks.
+
+```bash
+gh skill install wshobson/agents                                 # browse, then pick a skill or --all
+gh skill install wshobson/agents python-testing-patterns --agent claude-code
+npx skills add wshobson/agents --skill python-testing-patterns   # add -a claude-code, -g for user scope
+```
+
+Setup details and per-harness gotchas: [docs/harnesses.md](docs/harnesses.md).
+
+## What's inside
+
+| | Count | What it is |
+|---|---:|---|
+| **Plugins** | 94 | Granular, single-purpose installable units (92 local + 2 external via git-subdir) |
+| **Agents** | 202 | Domain experts (architecture, languages, infra, security, data, ML, docs, business, SEO) |
+| **Skills** | 184 | Modular knowledge packages with progressive disclosure (load when activated) |
+| **Commands** | 105 | Slash commands: scaffolding, security scans, test gen, infrastructure setup |
+| **Orchestrators** | 16 | Multi-agent coordination workflows (full-stack, security, ML, incident response) |
+
+Browse the catalog: [docs/plugins.md](docs/plugins.md) · [docs/agents.md](docs/agents.md) · [docs/agent-skills.md](docs/agent-skills.md)
+
+## How it works
+
+Each plugin is isolated and composable: agents, commands, and skills are auto-discovered
+from directory structure. **Installing a plugin loads only its components into
+context** — not the whole marketplace.
+
+```
+plugins/python-development/
+├── .claude-plugin/plugin.json
+├── agents/             # 3 Python agents (python-pro, django-pro, fastapi-pro)
+├── commands/           # 1 scaffolding command
+└── skills/             # 16 specialized skills (async, testing, packaging, …)
+```
+
+Tiered model strategy:
+
+| Tier | Model | Use |
+|---|---|---|
+| 0 | Fable 5  | Longest-horizon autonomous work — large migrations, multi-hour runs (opt-in, premium cost) |
+| 1 | Opus     | Architecture, security, code review, production-critical |
+| 2 | inherit  | User-chosen — backend, frontend, AI/ML, specialized |
+| 3 | Sonnet   | Docs, testing, debugging, API references |
+| 4 | Haiku    | Fast operational tasks, SEO, deployment, content |
+
+[→ Model configuration details](docs/agents.md#model-configuration)
+
+## Multi-harness support
+
+This marketplace ships to seven agentic harnesses from one Markdown source. Each adapter
+emits harness-native artifacts (not lowest-common-denominator translations):
+
+| Harness | Generates | Notes |
+|---|---|---|
+| **Claude Code** | (source-of-truth) | Native `marketplace.json` + `plugins/` |
+| **Codex CLI** | `.agents/plugins/marketplace.json` + `plugins/*/.codex-plugin/plugin.json` (committed); `.codex/skills/`, `.codex/agents/` (gitignored) | 8 KB skill cap respected; commands → skills |
+| **Cursor** | `.cursor-plugin/`, `.cursor/rules/` | Thin marketplace + curated rules; reuses `.claude/` |
+| **OpenCode** | `.opencode/agents/`, `.opencode/commands/`, `.opencode/skills/` | `permission:` block from `tools:` allowlist; OpenCode-safe skill names |
+| **Antigravity CLI** | `.antigravity/plugins/<p>/{skills/,agents/,commands/}` | Self-contained agy plugin per source plugin; model tier alias (`inherit`/`flash`/`pro`) |
+| **Copilot** | `.copilot/agents/`, `.copilot/skills/`, `.copilot/commands/` | Markdown agent profiles + SKILL.md skills + commands-as-skills; model maps to native Claude models |
+| **Pi** | `.pi/{skills/<plugin>/<skill>/,prompts/<plugin>__<cmd>.md,agents/<plugin>__<agent>.md}` | Skills discovered recursively; commands become prompt templates; agents use the reference subagent-extension format; the generator owns only those three subdirectories, so your own files elsewhere under `.pi/` are left alone |
+
+```bash
+make generate-all                        # all six
+make validate                            # structural checks
+make garden                              # drift / dead-link / cap detection
+```
+
+Codex and Cursor install from source via committed registries; Antigravity, OpenCode, and Pi install via clone + `make`. Individual skills install into any agent with `gh skill install wshobson/agents` or `npx skills add wshobson/agents`, no clone needed.
+
+[→ Full capability matrix and per-harness deep-dives](docs/harnesses.md)
+
+## Quality evaluation
+
+[`plugin-eval`](plugins/plugin-eval/) scores plugin and skill quality in up to three layers:
+
+- **Static:** a deterministic lint of structure, such as frontmatter, headings, and links. It makes no model calls.
+- **LLM judge (experimental):** Haiku and Sonnet rate a skill on 4 dimensions. It is not validated against human labels.
+- **Monte Carlo (experimental):** runs a skill 50 or 100 times on generated prompts. It is not validated against human labels.
+
+```bash
+uv run plugin-eval score path/to/skill --depth quick
+uv run plugin-eval certify path/to/skill
+```
+
+[→ PluginEval framework documentation](docs/plugin-eval.md)
+
+## Documentation map
+
+Detail lives in `docs/`. Read in this order:
+
+- **[docs/plugins.md](docs/plugins.md)** — full catalog of all 94 plugins
+- **[docs/agents.md](docs/agents.md)** — all 202 agents by category
+- **[docs/agent-skills.md](docs/agent-skills.md)** — 184 skills with progressive disclosure
+- **[docs/usage.md](docs/usage.md)** — commands, workflows, examples
+- **[docs/architecture.md](docs/architecture.md)** — design principles
+- **[docs/harnesses.md](docs/harnesses.md)** — cross-harness capability matrix
+- **[docs/authoring.md](docs/authoring.md)** — portable-content style guide
+- **[docs/plugin-eval.md](docs/plugin-eval.md)** — quality evaluation framework
+- **[docs/round-trip-results.md](docs/round-trip-results.md)** — real-CLI verification recipes
+
+Harness setup, capability deltas, and gotchas live in [docs/harnesses.md](docs/harnesses.md).
+
+Contributing: [CONTRIBUTING.md](CONTRIBUTING.md) · Authoring: [docs/authoring.md](docs/authoring.md)
+
+## External Memory Integration
+
+[Pensyve](https://github.com/major7apps/pensyve) is included as an external
+`git-subdir` entry for Claude Code. Pensyve also maintains direct upstream
+integrations for Codex CLI, Cursor, OpenCode, and Copilot (not yet the Antigravity CLI or Pi).
+
+| Harness | Pensyve integration |
+|---|---|
+| Claude Code | `/plugin install pensyve` from this marketplace (`integrations/claude-code`) |
+| Codex CLI | [integrations/codex-plugin](https://github.com/major7apps/pensyve/tree/main/integrations/codex-plugin) |
+| Cursor | [integrations/cursor](https://github.com/major7apps/pensyve/tree/main/integrations/cursor) |
+| OpenCode | [integrations/opencode-plugin](https://github.com/major7apps/pensyve/tree/main/integrations/opencode-plugin) |
+| Copilot | `.copilot/` in repo root or `~/.copilot/` via `make install-copilot` |
+
+## License
+
+MIT — see [LICENSE](LICENSE).
+
+## Star history
+
+[![Star History Chart](https://star-history.dera.page/svg?repos=wshobson/agents&type=date&legend=top-left)](https://star-history.dera.page/#wshobson/agents&type=date&legend=top-left)

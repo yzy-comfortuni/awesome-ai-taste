@@ -1,0 +1,68 @@
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# Compiled Python files
+*.pyc
+__pycache__/
+
+# Compiled C++ files
+*.out
+
+# Application specific files
+venv
+.venv
+node_modules
+.sass-cache
+.claude
+.worktrees/
+
+# Generated harness artifacts.
+#
+# MOST generated output is gitignored — source-of-truth lives only under plugins/.
+# Regenerate with `make generate-all`; never hand-edit generated files.
+#
+# EXCEPTION — small registries committed so Codex + Cursor install natively from a clone
+# (no build step). They point at the source plugins/ dirs; no skill/agent trees are
+# duplicated. NOT gitignored:
+#   .cursor-plugin/                       Cursor marketplace + per-plugin manifests
+#   .cursor/                              curated Cursor rules
+#   .agents/plugins/marketplace.json      Codex marketplace registry
+#   plugins/*/.codex-plugin/plugin.json   per-plugin Codex manifest (tracked under plugins/)
+# OpenCode, Antigravity, and Pi install via clone + `make` (their transformed trees below stay ignored).
+
+# Codex CLI — transformed skills/agents (local generation; the marketplace reads source)
+.codex/
+
+# OpenCode — transformed trees (install via `make install-opencode`)
+.opencode/
+opencode.json
+
+# OpenCode session continuation artifacts
+.omo/
+
+# Copilot
+.copilot/
+
+# Local agent caches (but NOT the committed Codex marketplace under .agents/plugins/)
+.agent/
+.agents/*
+!.agents/plugins/
+
+# Antigravity CLI — transformed plugins (local generation; install via clone + `make generate HARNESS=antigravity`)
+.antigravity/
+
+# Pi — transformed skills/prompts/agents (local generation; `make generate HARNESS=pi`)
+.pi/
+
+
+# Superpowers plugin artifacts (specs/plans are session-local, never committed)
+docs/superpowers/

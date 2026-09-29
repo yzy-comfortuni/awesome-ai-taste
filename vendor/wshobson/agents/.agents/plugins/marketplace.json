@@ -1,0 +1,1201 @@
+{
+  "name": "claude-code-workflows",
+  "plugins": [
+    {
+      "name": "accessibility-compliance",
+      "description": "WCAG accessibility auditing, compliance validation, UI testing for screen readers, keyboard navigation, and inclusive design",
+      "source": {
+        "source": "local",
+        "path": "./plugins/accessibility-compliance"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "agent-orchestration",
+      "description": "Multi-agent system optimization, agent improvement workflows, and context management",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-orchestration"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "agent-teams",
+      "description": "Orchestrate multi-agent teams for parallel code review, hypothesis-driven debugging, and coordinated feature development using Claude Code's Agent Teams",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agent-teams"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "api-scaffolding",
+      "description": "REST and GraphQL API scaffolding, framework selection, backend architecture, and API generation",
+      "source": {
+        "source": "local",
+        "path": "./plugins/api-scaffolding"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "api-testing-observability",
+      "description": "API testing automation, request mocking, OpenAPI documentation generation, observability setup, and monitoring",
+      "source": {
+        "source": "local",
+        "path": "./plugins/api-testing-observability"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "application-performance",
+      "description": "Application profiling, performance optimization, and observability for frontend and backend systems",
+      "source": {
+        "source": "local",
+        "path": "./plugins/application-performance"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "arm-cortex-microcontrollers",
+      "description": "ARM Cortex-M firmware development for Teensy, STM32, nRF52, and SAMD with peripheral drivers and memory safety patterns",
+      "source": {
+        "source": "local",
+        "path": "./plugins/arm-cortex-microcontrollers"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "avoid-ai-writing",
+      "description": "Audit and rewrite prose that reads as machine-generated, across READMEs, changelogs, PR descriptions, docs, and blog copy, with detect-only, rewrite, and edit-in-place modes.",
+      "source": {
+        "source": "local",
+        "path": "./plugins/avoid-ai-writing"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "documentation"
+    },
+    {
+      "name": "backend-api-security",
+      "description": "API security hardening, authentication implementation, authorization patterns, rate limiting, and input validation",
+      "source": {
+        "source": "local",
+        "path": "./plugins/backend-api-security"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "backend-development",
+      "description": "Backend API design, GraphQL architecture, workflow orchestration with Temporal, and test-driven backend development",
+      "source": {
+        "source": "local",
+        "path": "./plugins/backend-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "before-you-build",
+      "description": "Pre-build product risk review for founders, product teams, and AI-assisted builders before implementation starts.",
+      "source": {
+        "source": "local",
+        "path": "./plugins/before-you-build"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "block-no-verify",
+      "description": "PreToolUse hook that prevents AI agents from using --no-verify, --no-gpg-sign, and other bypass flags that skip git hooks",
+      "source": {
+        "source": "local",
+        "path": "./plugins/block-no-verify"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "blockchain-web3",
+      "description": "Smart contract development with Solidity, DeFi protocol implementation, NFT platforms, and Web3 application architecture",
+      "source": {
+        "source": "local",
+        "path": "./plugins/blockchain-web3"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "brand-landingpage",
+      "description": "Guides developers from brand discovery through iterative design to deployment-ready HTML via Stitch.",
+      "source": {
+        "source": "local",
+        "path": "./plugins/brand-landingpage"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "business-analytics",
+      "description": "Business metrics analysis, KPI tracking, financial reporting, and data-driven decision making",
+      "source": {
+        "source": "local",
+        "path": "./plugins/business-analytics"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "c4-architecture",
+      "description": "Comprehensive C4 architecture documentation workflow with bottom-up code analysis, component synthesis, container mapping, and context diagram generation",
+      "source": {
+        "source": "local",
+        "path": "./plugins/c4-architecture"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "cicd-automation",
+      "description": "CI/CD pipeline configuration, GitHub Actions/GitLab CI workflow setup, and automated deployment pipeline orchestration",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cicd-automation"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "cloud-infrastructure",
+      "description": "Cloud architecture design for AWS/Azure/GCP/OCI, Kubernetes cluster configuration, Terraform infrastructure-as-code, hybrid cloud networking, and multi-cloud cost optimization",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cloud-infrastructure"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "code-documentation",
+      "description": "Documentation generation, code explanation, and technical writing with automated doc generation and tutorial creation",
+      "source": {
+        "source": "local",
+        "path": "./plugins/code-documentation"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "code-refactoring",
+      "description": "Code cleanup, refactoring automation, and technical debt management with context restoration",
+      "source": {
+        "source": "local",
+        "path": "./plugins/code-refactoring"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "codebase-cleanup",
+      "description": "Technical debt reduction, dependency updates, and code refactoring automation",
+      "source": {
+        "source": "local",
+        "path": "./plugins/codebase-cleanup"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "comprehensive-review",
+      "description": "Multi-perspective code analysis covering architecture, security, and best practices",
+      "source": {
+        "source": "local",
+        "path": "./plugins/comprehensive-review"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "conductor",
+      "description": "Context-Driven Development plugin that transforms Claude Code into a project management tool with structured workflow: Context \u2192 Spec & Plan \u2192 Implement",
+      "source": {
+        "source": "local",
+        "path": "./plugins/conductor"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "content-marketing",
+      "description": "Content marketing strategy, web research, and information synthesis for marketing operations",
+      "source": {
+        "source": "local",
+        "path": "./plugins/content-marketing"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "context-management",
+      "description": "Context persistence, restoration, and long-running conversation management",
+      "source": {
+        "source": "local",
+        "path": "./plugins/context-management"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "customer-sales-automation",
+      "description": "Customer support workflow automation, sales pipeline management, email campaigns, and CRM integration",
+      "source": {
+        "source": "local",
+        "path": "./plugins/customer-sales-automation"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "data-engineering",
+      "description": "ETL pipeline construction, data warehouse design, batch processing workflows, and data-driven feature development",
+      "source": {
+        "source": "local",
+        "path": "./plugins/data-engineering"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "data-validation-suite",
+      "description": "Schema validation, data quality monitoring, streaming validation pipelines, and input validation for backend APIs",
+      "source": {
+        "source": "local",
+        "path": "./plugins/data-validation-suite"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "database-cloud-optimization",
+      "description": "Database query optimization, cloud cost optimization, and scalability improvements",
+      "source": {
+        "source": "local",
+        "path": "./plugins/database-cloud-optimization"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "database-design",
+      "description": "Database architecture, schema design, and SQL optimization for production systems",
+      "source": {
+        "source": "local",
+        "path": "./plugins/database-design"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "database-migrations",
+      "description": "Database migration automation, observability, and cross-database migration strategies",
+      "source": {
+        "source": "local",
+        "path": "./plugins/database-migrations"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "debugging-toolkit",
+      "description": "Interactive debugging, developer experience optimization, and smart debugging workflows",
+      "source": {
+        "source": "local",
+        "path": "./plugins/debugging-toolkit"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "dependency-management",
+      "description": "Dependency auditing, version management, and security vulnerability scanning",
+      "source": {
+        "source": "local",
+        "path": "./plugins/dependency-management"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "deployment-strategies",
+      "description": "Deployment patterns, rollback automation, and infrastructure templates",
+      "source": {
+        "source": "local",
+        "path": "./plugins/deployment-strategies"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "deployment-validation",
+      "description": "Pre-deployment checks, configuration validation, and deployment readiness assessment",
+      "source": {
+        "source": "local",
+        "path": "./plugins/deployment-validation"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "developer-essentials",
+      "description": "Essential developer skills including Git workflows, SQL optimization, error handling, code review, E2E testing, authentication, debugging, and monorepo management",
+      "source": {
+        "source": "local",
+        "path": "./plugins/developer-essentials"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "dgx-spark-ops",
+      "description": "NVIDIA DGX Spark (GB10 Grace Blackwell) environment operations: aarch64/CUDA-13 stack setup, training gotcha preflights, and unified-memory/thermal management for local ML workloads",
+      "source": {
+        "source": "local",
+        "path": "./plugins/dgx-spark-ops"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "distributed-debugging",
+      "description": "Distributed system tracing and debugging across microservices",
+      "source": {
+        "source": "local",
+        "path": "./plugins/distributed-debugging"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "documentation-generation",
+      "description": "OpenAPI specification generation, Mermaid diagram creation, tutorial writing, API reference documentation",
+      "source": {
+        "source": "local",
+        "path": "./plugins/documentation-generation"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "documentation-standards",
+      "description": "HADS (Human-AI Document Standard) \u2014 semantic tagging convention for writing documentation that works efficiently for both human readers and AI models \u2014 plus the grounded-vault pattern: a raw/wiki/archive knowledge store with per-claim provenance links and git fingerprints for zero-token drift detection.",
+      "source": {
+        "source": "local",
+        "path": "./plugins/documentation-standards"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "dotnet-contribution",
+      "description": "Comprehensive .NET backend development with C#, ASP.NET Core, Entity Framework Core, and Dapper for production-grade applications",
+      "source": {
+        "source": "local",
+        "path": "./plugins/dotnet-contribution"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "error-debugging",
+      "description": "Error analysis, trace debugging, and multi-agent problem diagnosis",
+      "source": {
+        "source": "local",
+        "path": "./plugins/error-debugging"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "error-diagnostics",
+      "description": "Error tracing, root cause analysis, and smart debugging for production systems",
+      "source": {
+        "source": "local",
+        "path": "./plugins/error-diagnostics"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "file-conversion",
+      "description": "Convert files between 999 routes \u2014 PDF to Word, HEIC to JPG, MP4 to MP3, CSV to JSON, EPUB to MOBI \u2014 via the free ChangeThisFile API. MCP-aware with a zero-dependency script fallback; no API key required.",
+      "source": {
+        "source": "local",
+        "path": "./plugins/file-conversion"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "framework-migration",
+      "description": "Framework updates, migration planning, and architectural transformation workflows",
+      "source": {
+        "source": "local",
+        "path": "./plugins/framework-migration"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "frontend-mobile-development",
+      "description": "Frontend UI development and mobile application implementation across platforms",
+      "source": {
+        "source": "local",
+        "path": "./plugins/frontend-mobile-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "frontend-mobile-security",
+      "description": "XSS prevention, CSRF protection, content security policies, mobile app security, and secure storage patterns",
+      "source": {
+        "source": "local",
+        "path": "./plugins/frontend-mobile-security"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "full-stack-orchestration",
+      "description": "End-to-end feature orchestration with testing, security, performance, and deployment",
+      "source": {
+        "source": "local",
+        "path": "./plugins/full-stack-orchestration"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "functional-programming",
+      "description": "Functional programming with Elixir, OTP patterns, Phoenix framework, and distributed systems",
+      "source": {
+        "source": "local",
+        "path": "./plugins/functional-programming"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "game-development",
+      "description": "Unity game development with C# scripting, Minecraft server plugin development with Bukkit/Spigot APIs",
+      "source": {
+        "source": "local",
+        "path": "./plugins/game-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "git-pr-workflows",
+      "description": "Git workflow automation, pull request enhancement, and team onboarding processes",
+      "source": {
+        "source": "local",
+        "path": "./plugins/git-pr-workflows"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "hermes-tweet",
+      "description": "Hermes Agent plugin for public X/Twitter research and approval-gated private or state-changing operations through Hermes Tweet",
+      "source": {
+        "source": "local",
+        "path": "./plugins/hermes-tweet"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "marketing"
+    },
+    {
+      "name": "hr-legal-compliance",
+      "description": "HR policy documentation, legal compliance templates (GDPR/SOC2/HIPAA), employment contracts, and regulatory documentation",
+      "source": {
+        "source": "local",
+        "path": "./plugins/hr-legal-compliance"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "incident-response",
+      "description": "Production incident management, triage workflows, and automated incident resolution",
+      "source": {
+        "source": "local",
+        "path": "./plugins/incident-response"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "javascript-typescript",
+      "description": "JavaScript and TypeScript development with ES6+, Node.js, React, and modern web frameworks",
+      "source": {
+        "source": "local",
+        "path": "./plugins/javascript-typescript"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "julia-development",
+      "description": "Modern Julia development with Julia 1.10+, package management, scientific computing, high-performance numerical code, and production best practices",
+      "source": {
+        "source": "local",
+        "path": "./plugins/julia-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "jvm-languages",
+      "description": "JVM language development including Java, Scala, and C# with enterprise patterns and frameworks",
+      "source": {
+        "source": "local",
+        "path": "./plugins/jvm-languages"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "kubernetes-operations",
+      "description": "Kubernetes manifest generation, networking configuration, security policies, observability setup, GitOps workflows, and auto-scaling",
+      "source": {
+        "source": "local",
+        "path": "./plugins/kubernetes-operations"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "llm-application-dev",
+      "description": "LLM application development with LangGraph, RAG systems, vector search, and AI agent architectures for Claude 4.6 and GPT-5.4",
+      "source": {
+        "source": "local",
+        "path": "./plugins/llm-application-dev"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "llm-finetuning",
+      "description": "Eval-gated LLM fine-tuning lifecycle: LoRA/QLoRA SFT, preference optimization (DPO/ORPO/KTO), GRPO/RLVR, vision SFT, and quantized export \u2014 Unsloth-first with TRL fallback, no eval harness means no fine-tune",
+      "source": {
+        "source": "local",
+        "path": "./plugins/llm-finetuning"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "machine-learning-ops",
+      "description": "ML model training pipelines, hyperparameter tuning, model deployment automation, experiment tracking, and MLOps workflows",
+      "source": {
+        "source": "local",
+        "path": "./plugins/machine-learning-ops"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "meigen-ai-design",
+      "description": "AI image generation with creative workflow orchestration, parallel multi-direction output, prompt engineering, and a 1,300+ curated inspiration library. Requires MeiGen MCP server (supports MeiGen Cloud, local ComfyUI, and OpenAI-compatible APIs).",
+      "source": {
+        "source": "local",
+        "path": "./plugins/meigen-ai-design"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "multi-platform-apps",
+      "description": "Cross-platform application development coordinating web, iOS, Android, and desktop implementations",
+      "source": {
+        "source": "local",
+        "path": "./plugins/multi-platform-apps"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "observability-monitoring",
+      "description": "Metrics collection, logging infrastructure, distributed tracing, SLO implementation, and monitoring dashboards",
+      "source": {
+        "source": "local",
+        "path": "./plugins/observability-monitoring"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "operating-kit",
+      "description": "Portable operating method: session lifecycle agents (session-start/end), pre-ship code review, deploy with live verification, and production log health check. All agents use {{placeholders}} that adapt to your project.",
+      "source": {
+        "source": "local",
+        "path": "./plugins/operating-kit"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "payment-processing",
+      "description": "Payment gateway integration with Stripe, PayPal, checkout flow implementation, subscription billing, and PCI compliance",
+      "source": {
+        "source": "local",
+        "path": "./plugins/payment-processing"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "performance-testing-review",
+      "description": "Performance analysis, test coverage review, and AI-powered code quality assessment",
+      "source": {
+        "source": "local",
+        "path": "./plugins/performance-testing-review"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "plugin-eval",
+      "description": "Static lint for Claude Code plugins and skills, with experimental LLM scoring for skills",
+      "source": {
+        "source": "local",
+        "path": "./plugins/plugin-eval"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "pptx-deck-creation",
+      "description": "Create production-ready, editable PowerPoint decks through a spec-first, coordinate-explicit workflow with read-only reference analysis and quality gates.",
+      "source": {
+        "source": "local",
+        "path": "./plugins/pptx-deck-creation"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "creative"
+    },
+    {
+      "name": "protect-mcp",
+      "description": "Cedar policy enforcement + Ed25519 signed receipts for every Claude Code tool call. First cryptographic governance plugin \u2014 receipts independently verifiable offline.",
+      "source": {
+        "source": "local",
+        "path": "./plugins/protect-mcp"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "python-development",
+      "description": "Modern Python development with Python 3.12+, Django, FastAPI, async patterns, and production best practices",
+      "source": {
+        "source": "local",
+        "path": "./plugins/python-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "quantitative-trading",
+      "description": "Quantitative analysis, algorithmic trading strategies, financial modeling, portfolio risk management, and backtesting",
+      "source": {
+        "source": "local",
+        "path": "./plugins/quantitative-trading"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "reverse-engineering",
+      "description": "Binary reverse engineering, malware analysis, firmware security, and software protection research for authorized security research, CTF competitions, and defensive security",
+      "source": {
+        "source": "local",
+        "path": "./plugins/reverse-engineering"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "review-agent-governance",
+      "description": "Require a human approval signal before an AI agent can post PR reviews, comments, merges, or writes to CI config. Cedar-gated, receipt-signed, designed for the Hermes-style failure mode where a review bot posts without oversight.",
+      "source": {
+        "source": "local",
+        "path": "./plugins/review-agent-governance"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "security-compliance",
+      "description": "SOC2, HIPAA, and GDPR compliance validation, secrets scanning, compliance checklists, and regulatory documentation",
+      "source": {
+        "source": "local",
+        "path": "./plugins/security-compliance"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "security-scanning",
+      "description": "SAST analysis, dependency vulnerability scanning, OWASP Top 10 compliance, container security scanning, and automated security hardening",
+      "source": {
+        "source": "local",
+        "path": "./plugins/security-scanning"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "seo-analysis-monitoring",
+      "description": "Content freshness analysis, cannibalization detection, and authority building for SEO",
+      "source": {
+        "source": "local",
+        "path": "./plugins/seo-analysis-monitoring"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "seo-content-creation",
+      "description": "SEO content writing, planning, and quality auditing with E-E-A-T optimization",
+      "source": {
+        "source": "local",
+        "path": "./plugins/seo-content-creation"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "seo-technical-optimization",
+      "description": "Technical SEO optimization including meta tags, keywords, structure, and featured snippets",
+      "source": {
+        "source": "local",
+        "path": "./plugins/seo-technical-optimization"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "shell-scripting",
+      "description": "Production-grade Bash scripting with defensive programming, POSIX compliance, and comprehensive testing",
+      "source": {
+        "source": "local",
+        "path": "./plugins/shell-scripting"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "ship-mate",
+      "description": "Your AI development teammate. Turns a story file into a shipped, reviewed, and tested feature via orchestrator \u2192 architect \u2192 developer \u2192 PR reviewer \u2192 QA \u2192 Playwright.",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ship-mate"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "signed-audit-trails",
+      "description": "Teaching skill: signed audit trails for Claude Code tool calls. Cookbook-style walkthrough of Cedar-gated tool calls with Ed25519 receipts, offline verification, and CI/CD integration. Pairs with the protect-mcp plugin.",
+      "source": {
+        "source": "local",
+        "path": "./plugins/signed-audit-trails"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "skill-forge-essentials",
+      "description": "Three behavioral skills addressing AI-specific failure patterns: hidden code debt from agent generation, context compaction amnesia, and imprecise Design Mode edits",
+      "source": {
+        "source": "local",
+        "path": "./plugins/skill-forge-essentials"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "social-publishing",
+      "description": "Schedule and publish social media posts across 13 platforms (X, LinkedIn Profile + Page, Instagram Business + Standalone, Facebook Pages, TikTok, Discord, Telegram, YouTube, Reddit, WordPress, Pinterest) via SocialClaw \u2014 one workspace API key covers everything",
+      "source": {
+        "source": "local",
+        "path": "./plugins/social-publishing"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "startup-business-analyst",
+      "description": "Comprehensive startup business analysis with market sizing (TAM/SAM/SOM), financial modeling, team planning, and strategic research",
+      "source": {
+        "source": "local",
+        "path": "./plugins/startup-business-analyst"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "superself",
+      "description": "Drive the Superself `self` CLI: version control for a project's state \u2014 goals, decisions, work units, reports \u2014 kept as an append-only event log outside the code repo, so a session reads `self context` at start, attaches work to a unit, reports with evidence, and the next session picks up where this one left off.",
+      "source": {
+        "source": "local",
+        "path": "./plugins/superself"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "systems-programming",
+      "description": "Systems programming with Rust, Go, C, and C++ for performance-critical and low-level development",
+      "source": {
+        "source": "local",
+        "path": "./plugins/systems-programming"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "tdd-workflows",
+      "description": "Test-driven development methodology with red-green-refactor cycles and code review",
+      "source": {
+        "source": "local",
+        "path": "./plugins/tdd-workflows"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "team-collaboration",
+      "description": "Team workflows, issue management, standup automation, and developer experience optimization",
+      "source": {
+        "source": "local",
+        "path": "./plugins/team-collaboration"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "ui-design",
+      "description": "Comprehensive UI/UX design plugin for mobile (iOS, Android, React Native) and web applications with design systems, accessibility, and modern patterns",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ui-design"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "unit-testing",
+      "description": "Unit and integration test automation for Python and JavaScript with debugging support",
+      "source": {
+        "source": "local",
+        "path": "./plugins/unit-testing"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    },
+    {
+      "name": "web-scripting",
+      "description": "Web scripting with PHP and Ruby for web applications, CMS development, and backend services",
+      "source": {
+        "source": "local",
+        "path": "./plugins/web-scripting"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Coding"
+    }
+  ]
+}
