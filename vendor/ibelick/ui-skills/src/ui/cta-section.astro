@@ -1,0 +1,118 @@
+---
+import Card from "./card.astro";
+import Button from "./button.astro";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
+---
+
+<section class="grid min-w-0 gap-3 sm:grid-cols-2" aria-label="Stay connected">
+  <Card
+    dataHref="/jobs"
+    ariaLabel="Browse design engineering jobs"
+    className="group h-45 min-w-0 cursor-pointer overflow-hidden transition-colors hover:border-content-extra-muted"
+  >
+      <Button
+        href="/jobs"
+        variant="ghost"
+        size="sm"
+        className="absolute top-1 right-1 z-20 size-7 p-1 focus-visible:outline-content-primary"
+        aria-label="Browse design engineering jobs"
+      >
+        <ArrowRightIcon className="size-4" aria-hidden="true" />
+      </Button>
+      <div class="relative z-10 flex flex-col gap-0.5 pr-4">
+        <div class="type-body-md font-[450] text-content-primary">Looking for your next role?</div>
+        <div class="type-body-md text-content-secondary">Browse design + design engineering jobs</div>
+      </div>
+      <img
+        src="https://assets.querrel.com/ui-skills/jobs.webp"
+        alt=""
+        width="640"
+        height="240"
+        loading="lazy"
+        decoding="async"
+        class="pointer-events-none absolute inset-x-0 bottom-0 z-0 w-full"
+      />
+  </Card>
+
+  <Card className="relative h-45 min-w-0 overflow-hidden">
+    <div class="relative z-10 flex flex-col gap-0.5 pr-4">
+      <div class="type-body-md font-[450] text-content-primary">Stay in the loop</div>
+      <div class="type-body-md text-content-secondary">Get new UI skills, tools and resources updates</div>
+    </div>
+    <img
+      src="https://assets.querrel.com/ui-skills/newsletter.webp"
+      alt=""
+      width="640"
+      height="240"
+      loading="lazy"
+      decoding="async"
+      class="pointer-events-none absolute inset-x-0 bottom-0 z-0 w-full"
+    />
+    <form class="absolute inset-x-3 bottom-3 z-10" data-cta-newsletter>
+      <label class="sr-only" for="cta-newsletter-email">Email address</label>
+      <div class="flex h-9 items-center gap-2 rounded-lg border border-line-default bg-fill-default pl-3 pr-1">
+        <input
+          id="cta-newsletter-email"
+          name="email"
+          type="email"
+          required
+          autocomplete="email"
+          placeholder="Enter your email"
+          class="type-body-md min-w-0 flex-1 bg-transparent text-content-primary outline-none placeholder:text-content-muted"
+        />
+        <Button type="submit" size="sm" variant="primary" className="size-7 shrink-0 p-1" aria-label="Subscribe">
+          <ArrowRightIcon className="size-4" aria-hidden="true" />
+        </Button>
+      </div>
+      <p class="type-body-sm mt-1 hidden text-content-secondary" data-cta-newsletter-message role="status"></p>
+    </form>
+  </Card>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>("[data-cta-newsletter]").forEach((form) => {
+    if (form.dataset.ready) return;
+    form.dataset.ready = "true";
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const input = form.querySelector<HTMLInputElement>("input[name=email]");
+      const button = form.querySelector<HTMLButtonElement>("button[type=submit]");
+      const message = form.querySelector<HTMLElement>("[data-cta-newsletter-message]");
+      if (!input || !button || !message || !input.value.trim()) return;
+
+      button.disabled = true;
+      message.classList.add("hidden");
+
+      try {
+        const response = await fetch("https://api.interfaceoffice.com/subscribe", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: input.value, source: "ui-skills" }),
+        });
+        if (!response.ok) throw new Error("Subscription failed");
+        input.value = "";
+        button.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24" class="size-4"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12 4 4L19 6"/></svg>';
+      } catch {
+        message.textContent = "Couldn't subscribe right now. Please try again.";
+        message.classList.remove("hidden");
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+
+  document.querySelectorAll<HTMLElement>('[data-card-href="/jobs"]').forEach((card) => {
+    if (card.dataset.ctaReady) return;
+    card.dataset.ctaReady = "true";
+    card.addEventListener("click", (event) => {
+      if ((event.target as HTMLElement).closest("a, button")) return;
+      window.location.href = "/jobs";
+    });
+    card.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      window.location.href = "/jobs";
+    });
+  });
+</script>

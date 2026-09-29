@@ -1,0 +1,50 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import JobPostForm from "../../ui/job-post-form";
+import { env } from "cloudflare:workers";
+import { resolveJobsApiUrl, resolveTurnstileSiteKey } from "../../lib/jobs-api";
+
+const jobsApiUrl = resolveJobsApiUrl(env);
+const turnstileSiteKey = resolveTurnstileSiteKey(env);
+---
+
+<Layout
+  title="Post a design engineering job | UI Skills"
+  description="Post a design engineering job and reach more than 80,000 qualified experts."
+  robots="noindex,follow"
+  showNewsletter={false}
+  showFooter={false}
+>
+  <div class="relative flex min-h-dvh flex-col items-center overflow-y-auto">
+    <main
+      class="container-3xl flex min-h-dvh w-full items-start pt-20 pb-8 sm:items-center sm:py-0"
+    >
+      <div class="mx-auto flex w-full max-w-2xl flex-col gap-10">
+        <header class="flex flex-col gap-3">
+          <div
+            class="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between"
+          >
+            <div class="flex flex-col gap-3">
+              <h1 class="type-h2 text-content-primary">
+                Hire top design engineers
+              </h1>
+              <p class="type-body-md text-content-secondary">
+                Post your job and reach +80k qualified experts monthly
+              </p>
+            </div>
+            <span
+              class="type-body-md bg-fill-accent text-content-accent inline-flex h-7 w-fit shrink-0 items-center rounded-full px-3 font-[450]"
+            >
+              $199 one month listing
+            </span>
+          </div>
+        </header>
+        <JobPostForm
+          client:load
+          apiUrl={jobsApiUrl}
+          turnstileSiteKey={turnstileSiteKey}
+        />
+      </div>
+    </main>
+  </div>
+</Layout>

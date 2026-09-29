@@ -1,0 +1,182 @@
+[
+  {
+    "id": "vercel",
+    "name": "Vercel",
+    "sourceUrl": "https://vercel.com/design.md",
+    "websiteUrl": "https://vercel.com/",
+    "updatedAt": "2026-07-22",
+    "description": "Vercel's design guidance for official report websites, covering information architecture, Geist typography, data storytelling, responsive craft, and light and dark themes.",
+    "previewImage": "https://assets.querrel.com/design.md/vercel/vercel-preview.webp",
+    "logoImage": "https://assets.querrel.com/design.md/vercel/vercel-logo.webp"
+  },
+  {
+    "id": "atlassian",
+    "name": "Atlassian",
+    "sourceUrl": "https://atlassian.design/DESIGN.md",
+    "websiteUrl": "https://www.atlassian.com/",
+    "updatedAt": "2026-07-22",
+    "description": "A portable, token-first design manifest for Atlassian product UI, presentations, charts, dashboards, onboarding, and marketing surfaces.",
+    "logoImage": "https://assets.querrel.com/design.md/atlassian/atlassian-logo.webp",
+    "previewImage": "https://assets.querrel.com/design.md/atlassian/atlassian-preview.webp"
+  },
+  {
+    "id": "mintlify",
+    "name": "Mintlify",
+    "sourceUrl": "https://www.mintlify.com/design.md",
+    "websiteUrl": "https://www.mintlify.com/",
+    "updatedAt": "2026-07-22",
+    "description": "Design system guidance for the Mintlify marketing site, including semantic tokens, typography, color, layout, and component patterns.",
+    "logoImage": "https://assets.querrel.com/design.md/mintlify/mintlify-logo.webp",
+    "previewImage": "https://assets.querrel.com/design.md/mintlify/mintlify-preview.webp"
+  },
+  {
+    "id": "unicef",
+    "name": "Unicef",
+    "sourceUrl": "https://github.com/unicef/design.md/blob/main/DESIGN.md",
+    "websiteUrl": "https://www.unicef.org/",
+    "updatedAt": "2026-07-22",
+    "description": "A DESIGN.md interpretation of the UNICEF Brand Book 4.0 with direct brand guidance and inferred interface tokens for modern digital work.",
+    "logoImage": "https://assets.querrel.com/design.md/unicef/unicef-logo.webp",
+    "previewImage": "https://assets.querrel.com/design.md/unicef/unicef-preview.webp"
+  },
+  {
+    "id": "dsfr",
+    "name": "Beta Gouv (DSFR)",
+    "sourceUrl": "https://github.com/betagouv/dsfr-design-md/blob/main/DESIGN.md",
+    "websiteUrl": "https://beta.gouv.fr/",
+    "updatedAt": "2026-07-22",
+    "description": "Design tokens and component patterns derived from the French government design system, covering Bleu France, Rouge Marianne, typography, spacing, and accessible components.",
+    "logoImage": "https://assets.querrel.com/design.md/dsfr/dsfr-logo.webp",
+    "previewImage": "https://assets.querrel.com/design.md/dsfr/dsfr-preview.webp"
+  },
+  {
+    "id": "firecrawl",
+    "name": "Firecrawl",
+    "sourceUrl": "https://firecrawl.dev/design.md",
+    "websiteUrl": "https://www.firecrawl.dev/",
+    "updatedAt": "2026-07-22",
+    "description": "Firecrawl's developer-focused design system, built around heat orange, near-neutral surfaces, semantic tokens, and ASCII flame motifs.",
+    "logoImage": "https://assets.querrel.com/design.md/firecrawl/firecrawl-logo.webp",
+    "previewImage": "https://assets.querrel.com/design.md/firecrawl/firecrawl-preview.webp"
+  },
+  {
+    "id": "amplitude",
+    "name": "Amplitude",
+    "sourceUrl": "https://amplitude.com/design.md",
+    "websiteUrl": "https://amplitude.com/",
+    "updatedAt": "2026-07-22",
+    "description": "Amplitude's design system for product teams and agents.",
+    "logoImage": "https://assets.querrel.com/design.md/amplitude/amplitude-logo.webp",
+    "previewImage": "https://assets.querrel.com/design.md/amplitude/amplitude-preview.webp"
+  },
+  {
+    "id": "heygen-hyperframes",
+    "name": "HyperFrames",
+    "sourceUrl": "https://github.com/heygen-com/hyperframes/blob/main/DESIGN.md",
+    "websiteUrl": "https://hyperframes.heygen.com/",
+    "updatedAt": "2026-07-22",
+    "description": "HyperFrames' design system and style guide for Mintlify documentation and other branded interfaces.",
+    "logoImage": "https://assets.querrel.com/design.md/hyperframes/hyperframes-logo.webp",
+    "previewImage": "https://assets.querrel.com/design.md/hyperframes/hyperframes-preview.webp"
+  },
+  {
+    "id": "open-food-facts",
+    "name": "Open Food Facts",
+    "sourceUrl": "https://github.com/openfoodfacts/openfoodfacts-design/blob/main/DESIGN.md",
+    "websiteUrl": "https://us.openfoodfacts.org/",
+    "updatedAt": "2026-07-22",
+    "description": "Open Food Facts' agent-readable design system covering brand architecture, color, typography, components, accessibility, and page templates.",
+    "logoImage": "https://assets.querrel.com/design.md/openfoodfacts/openfoodfacts-logo.webp",
+    "previewImage": "https://assets.querrel.com/design.md/openfoodfacts/openfoodfacts-preview.webp"
+  },
+  {
+    "id": "ant-design",
+    "name": "Ant Design",
+    "sourceUrl": "https://ant.design/design.md",
+    "websiteUrl": "https://ant.design/",
+    "updatedAt": "2026-07-27",
+    "description": "An enterprise-grade React UI design system from Ant Group, built around the values Natural, Certain, Meaningful, and Growing.",
+    "logoImage": "https://assets.querrel.com/design.md/antdesign/antdesign-logo.webp",
+    "previewImage": "https://assets.querrel.com/design.md/antdesign/antdesign-preview.webp"
+  },
+  {
+    "id": "nuxt",
+    "name": "Nuxt",
+    "sourceUrl": "https://nuxt.com/design.md",
+    "websiteUrl": "https://nuxt.com/",
+    "updatedAt": "2026-07-27",
+    "description": "Nuxt's design system, powered by Nuxt UI and Tailwind CSS v4, with dark mode as the default theme.",
+    "logoImage": "https://assets.querrel.com/design.md/nuxt/nuxt-logo.webp",
+    "previewImage": "https://assets.querrel.com/design.md/nuxt/nuxt-preview.webp"
+  },
+  {
+    "id": "culture-amp",
+    "name": "Culture Amp",
+    "sourceUrl": "https://github.com/cultureamp/kaizen-design-system/blob/main/DESIGN.md?plain=1",
+    "websiteUrl": "https://www.cultureamp.com/",
+    "updatedAt": "2026-07-27",
+    "description": "Culture Amp's design system for building consistent, accessible, and delightful user experiences with React and TypeScript.",
+    "logoImage": "https://assets.querrel.com/design.md/cultureamp/cultureamp-logo.webp",
+    "previewImage": "https://assets.querrel.com/design.md/cultureamp/cultureamp-preview.webp"
+  },
+  {
+    "id": "voltagent",
+    "name": "VoltAgent",
+    "sourceUrl": "https://github.com/VoltAgent/voltagent/blob/main/DESIGN.md?plain=1",
+    "websiteUrl": "https://voltagent.dev/",
+    "updatedAt": "2026-07-27",
+    "description": "An inspired interpretation of VoltAgent's design language for a developer-focused AI agent engineering platform, with a near-black canvas, electric-green accent, and documentation-led layouts.",
+    "logoImage": "https://assets.querrel.com/design.md/voltagent/voltagent-logo.webp",
+    "previewImage": "https://assets.querrel.com/design.md/voltagent/voltagent-preview.webp"
+  },
+  {
+    "id": "executor",
+    "name": "Executor",
+    "sourceUrl": "https://github.com/autohandai/nullexec/blob/main/design.md?plain=1",
+    "websiteUrl": "https://executor.sh/",
+    "updatedAt": "2026-07-27",
+    "description": "Executor's design system across its app, marketing site, and docs, built around Geist typography, neutral surfaces, hairline borders, and semantic tokens.",
+    "logoImage": "https://assets.querrel.com/design.md/executor/executor-logo.webp",
+    "previewImage": "https://assets.querrel.com/design.md/executor/executor-preview.webp"
+  },
+  {
+    "id": "quiverai",
+    "name": "QuiverAI",
+    "sourceUrl": "https://quiver.ai/design.md",
+    "websiteUrl": "https://quiver.ai/",
+    "updatedAt": "2026-07-29",
+    "description": "QuiverAI's visual identity, design tokens, and usage guidance.",
+    "logoImage": "https://assets.querrel.com/design.md/quiverai/quiverai-logo.webp",
+    "previewImage": "https://assets.querrel.com/design.md/quiverai/quiverai-preview.webp"
+  },
+  {
+    "id": "clerk",
+    "name": "Clerk",
+    "sourceUrl": "https://clerk.com/design.md",
+    "websiteUrl": "https://clerk.com/",
+    "updatedAt": "2026-09-21",
+    "description": "Clerk's marketing design system for humans and AI agents, covering Seed, Mosaic, and clerk-js appearance patterns, typography, color, spacing, and components.",
+    "logoImage": "https://assets.querrel.com/design.md/clerk/clerk-logo.webp",
+    "previewImage": "https://assets.querrel.com/design.md/clerk/clerk-preview.webp"
+  },
+  {
+    "id": "juspay",
+    "name": "Juspay",
+    "sourceUrl": "https://raw.githubusercontent.com/juspay/blend-design-system/refs/heads/dev/DESIGN.md",
+    "websiteUrl": "https://juspay.io/",
+    "updatedAt": "2026-09-21",
+    "description": "Blend by Juspay is a fintech design system for payment infrastructure products, with token-driven colors, typography, spacing, themes, and component patterns.",
+    "logoImage": "https://assets.querrel.com/design.md/juspay/juspay-logo.webp",
+    "previewImage": "https://assets.querrel.com/design.md/juspay/juspay-preview.webp"
+  },
+  {
+    "id": "oxidecomputer",
+    "name": "Oxide Computer",
+    "sourceUrl": "https://raw.githubusercontent.com/oxidecomputer/design-system/refs/heads/master/design.md",
+    "websiteUrl": "https://oxide.computer/",
+    "updatedAt": "2026-09-21",
+    "description": "Oxide's design system for web surfaces, covering typography, OKLCH color scales, semantic tokens, spacing, radii, components, and themes.",
+    "logoImage": "https://assets.querrel.com/design.md/oxidecomputer/oxidecomputer-logo.webp",
+    "previewImage": "https://assets.querrel.com/design.md/oxidecomputer/oxidecomputer-preview.webp"
+  }
+]

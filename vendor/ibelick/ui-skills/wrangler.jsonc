@@ -1,0 +1,27 @@
+{
+  "name": "ui-skills",
+  "compatibility_date": "2026-01-07",
+  "compatibility_flags": ["nodejs_compat"],
+  "keep_vars": true,
+  "routes": [
+    {
+      "pattern": "*.ui-skills.com/*",
+      "zone_name": "ui-skills.com",
+    },
+  ],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "html_handling": "drop-trailing-slash",
+    "run_worker_first": [
+      "/mcp",
+      "/mcp/rpc",
+      "/oauth/*",
+      "/jobs",
+      "/jobs/*",
+      "/_server-islands/*",
+      "/_image",
+    ],
+  },
+}

@@ -1,0 +1,97 @@
+---
+export const prerender = true;
+
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../ui/breadcrumbs.astro";
+import Command from "../../ui/command.astro";
+
+const breadcrumbItems = [{ label: "Explore", href: "/" }, { label: "MCP" }];
+
+const siteOrigin = Astro.site ?? new URL("https://www.ui-skills.com");
+const mcpEndpoint = new URL("/mcp", siteOrigin).toString();
+const serverCardUrl = new URL(
+  "/.well-known/mcp/server-card.json",
+  siteOrigin,
+).toString();
+const pageUrl = new URL("/mcp/docs", siteOrigin).toString();
+
+const tools = [
+  {
+    name: "list_skills",
+    description:
+      "List skills from the registry. Optional query filter over path, name, or description.",
+  },
+  {
+    name: "get_skill",
+    description: "Fetch skill markdown by discovery name, slug, or pathSlug.",
+  },
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "MCP",
+  description:
+    "Connect agents to the UI Skills catalog over Model Context Protocol.",
+  url: pageUrl,
+};
+---
+
+<Layout
+  structuredData={structuredData}
+  title="MCP | UI Skills"
+  description="Connect agents to the UI Skills catalog over Model Context Protocol."
+>
+  <div
+    class="relative flex min-h-dvh flex-col items-center justify-start"
+  >
+    <div class="relative mt-20 container-3xl">
+      <div class="mx-auto flex w-full flex-col gap-10">
+        <Breadcrumbs items={breadcrumbItems} />
+
+        <div class="flex flex-col gap-3">
+          <h1 class="type-h1 text-content-primary">
+            MCP
+          </h1>
+          <p class="type-body-md text-content-secondary">
+            Connect agents to the UI Skills catalog over Model Context Protocol.
+             The server exposes the same registry as the{" "}
+            <code class="type-code">ui-skills</code> CLI.
+          </p>
+        </div>
+
+        <section class="flex flex-col gap-5">
+          <h2 class="type-body-md font-[450] text-content-secondary">
+            Endpoint
+          </h2>
+          <Command command={mcpEndpoint} />
+        </section>
+
+        <section class="flex flex-col gap-5">
+          <h2 class="type-body-md font-[450] text-content-secondary">
+            Server card
+          </h2>
+          <Command command={serverCardUrl} />
+        </section>
+
+        <section class="flex flex-col gap-5 pb-6">
+          <h2 class="type-body-md font-[450] text-content-secondary">
+            Tools
+          </h2>
+          <div class="flex flex-col gap-7">
+            {
+              tools.map((tool) => (
+                <article class="flex w-full flex-col gap-3">
+                  <Command command={tool.name} />
+                  <p class="type-body-md text-content-secondary">
+                    {tool.description}
+                  </p>
+                </article>
+              ))
+            }
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</Layout>

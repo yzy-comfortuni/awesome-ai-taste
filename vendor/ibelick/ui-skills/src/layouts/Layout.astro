@@ -1,0 +1,269 @@
+---
+import "../styles/global.css";
+import CtaSection from "../ui/cta-section.astro";
+import { skills } from "../data/skills";
+import { playbook } from "../data/playbook";
+import Footer from "../ui/footer.astro";
+import { CommandDialog } from "../ui/command-dialog";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { PromoBanner } from "../ui/promo-banner";
+import { WebMcpTools } from "../ui/webmcp-tools";
+import { serializeJsonLd } from "../lib/serialize-json-ld";
+import { githubStars } from "../data/github-stars";
+
+type Props = {
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
+  title?: string;
+  description?: string;
+  robots?: string;
+  ogImage?: string;
+  ogImageAlt?: string;
+  twitterImage?: string;
+  twitterImageAlt?: string;
+  twitterSite?: string;
+  ogType?: string;
+  siteName?: string;
+  showNewsletter?: boolean;
+  showFooter?: boolean;
+};
+
+const {
+  structuredData,
+  title,
+  description,
+  robots,
+  ogImage,
+  ogImageAlt,
+  twitterImage,
+  twitterImageAlt,
+  twitterSite,
+  ogType,
+  siteName,
+  showNewsletter = true,
+  showFooter = true,
+} = Astro.props as Props;
+const canonicalPath =
+  Astro.url.pathname === "/" ? "/" : Astro.url.pathname.replace(/\/+$/, "");
+const canonicalUrl = new URL(
+  canonicalPath,
+  Astro.site ?? "https://www.ui-skills.com",
+);
+const pageTitle = title ?? "UI Skills - Skills for Design Engineers";
+const pageDescription = description ?? "Skills for Design Engineers.";
+const robotsContent =
+  robots ??
+  "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
+const ogImageUrl = ogImage ?? "https://www.ui-skills.com/UI-OG.png";
+const twitterImageUrl = twitterImage ?? "https://www.ui-skills.com/UI-OG-X.png";
+const ogImageAltText = ogImageAlt ?? "UI Skills preview for design engineers";
+const twitterImageAltText = twitterImageAlt ?? "UI Skills social preview image";
+const ogTypeValue = ogType ?? "website";
+const siteNameValue = siteName ?? "UI Skills";
+const twitterSiteHandle = twitterSite ?? "@ibelick";
+const commandItems = [
+  ...skills.map((skill) => ({
+    kind: "skill" as const,
+    slug: skill.slug,
+    pathSlug: skill.pathSlug,
+    href: `/skills/${skill.pathSlug}`,
+    label: skill.label,
+    sourceLabel: skill.sourceLabel,
+    description: skill.description,
+  })),
+  ...playbook.map((entry) => ({
+    kind: "playbook" as const,
+    slug: entry.slug,
+    pathSlug: entry.slug,
+    href: `/playbook/${entry.slug}`,
+    label: entry.title,
+    sourceLabel: "Playbook",
+    description: entry.description,
+  })),
+];
+
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="color-scheme" content="light dark" />
+    <link
+      rel="preload"
+      href="/fonts/InterVariable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="icon"
+      type="image/webp"
+      href="/uiskills-favicon-light.webp"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalUrl.href} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content={robotsContent} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl.href} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={ogImageAltText} />
+    <meta property="og:type" content={ogTypeValue} />
+    <meta property="og:site_name" content={siteNameValue} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={twitterImageUrl} />
+    <meta name="twitter:image:alt" content={twitterImageAltText} />
+    <meta name="twitter:site" content={twitterSiteHandle} />
+    <script is:inline>
+      try {
+        if (localStorage.getItem("ui-skills-promo-dismissed") === "1") {
+          document.documentElement.dataset.promoDismissed = "1";
+        }
+      } catch (e) {}
+    </script>
+    <script is:inline>
+      (function () {
+        function shouldSkipAnalytics() {
+          if (navigator.webdriver) return true;
+          var ua = navigator.userAgent || "";
+          return /Chrome-Lighthouse|PTST|HeadlessChrome|Google Page Speed|Speed Insights/i.test(
+            ua,
+          );
+        }
+        if (shouldSkipAnalytics()) return;
+        var load = function () {
+          if (window.__stonksLoading) return;
+          window.__stonksLoading = true;
+          var script = document.createElement("script");
+          script.src = "/analytics/stonks.js";
+          script.defer = true;
+          script.dataset.hostname = "ui-skills.com";
+          script.dataset.url = "https://collector.onedollarstats.com/events";
+          document.head.appendChild(script);
+        };
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(load, { timeout: 2000 });
+        } else {
+          addEventListener("load", load, { once: true });
+        }
+      })();
+    </script>
+    {
+      structuredData ? (
+        <script
+          is:inline
+          type="application/ld+json"
+          set:html={serializeJsonLd(structuredData)}
+        />
+      ) : null
+    }
+  </head>
+  <body>
+    <WebMcpTools client:load />
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-surface-default focus:px-3 focus:py-2 focus:text-sm focus:font-medium focus:text-content-primary"
+    >
+      Skip to main content
+    </a>
+    <div class="relative min-h-dvh">
+      <header
+        class="absolute inset-x-0 top-0 z-10 pt-2"
+      >
+        <nav
+          class="container-7xl flex items-center justify-between"
+          aria-label="Primary navigation"
+        >
+          <a
+            href="/"
+            class="type-body-md inline-flex items-center gap-2 font-[450] text-content-primary"
+          >
+            <img
+              src="/uiskills-logo-light.webp"
+              alt=""
+              aria-hidden="true"
+              class="h-4 w-4"
+              width="16"
+              height="16"
+            />
+            <span>UI Skills</span>
+          </a>
+          <div class="relative z-20 flex shrink-0 items-center gap-4">
+            <div class="hidden items-center gap-4 sm:flex">
+              <a
+                href="/"
+                class="type-body-md text-content-secondary hover:text-content-primary"
+              >
+                Explore
+              </a>
+              <a
+                href="/playbook"
+                class="type-body-md text-content-secondary hover:text-content-primary"
+              >
+                Learn
+              </a>
+              <a
+                href="/jobs"
+                class="type-body-md inline-flex items-center gap-1 text-content-secondary hover:text-content-primary"
+              >
+                Jobs
+                <span class="type-body-sm inline-flex h-3.5 items-center rounded-full bg-fill-accent px-1 text-[10px] leading-none text-content-accent">
+                  New
+                </span>
+              </a>
+            </div>
+            <div class="flex shrink-0 items-center gap-2">
+              <button
+                type="button"
+                aria-label="Search skills and playbook"
+                class="border-line-default bg-fill-default text-content-primary hover:bg-fill-subtle focus-visible:outline-content-primary inline-flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-lg border text-sm transition-colors focus-visible:outline-1 focus-visible:outline-offset-2"
+                onclick="window.openCommandDialog?.(); window.dispatchEvent(new CustomEvent('open-command-dialog'))"
+              >
+                <MagnifyingGlassIcon className="size-4" aria-hidden="true" />
+              </button>
+              <a
+                href="https://github.com/ibelick/ui-skills"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Star on GitHub"
+                class="group/github-stars type-body-md inline-flex h-8 shrink-0 cursor-pointer items-center justify-center gap-1.5 whitespace-nowrap rounded-lg border border-transparent bg-fill-inverse px-3 text-content-inverse transition-[background-color,color,border-color] duration-150 ease-out focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-content-primary"
+              >
+                <svg aria-hidden="true" class="size-4" viewBox="0 0 98 96" fill="currentColor">
+                  <path d="M41.44 69.38C28.81 67.85 19.91 58.76 19.91 46.99c0-4.78 1.72-9.95 4.59-13.4-1.24-3.16-1.05-9.86.38-12.63 3.83-.48 9 1.53 12.06 4.3 3.64-1.15 7.47-1.72 12.16-1.72s8.52.57 11.96 1.63c2.97-2.68 8.23-4.69 12.06-4.21 1.34 2.58 1.53 9.28.29 12.53 3.06 3.64 4.69 8.52 4.69 13.5 0 11.77-8.9 20.67-21.73 22.3 3.25 2.1 5.46 6.7 5.46 11.96v9.95c0 2.87 2.39 4.5 5.26 3.35C84.41 87.95 98 70.63 98 49.19 98 22.11 75.99 0 48.9 0S0 22.11 0 49.19c0 21.25 13.49 38.86 31.68 45.46 2.58.96 5.07-.77 5.07-3.35v-7.66c-1.34.57-3.06.96-4.59.96-6.32 0-10.05-3.45-12.73-9.86-1.05-2.58-2.2-4.11-4.4-4.4-1.15-.1-1.53-.57-1.53-1.15 0-1.15 1.91-2.01 3.83-2.01 2.77 0 5.17 1.72 7.66 5.26 1.91 2.77 3.92 4.02 6.32 4.02 2.39 0 3.92-.86 6.12-3.06 1.63-1.63 2.87-3.06 4.02-4.02Z" />
+                </svg>
+                <span>{githubStars.label}</span>
+                <span aria-hidden="true" class="text-content-inverse/60 transition-colors duration-100 group-hover/github-stars:text-[#e3b341]">★</span>
+              </a>
+              <div class="contents">
+                <CommandDialog items={commandItems} client:load hideTrigger />
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main id="main-content">
+        <slot />
+      </main>
+      {showNewsletter && <div class="container-3xl mt-10"><CtaSection /></div>}
+      {showFooter && <Footer />}
+    </div>
+    <PromoBanner client:load />
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-page-default);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+</style>

@@ -1,0 +1,72 @@
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# Node.js
+node_modules/
+package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# env
+.env
+
+# Eval results (local runs, not for review)
+# eval/result/
+logs
+
+
+# lock files
+pnpm-lock.yaml
+
+# skills index
+src/index/
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# AI
+.claude
+
+# temp
+temp/
+temp-*/
+.zvec/
+
+# eval results (ignore contents, keep *-summary.json)
+# Note: must ignore "results/*" (contents), not "results/" (the dir itself) —
+# git cannot re-include a file whose parent directory is excluded.
+eval/results/*
+!eval/results/*-summary.json
+
+# eval source
+!eval/lib/

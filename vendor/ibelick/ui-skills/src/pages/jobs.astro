@@ -1,0 +1,76 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../ui/button.astro";
+import JobsList from "../ui/jobs-list";
+import { env } from "cloudflare:workers";
+import {
+  getJobs,
+  JobsApiError,
+  resolveJobsApiUrl,
+  type JobsResponse,
+} from "../lib/jobs-api";
+
+const jobsApiUrl = resolveJobsApiUrl(env);
+const siteOrigin = Astro.site ?? new URL("https://www.ui-skills.com");
+const jobsUrl = new URL("/jobs", siteOrigin).toString();
+const pageTitle = "Design engineering and product designer jobs | UI Skills";
+const pageDescription =
+  "Browse design engineering and product designer jobs from companies building thoughtful digital products.";
+let initialJobs: JobsResponse | null = null;
+let initialJobsError: string | null = null;
+
+try {
+  initialJobs = await getJobs(jobsApiUrl);
+} catch (reason) {
+  initialJobsError =
+    reason instanceof JobsApiError
+      ? reason.message
+      : "Unable to load jobs right now.";
+}
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: pageTitle,
+  description: pageDescription,
+  url: jobsUrl,
+};
+---
+
+<Layout
+  structuredData={structuredData}
+  title={pageTitle}
+  description={pageDescription}
+  showNewsletter={false}
+>
+  <div class="relative flex min-h-dvh flex-col items-center justify-start">
+    <main class="container-3xl relative mt-20">
+      <div class="mx-auto flex w-full flex-col gap-10">
+        <div class="flex items-start justify-between gap-5">
+          <div class="flex flex-col gap-3">
+            <h1 class="type-h1 text-content-primary">Jobs</h1>
+            <p class="type-body-md text-content-secondary">
+              The latest design engineering and product designer jobs from
+              companies building thoughtful digital products.
+            </p>
+          </div>
+          <Button
+            href="/jobs/post"
+            variant="secondary"
+            size="md"
+            className="shrink-0 whitespace-nowrap"
+          >
+            Post a job
+          </Button>
+        </div>
+
+        <JobsList
+          client:load
+          apiUrl={jobsApiUrl}
+          initialResponse={initialJobs}
+          initialError={initialJobsError}
+        />
+      </div>
+    </main>
+  </div>
+</Layout>

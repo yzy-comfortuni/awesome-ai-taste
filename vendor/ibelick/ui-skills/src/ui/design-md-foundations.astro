@@ -1,0 +1,175 @@
+---
+import Button from "./button.astro";
+import { parseDesignMdFoundations } from "../lib/design-md-foundations";
+import { HashtagIcon } from "@heroicons/react/24/outline";
+
+type Props = { markdown: string };
+const { markdown } = Astro.props as Props;
+const foundations = parseDesignMdFoundations(markdown);
+const hasFoundations = Object.values(foundations).some((items) => items.length > 0);
+
+function cssWeight(value?: string) {
+  if (!value) return "400";
+  const named = ({ regular: "400", normal: "400", medium: "500", semibold: "600", "semi-bold": "600", bold: "700" } as Record<string, string>)[value.toLowerCase()];
+  return named ?? value.match(/\((\d{3})\)/)?.[1] ?? value;
+}
+
+function cssFontSize(value?: string) {
+  if (!value) return "1rem";
+  const range = value.match(/^\s*([\d.]+)\s*[–-]/);
+  if (range) return `${range[1]}px`;
+  if (/[a-z%)]/i.test(value)) {
+    return value;
+  }
+  return `${value}px`;
+}
+
+function cssDimension(value?: string) {
+  if (!value) return "normal";
+  return /^-?(?:\d+(?:\.\d+)?)$/.test(value.trim()) ? `${value}px` : value;
+}
+
+function cssLineHeight(value?: string) {
+  return value?.trim() || "normal";
+}
+
+function typographyEntries(style: Record<string, string | undefined>) {
+  const entries = Object.entries(style).filter(([key, value]) => key !== "name" && key !== "fontFamily" && value !== undefined) as [string, string][];
+  if (style.fontFamily) entries.unshift(["fontFamily", style.fontFamily.split(",")[0].trim().replace(/^['"]|['"]$/g, "")]);
+  return entries;
+}
+
+function isNumericValue(value: string) {
+  return /^-?(?:\d+(?:\.\d+)?)(?:px|rem|em|%|vh|vw|s|ms)?$/i.test(value.trim());
+}
+
+---
+
+{hasFoundations ? (
+  <div class="flex flex-col gap-5" aria-label="Design foundations">
+    {foundations.colors.length > 0 ? (
+      <section class="foundation-section" aria-labelledby="design-md-colors">
+        <h2 id="design-md-colors" class="type-body-md font-[450] text-content-secondary">Colors</h2>
+        <div class="mt-3 flex flex-col gap-1">
+          {foundations.colors.map((color, index) => (
+            <button type="button" class="foundation-value token-copy group" data-copy-value={color.value} aria-label={`Copy ${color.name} value ${color.value}`} data-foundation-item={index >= 10 ? "hidden" : "visible"} hidden={index >= 10}>
+              <span class="size-4 shrink-0 rounded-sm border border-line-default" style={`background-color: ${color.value}`} aria-hidden="true"></span>
+              <span class="type-body-sm min-w-0 flex-1 truncate text-left text-content-primary">{color.name}</span>
+              <span class="type-body-sm shrink-0 text-content-muted">{color.value}</span>
+              <span class="foundation-tooltip token-copy-tooltip" aria-hidden="true">Copy</span>
+            </button>
+          ))}
+        </div>
+        {foundations.colors.length > 10 ? <div class="mt-3 flex justify-end"><Button size="sm" variant="secondary" data-show-all aria-expanded="false" data-count={foundations.colors.length}><span data-show-all-label>Show all <span class="type-body-sm text-content-muted">{foundations.colors.length}</span></span></Button></div> : null}
+      </section>
+    ) : null}
+
+    {foundations.typography.length > 0 ? (
+      <section class="foundation-section" aria-labelledby="design-md-typography">
+        <h2 id="design-md-typography" class="type-body-md font-[450] text-content-secondary">Typography</h2>
+        <div class="mt-3 flex flex-col gap-5">
+          {foundations.typography.map((style, index) => (
+            <div class="flex flex-col gap-2" data-foundation-item={index >= 3 ? "hidden" : "visible"} hidden={index >= 3}>
+              <div class="token-copy typography-showcase group type-body-md text-content-primary" style={`font-family: var(--font-sans); font-size: ${cssFontSize(style.fontSize)}; font-weight: ${cssWeight(style.fontWeight)}; line-height: ${cssLineHeight(style.lineHeight)}; letter-spacing: ${cssDimension(style.letterSpacing)};`}>
+                Aa
+                <span class="foundation-tooltip typography-name-tooltip" aria-hidden="true">{style.name}</span>
+              </div>
+              <div class="flex flex-col gap-1">
+                {typographyEntries(style).map(([key, value]) => (
+                  <button type="button" class="foundation-value token-copy group" data-copy-value={String(value)} aria-label={`Copy ${key} value ${value}`}>
+                    <span class="foundation-value-mark">{isNumericValue(String(value)) ? <HashtagIcon className="size-3" aria-hidden="true" /> : "T"}</span>
+                    <span class="type-body-sm min-w-0 flex-1 truncate text-left text-content-primary">{key}</span>
+                    <span class="type-body-sm shrink-0 text-content-muted">{value}</span>
+                    <span class="foundation-tooltip token-copy-tooltip" aria-hidden="true">Copy</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        {foundations.typography.length > 3 ? <div class="mt-3 flex justify-end"><Button size="sm" variant="secondary" data-show-all aria-expanded="false" data-count={foundations.typography.length}><span data-show-all-label>Show all <span class="type-body-sm text-content-muted">{foundations.typography.length}</span></span></Button></div> : null}
+      </section>
+    ) : null}
+
+    {foundations.spacing.length > 0 ? (
+      <section class="foundation-section" aria-labelledby="design-md-spacing">
+        <h2 id="design-md-spacing" class="type-body-md font-[450] text-content-secondary">Spacing</h2>
+        <div class="mt-3 flex flex-col gap-3">
+          {foundations.spacing.map((item, index) => (
+            <div class="flex flex-col gap-2" data-foundation-item={index >= 5 ? "hidden" : "visible"} hidden={index >= 5}>
+              <div
+                class="w-full rounded-sm bg-fill-accent"
+                style={`height: ${item.value};`}
+                aria-hidden="true"
+              ></div>
+              <button type="button" class="foundation-value token-copy group" data-copy-value={item.value} aria-label={`Copy ${item.name} value ${item.value}`}><span class="foundation-value-mark"><HashtagIcon className="size-3" aria-hidden="true" /></span><span class="type-body-sm min-w-0 flex-1 truncate text-left text-content-primary">{item.name}</span><span class="type-body-sm shrink-0 text-content-muted">{item.value}</span><span class="foundation-tooltip token-copy-tooltip" aria-hidden="true">Copy</span></button>
+            </div>
+          ))}
+        </div>
+        {foundations.spacing.length > 5 ? <div class="mt-3 flex justify-end"><Button size="sm" variant="secondary" data-show-all aria-expanded="false" data-count={foundations.spacing.length}><span data-show-all-label>Show all <span class="type-body-sm text-content-muted">{foundations.spacing.length}</span></span></Button></div> : null}
+      </section>
+    ) : null}
+
+    {foundations.shapes.length > 0 ? (
+      <section class="foundation-section" aria-labelledby="design-md-shapes">
+        <h2 id="design-md-shapes" class="type-body-md font-[450] text-content-secondary">Rounded</h2>
+        <div class="mt-3 flex flex-col gap-3">
+          {foundations.shapes.map((shape, index) => (
+            <div class="flex flex-col gap-2" data-foundation-item={index >= 3 ? "hidden" : "visible"} hidden={index >= 3}>
+              <div class="h-12 w-full bg-fill-strong" style={`border-radius: ${shape.value}`}></div>
+              <button type="button" class="foundation-value token-copy group" data-copy-value={shape.value} aria-label={`Copy ${shape.name} value ${shape.value}`}><span class="foundation-value-mark"><HashtagIcon className="size-3" aria-hidden="true" /></span><span class="type-body-sm min-w-0 flex-1 truncate text-left text-content-primary">{shape.name}</span><span class="type-body-sm shrink-0 text-content-muted">{shape.value}</span><span class="foundation-tooltip token-copy-tooltip" aria-hidden="true">Copy</span></button>
+            </div>
+          ))}
+        </div>
+        {foundations.shapes.length > 3 ? <div class="mt-3 flex justify-end"><Button size="sm" variant="secondary" data-show-all aria-expanded="false" data-count={foundations.shapes.length}><span data-show-all-label>Show all <span class="type-body-sm text-content-muted">{foundations.shapes.length}</span></span></Button></div> : null}
+      </section>
+    ) : null}
+  </div>
+) : null}
+
+{foundations.colors.length > 10 || foundations.typography.length > 3 || foundations.spacing.length > 5 || foundations.shapes.length > 3 ? (
+  <script>
+    function setupDesignMdFoundations() {
+      document.querySelectorAll('[data-show-all]:not([data-foundations-ready])').forEach((button) => {
+        button.setAttribute('data-foundations-ready', 'true');
+      button.addEventListener('click', () => {
+        const section = button.closest('section');
+        const hidden = section?.querySelectorAll('[data-foundation-item="hidden"]');
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        hidden?.forEach((item) => item.toggleAttribute('hidden', expanded));
+        button.setAttribute('aria-expanded', String(!expanded));
+        const label = button.querySelector('[data-show-all-label]');
+        if (label) label.textContent = expanded ? 'Show all ' + button.getAttribute('data-count') : 'Show less';
+        if (expanded) section?.scrollIntoView({ behavior: 'auto', block: 'start' });
+      });
+      });
+      document.querySelectorAll('[data-copy-value]:not([data-foundations-ready])').forEach((button) => {
+        button.setAttribute('data-foundations-ready', 'true');
+      button.addEventListener('click', async () => {
+        const value = button.getAttribute('data-copy-value');
+        if (!value) return;
+        await navigator.clipboard?.writeText(value);
+        button.setAttribute('data-copied', 'true');
+        const tooltip = button.querySelector('.foundation-tooltip');
+        if (tooltip) tooltip.textContent = 'Copied';
+        window.setTimeout(() => { button.removeAttribute('data-copied'); if (tooltip) tooltip.textContent = 'Copy'; }, 1000);
+      });
+      });
+    }
+    setupDesignMdFoundations();
+    document.addEventListener('astro:after-swap', setupDesignMdFoundations);
+  </script>
+) : null}
+
+<style>
+  .foundation-section { border: 1px solid var(--color-line-default); border-radius: 0.5rem; background: var(--color-surface-default); padding: 0.75rem; }
+  .foundation-value { position: relative; display: flex; min-width: 0; width: 100%; align-items: center; gap: 0.5rem; border-radius: 0.5rem; background: var(--color-fill-subtle); padding: 0.375rem 0.5rem; text-align: left; cursor: pointer; }
+  .foundation-value:hover, .foundation-value:focus-visible { background: var(--color-fill-strong); }
+  .foundation-value-mark { display: inline-flex; height: 1rem; width: 1rem; flex-shrink: 0; align-items: center; justify-content: center; border: 1px solid var(--color-line-default); border-radius: 0.25rem; color: var(--color-content-secondary); font-family: var(--font-sans); font-size: 0.75rem; line-height: 1; }
+  .foundation-tooltip { position: absolute; right: 0; bottom: calc(100% + 0.375rem); left: auto; z-index: 20; transform: none; white-space: nowrap; user-select: none; border-radius: 0.375rem; background: var(--color-fill-inverse); padding: 0.25rem 0.5rem; color: var(--color-content-inverse); font-family: var(--font-sans); font-size: 0.75rem; font-weight: 400; line-height: 1.5; letter-spacing: normal; opacity: 0; }
+  .token-copy-tooltip, .typography-name-tooltip { position: absolute; }
+  .token-copy:hover .foundation-tooltip, .token-copy:focus-visible .foundation-tooltip, .token-copy[data-copied] .foundation-tooltip { opacity: 1; }
+  .typography-showcase { position: relative; width: fit-content; cursor: default; }
+  .typography-showcase:hover .foundation-tooltip, .typography-showcase:focus-visible .foundation-tooltip { opacity: 1; }
+  [hidden] { display: none; }
+</style>

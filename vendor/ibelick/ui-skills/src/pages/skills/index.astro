@@ -1,0 +1,231 @@
+---
+export const prerender = true;
+
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../ui/breadcrumbs.astro";
+import { skills } from "../../data/skills";
+import { topicBySlug } from "../../data/topics";
+import type { TopicSlug } from "../../data/registry";
+import SkillCard from "../../ui/skill-card.astro";
+import Button from "../../ui/button.astro";
+
+const breadcrumbItems = [{ label: "Explore", href: "/" }, { label: "Skills" }];
+
+const compareSkillLabels = (a: (typeof skills)[number], b: (typeof skills)[number]) => {
+  const aIsNumeric = /^\d/.test(a.label);
+  const bIsNumeric = /^\d/.test(b.label);
+
+  if (aIsNumeric !== bIsNumeric) return aIsNumeric ? 1 : -1;
+  return a.label.localeCompare(b.label, undefined, { numeric: true });
+};
+
+const mixedSkills = [...skills]
+  .sort(compareSkillLabels)
+  .map((skill) => {
+    const owner = skill.sourceKey ?? "ibelick";
+
+    return {
+      ...skill,
+      ownerLabel: skill.sourceLabel ?? "Ibelick",
+      avatarUrl: `https://github.com/${owner}.png?size=160`,
+    };
+  });
+
+const topicSelectionSlugs: TopicSlug[] = [
+  "accessibility",
+  "architecture",
+  "code-quality",
+  "color",
+  "debugging",
+  "frameworks",
+  "frontend",
+  "interaction",
+  "motion",
+  "performance",
+  "systems",
+  "testing",
+  "tooling",
+  "typography",
+  "video",
+  "3d",
+];
+
+const countSkillsForTopics = (slugs: TopicSlug[]) =>
+  mixedSkills.filter((skill) =>
+    slugs.some((slug) => skill.topics?.includes(slug)),
+  ).length;
+
+const topicSelections = topicSelectionSlugs.map((slug) => {
+  const topic = topicBySlug.get(slug);
+  return topic
+    ? {
+        label: topic.label,
+        href: `/skills/${topic.slug}`,
+        count: countSkillsForTopics([topic.slug]),
+      }
+    : null;
+}).filter((topic): topic is NonNullable<typeof topic> => topic !== null);
+
+topicSelections.splice(14, 0, {
+  label: "UI",
+  href: "/skills/visual",
+  count: countSkillsForTopics(["visual", "craft", "taste"]),
+});
+
+const siteOrigin = Astro.site ?? new URL("https://www.ui-skills.com");
+const skillsIndexUrl = new URL("/skills", siteOrigin).toString();
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "UI Skills Library",
+  description: "Browse every skill available in this collection.",
+  url: skillsIndexUrl,
+  hasPart: {
+    "@type": "ItemList",
+    itemListElement: mixedSkills.map((skill, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: new URL(`/skills/${skill.pathSlug}`, siteOrigin).toString(),
+      name: skill.label,
+    })),
+  },
+};
+---
+
+<Layout
+  structuredData={structuredData}
+  title="UI Skills for Design Engineers | UI Skills"
+  description="Browse every skill in UI Skills, with install commands for accessibility, motion, frontend craft, and design engineering workflows."
+>
+  <div
+    class="relative flex min-h-dvh flex-col items-center justify-start"
+  >
+    <div class="relative mt-20 container-3xl">
+      <div class="mx-auto flex w-full flex-col gap-10">
+        <Breadcrumbs items={breadcrumbItems} />
+
+        <div class="flex flex-col gap-3">
+          <h1 class="type-h1 text-content-primary">
+            Top UI Skills for design engineering
+          </h1>
+          <p class="type-body-md text-content-secondary">
+            A collection of {mixedSkills.length.toLocaleString()} high-quality
+            skills for design engineers and frontend teams, including accessibility,
+            motion, frameworks, testing, and performance guidance.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            {topicSelections.map((topic) => (
+              <Button href={topic.href} variant="secondary" size="sm">
+                {topic.label}
+                <span class="type-body-sm text-content-muted tabular-nums">{topic.count}</span>
+              </Button>
+            ))}
+          </div>
+        </div>
+
+        <div class="flex flex-col">
+          {
+            mixedSkills.map((skill) => (
+              <SkillCard
+                href={`/skills/${skill.pathSlug}`}
+                slug={skill.slug}
+                description={skill.description}
+                ownerLabel={skill.ownerLabel}
+                avatarUrl={skill.avatarUrl}
+                variant="list"
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .scroll-fade {
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scroll-fade::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-fade[data-mask="left"] {
+    -webkit-mask-image: linear-gradient(to right, transparent 0, black 24px);
+    mask-image: linear-gradient(to right, transparent 0, black 24px);
+    -webkit-mask-size: calc(100% + 24px) 100%;
+    mask-size: calc(100% + 24px) 100%;
+    -webkit-mask-position: -12px 0;
+    mask-position: -12px 0;
+  }
+
+  .scroll-fade[data-mask="right"] {
+    -webkit-mask-image: linear-gradient(to left, transparent 0, black 24px);
+    mask-image: linear-gradient(to left, transparent 0, black 24px);
+    -webkit-mask-size: calc(100% + 24px) 100%;
+    mask-size: calc(100% + 24px) 100%;
+    -webkit-mask-position: -12px 0;
+    mask-position: -12px 0;
+  }
+
+  .scroll-fade[data-mask="both"] {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black 24px,
+      black calc(100% - 24px),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black 24px,
+      black calc(100% - 24px),
+      transparent 100%
+    );
+    -webkit-mask-size: calc(100% + 24px) 100%;
+    mask-size: calc(100% + 24px) 100%;
+    -webkit-mask-position: -12px 0;
+    mask-position: -12px 0;
+  }
+</style>
+
+<script>
+  const initTopicScrollMask = () => {
+    const scroller = document.getElementById("topic-scroll-row");
+    if (!scroller) return;
+
+    const updateMask = () => {
+      const maxScrollLeft = scroller.scrollWidth - scroller.clientWidth;
+      if (maxScrollLeft <= 1) {
+        scroller.setAttribute("data-mask", "none");
+        return;
+      }
+
+      const atStart = scroller.scrollLeft <= 1;
+      const atEnd = scroller.scrollLeft >= maxScrollLeft - 1;
+
+      if (atStart) {
+        scroller.setAttribute("data-mask", "right");
+        return;
+      }
+
+      if (atEnd) {
+        scroller.setAttribute("data-mask", "left");
+        return;
+      }
+
+      scroller.setAttribute("data-mask", "both");
+    };
+
+    updateMask();
+    scroller.addEventListener("scroll", updateMask, { passive: true });
+    window.addEventListener("resize", updateMask);
+  };
+
+  document.addEventListener("astro:page-load", initTopicScrollMask);
+  initTopicScrollMask();
+</script>

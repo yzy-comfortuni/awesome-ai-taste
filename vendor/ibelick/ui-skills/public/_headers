@@ -1,0 +1,33 @@
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self' https://api.interfaceoffice.com https://collector.onedollarstats.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
+  Link: <https://www.ui-skills.com/llms.txt>; rel="describedby"; type="text/plain"; title="Site index for LLMs", <https://www.ui-skills.com/.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"; title="API catalog", <https://www.ui-skills.com/.well-known/agent-skills/index.json>; rel="describedby"; type="application/json"; title="Agent skills index", <https://www.ui-skills.com/.well-known/mcp/server-card.json>; rel="service-desc"; type="application/json"; title="MCP server card", <https://www.ui-skills.com/.well-known/oauth-protected-resource>; rel="oauth-protected-resource"; type="application/json"; title="OAuth protected resource", <https://www.ui-skills.com/auth.md>; rel="service-doc"; type="text/markdown"; title="Agent auth", <https://www.ui-skills.com/design.md>; rel="service-doc"; type="text/markdown"; title="Design system", <https://www.ui-skills.com/skills/registry.json>; rel="service-desc"; type="application/json"; title="Skills registry", <https://www.ui-skills.com/sitemap.xml>; rel="sitemap"; type="application/xml"; title="Sitemap"
+  Permissions-Policy: camera=(), geolocation=(), microphone=()
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+
+/uiskills-favicon-*.webp
+  Cache-Control: public, max-age=86400
+
+/analytics/*
+  Cache-Control: public, max-age=3600
+
+/mcp.json
+  Cache-Control: public, max-age=300, s-maxage=3600, stale-while-revalidate=86400
+  Content-Type: application/json; charset=utf-8
+
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/.well-known/api-catalog
+  Content-Type: application/linkset+json; charset=utf-8
+
+/.well-known/oauth-authorization-server
+  Content-Type: application/json; charset=utf-8
+
+/.well-known/oauth-protected-resource
+  Content-Type: application/json; charset=utf-8
+
+/.well-known/openid-configuration
+  Content-Type: application/json; charset=utf-8

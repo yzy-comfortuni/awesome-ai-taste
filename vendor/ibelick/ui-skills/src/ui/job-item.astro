@@ -1,0 +1,30 @@
+---
+import type { Job } from "../data/jobs";
+
+const job = Astro.props as Job;
+const logoUrl = `https://www.google.com/s2/favicons?domain=${job.domain}&sz=128`;
+---
+
+<a
+  href={job.url}
+  target="_blank"
+  rel="noreferrer"
+  class="group flex items-center gap-3 border-b border-line-default pt-3 pb-4"
+>
+  <img
+    src={logoUrl}
+    alt={`${job.company} logo`}
+    width="40"
+    height="40"
+    loading="lazy"
+    class="size-10 shrink-0 rounded-xl border border-line-default object-contain"
+  />
+  <div class="min-w-0 flex-1">
+    <div class="type-body-md truncate font-[450] text-content-primary">
+      {job.title}
+    </div>
+    <div class="type-body-md truncate text-content-secondary">
+      {job.company} · {job.location} · {job.employmentType} · Posted {job.posted}
+    </div>
+  </div>
+</a>

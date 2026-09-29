@@ -1,0 +1,51 @@
+---
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+
+type Props = {
+  previousHref?: string;
+  nextHref?: string;
+};
+
+const { previousHref, nextHref } = Astro.props as Props;
+---
+
+<div
+  class="flex items-center gap-1"
+>
+  {
+    previousHref ? (
+      <a
+        href={previousHref}
+        aria-label="Previous skill"
+        class="inline-flex size-7 items-center justify-center rounded-lg bg-transparent p-1 text-content-secondary transition-colors hover:bg-fill-strong hover:text-content-primary"
+      >
+        <ArrowLeftIcon className="size-4" aria-hidden="true" />
+      </a>
+    ) : (
+      <span
+        aria-label="Previous skill unavailable"
+        class="inline-flex size-7 items-center justify-center rounded-lg bg-transparent p-1 text-content-muted"
+      >
+        <ArrowLeftIcon className="size-4" aria-hidden="true" />
+      </span>
+    )
+  }
+  {
+    nextHref ? (
+      <a
+        href={nextHref}
+        aria-label="Next skill"
+        class="inline-flex size-7 items-center justify-center rounded-lg bg-transparent p-1 text-content-secondary transition-colors hover:bg-fill-strong hover:text-content-primary"
+      >
+        <ArrowRightIcon className="size-4" aria-hidden="true" />
+      </a>
+    ) : (
+      <span
+        aria-label="Next skill unavailable"
+        class="inline-flex size-7 items-center justify-center rounded-lg bg-transparent p-1 text-content-muted"
+      >
+        <ArrowRightIcon className="size-4" aria-hidden="true" />
+      </span>
+    )
+  }
+</div>

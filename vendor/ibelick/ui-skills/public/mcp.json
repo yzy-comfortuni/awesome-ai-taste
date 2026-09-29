@@ -1,0 +1,8 @@
+{
+  "name": "UI Skills MCP",
+  "version": "0.2.4",
+  "protocol": "mcp",
+  "endpoint": "https://www.ui-skills.com/mcp",
+  "registry": "https://www.ui-skills.com/skills/registry.json",
+  "tools": ["list_skills", "get_skill"]
+}

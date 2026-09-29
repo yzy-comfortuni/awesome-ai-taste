@@ -1,0 +1,29 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../ui/breadcrumbs.astro";
+import JobDetail from "../../ui/job-detail";
+import { env } from "cloudflare:workers";
+import { resolveJobsApiUrl } from "../../lib/jobs-api";
+
+const id = Astro.params.id ?? "";
+const jobsApiUrl = resolveJobsApiUrl(env);
+const breadcrumbItems = [
+  { label: "Jobs", href: "/jobs" },
+  { label: "Job details" },
+];
+---
+
+<Layout
+  title="Job details | UI Skills"
+  description="Explore a design engineering job on UI Skills."
+  showNewsletter={false}
+>
+  <div class="relative flex min-h-dvh flex-col items-center justify-start">
+    <main class="container-3xl relative mt-20">
+      <div class="mx-auto flex w-full flex-col gap-10">
+        <Breadcrumbs items={breadcrumbItems} />
+        <JobDetail client:load apiUrl={jobsApiUrl} id={id} />
+      </div>
+    </main>
+  </div>
+</Layout>

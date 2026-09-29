@@ -1,0 +1,230 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../ui/breadcrumbs.astro";
+import SkillNav from "../../ui/skill-nav.astro";
+import PlaybookDemo from "../../ui/playbook-demo.astro";
+import SkillCard from "../../ui/skill-card.astro";
+import Button from "../../ui/button.astro";
+import { PlusIcon } from "@heroicons/react/24/outline";
+import { renderSkillMarkdown } from "../../lib/render-skill-markdown";
+import { playbook, playbookBySlug } from "../../data/playbook.ts";
+import { skills } from "../../data/skills.ts";
+import { topicBySlug, relatedTopicSlugs } from "../../data/topics";
+import type { TopicSlug } from "../../data/registry";
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return playbook.map((entry) => ({ params: { slug: entry.slug } }));
+}
+
+const routeSlug = Astro.params.slug ?? "";
+const slug = Array.isArray(routeSlug) ? routeSlug.join("/") : routeSlug;
+const entry = playbookBySlug.get(slug);
+
+if (!entry) {
+  Astro.response.status = 404;
+}
+
+const sourceSkill = entry
+  ? skills.find((skill) => skill.slug === entry.skill)
+  : undefined;
+const relatedSkills = (entry?.related ?? [])
+  .map((skillSlug) => skills.find((skill) => skill.slug === skillSlug))
+  .filter((skill): skill is NonNullable<typeof skill> => Boolean(skill));
+const lessonTopicSuggestions = sourceSkill
+  ? Array.from(
+      new Set([
+        ...(sourceSkill.topics ?? []),
+        ...(sourceSkill.topics ?? []).flatMap(
+          (topicSlug) => relatedTopicSlugs[topicSlug] ?? [],
+        ),
+      ]),
+    )
+      .map((topicSlug) => topicBySlug.get(topicSlug as TopicSlug))
+      .filter((topic): topic is NonNullable<typeof topic> => Boolean(topic))
+      .slice(0, 8)
+  : [];
+
+const playbookIndex = entry
+  ? playbook.findIndex((item) => item.slug === entry.slug)
+  : -1;
+const previousPlaybook =
+  playbookIndex >= 0
+    ? playbook[(playbookIndex - 1 + playbook.length) % playbook.length]
+    : undefined;
+const nextPlaybook =
+  playbookIndex >= 0
+    ? playbook[(playbookIndex + 1) % playbook.length]
+    : undefined;
+
+const breadcrumbItems = [
+  { label: "Learn", href: "/playbook" },
+  { label: entry?.title ?? slug },
+];
+
+const siteOrigin = Astro.site ?? new URL("https://www.ui-skills.com");
+const pageUrl = new URL(`/playbook/${slug}`, siteOrigin).toString();
+const descriptionHtml = entry
+  ? await renderSkillMarkdown(entry.description, siteOrigin.toString())
+  : "";
+const structuredData = entry
+  ? {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      headline: entry.title,
+      description: entry.description,
+      url: pageUrl,
+      mainEntityOfPage: pageUrl,
+      inLanguage: "en",
+      author: sourceSkill
+        ? {
+            "@type": "Person",
+            name:
+              sourceSkill.sourceLabel ?? sourceSkill.sourceKey ?? "UI Skills",
+            url: sourceSkill.sourceKey
+              ? `https://github.com/${sourceSkill.sourceKey}`
+              : undefined,
+          }
+        : undefined,
+      publisher: {
+        "@type": "Organization",
+        name: "UI Skills",
+        url: new URL("/", siteOrigin).toString(),
+      },
+      about: sourceSkill
+        ? {
+            "@type": "SoftwareApplication",
+            name: sourceSkill.label,
+          }
+        : undefined,
+      keywords: [
+        entry.slug,
+        entry.title,
+        "UI design",
+        "design engineering",
+        sourceSkill?.label,
+      ].filter((keyword): keyword is string => Boolean(keyword)),
+    }
+  : undefined;
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.label,
+    item: new URL(item.href ?? `/playbook/${slug}`, siteOrigin).toString(),
+  })),
+};
+---
+
+<Layout
+  structuredData={structuredData
+    ? [structuredData, breadcrumbStructuredData]
+    : breadcrumbStructuredData}
+  title={`${entry?.title ?? "Playbook"} | UI Skills`}
+  description={entry?.description ?? "Distilled UI lesson."}
+  robots={!entry ? "noindex,follow" : undefined}
+>
+  {
+    entry && sourceSkill ? (
+      <div class="relative flex min-h-dvh flex-col items-center">
+        <div class="relative mt-20 container-3xl">
+          <div class="mx-auto flex w-full flex-col gap-10">
+            <Breadcrumbs items={breadcrumbItems} />
+
+            <div class="flex items-start justify-between gap-4 ">
+              <div class="flex flex-col gap-3">
+                <h1 class="type-h2 text-content-primary text-balance">
+                  {entry.title}
+                </h1>
+                <div
+                  class="type-body-md prose prose-neutral prose-p:my-0 prose-p:text-sm prose-p:leading-normal prose-p:text-content-secondary prose-p:text-pretty max-w-2xl"
+                  set:html={descriptionHtml}
+                />
+              </div>
+              <div class="pt-1">
+                <SkillNav
+                  previousHref={
+                    previousPlaybook
+                      ? `/playbook/${previousPlaybook.slug}`
+                      : undefined
+                  }
+                  nextHref={
+                    nextPlaybook ? `/playbook/${nextPlaybook.slug}` : undefined
+                  }
+                />
+              </div>
+            </div>
+
+            <PlaybookDemo entry={entry} />
+
+            {relatedSkills.length > 0 || lessonTopicSuggestions.length > 0 ? (
+              <div class="flex flex-col gap-5">
+                <div class="flex flex-col gap-2">
+                  <h2 class="type-body-md font-[450] text-content-secondary">
+                    Related skills
+                  </h2>
+                  <div class="flex flex-col">
+                    {relatedSkills.map((skill) => (
+                      <SkillCard
+                        href={`/skills/${skill.pathSlug}`}
+                        slug={skill.label}
+                        description={skill.description}
+                        ownerLabel={skill.sourceLabel ?? skill.label}
+                        avatarUrl={`https://github.com/${skill.sourceKey ?? "ibelick"}.png?size=160`}
+                        variant="list"
+                      />
+                    ))}
+                  </div>
+                </div>
+                {lessonTopicSuggestions.length > 0 ? (
+                  <div class="flex min-w-0 flex-nowrap items-center gap-2 overflow-hidden">
+                    {lessonTopicSuggestions.map((topic) => (
+                      <Button
+                        href={`/skills/${topic.slug}`}
+                        variant="secondary"
+                        size="sm"
+                        className="shrink-0"
+                      >
+                        {topic.label}
+                      </Button>
+                    ))}
+                    <Button
+                      href="/skills"
+                      variant="secondary"
+                      size="sm"
+                      className="shrink-0"
+                    >
+                      More
+                      <PlusIcon className="size-4" aria-hidden="true" />
+                    </Button>
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
+          </div>
+        </div>
+      </div>
+    ) : (
+      <div class="relative flex min-h-dvh flex-col items-center">
+        <div class="relative mt-20 container-3xl">
+          <Breadcrumbs items={breadcrumbItems} />
+          <h1 class="type-h1 text-content-primary mt-8 text-balance">
+            Playbook entry not found
+          </h1>
+          <p class="type-body-md text-content-secondary mt-3 text-pretty">
+            The route does not match a Playbook slug.
+          </p>
+          <a
+            href="/playbook"
+            class="type-body-md text-content-primary mt-5 inline-block font-medium"
+          >
+            Back to Playbook
+          </a>
+        </div>
+      </div>
+    )
+  }
+</Layout>

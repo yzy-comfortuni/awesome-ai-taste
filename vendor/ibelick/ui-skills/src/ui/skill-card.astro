@@ -1,0 +1,41 @@
+---
+type Props = {
+  href: string;
+  slug: string;
+  description?: string;
+  ownerLabel?: string;
+  avatarUrl?: string;
+  hideTitle?: boolean;
+  ariaLabel?: string;
+  variant?: "card" | "list";
+};
+
+import Card from "./card.astro";
+import SkillItem from "./skill-item.astro";
+
+const { href, slug, description, ownerLabel, avatarUrl, hideTitle, variant = "card" } =
+  Astro.props as Props;
+---
+
+{
+  variant === "list" ? (
+    <SkillItem
+      href={href}
+      slug={slug}
+      description={description}
+      ownerLabel={ownerLabel}
+      avatarUrl={avatarUrl}
+      hideTitle={hideTitle}
+    />
+  ) : (
+    <a href={href} class="group block">
+      <Card className="transition-colors group-hover:border-content-extra-muted">
+        <div class="flex flex-col gap-3">
+          {hideTitle ? null : <div class="text-content-primary font-[450]">{slug}</div>}
+          {description ? <div class="text-content-secondary line-clamp-3 text-[14px] leading-snug">{description}</div> : null}
+          {ownerLabel && avatarUrl ? <div class="mt-1 flex items-center gap-2"><img src={avatarUrl} alt={`${ownerLabel} avatar`} width="20" height="20" loading="lazy" class="border-line-default size-5 rounded-full border" /><span class="text-content-secondary text-[12px]">{ownerLabel}</span></div> : null}
+        </div>
+      </Card>
+    </a>
+  )
+}

@@ -1,0 +1,669 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { buildSkillsInstallCommand } from "../../lib/ui-skills-cli";
+import { skills, type Skill } from "../../data/skills";
+import { topicBySlug, relatedTopicSlugs } from "../../data/topics";
+import type { TopicSlug } from "../../data/registry";
+import SkillContentCard from "../../ui/skill-content-card.astro";
+import Breadcrumbs from "../../ui/breadcrumbs.astro";
+import PlaybookCard from "../../ui/playbook-card.astro";
+import SkillCard from "../../ui/skill-card.astro";
+import SkillNav from "../../ui/skill-nav.astro";
+import Command from "../../ui/command.astro";
+import Button from "../../ui/button.astro";
+import { PlusIcon } from "@heroicons/react/24/outline";
+import { renderSkillMarkdown } from "../../lib/render-skill-markdown";
+import {
+  getRegistryByPath,
+  getSkillByPath,
+  getSkillBySourceAndSlug,
+  getSkillByTopicAndSlug,
+  getSkillsBySource,
+  getSkillsByTopic,
+  getSkillRoutePaths,
+} from "../../lib/skill-catalog";
+import { defaultSkillContentLoader } from "../../lib/agent-skills-discovery";
+import { playbookBySkillSlug } from "../../data/playbook.ts";
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return getSkillRoutePaths();
+}
+
+const titleize = (value: string) =>
+  value
+    .split("-")
+    .map((word) =>
+      word.toLowerCase() === "ui"
+        ? "UI"
+        : `${word.charAt(0).toUpperCase()}${word.slice(1)}`,
+    )
+    .join(" ");
+
+const routeSlug = Astro.params.slug ?? "";
+const pathSlug = Array.isArray(routeSlug) ? routeSlug.join("/") : routeSlug;
+const segments = pathSlug.split("/");
+const skillList: Skill[] = skills;
+const bucket = segments[0] ?? "";
+const leaf = segments[segments.length - 1] ?? "";
+const topic = topicBySlug.get(bucket as TopicSlug);
+const topicSlug = bucket as TopicSlug;
+const isTopicGroup = Boolean(topic) && segments.length === 1;
+const skill =
+  getSkillByPath(pathSlug) ??
+  (segments.length === 2 ? getSkillBySourceAndSlug(bucket, leaf) : undefined) ??
+  (Boolean(topic) && segments.length === 2
+    ? getSkillByTopicAndSlug(topicSlug, leaf)
+    : undefined);
+
+const userChildren =
+  !topic && segments.length === 1 ? getSkillsBySource(bucket) : [];
+
+const topicChildren = isTopicGroup ? getSkillsByTopic(topicSlug) : [];
+
+const compareSkillLabels = (a: Skill, b: Skill) => {
+  const aIsNumeric = /^\d/.test(a.label);
+  const bIsNumeric = /^\d/.test(b.label);
+
+  if (aIsNumeric !== bIsNumeric) return aIsNumeric ? 1 : -1;
+  return a.label.localeCompare(b.label, undefined, { numeric: true });
+};
+
+const children = [
+  ...(topicChildren.length ? topicChildren : userChildren),
+].sort(compareSkillLabels);
+
+const isGroupPage = !skill && children.length > 0;
+const groupOwner = bucket;
+const groupOwnerSkill = children.find(
+  (entry: Skill) =>
+    (entry.sourceKey ?? entry.pathSlug.split("/")[0]) === groupOwner,
+);
+const groupTitle = isTopicGroup
+  ? `${topic?.label ?? titleize(bucket)} skills`
+  : (groupOwnerSkill?.sourceLabel ?? titleize(groupOwner));
+const showOwnerProfile =
+  !isTopicGroup && isGroupPage && segments.length === 1 && Boolean(groupOwner);
+const ownerAvatarUrl = showOwnerProfile
+  ? `https://github.com/${groupOwner}.png?size=80`
+  : "";
+const ownerGithubUrl = showOwnerProfile
+  ? `https://github.com/${groupOwner}`
+  : "";
+const skillOwnerKey = skill?.sourceKey ?? "";
+const skillOwnerLabel = skill
+  ? (skill.sourceLabel ?? skill.sourceKey ?? "")
+  : "";
+const skillOwnerAvatarUrl = skillOwnerKey
+  ? `https://github.com/${skillOwnerKey}.png?size=160`
+  : "";
+const canonicalSkillPath = skill ? skill.pathSlug : pathSlug;
+const skillHref = (entry: Skill) => `/skills/${entry.pathSlug}`;
+const breadcrumbItems = [
+  { label: "Explore", href: "/" },
+  { label: "Skills", href: "/skills" },
+  ...segments.map((segment: string, index: number) => {
+    const currentPath = segments.slice(0, index + 1).join("/");
+    const matchedSkill = getSkillByPath(currentPath);
+    const isLast = index === segments.length - 1;
+
+    return {
+      label:
+        isLast && skill
+        ? skill.name
+          : (matchedSkill?.label ?? titleize(segment)),
+      href: isLast ? undefined : `/skills/${currentPath}`,
+    };
+  }),
+];
+
+const relatedSkills = skill
+  ? skillList
+      .filter(
+        (entry: Skill) =>
+          entry.pathSlug !== skill.pathSlug &&
+          (entry.topics ?? []).some((topicSlug) =>
+            (skill.topics ?? []).includes(topicSlug),
+          ),
+      )
+      .sort((a: Skill, b: Skill) => {
+        const aSharedTopics = (a.topics ?? []).filter((topicSlug) =>
+          (skill.topics ?? []).includes(topicSlug),
+        ).length;
+        const bSharedTopics = (b.topics ?? []).filter((topicSlug) =>
+          (skill.topics ?? []).includes(topicSlug),
+        ).length;
+
+        return bSharedTopics - aSharedTopics || a.label.localeCompare(b.label);
+      })
+      .slice(0, 4)
+  : [];
+
+const globalSkills = [...skillList].sort((a, b) =>
+  a.pathSlug.localeCompare(b.pathSlug),
+);
+const ownerScopedSkills = skill
+  ? skillList
+      .filter((entry: Skill) => entry.sourceKey === skill.sourceKey)
+      .sort((a, b) => a.pathSlug.localeCompare(b.pathSlug))
+  : [];
+const navigationSkills =
+  ownerScopedSkills.length > 1 ? ownerScopedSkills : globalSkills;
+const currentSkillIndex = skill
+  ? navigationSkills.findIndex(
+      (entry: Skill) => entry.pathSlug === skill.pathSlug,
+    )
+  : -1;
+const previousSkill =
+  skill && currentSkillIndex >= 0
+    ? navigationSkills[
+        (currentSkillIndex - 1 + navigationSkills.length) %
+          navigationSkills.length
+      ]
+    : undefined;
+const nextSkill =
+  skill && currentSkillIndex >= 0
+    ? navigationSkills[(currentSkillIndex + 1) % navigationSkills.length]
+    : undefined;
+const previousSkillHref = previousSkill
+  ? `/skills/${previousSkill.pathSlug}`
+  : undefined;
+const nextSkillHref = nextSkill ? `/skills/${nextSkill.pathSlug}` : undefined;
+
+const topicUsageCountBySlug = new Map<TopicSlug, number>();
+for (const entry of skillList) {
+  for (const topicSlug of entry.topics ?? []) {
+    topicUsageCountBySlug.set(
+      topicSlug,
+      (topicUsageCountBySlug.get(topicSlug) ?? 0) + 1,
+    );
+  }
+}
+
+const relatedTopicsForTopicPage =
+  isTopicGroup && topic
+    ? (relatedTopicSlugs[topic.slug] ?? [])
+        .filter((slug) => (topicUsageCountBySlug.get(slug) ?? 0) > 0)
+        .map((slug) => topicBySlug.get(slug))
+        .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
+        .slice(0, 5)
+    : [];
+
+const skillTopicSuggestions = skill
+  ? Array.from(
+      new Set([
+        ...(skill.topics ?? []),
+        ...(skill.topics ?? []).flatMap(
+          (slug) => relatedTopicSlugs[slug] ?? [],
+        ),
+      ]),
+    )
+      .filter((slug) => (topicUsageCountBySlug.get(slug as TopicSlug) ?? 0) > 0)
+      .map((slug) => topicBySlug.get(slug as TopicSlug))
+      .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
+      .slice(0, 8)
+  : [];
+
+const skillPlaybookEntries = skill
+  ? (playbookBySkillSlug.get(skill.slug) ?? [])
+  : [];
+
+const isInvalidSkillsRoute = !skill && !isGroupPage;
+if (isInvalidSkillsRoute) {
+  Astro.response.status = 404;
+}
+
+const siteOrigin = Astro.site ?? new URL("https://www.ui-skills.com");
+const pageUrl = new URL(`/skills/${canonicalSkillPath}`, siteOrigin).toString();
+const shorten = (value: string, max = 160) =>
+  value.length <= max ? value : `${value.slice(0, max - 1).trimEnd()}...`;
+
+const buildSkillTitle = (entry: Skill) => {
+  const source = entry.sourceLabel ?? "Community";
+  return `${entry.name} Skill - ${source} | UI Skills`;
+};
+
+const buildSkillDescription = (entry: Skill) => {
+  const source = entry.sourceLabel ?? "the community";
+  const description =
+    entry.description ??
+    `Install ${entry.name} from ${source} with a copy-ready command and practical usage guidance.`;
+
+  return shorten(`${description} Install from ${source} in one command.`);
+};
+
+const buildGroupTitle = (groupName: string) =>
+  `${groupName} Skills Directory | UI Skills`;
+
+const buildTopicTitle = (topicLabel: string) =>
+  `${topicLabel} Skills for Design Engineers | UI Skills`;
+
+const buildGroupDescription = (groupName: string, count: number) =>
+  shorten(
+    `Browse ${count} curated skills from ${groupName}. Discover installation commands and practical guides for your design engineering workflow.`,
+  );
+const buildTopicDescription = (
+  topicLabel: string,
+  description: string,
+  count: number,
+) =>
+  shorten(
+    `${description} Browse ${count} curated ${topicLabel.toLowerCase()} skills for design engineering and frontend workflows.`,
+  );
+const structuredData = skill
+  ? {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      headline: skill.name,
+      description:
+        skill.description ?? "Install this skill with a single command.",
+      url: pageUrl,
+      mainEntityOfPage: pageUrl,
+      author: {
+        "@type": "Person",
+        name: skill.sourceLabel ?? skill.sourceKey ?? "Ibelick",
+        url: skill.sourceKey
+          ? `https://github.com/${skill.sourceKey}`
+          : "https://github.com/ibelick",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "UI Skills",
+        url: new URL("/", siteOrigin).toString(),
+      },
+      about: ["Design Engineering", "Developer Tools", "AI Skills"],
+      keywords: [skill.slug, skill.pathSlug, "design engineering skills"],
+    }
+  : isGroupPage
+    ? {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: `${groupTitle} Skills`,
+        description:
+          isTopicGroup && topic
+            ? topic.description
+            : `Browse skills from ${groupTitle}.`,
+        url: pageUrl,
+        hasPart: {
+          "@type": "ItemList",
+          itemListElement: children.map((entry: Skill, index: number) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            url: new URL(skillHref(entry), siteOrigin).toString(),
+            name: entry.label,
+          })),
+        },
+      }
+    : undefined;
+
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.label,
+    item: new URL(
+      item.href ?? `/skills/${canonicalSkillPath}`,
+      siteOrigin,
+    ).toString(),
+  })),
+};
+
+const pageTitle = skill
+  ? buildSkillTitle(skill)
+  : isInvalidSkillsRoute
+    ? "Skill Page Not Found | UI Skills"
+    : isGroupPage
+      ? isTopicGroup && topic
+        ? buildTopicTitle(topic.label)
+        : buildGroupTitle(groupTitle)
+      : "Skills Directory for Design Engineers | UI Skills";
+
+const pageDescription = skill
+  ? buildSkillDescription(skill)
+  : isInvalidSkillsRoute
+    ? "The requested skills route does not match any skill, topic, or source page."
+    : isGroupPage
+      ? isTopicGroup && topic
+        ? buildTopicDescription(topic.label, topic.description, children.length)
+        : buildGroupDescription(groupTitle, children.length)
+      : "Discover skills for design engineers across accessibility, motion, frontend craft, and UI quality.";
+
+let skillRaw = "";
+let displayContent = "";
+
+if (skill) {
+  const registryEntry = getRegistryByPath(skill.pathSlug);
+
+  if (registryEntry) {
+    try {
+      skillRaw = await defaultSkillContentLoader(registryEntry);
+      displayContent = await renderSkillMarkdown(
+        skillRaw,
+        registryEntry.githubUrl,
+      );
+    } catch {
+      // Keep the page useful when a remote source is unavailable.
+      displayContent = await renderSkillMarkdown(
+        registryEntry.description,
+        registryEntry.githubUrl,
+      );
+    }
+  }
+}
+
+const installCommand = (() => {
+  const registryEntry = skill ? getRegistryByPath(skill.pathSlug) : undefined;
+  const repoUrl = registryEntry
+    ? `https://github.com/${registryEntry.user}/${registryEntry.repo}`
+    : "https://github.com/ibelick/ui-skills";
+  const skillName = registryEntry?.name ?? skill?.slug ?? canonicalSkillPath;
+
+  return buildSkillsInstallCommand(repoUrl, skillName);
+})();
+---
+
+<Layout
+  structuredData={structuredData
+    ? [structuredData, breadcrumbStructuredData]
+    : breadcrumbStructuredData}
+  title={pageTitle}
+  description={pageDescription}
+  robots={isInvalidSkillsRoute ? "noindex,follow" : undefined}
+>
+  <div
+    class="relative flex min-h-dvh flex-col items-center justify-start"
+  >
+    <div class="relative mt-20 container-3xl">
+      <div class="mx-auto flex w-full flex-col gap-10">
+        <div>
+          <Breadcrumbs items={breadcrumbItems} />
+        </div>
+
+        {
+          isGroupPage ? (
+            <>
+              <div class="">
+                {showOwnerProfile ? (
+                  <div class="flex items-center gap-3">
+                    <a
+                      href={ownerGithubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="focus-visible:outline-content-primary inline-flex rounded-full focus-visible:outline-1 focus-visible:outline-offset-2"
+                      aria-label={`Open ${groupTitle} GitHub profile`}
+                    >
+                      <img
+                        src={ownerAvatarUrl}
+                        alt={`${groupTitle} avatar`}
+                        width="32"
+                        height="32"
+                        loading="lazy"
+                        class="border-line-default size-8 rounded-full border"
+                      />
+                    </a>
+                    <h1 class="type-h1 text-content-primary">
+                      <a
+                        href={ownerGithubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="hover:text-content-primary transition-colors"
+                      >
+                        {groupTitle}
+                      </a>
+                    </h1>
+                  </div>
+                ) : (
+                  <h1 class="type-h1 text-content-primary">
+                    {groupTitle}
+                  </h1>
+                )}
+                {isTopicGroup && topic?.description ? (
+                  <p class="type-body-md mt-3 text-content-secondary">
+                    {topic.description}
+                  </p>
+                ) : null}
+              </div>
+
+              <div class="flex flex-col">
+                {children.map((entry) => (
+                  <SkillCard
+                    href={skillHref(entry)}
+                    slug={entry.slug}
+                    description={entry.description}
+                    ownerLabel={
+                      entry.sourceLabel ??
+                      titleize(
+                        entry.sourceKey ?? entry.pathSlug.split("/")[0] ?? "",
+                      )
+                    }
+                    avatarUrl={`https://github.com/${entry.sourceKey ?? entry.pathSlug.split("/")[0]}.png?size=160`}
+                    variant="list"
+                  />
+                ))}
+              </div>
+
+              {relatedTopicsForTopicPage.length > 0 ? (
+                <div class="flex flex-col gap-2">
+                  <h2 class="type-body-md !font-[450] !text-content-secondary">
+                    Related topics
+                  </h2>
+                  <div data-topic-row class="flex min-w-0 flex-nowrap items-center gap-2 overflow-hidden">
+                    {relatedTopicsForTopicPage.map((entry) => (
+                      <Button
+                        href={`/skills/${entry.slug}`}
+                        variant="secondary"
+                        size="sm"
+                        className="shrink-0"
+                        data-topic-item
+                      >
+                        {entry.label}
+                      </Button>
+                    ))}
+                    <Button
+                      href="/skills"
+                      variant="secondary"
+                      size="sm"
+                      className="shrink-0"
+                      data-topic-more
+                    >
+                      More
+                      <PlusIcon className="size-4" aria-hidden="true" />
+                    </Button>
+                  </div>
+                </div>
+              ) : null}
+            </>
+          ) : null
+        }
+
+        {
+          skill ? (
+            <>
+              <div class="">
+                <div class="flex items-start justify-between gap-3">
+                <div class="flex min-w-0 items-center gap-3">
+                  <img
+                    src={skillOwnerAvatarUrl}
+                    alt={`${skillOwnerLabel} avatar`}
+                    width="40"
+                    height="40"
+                    loading="lazy"
+                    class="size-10 shrink-0 rounded-xl border border-line-default"
+                  />
+                  <div class="flex min-w-0 flex-1 flex-col">
+                    <h2 class="type-h2 truncate text-content-primary">
+                      {skill.name}
+                    </h2>
+                    {skillOwnerKey ? (
+                      <a
+                        href={`https://github.com/${skillOwnerKey}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="type-body-md flex items-center gap-1 truncate text-content-muted"
+                        aria-label={`View ${skillOwnerLabel} on GitHub`}
+                      >
+                        <svg aria-hidden="true" class="size-3.5 shrink-0 text-content-extra-muted" viewBox="0 0 98 96" fill="currentColor">
+                          <path d="M48.9 0C21.8 0 0 22.1 0 49.2c0 21.7 14 40.1 33.4 46.6 2.4.4 3.3-1 3.3-2.3v-8.2c-13.6 3-16.5-5.8-16.5-5.8-2.2-5.7-5.4-7.2-5.4-7.2-4.4-3 .3-3 .3-3 4.8.3 7.3 5 7.3 5 4.3 7.4 11.2 5.3 13.9 4 .4-3.1 1.7-5.3 3-6.5-10.9-1.2-22.4-5.5-22.4-24.3 0-5.4 1.9-9.8 5-13.3-.5-1.2-2.2-6.3.5-13.1 0 0 4.1-1.3 13.5 5.1 3.9-1.1 8.1-1.7 12.3-1.7 4.2 0 8.4.6 12.3 1.7 9.4-6.4 13.5-5.1 13.5-5.1 2.7 6.8 1 11.9.5 13.1 3.1 3.5 5 7.9 5 13.3 0 18.9-11.5 23.1-22.5 24.3 1.8 1.6 3.3 4.7 3.3 9.5v14.1c0 1.4.9 2.7 3.4 2.3C84 89.3 98 70.9 98 49.2 98 22.1 76 0 48.9 0Z" />
+                        </svg>
+                        {skillOwnerLabel}
+                      </a>
+                    ) : null}
+                  </div>
+                </div>
+                <SkillNav
+                  previousHref={previousSkillHref}
+                  nextHref={nextSkillHref}
+                />
+                </div>
+                <p class="type-body-md mt-3 text-content-secondary">
+                  {skill.description ??
+                    "Install this skill with a single command."}
+                </p>
+              </div>
+
+              <div>
+                <h2 class="type-body-md mb-3 font-[450] text-content-secondary">
+                  Install
+                </h2>
+                <Command command={installCommand} />
+              </div>
+
+              <SkillContentCard
+                copyContent={skillRaw}
+                name={skill.name}
+                description={skill.description}
+                copyVariant="secondary"
+                dataEvent="install"
+              >
+                <div set:html={displayContent} />
+              </SkillContentCard>
+
+              {skillPlaybookEntries.length > 0 ? (
+                <div>
+                  <h2 class="text-content-primary mb-3 px-4 text-lg font-medium text-balance sm:px-0">
+                    Playbook
+                  </h2>
+                  <div class="grid gap-4 sm:grid-cols-2">
+                    {skillPlaybookEntries.map((entry) => (
+                      <PlaybookCard
+                        href={`/playbook/${entry.slug}`}
+                        title={entry.title}
+                        description={entry.description}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
+              {relatedSkills.length > 0 ? (
+                <div class="flex flex-col gap-5">
+                  <div class="flex flex-col gap-2">
+                    <h2 class="type-body-md font-[450] text-content-secondary">
+                      Related skills
+                    </h2>
+                    <div class="flex flex-col">
+                      {relatedSkills.map((entry) => (
+                        <SkillCard
+                          href={skillHref(entry)}
+                          slug={entry.slug}
+                          description={entry.description}
+                          ownerLabel={entry.sourceLabel}
+                          avatarUrl={`https://github.com/${entry.sourceKey ?? entry.pathSlug.split("/")[0]}.png?size=160`}
+                          variant="list"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  {skillTopicSuggestions.length > 0 ? (
+                    <div data-topic-row class="flex min-w-0 flex-nowrap items-center gap-2 overflow-hidden">
+                      {skillTopicSuggestions.map((entry) => (
+                        <Button
+                          href={`/skills/${entry.slug}`}
+                          variant="secondary"
+                          size="sm"
+                          className="shrink-0"
+                          data-topic-item
+                        >
+                          {entry.label}
+                        </Button>
+                      ))}
+                      <Button
+                        href="/skills"
+                        variant="secondary"
+                        size="sm"
+                        className="shrink-0"
+                        data-topic-more
+                      >
+                        More
+                        <PlusIcon className="size-4" aria-hidden="true" />
+                      </Button>
+                    </div>
+                  ) : null}
+                  </div>
+              ) : null}
+            </>
+          ) : null
+        }
+
+        {
+          isInvalidSkillsRoute ? (
+            <div class="">
+              <h1 class="type-h1 text-content-primary">
+                Skill page not found
+              </h1>
+              <p class="type-body-md mt-3 text-content-secondary">
+                The route you requested does not match a skill, topic, or source
+                page.
+              </p>
+              <div class="mt-5">
+                <a
+                  href="/skills"
+                  class="text-content-primary hover:text-content-primary text-sm font-medium underline underline-offset-4"
+                >
+                  Browse all skills
+                </a>
+              </div>
+            </div>
+          ) : null
+        }
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const fitTopicButtons = () => {
+      const row = document.querySelector<HTMLElement>("[data-topic-row]");
+      const more = row?.querySelector<HTMLElement>("[data-topic-more]");
+      if (!row || !more) return;
+
+      const items = Array.from(
+        row.querySelectorAll<HTMLElement>("[data-topic-item]"),
+      );
+      items.forEach((item) => {
+        item.style.display = "inline-flex";
+      });
+
+      const availableWidth = row.clientWidth - more.offsetWidth - 8;
+      let usedWidth = 0;
+      const gap = 8;
+
+      for (const item of items) {
+        const itemWidth = item.offsetWidth;
+        const nextWidth = usedWidth + (usedWidth ? gap : 0) + itemWidth;
+
+        if (nextWidth > availableWidth) {
+          item.style.display = "none";
+          continue;
+        }
+
+        usedWidth = nextWidth;
+      }
+    };
+
+    fitTopicButtons();
+    window.addEventListener("resize", fitTopicButtons);
+  </script>
+</Layout>

@@ -1,0 +1,14 @@
+---
+import type { PlaybookEntry } from "../data/playbook.ts";
+import PlaybookDemoRouter from "./playbook/demo-router.tsx";
+
+type Props = {
+  entry: PlaybookEntry;
+};
+
+const { entry } = Astro.props as Props;
+---
+
+<div class="min-h-84 sm:min-h-88">
+  <PlaybookDemoRouter client:load slug={entry.slug} />
+</div>

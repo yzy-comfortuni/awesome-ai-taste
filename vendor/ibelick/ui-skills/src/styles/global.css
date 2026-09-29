@@ -1,0 +1,395 @@
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@font-face {
+  font-family: "Inter Variable";
+  src: url("/fonts/InterVariable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@theme {
+  --font-mono:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --font-sans: "Inter Variable", Inter, ui-sans-serif, system-ui, sans-serif;
+
+  --color-page-default: #ffffff;
+  --color-surface-default: #ffffff;
+  --color-surface-subtle: #f5f5f5;
+  --color-fill-default: #ffffff;
+  --color-fill-subtle: #fafafa;
+  --color-fill-strong: #f5f5f5;
+  --color-fill-inverse: #151515;
+  --color-fill-accent: #e5f0ff;
+  --color-content-primary: #151515;
+  --color-content-secondary: #757575;
+  --color-content-muted: #a5a5a5;
+  --color-content-extra-muted: #e5e5e5;
+  --color-content-inverse: #ffffff;
+  --color-content-accent: #1f78ff;
+  --color-line-default: #ededed;
+
+}
+
+@utility type-h1 {
+  font-family: var(--font-sans);
+  font-size: 2.25rem;
+  font-weight: 450;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+@utility type-h2 {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 450;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+@utility type-body-md {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+
+@utility type-body-sm {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+
+@utility type-code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+@utility container-7xl {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@utility container-3xl {
+  width: 100%;
+  max-width: 48rem;
+  min-width: 0;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@utility container-sm {
+  width: 100%;
+  max-width: 24rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+html[data-promo-dismissed] [data-promo-banner] {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .promo-banner__close {
+    opacity: 0;
+  }
+
+  .promo-banner:hover .promo-banner__close,
+  .promo-banner:focus-within .promo-banner__close,
+  .promo-banner__close:focus-visible {
+    opacity: 1;
+  }
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-content-extra-muted) 50%, transparent);
+  color: inherit;
+}
+
+:where(code):not(:where(pre code)) {
+  background-color: var(--color-fill-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  padding: 0.1em 0.35em;
+  border-radius: 0.25rem;
+  outline: 1px solid var(--color-line-default);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-content-primary);
+  -webkit-box-shadow: 0 0 0 1000px var(--color-surface-default) inset;
+  box-shadow: 0 0 0 1000px var(--color-surface-default) inset;
+  caret-color: var(--color-content-primary);
+  border-color: var(--color-line-default);
+}
+
+.skill-code-block {
+  margin: 1rem 0;
+  overflow-x: auto;
+  border: 0;
+  border-radius: 0.25rem;
+  background-color: var(--color-surface-subtle);
+  padding: 0.75rem;
+  color: var(--color-content-primary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0;
+  line-height: 1.5;
+  -webkit-overflow-scrolling: touch;
+}
+
+.skill-code-block::selection,
+.skill-code-block *::selection {
+  background-color: color-mix(in srgb, var(--color-content-primary) 55%, transparent);
+  color: inherit;
+}
+
+.skill-code-block__code {
+  display: block;
+  min-width: max-content;
+  background: transparent !important;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  font-weight: 400;
+  white-space: pre;
+}
+
+.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  background-color: var(--color-fill-subtle);
+  font-family: var(--font-mono);
+  font-weight: 400;
+  padding: 0.1em 0.35em;
+  border-radius: 0.25rem;
+  outline: 1px solid var(--color-line-default);
+}
+
+.prose
+  :where(pre code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  background-color: transparent;
+  padding: 0;
+  font-weight: inherit;
+  outline: none;
+}
+
+.prose
+  :where(code):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  )::before,
+.prose
+  :where(code):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  )::after {
+  content: "";
+}
+
+.prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.prose :where(li, p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  overflow-wrap: anywhere;
+}
+
+.prose :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  border: 0;
+  background: transparent;
+  overscroll-behavior-x: contain;
+}
+
+.prose
+  :where(pre.skill-code-block):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  ) {
+  margin: 1rem 0;
+  overflow-x: auto;
+  border: 0;
+  border-radius: 0.25rem;
+  background-color: var(--color-surface-subtle) !important;
+  padding: 0.75rem 1rem;
+  color: var(--color-content-primary) !important;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0;
+  line-height: 1.5;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+.prose
+  :where(pre.skill-code-block code):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  ) {
+  background: transparent !important;
+  color: inherit;
+  padding: 0;
+  font-weight: 400;
+}
+
+.prose
+  :where(pre.astro-code):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  ) {
+  border: 0;
+  background-color: var(--color-fill-subtle) !important;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: hidden;
+  background-clip: padding-box;
+  box-shadow: inset 0 0 0 100vmax var(--color-surface-subtle);
+}
+
+.prose
+  :where(pre.astro-code code):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  ) {
+  background: transparent;
+}
+
+.prose
+  :where(pre.astro-code .line, pre.astro-code span):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  ) {
+  background: transparent !important;
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* scroll-fade — mask-based edge fade for scroll containers */
+@property --scroll-fade-t {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --scroll-fade-b {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --scroll-fade-s {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --scroll-fade-e {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --scroll-fade-mask {
+  syntax: "*";
+  inherits: false;
+}
+
+@theme inline {
+  @keyframes scroll-fade-reveal-t {
+    from {
+      --scroll-fade-t: 0px;
+    }
+    to {
+      --scroll-fade-t: var(--_scroll-fade-size-t, var(--scroll-fade-size, min(12%, calc(var(--spacing) * 10))));
+    }
+  }
+  @keyframes scroll-fade-reveal-b {
+    from {
+      --scroll-fade-b: var(--_scroll-fade-size-b, var(--scroll-fade-size, min(12%, calc(var(--spacing) * 10))));
+    }
+    to {
+      --scroll-fade-b: 0px;
+    }
+  }
+  @keyframes scroll-fade-reveal-s {
+    from {
+      --scroll-fade-s: 0px;
+    }
+    to {
+      --scroll-fade-s: var(--_scroll-fade-size-s, var(--scroll-fade-size, min(12%, calc(var(--spacing) * 10))));
+    }
+  }
+  @keyframes scroll-fade-reveal-e {
+    from {
+      --scroll-fade-e: var(--_scroll-fade-size-e, var(--scroll-fade-size, min(12%, calc(var(--spacing) * 10))));
+    }
+    to {
+      --scroll-fade-e: 0px;
+    }
+  }
+}
+
+@utility scroll-fade {
+  --_scroll-fade-size-t: var(
+    --scroll-fade-t-size,
+    var(--scroll-fade-size, min(12%, calc(var(--spacing) * 10)))
+  );
+  --_scroll-fade-size-b: var(
+    --scroll-fade-b-size,
+    var(--scroll-fade-size, min(12%, calc(var(--spacing) * 10)))
+  );
+  --scroll-fade-block: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 var(--scroll-fade-t, 0px),
+    #000 calc(100% - var(--scroll-fade-b, 0px)),
+    transparent 100%
+  );
+  -webkit-mask-image: var(--scroll-fade-mask, var(--scroll-fade-block));
+  mask-image: var(--scroll-fade-mask, var(--scroll-fade-block));
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  @supports (animation-timeline: scroll()) {
+    animation:
+      scroll-fade-reveal-t 1ms ease-in-out,
+      scroll-fade-reveal-b 1ms ease-in-out;
+    animation-timeline: scroll(self y), scroll(self y);
+    animation-range:
+      0 var(--scroll-fade-reveal, calc(var(--spacing) * 24)),
+      calc(100% - var(--scroll-fade-reveal, calc(var(--spacing) * 24))) 100%;
+    animation-fill-mode: both;
+  }
+
+  @supports not (animation-timeline: scroll()) {
+    --scroll-fade-t: var(--_scroll-fade-size-t);
+    --scroll-fade-b: var(--_scroll-fade-size-b);
+  }
+}
+
+@utility scroll-fade-* {
+  --scroll-fade-size: calc(var(--spacing) * --value(integer));
+  --scroll-fade-size: --value([length], [percentage]);
+}
+
+@utility scroll-fade-none {
+  --scroll-fade-mask: none;
+}

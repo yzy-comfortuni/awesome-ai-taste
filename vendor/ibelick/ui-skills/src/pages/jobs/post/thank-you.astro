@@ -1,0 +1,52 @@
+---
+export const prerender = true;
+
+import Layout from "../../../layouts/Layout.astro";
+---
+
+<Layout
+  title="Payment processing | UI Skills"
+  description="Your UI Skills job post payment is being processed."
+  robots="noindex,follow"
+  showNewsletter={false}
+  showFooter={false}
+>
+  <div
+    class="container-3xl flex h-dvh items-center justify-center overflow-hidden"
+  >
+    <main
+      id="job-payment-pending"
+      hidden
+      class="flex w-full flex-col items-center gap-10 text-center"
+    >
+      <div class="flex w-full flex-col gap-2">
+        <h1 class="type-h2 text-content-primary">
+          Thank you for your purchase.
+        </h1>
+        <p class="type-body-md text-content-secondary">
+          Your job post will be processed within 24 hours.
+        </p>
+      </div>
+      <img
+        src="https://assets.querrel.com/ui-skills/thanks.webp"
+        alt="Thank you"
+        class="border-line-default max-w-full rounded-sm border"
+        style="width: 480px;"
+      />
+    </main>
+  </div>
+</Layout>
+
+<script is:inline>
+  const jobId = new URLSearchParams(window.location.search).get("job_id");
+  const isUuid =
+    /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+      jobId ?? "",
+    );
+
+  if (!isUuid) {
+    window.location.replace("/jobs/post");
+  } else {
+    document.querySelector("#job-payment-pending")?.removeAttribute("hidden");
+  }
+</script>

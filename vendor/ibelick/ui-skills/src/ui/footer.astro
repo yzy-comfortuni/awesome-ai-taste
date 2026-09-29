@@ -1,0 +1,176 @@
+---
+import { topics } from "../data/topics";
+import { agents } from "../data/agents";
+import { playbook } from "../data/playbook";
+import { collections } from "../data/collections";
+
+const currentYear = new Date().getFullYear();
+const coreTopics = topics.filter((topic) => topic.isDesignCore);
+const featuredTopics = coreTopics.slice(0, 6);
+const featuredAgentIds = [
+  "claude-code",
+  "cursor",
+  "openclaw",
+  "codex",
+  "github-copilot",
+];
+const featuredAgents = featuredAgentIds
+  .map((id) => agents.find((agent) => agent.id === id))
+  .filter((agent): agent is NonNullable<typeof agent> => Boolean(agent));
+const featuredPlaybook = playbook.slice(0, 6);
+const footerCollectionSlugs = [
+  "mobile-app-design",
+  "website-layout",
+  "visual-hierarchy",
+  "design-principles",
+  "landing-page-design",
+  "button-design",
+  "form-design",
+  "videos",
+];
+const collectionBySlug = new Map(
+  collections.map((collection) => [collection.slug, collection]),
+);
+const footerCollections = footerCollectionSlugs
+  .map((slug) => collectionBySlug.get(slug))
+  .filter((collection): collection is NonNullable<typeof collection> =>
+    Boolean(collection),
+  );
+type FooterLink = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
+type FooterSection = {
+  title: string;
+  links: FooterLink[];
+};
+
+const footerSections: FooterSection[] = [
+  {
+    title: "Browse",
+    links: [
+      { label: "Home", href: "/" },
+      { label: "Skills", href: "/skills" },
+      { label: "Collections", href: "/collections" },
+      { label: "Design.md", href: "/design-md" },
+      { label: "Agents", href: "/agents" },
+      { label: "Jobs", href: "/jobs" },
+      { label: "MCP", href: "/mcp/docs" },
+      { label: "CLI", href: "/cli" },
+      { label: "Registry", href: "/skills/registry.txt" },
+      { label: "llms.txt", href: "/llms.txt" },
+    ],
+  },
+  {
+    title: "Topics",
+    links: [
+      ...featuredTopics.map((topic) => ({
+        label: topic.label,
+        href: `/skills/${topic.slug}`,
+      })),
+    ],
+  },
+  {
+    title: "Collections",
+    links: footerCollections.map((collection) => ({
+      label: collection.title,
+      href: `/collections/${collection.slug}`,
+    })),
+  },
+  {
+    title: "Agents",
+    links: [
+      ...featuredAgents.map((agent) => ({
+        label: agent.name,
+        href: `/agents/${agent.id}`,
+      })),
+      { label: "More agents", href: "/agents" },
+    ],
+  },
+  {
+    title: "Best skills",
+    links: [
+      {
+        label: "UI Skills Root",
+        href: "/skills/ibelick/ui-skills-root",
+      },
+      {
+        label: "Improve UI",
+        href: "/skills/ibelick/improve-ui",
+      },
+      {
+        label: "Create Design MD",
+        href: "/skills/ibelick/create-design-md",
+      },
+      {
+        label: "UI/UX Pro Max",
+        href: "/skills/nextlevelbuilder/ui-ux-pro-max",
+      },
+      { label: "Design Lab", href: "/skills/0xdesign/design-lab" },
+      {
+        label: "Improve Animations",
+        href: "/skills/emilkowalski/improve-animations",
+      },
+      {
+        label: "Make Interfaces Feel Better",
+        href: "/skills/jakubkrehel/make-interfaces-feel-better",
+      },
+    ],
+  },
+  {
+    title: "Learn",
+    links: [
+      ...featuredPlaybook.map((entry) => ({
+        label: entry.title,
+        href: `/playbook/${entry.slug}`,
+      })),
+      { label: "More playbook", href: "/playbook" },
+    ],
+  },
+];
+---
+
+<footer class="border-line-default mt-32 border-t">
+  <div class="pt-20 pb-5">
+    <div class="container-7xl">
+      <div class="type-body-md grid gap-10 md:grid-cols-2 lg:grid-cols-6">
+        {
+          footerSections.map((section) => (
+            <div>
+              <h3 class="type-body-md leading-snug font-[450] text-content-secondary">
+                {section.title}
+              </h3>
+              <ul class="mt-3 space-y-2 leading-snug">
+                {section.links.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
+                      title={link.label}
+                      aria-label={link.label}
+                      class="type-body-md block max-w-full truncate font-normal text-content-secondary hover:text-content-primary"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+
+      <div
+        class="type-body-md border-line-default mt-16 flex w-full justify-center border-t pt-16 leading-snug text-content-secondary"
+      >
+        <p class="text-center">
+          ©{currentYear}
+          {" "}UI Skills
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

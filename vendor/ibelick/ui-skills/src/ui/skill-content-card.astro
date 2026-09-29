@@ -1,0 +1,129 @@
+---
+import { CheckIcon, DocumentDuplicateIcon } from "@heroicons/react/24/outline";
+
+type Props = {
+  copyContent: string;
+  name?: string;
+  description?: string;
+  dataEvent?: string;
+  copyVariant?: "ghost" | "secondary";
+  class?: string;
+};
+
+const { copyContent, name, description, dataEvent, copyVariant = "ghost", class: className } = Astro.props as Props;
+const hasFrontmatter = Boolean(name ?? description);
+---
+
+<div
+  class:list={[
+    "relative w-full max-w-3xl rounded-lg border border-line-default bg-surface-default px-3 pt-3 pb-10 shadow-2xs",
+    className,
+  ]}
+>
+  <div class="sticky top-3 right-0 z-10">
+      <div class="absolute top-0 right-0">
+      <button
+        type="button"
+        data-copy-button
+        data-copy-content={copyContent}
+        data-s-event={dataEvent}
+        aria-label="Copy to clipboard"
+        class:list={[
+          "type-body-md flex h-7 items-center justify-center gap-1 rounded-lg border px-2 transition-[background-color,color] duration-150 ease-out",
+          copyVariant === "secondary"
+            ? "border-line-default bg-fill-default text-content-primary hover:bg-fill-subtle"
+            : "border-transparent text-content-secondary hover:bg-fill-strong hover:text-content-primary",
+        ]}
+      >
+        <span data-copy-icon><DocumentDuplicateIcon className="size-4" aria-hidden="true" /></span>
+        <span data-check-icon hidden><CheckIcon className="size-4" aria-hidden="true" /></span>
+        <span data-copy-label>Copy</span>
+      </button>
+      </div>
+  </div>
+  <div
+    class="skill-markdown prose prose-neutral prose-headings:text-balance prose-headings:font-medium prose-headings:text-content-primary prose-h1:mt-0 prose-h1:mb-6 prose-h1:text-xl prose-h2:mt-8 prose-h2:mb-3 prose-h2:text-base prose-h3:mt-6 prose-h3:mb-2 prose-h3:text-sm prose-p:my-3 prose-p:font-normal prose-p:text-xs prose-p:leading-6 prose-p:text-content-primary prose-p:text-pretty prose-ul:my-3 prose-ol:my-3 prose-li:my-1.5 prose-li:pl-0 prose-li:font-normal prose-li:text-xs prose-li:leading-6 prose-li:text-content-primary prose-li:marker:text-content-extra-muted prose-pre:rounded-sm prose-pre:px-3 prose-pre:pt-3 prose-pre:pb-3 prose-pre:text-content-primary max-w-none type-code"
+  >
+    {
+      hasFrontmatter ? (
+        <div class="mb-8 text-content-muted type-code">
+          <div>---</div>
+          {name ? <div>name: {name}</div> : null}
+          {description ? <div>description: {description}</div> : null}
+          <div>---</div>
+        </div>
+      ) : null
+    }
+    <slot />
+  </div>
+</div>
+
+<style>
+  .prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  :global(.skill-table-scroll) {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  :global(.skill-table-scroll table) {
+    min-width: max-content;
+  }
+</style>
+
+<script>
+  function fallbackCopy(content: string) {
+    const textarea = document.createElement("textarea");
+    textarea.value = content;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    textarea.remove();
+  }
+
+  document.querySelectorAll<HTMLButtonElement>("[data-copy-button]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const content = button.dataset.copyContent ?? "";
+      const copyIcon = button.querySelector<HTMLElement>("[data-copy-icon]");
+      const checkIcon = button.querySelector<HTMLElement>("[data-check-icon]");
+      const label = button.querySelector<HTMLElement>("[data-copy-label]");
+
+      copyIcon?.setAttribute("hidden", "");
+      checkIcon?.removeAttribute("hidden");
+      if (label) label.textContent = "Copied";
+
+      try {
+        if (navigator.clipboard?.writeText) {
+          await Promise.race([
+            navigator.clipboard.writeText(content),
+            new Promise((_, reject) => window.setTimeout(() => reject(new Error("Clipboard timeout")), 500)),
+          ]);
+        } else {
+          fallbackCopy(content);
+        }
+      } catch {
+        try {
+          fallbackCopy(content);
+        } catch {
+          // Ignore clipboard errors.
+        }
+      }
+
+      window.setTimeout(() => {
+        checkIcon?.setAttribute("hidden", "");
+        copyIcon?.removeAttribute("hidden");
+        if (label) label.textContent = "Copy";
+      }, 2000);
+    });
+  });
+</script>

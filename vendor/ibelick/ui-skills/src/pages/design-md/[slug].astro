@@ -1,0 +1,190 @@
+---
+export const prerender = true;
+
+import { designMdBySlug, designMd } from "../../data/design-md";
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../ui/breadcrumbs.astro";
+import SkillContentCard from "../../ui/skill-content-card.astro";
+import SkillNav from "../../ui/skill-nav.astro";
+import Button from "../../ui/button.astro";
+import DesignMdFoundations from "../../ui/design-md-foundations.astro";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import { SHOW_DESIGN_MD } from "../../config/features";
+
+if (!SHOW_DESIGN_MD) return Astro.redirect("/");
+
+const contentModules = import.meta.glob("../../content/design-md/*.md", {
+  eager: true,
+  import: "default",
+  query: "?raw",
+});
+
+export function getStaticPaths() {
+  return designMd.map((entry) => ({ params: { slug: entry.id } }));
+}
+
+const routeSlug = Astro.params.slug ?? "";
+const slug = Array.isArray(routeSlug) ? routeSlug.join("/") : routeSlug;
+const entry = designMdBySlug.get(slug);
+const orderedEntries = [...designMd].sort((a, b) =>
+  a.name.localeCompare(b.name),
+);
+const entryIndex = entry
+  ? orderedEntries.findIndex((candidate) => candidate.id === entry.id)
+  : -1;
+const previousEntry =
+  entryIndex >= 0
+    ? orderedEntries[(entryIndex - 1 + orderedEntries.length) % orderedEntries.length]
+    : undefined;
+const nextEntry =
+  entryIndex >= 0
+    ? orderedEntries[(entryIndex + 1) % orderedEntries.length]
+    : undefined;
+const content = entry
+  ? ((contentModules[`../../content/design-md/${entry.id}.md`] as string | undefined) ?? "")
+  : "";
+
+if (!entry) {
+  Astro.response.status = 404;
+}
+
+const breadcrumbItems = [
+  { label: "Explore", href: "/" },
+  { label: "Design.md", href: "/design-md" },
+  { label: entry?.name ?? slug },
+];
+const siteOrigin = Astro.site ?? new URL("https://www.ui-skills.com");
+const pageUrl = new URL(`/design-md/${slug}`, siteOrigin).toString();
+const structuredData = entry
+  ? {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      headline: entry.name,
+      description: entry.description,
+      url: pageUrl,
+      mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+      dateModified: entry.updatedAt,
+      inLanguage: "en",
+      about: { "@type": "Thing", name: `${entry.name} design system` },
+      citation: entry.sourceUrl,
+      author: { "@type": "Organization", name: entry.name },
+      publisher: { "@type": "Organization", name: "UI Skills" },
+      image: entry.previewImage,
+      isPartOf: {
+        "@type": "CollectionPage",
+        "@id": new URL("/design-md", siteOrigin).toString(),
+        name: "Design.md",
+      },
+    }
+  : undefined;
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.label,
+    item: new URL(item.href ?? `/design-md/${slug}`, siteOrigin).toString(),
+  })),
+};
+---
+
+<Layout
+  structuredData={structuredData
+    ? [structuredData, breadcrumbStructuredData]
+    : breadcrumbStructuredData}
+  title={entry ? `${entry.name} Design.md | UI Skills` : "Design.md Not Found | UI Skills"}
+  description={entry?.description ?? "The requested Design.md file could not be found."}
+  ogImage="https://www.ui-skills.com/designmd-ogimage.png"
+  twitterImage="https://www.ui-skills.com/designmd-ogimage-x.png"
+  robots={!entry ? "noindex,follow" : undefined}
+>
+  {entry ? (
+    <div class="container-7xl pt-20">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
+        <div class="flex flex-col gap-5 pb-20">
+          <div class="flex h-8 items-center justify-between gap-3">
+            <Breadcrumbs items={breadcrumbItems} />
+            <SkillNav
+              previousHref={previousEntry ? `/design-md/${previousEntry.id}` : undefined}
+              nextHref={nextEntry ? `/design-md/${nextEntry.id}` : undefined}
+            />
+          </div>
+
+          <div class="flex items-center gap-3">
+            <img
+              src={entry.logoImage}
+              alt={`${entry.name} logo`}
+              width="40"
+              height="40"
+              class="size-10 rounded-xl border border-line-default"
+            />
+            <div class="flex flex-col">
+              <h1 class="type-h2 text-content-primary">{entry.name}</h1>
+              <p class="type-body-md text-content-secondary">
+                {entry.description}
+              </p>
+            </div>
+          </div>
+
+          <div class="aspect-video overflow-hidden rounded-sm border border-line-default">
+            {entry.previewImage ? (
+              <img
+                src={entry.previewImage}
+                alt={`${entry.name} design reference preview`}
+                width="2880"
+                height="1626"
+                loading="eager"
+                class="block size-full object-cover"
+              />
+            ) : (
+              <div class="type-body-md grid size-full place-items-center bg-surface-subtle text-content-secondary">
+                {entry.name}
+              </div>
+            )}
+          </div>
+
+          <div class="-mt-3 flex items-center justify-between gap-2">
+            <Button
+              href={entry.websiteUrl}
+              variant="ghost"
+              size="sm"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <ArrowTopRightOnSquareIcon className="size-4" aria-hidden="true" />
+              Visit website
+            </Button>
+            <span class="type-body-sm text-content-muted">
+              Last updated {entry.updatedAt}
+            </span>
+          </div>
+
+          <DesignMdFoundations markdown={content} />
+        </div>
+
+        <section
+          class="relative min-w-0 overflow-hidden rounded-lg border border-line-default bg-surface-default lg:sticky lg:top-5 lg:h-[calc(100svh-2.5rem)] lg:min-h-0 lg:overflow-y-auto lg:self-start"
+          aria-label="Design markdown content"
+        >
+          <SkillContentCard
+            copyContent={content}
+            copyVariant="secondary"
+            class="max-w-none rounded-none border-0 shadow-none"
+          >
+            <pre class="not-prose m-0 w-full overflow-x-auto whitespace-pre text-left text-content-primary"><code class="type-code block text-left">{content}</code></pre>
+          </SkillContentCard>
+        </section>
+      </div>
+    </div>
+  ) : (
+    <div class="relative flex min-h-dvh flex-col items-center">
+      <div class="relative mt-20 container-3xl">
+        <h1 class="type-h2 text-content-primary">Design.md not found</h1>
+        <p class="type-body-md mt-3 text-content-secondary">
+          The requested Design.md file could not be found.
+        </p>
+      </div>
+    </div>
+  )}
+</Layout>

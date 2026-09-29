@@ -1,0 +1,22 @@
+---
+import type { DesignMdEntry } from "../data/design-md";
+
+type Props = DesignMdEntry;
+
+const { id, name, logoImage } = Astro.props as Props;
+---
+
+<a
+  href={`/design-md/${id}`}
+  class="group flex items-center gap-3 border-b border-line-default py-3"
+>
+  <img
+    src={logoImage}
+    alt={`${name} logo`}
+    width="40"
+    height="40"
+    loading="lazy"
+    class="size-10 shrink-0 rounded-xl border border-line-default"
+  />
+  <span class="type-body-md font-[450] text-content-primary">{name}</span>
+</a>

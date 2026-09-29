@@ -1,0 +1,56 @@
+{
+  "name": "chinese-copywriting-guidelines",
+  "version": "1.0.1",
+  "description": "Chinese Copywriting Guidelines",
+  "author": "Sparanoid",
+  "homepage": "http://github.com/sparanoid/chinese-copywriting-guidelines",
+  "main": "README.md",
+  "scripts": {
+    "test": "remark .",
+    "release": "npx release-it"
+  },
+  "remarkConfig": {
+    "plugins": [
+      "remark-preset-lint-consistent",
+      "remark-preset-lint-recommended",
+      [
+        "remark-lint-list-item-indent",
+        "space"
+      ]
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sparanoid/chinese-copywriting-guidelines.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sparanoid/chinese-copywriting-guidelines/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "chinese",
+    "copywriting",
+    "guideline"
+  ],
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "remark-cli": "^11.0.0",
+    "remark-lint-list-item-indent": "^3.1.1",
+    "remark-preset-lint-consistent": "^5.1.1",
+    "remark-preset-lint-recommended": "^6.1.2"
+  },
+  "release-it": {
+    "git": {
+      "commitArgs": "-S",
+      "commitMessage": "chore: release v${version}",
+      "tagArgs": "-s",
+      "tagAnnotation": "chore: release v${version}"
+    },
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": false
+    }
+  }
+}

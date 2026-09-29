@@ -1,0 +1,233 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import AgentAccessStart from "../../ui/agent-access-start.astro";
+
+import Breadcrumbs from "../../ui/breadcrumbs.astro";
+import Button from "../../ui/button.astro";
+import { PlusIcon } from "@heroicons/react/24/outline";
+import { agentById, agents } from "../../data/agents";
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return agents.map((agent) => ({ params: { id: agent.id } }));
+}
+
+const agentId = Astro.params.id ?? "";
+const agent = agentById.get(agentId);
+
+if (!agent) {
+  Astro.response.status = 404;
+}
+
+const breadcrumbItems = [
+  { label: "Explore", href: "/" },
+  { label: "Agents", href: "/agents" },
+  { label: agent?.name ?? "Agent" },
+];
+
+const siteOrigin = Astro.site ?? new URL("https://www.ui-skills.com");
+const pageUrl = new URL(`/agents/${agentId}`, siteOrigin).toString();
+const pageTitle = agent
+  ? `${agent.name} Skills for Design Engineers | UI Skills`
+  : "Agent Not Found | UI Skills";
+const pageDescription = agent
+  ? `Browse the best UI Skills for ${agent.name}. ${agent.description}`
+  : "The requested agent page could not be found.";
+const focusTopics = agent?.topics.slice(0, 3) ?? [];
+const focusSentence = focusTopics.length
+  ? `Most relevant when you're working on ${focusTopics.join(", ")}.`
+  : "";
+const pageStructuredData = agent
+  ? {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: agent.name,
+      description: pageDescription,
+      url: pageUrl,
+      keywords: [agent.name, "UI Skills", ...agent.topics],
+    }
+  : undefined;
+const exploreTopics = [
+  { label: "Accessibility", href: "/skills/accessibility" },
+  { label: "Motion", href: "/skills/motion" },
+  { label: "Systems", href: "/skills/systems" },
+  { label: "Visual", href: "/skills/visual" },
+  { label: "Interaction", href: "/skills/interaction" },
+  { label: "Performance", href: "/skills/performance" },
+  { label: "Craft", href: "/skills/craft" },
+  { label: "Taste", href: "/skills/taste" },
+  { label: "Typography", href: "/skills/typography" },
+  { label: "Color", href: "/skills/color" },
+  { label: "Frontend", href: "/skills/frontend" },
+  { label: "Architecture", href: "/skills/architecture" },
+  { label: "Testing", href: "/skills/testing" },
+  { label: "Tooling", href: "/skills/tooling" },
+];
+const otherAgents = agents.filter((entry) => entry.id !== agentId).slice(0, 4);
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.label,
+    item: new URL(item.href ?? `/agents/${agentId}`, siteOrigin).toString(),
+  })),
+};
+const topicsStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: `${agent?.name ?? "Agent"} topics`,
+  itemListElement: exploreTopics.map((topic, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: topic.label,
+    url: new URL(topic.href, siteOrigin).toString(),
+  })),
+};
+const otherAgentsStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: `${agent?.name ?? "Agent"} related agents`,
+  itemListElement: [
+    ...otherAgents.map((entry, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: entry.name,
+      url: new URL(`/agents/${entry.id}`, siteOrigin).toString(),
+    })),
+    {
+      "@type": "ListItem",
+      position: otherAgents.length + 1,
+      name: "More",
+      url: new URL("/agents", siteOrigin).toString(),
+    },
+  ],
+};
+const structuredDataItems = agent
+  ? [
+      pageStructuredData as Record<string, unknown>,
+      breadcrumbStructuredData,
+      topicsStructuredData,
+      otherAgentsStructuredData,
+    ]
+  : undefined;
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  structuredData={structuredDataItems}
+>
+  {
+    agent ? (
+      <div class="relative flex min-h-dvh flex-col items-center justify-start">
+        <div class="relative mt-20 container-3xl">
+          <div class="mx-auto flex w-full flex-col gap-10">
+            <Breadcrumbs items={breadcrumbItems} />
+
+            <div class="flex flex-col gap-3">
+              <div class="flex items-center gap-3">
+                <img
+                  src={agent.faviconUrl}
+                  alt={`${agent.name} logo`}
+                  width="40"
+                  height="40"
+                  loading="lazy"
+                  class="size-10 rounded-xl border border-line-default"
+                />
+                <h1 class="type-h2 text-content-primary">
+                  {agent.name}
+                </h1>
+              </div>
+
+              <div class="flex flex-col gap-2">
+                <p class="type-body-md font-[450] text-content-secondary">
+                  {agent.description}
+                </p>
+
+                <p class="type-body-md font-[450] text-content-secondary text-pretty">
+                  UI Skills helps you find the right skills depending on the
+                  current context so {agent.name} can load the most useful
+                  guidance across sessions.
+                </p>
+
+                {focusSentence ? (
+                  <p class="type-body-md font-[450] text-content-secondary text-pretty">
+                    {focusSentence}
+                  </p>
+                ) : null}
+              </div>
+            </div>
+
+             <AgentAccessStart />
+
+            <section class="flex flex-col gap-5">
+              <h2 class="type-body-md font-[450] text-content-secondary">
+                Explore topics
+              </h2>
+              <div class="flex flex-wrap gap-2">
+                {exploreTopics.map((topic) => (
+                  <Button
+                    href={topic.href}
+                    variant="secondary"
+                    size="sm"
+                  >
+                    {topic.label}
+                  </Button>
+                ))}
+                <Button href="/skills" variant="secondary" size="sm">
+                  More
+                  <PlusIcon className="size-4" aria-hidden="true" />
+                </Button>
+              </div>
+            </section>
+
+            <section class="flex flex-col gap-5">
+              <h2 class="type-body-md font-[450] text-content-secondary">
+                Other agents
+              </h2>
+              <div class="grid gap-3 sm:grid-cols-2">
+                {otherAgents.map((otherAgent) => (
+                  <a
+                    href={`/agents/${otherAgent.id}`}
+                    class="hover:border-content-extra-muted hover:bg-fill-subtle border-line-default rounded-[10px] border px-4 py-3 transition-colors"
+                  >
+                    <div class="flex items-center gap-3">
+                      <img
+                        src={otherAgent.faviconUrl}
+                        alt={`${otherAgent.name} logo`}
+                        width="24"
+                        height="24"
+                        loading="lazy"
+                        class="border-line-default size-6 rounded-full border"
+                      />
+                      <div class="type-body-md font-[450] text-content-primary">
+                        {otherAgent.name}
+                      </div>
+                    </div>
+                    <div class="type-body-md mt-1 line-clamp-2 text-content-secondary">
+                      {otherAgent.description}
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    ) : (
+      <div class="relative flex min-h-dvh flex-col items-center justify-start">
+        <div class="relative mt-20 container-3xl">
+          <h1 class="type-h2 text-content-primary">
+            Agent not found
+          </h1>
+          <p class="type-body-md mt-3 text-content-secondary">
+            The agent you requested does not exist.
+          </p>
+        </div>
+      </div>
+    )
+  }
+</Layout>

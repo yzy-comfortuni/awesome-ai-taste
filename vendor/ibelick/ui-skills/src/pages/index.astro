@@ -1,0 +1,171 @@
+---
+export const prerender = true;
+
+import Layout from "../layouts/Layout.astro";
+import { playbook } from "../data/playbook";
+import { skills } from "../data/skills";
+import { designMd } from "../data/design-md";
+import { SHOW_DESIGN_MD } from "../config/features";
+import AgentAccessStart from "../ui/agent-access-start.astro";
+import PlaybookCard from "../ui/playbook-card.astro";
+import SkillCard from "../ui/skill-card.astro";
+import CtaSection from "../ui/cta-section.astro";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
+
+const MAX_SKILLS = 20;
+
+const FEATURED_PATH_SLUGS = [
+  "ibelick/ui-skills-root",
+  "ibelick/improve-ui",
+  "anthropics/frontend-design",
+  "mengto/design-taste-frontend",
+  "emilkowalski/improve-animations",
+  "millionco/improve-react",
+  "shadcn/improve",
+  "jakubkrehel/better-ui",
+  "0xdesign/design-lab",
+  "nextlevelbuilder/ui-ux-pro-max",
+  "dammyjay93/interface-design",
+  "raphaelsalaja/12-principles-of-animation",
+  "pbakaus/impeccable",
+  "bencium/bencium-innovative-ux-designer",
+  "leonxlnx/gpt-tasteskill",
+  "antfu/web-design-guidelines",
+  "rams/rams",
+  "wshobson/interaction-design",
+  "addyosmani/frontend-ui-engineering",
+] as const;
+
+const skillByPathSlug = new Map(skills.map((skill) => [skill.pathSlug, skill]));
+const isDefined = <T,>(value: T | undefined): value is T => value !== undefined;
+
+const displayedSkills = FEATURED_PATH_SLUGS.map((pathSlug) =>
+  skillByPathSlug.get(pathSlug),
+)
+  .filter(isDefined)
+  .slice(0, MAX_SKILLS)
+  .map((skill) => {
+    const owner = skill.sourceKey ?? "ibelick";
+
+    return {
+      ...skill,
+      owner,
+      ownerLabel: skill.sourceLabel ?? "Ibelick",
+       avatarUrl: `https://github.com/${owner}.png?size=160`,
+    };
+  });
+
+const featuredPlaybook = playbook
+  .slice(0, 4)
+  .map((entry) => {
+    const sourceSkill = skills.find((skill) => skill.slug === entry.skill);
+
+    return sourceSkill ? entry : null;
+  })
+  .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
+
+---
+
+<Layout
+  title="UI Skills for Design Engineers | UI Skills"
+  description="UI Skills is a collection of design-engineering skills for accessibility, motion, frontend craft, and interface quality."
+  showNewsletter={false}
+>
+  <div
+    class="relative flex min-h-dvh flex-col items-center justify-end"
+  >
+    <div class="relative mt-20 min-w-0 container-3xl">
+      <div class="mx-auto flex w-full min-w-0 flex-col gap-12">
+        <header class="container-sm ml-0 px-0 text-left">
+          <h1 class="type-h1 text-left text-content-primary">
+            Curated skills for design engineering
+          </h1>
+        </header>
+
+        <section class="flex min-w-0 flex-col gap-7">
+          <AgentAccessStart />
+
+          <div class="flex flex-col gap-2">
+            <a
+              href="/skills"
+              class="section-title type-body-md inline-flex items-center gap-0.5 self-start font-[450] text-content-secondary"
+            >
+              <span>Skills</span>
+              <ChevronRightIcon className="size-4 text-content-muted" aria-hidden="true" />
+            </a>
+            <div class="flex flex-col">
+              {
+                displayedSkills.map((skill) => (
+                  <SkillCard
+                    href={`/skills/${skill.pathSlug}`}
+                    slug={skill.slug}
+                    description={skill.description}
+                    ownerLabel={skill.ownerLabel}
+                    avatarUrl={skill.avatarUrl}
+                    variant="list"
+                  />
+                ))
+              }
+            </div>
+          </div>
+        </section>
+
+        {SHOW_DESIGN_MD && <div class="flex flex-col gap-5">
+          <a
+            href="/design-md"
+            class="section-title type-body-md inline-flex items-center gap-0.5 self-start font-[450] text-content-secondary"
+          >
+            <span>Design.md</span>
+            <ChevronRightIcon className="size-4 text-content-muted" aria-hidden="true" />
+          </a>
+          <div class="flex gap-3 overflow-x-clip overflow-y-visible">
+            {
+              designMd.map(({ id, name, logoImage }) => (
+                <a href={`/design-md/${id}`} aria-label={`View ${name} design.md`} class="group relative block size-10 shrink-0">
+                  <img
+                    src={logoImage}
+                    alt={name}
+                    width="40"
+                    height="40"
+                    loading="lazy"
+                    decoding="async"
+                    class="size-10 rounded-xl border border-line-default transition-transform duration-200 ease-out group-hover:-translate-y-0.5"
+                  />
+                  <span class="pointer-events-none absolute top-full left-1/2 z-20 mt-2 -translate-x-1/2 whitespace-nowrap type-body-sm text-content-muted opacity-0 group-hover:opacity-100">
+                    {name}
+                  </span>
+                </a>
+              ))
+            }
+          </div>
+        </div>}
+
+        <div class="flex flex-col gap-5">
+          <a
+            href="/playbook"
+            class="section-title type-body-md inline-flex items-center gap-0.5 self-start font-[450] text-content-secondary"
+          >
+            <span>Learn</span>
+            <ChevronRightIcon className="size-4 text-content-muted" aria-hidden="true" />
+          </a>
+          <div class="grid gap-3 sm:grid-cols-2">
+            {
+              featuredPlaybook.map((entry) => (
+                <PlaybookCard
+                  href={`/playbook/${entry.slug}`}
+                  title={entry.title}
+                  description={entry.description}
+                />
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="mt-10">
+          <CtaSection />
+        </div>
+
+      </div>
+    </div>
+  </div>
+</Layout>

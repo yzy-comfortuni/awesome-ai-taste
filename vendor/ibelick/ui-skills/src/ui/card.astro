@@ -1,0 +1,22 @@
+---
+type Props = {
+  className?: string;
+  dataHref?: string;
+  ariaLabel?: string;
+};
+
+const { className, dataHref, ariaLabel } = Astro.props as Props;
+---
+
+<div
+  data-card-href={dataHref}
+  aria-label={ariaLabel}
+  role={dataHref ? "link" : undefined}
+  tabindex={dataHref ? 0 : undefined}
+  class:list={[
+    "relative isolate flex flex-col gap-3 rounded-lg border border-line-default bg-surface-default p-3 transition-colors",
+    className,
+  ]}
+>
+  <slot />
+</div>

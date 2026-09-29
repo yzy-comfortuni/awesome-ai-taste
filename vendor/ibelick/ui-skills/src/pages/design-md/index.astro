@@ -1,0 +1,60 @@
+---
+export const prerender = true;
+
+import { designMd } from "../../data/design-md";
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../ui/breadcrumbs.astro";
+import DesignMdItem from "../../ui/design-md-item.astro";
+import { SHOW_DESIGN_MD } from "../../config/features";
+
+if (!SHOW_DESIGN_MD) return Astro.redirect("/");
+
+const orderedDesignMd = [...designMd].sort((a, b) => a.name.localeCompare(b.name));
+const breadcrumbItems = [{ label: "Explore", href: "/" }, { label: "Design.md" }];
+const siteOrigin = Astro.site ?? new URL("https://www.ui-skills.com");
+const pageUrl = new URL("/design-md", siteOrigin).toString();
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Top DESIGN.md files from real-world companies",
+  description: "Curation of public and original design.md files from genuine companies and open source projects",
+  url: pageUrl,
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: orderedDesignMd.length,
+    itemListElement: orderedDesignMd.map((entry, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: new URL(`/design-md/${entry.id}`, siteOrigin).toString(),
+      name: entry.name,
+    })),
+  },
+};
+---
+
+<Layout
+  structuredData={structuredData}
+  title="Top DESIGN.md files from real-world companies | UI Skills"
+  description="Curation of public and original design.md files from genuine companies and open source projects"
+  ogImage="https://www.ui-skills.com/designmd-ogimage.png"
+  twitterImage="https://www.ui-skills.com/designmd-ogimage-x.png"
+>
+  <div class="relative flex min-h-dvh flex-col items-center">
+    <div class="relative mt-20 container-3xl">
+      <div class="mx-auto flex w-full flex-col gap-8">
+        <Breadcrumbs items={breadcrumbItems} />
+
+        <div class="container-sm ml-0 px-0 flex flex-col gap-3">
+            <h1 class="type-h1 text-content-primary">Top design.md files from real-world companies</h1>
+          <p class="type-body-md text-content-secondary">
+            Curation of public and original design.md files from genuine companies and open source projects
+          </p>
+        </div>
+
+        <div class="flex flex-col">
+          {orderedDesignMd.map((entry) => <DesignMdItem {...entry} />)}
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

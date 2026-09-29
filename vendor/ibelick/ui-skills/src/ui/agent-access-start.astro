@@ -1,0 +1,131 @@
+---
+import Card from "./card.astro";
+import Command from "./command.astro";
+import Button from "./button.astro";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
+
+const accessOptions = [
+  {
+    label: "CLI",
+    description: "Run the UI Skills CLI from your terminal.",
+    href: "/cli",
+  },
+  {
+    label: "MCP",
+    description: "Connect your agent to the UI Skills catalog.",
+    href: "/mcp/docs",
+  },
+];
+
+const mcpAssets = [
+  ["OpenAI", "https://assets.querrel.com/logo/muted/openai.webp"],
+  ["Claude", "https://assets.querrel.com/logo/muted/claude.webp"],
+  ["Cursor", "https://assets.querrel.com/logo/muted/cursor.webp"],
+  ["Copilot", "https://assets.querrel.com/logo/muted/copilot.webp"],
+  ["Anthropic", "https://assets.querrel.com/logo/muted/anthropic.webp"],
+  ["Gemini", "https://assets.querrel.com/logo/muted/gemini.webp"],
+  ["OpenClaw", "https://assets.querrel.com/logo/muted/openclaw.webp"],
+  ["DeepSeek", "https://assets.querrel.com/logo/muted/deepseek.webp"],
+] as const;
+---
+
+<div class="min-w-0 w-full">
+  <div class="grid min-w-0 gap-3 sm:grid-cols-2">
+    {
+      accessOptions.map((option) => (
+        <Card
+          dataHref={option.href}
+          ariaLabel={`Open ${option.label} installation guide`}
+          className="h-full min-w-0 cursor-pointer overflow-hidden transition-colors hover:border-content-extra-muted"
+        >
+          <Button
+            href={option.href}
+            variant="ghost"
+            size="sm"
+            className="absolute top-1 right-1 z-20 size-7 p-1 focus-visible:outline-content-primary"
+            aria-label={`Open ${option.label} installation guide`}
+          >
+            <ArrowRightIcon className="size-4" aria-hidden="true" />
+          </Button>
+          <div class="card-description pointer-events-none relative z-10 flex flex-col gap-0.5 pr-8">
+            <div class="type-body-md font-[450] text-content-primary">{option.label}</div>
+            <div class="type-body-md text-content-secondary">
+              {option.description}
+            </div>
+          </div>
+          {option.label === "CLI" ? <div class="relative z-20 min-w-0 w-full"><Command command="npx ui-skills" /></div> : null}
+          {option.label === "MCP" ? (
+            <div class="relative z-20 flex min-w-0 w-full overflow-hidden" aria-label="Supported agents">
+              {[0, 1].map((copy) => (
+                <div
+                  class="mcp-assets-track flex shrink-0 gap-2"
+                  aria-hidden={copy === 1 ? "true" : undefined}
+                >
+                  {mcpAssets.map(([name, src]) => (
+                    <img
+                      src={src}
+                      alt={copy === 1 ? "" : name}
+                      width="36"
+                      height="36"
+                      decoding="async"
+                      class="size-9 shrink-0"
+                    />
+                  ))}
+                </div>
+              ))}
+              <div
+                class="pointer-events-none absolute inset-y-0 left-0 z-10 w-6 bg-gradient-to-r from-surface-default to-transparent"
+                aria-hidden="true"
+              ></div>
+              <div
+                class="pointer-events-none absolute inset-y-0 right-0 z-10 w-6 bg-gradient-to-l from-surface-default to-transparent"
+                aria-hidden="true"
+              ></div>
+            </div>
+          ) : null}
+        </Card>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-card-href]").forEach((card) => {
+    const href = card.dataset.cardHref;
+    if (!href) return;
+
+    card.addEventListener("click", (event) => {
+      if ((event.target as HTMLElement).closest("a, button, [data-command-row]")) return;
+      window.location.href = href;
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      window.location.href = href;
+    });
+  });
+</script>
+
+<style>
+  @keyframes mcp-assets-loop {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% - 0.5rem));
+    }
+  }
+
+  .mcp-assets-track {
+    animation: mcp-assets-loop 35s linear infinite;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mcp-assets-track {
+      animation: none;
+    }
+  }
+</style>

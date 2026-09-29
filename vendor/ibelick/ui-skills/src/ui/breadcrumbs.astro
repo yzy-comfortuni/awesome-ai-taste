@@ -1,0 +1,55 @@
+---
+type BreadcrumbItem = {
+  label: string;
+  href?: string;
+};
+
+type Props = {
+  items: BreadcrumbItem[];
+};
+
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
+
+const { items } = Astro.props as Props;
+
+const finalItems =
+  items.length > 3 && items[1]?.label === "Skills"
+    ? [items[0], items[1], items[items.length - 1]]
+    : items;
+---
+
+<nav aria-label="Breadcrumb">
+  <ol
+    class="type-body-md flex flex-wrap items-center gap-1 font-[450]"
+  >
+    {
+      finalItems.map((item, index) => {
+        const isLast = index === finalItems.length - 1;
+
+        return (
+          <>
+            <li>
+              {item.href && !isLast ? (
+                <a
+                  href={item.href}
+                  class="text-content-secondary transition-colors hover:text-content-primary"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <span class={isLast ? "text-content-muted" : "text-content-secondary"}>
+                  {item.label}
+                </span>
+              )}
+            </li>
+            {!isLast ? (
+              <li class="text-content-muted select-none" aria-hidden="true">
+                <ChevronRightIcon className="h-3.5 w-3.5" />
+              </li>
+            ) : null}
+          </>
+        );
+      })
+    }
+  </ol>
+</nav>

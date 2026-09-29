@@ -1,0 +1,85 @@
+{
+  "name": "visualization-skills",
+  "owner": {
+    "name": "AntV Visualization Team",
+    "email": "pub_antv@antgroup.com"
+  },
+  "metadata": {
+    "description": "Data visualization skills",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "chart-visualization",
+      "description": "A comprehensive chart generation skill powered by AntV that provides 26+ chart types for intelligent data visualization",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/chart-visualization"
+      ]
+    },
+    {
+      "name": "antv-infographic",
+      "description": "Create beautiful infographics based on given text content. Use when users request to create infographics.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/antv-infographic"
+      ]
+    },
+    {
+      "name": "icon-retrieval",
+      "description": "Search and retrieve icon SVG strings from AntV's infographic icon library. Returns top 5 matches by default, allowing customization.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/icon-retrieval"
+      ]
+    },
+    {
+      "name": "antv-t8-ntv",
+      "description": "Generate structured narrative text visualizations from data using T8 Syntax. Use when users want to create data interpretation reports, summaries, or structured articles with semantic entity annotations. T8 is designed for unstructured data visualization where T stands for Text and 8 represents a byte of 8 bits, symbolizing deep insights beneath the text.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/antv-t8-ntv"
+      ]
+    },
+    {
+      "name": "antv-g2-chart",
+      "description": "Generate G2 v5 chart code. Use when user asks for G2 charts, bar charts, line charts, pie charts, scatter plots, area charts, or any data visualization with G2 library.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/antv-g2-chart"
+      ]
+    },
+    {
+      "name": "antv-g6-graph",
+      "description": "Generate G6 v5 graph visualization code. Use when user asks for G6 graphs, network graphs, tree graphs, flow charts, mind maps, or any relational/graph-structured data visualization with the G6 library.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/antv-g6-graph"
+      ]
+    },
+    {
+      "name": "antv-x6-editor",
+      "description": "X6 v3 graph editor for interactive diagrams — flowcharts, DAGs, ER diagrams, org charts, and custom graph editors. Triggers on X6-related requests (nodes, edges, ports, plugins, layouts, HTML shapes, stencil, DnD).",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/antv-x6-editor"
+      ]
+    },
+    {
+      "name": "antv-gpt-vis",
+      "description": "Recommend and generate appropriate data visualization charts using the GPT-Vis library. Supports two output modes — (1) Syntax mode, which generates Syntax or JSON configurations, and (2) Code mode, which generates complete runnable code. Supports 26 chart types.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/antv-gpt-vis"
+      ]
+    }
+  ]
+}

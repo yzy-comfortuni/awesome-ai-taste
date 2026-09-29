@@ -1,0 +1,86 @@
+---
+import { CheckIcon, DocumentDuplicateIcon } from "@heroicons/react/24/outline";
+
+type Props = {
+  command: string;
+};
+
+const { command } = Astro.props as Props;
+const isMultiline = command.includes("\n");
+---
+
+<div
+  data-command-row={command}
+  class:list={[
+    "relative z-30 flex min-w-0 cursor-pointer rounded-lg bg-surface-subtle pl-3",
+    isMultiline
+      ? "min-h-9 items-start py-3 pr-10"
+      : "h-9 items-center justify-between pr-1",
+  ]}
+>
+  <span class:list={["type-code min-w-0 truncate text-content-primary", isMultiline && "whitespace-pre-wrap"]}>{command}</span>
+  <button
+    type="button"
+    aria-label="Copy command"
+    class:list={[
+      "type-body-md relative z-30 inline-flex size-7 shrink-0 items-center justify-center rounded-lg border border-transparent p-1 text-content-secondary transition-colors hover:bg-fill-strong hover:text-content-primary",
+      isMultiline ? "absolute top-1 right-1" : "",
+    ]}
+  >
+    <span data-copy-icon="copy">
+      <DocumentDuplicateIcon className="size-4" aria-hidden="true" />
+    </span>
+    <span data-copy-icon="check" class="hidden">
+      <CheckIcon className="size-4" aria-hidden="true" />
+    </span>
+  </button>
+</div>
+
+<script>
+  document.addEventListener(
+    "click",
+    async (event) => {
+      const target = event.target as Element;
+      const row = target.closest<HTMLElement>("[data-command-row]");
+      if (!row) return;
+
+      event.stopPropagation();
+      const command = row.dataset.commandRow;
+      if (!command) return;
+
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(command);
+        } else {
+          const textarea = document.createElement("textarea");
+          textarea.value = command;
+          textarea.style.position = "fixed";
+          textarea.style.opacity = "0";
+          document.body.appendChild(textarea);
+          textarea.select();
+          const copyDocument = document as Document & {
+            execCommand(commandId: string): boolean;
+          };
+          // @ts-ignore Deprecated but supported clipboard fallback.
+          copyDocument.execCommand("copy");
+          textarea.remove();
+        }
+
+        const button = row.querySelector("button");
+        const copyIcon = button?.querySelector<HTMLElement>('[data-copy-icon="copy"]');
+        const checkIcon = button?.querySelector<HTMLElement>('[data-copy-icon="check"]');
+        copyIcon?.classList.add("hidden");
+        checkIcon?.classList.remove("hidden");
+        button?.setAttribute("aria-label", "Command copied");
+        window.setTimeout(() => {
+          copyIcon?.classList.remove("hidden");
+          checkIcon?.classList.add("hidden");
+          button?.setAttribute("aria-label", "Copy command");
+        }, 2000);
+      } catch {
+        // Ignore clipboard errors.
+      }
+    },
+    true,
+  );
+</script>

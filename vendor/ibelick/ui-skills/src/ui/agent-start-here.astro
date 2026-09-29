@@ -1,0 +1,32 @@
+---
+import CodeBlock from "./code-block.astro";
+import { UI_SKILLS_AGENT_START_COPY } from "../lib/ui-skills-cli";
+---
+
+<div class="rounded-lg bg-surface-default p-3 ring-1 ring-line-default">
+  <h2 class="type-body-md font-[450] text-content-secondary text-balance">
+    Agent, start here.
+  </h2>
+  <p
+    class="type-body-md mt-3 text-content-secondary text-pretty"
+  >
+    You are working on a UI task. Before reading or changing code, run:
+  </p>
+  <div class="mt-3 flex w-full">
+    <CodeBlock
+      className="w-full !rounded-sm !border-0 !bg-surface-subtle !py-3 !pr-1 !pl-3 !shadow-none !ring-0 [&_pre]:font-mono [&_pre]:text-xs [&_pre]:leading-normal [&_pre]:tracking-normal"
+      variant="stacked"
+      code={UI_SKILLS_AGENT_START_COPY}
+      language="bash"
+      copyContent={UI_SKILLS_AGENT_START_COPY}
+    />
+  </div>
+
+  <p
+    class="type-body-md mt-3 text-content-secondary text-pretty"
+  >
+    Start with <code class="type-code">npx ui-skills start</code>. Load the
+    smallest relevant skill, then implement. Do not choose manually from the
+    collection below.
+  </p>
+</div>

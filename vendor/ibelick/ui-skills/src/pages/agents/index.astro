@@ -1,0 +1,82 @@
+---
+export const prerender = true;
+
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../ui/breadcrumbs.astro";
+import Card from "../../ui/card.astro";
+import { agents } from "../../data/agents";
+
+const breadcrumbItems = [{ label: "Explore", href: "/" }, { label: "Agents" }];
+
+const siteOrigin = Astro.site ?? new URL("https://www.ui-skills.com");
+const agentsIndexUrl = new URL("/agents", siteOrigin).toString();
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "AI Agents",
+  description:
+    "Browse AI agents that support UI Skills, including Claude Code, Cursor, OpenClaw, Codex, and more.",
+  url: agentsIndexUrl,
+  hasPart: {
+    "@type": "ItemList",
+    itemListElement: agents.map((agent, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: new URL(`/agents/${agent.id}`, siteOrigin).toString(),
+      name: agent.name,
+    })),
+  },
+};
+---
+
+<Layout
+  structuredData={structuredData}
+  title="AI Agents for UI Skills | UI Skills"
+  description="Browse AI agents that support UI Skills, including Claude Code, Cursor, OpenClaw, Codex, and more."
+>
+  <div
+    class="relative flex min-h-dvh flex-col items-center justify-start"
+  >
+    <div class="relative mt-20 container-3xl">
+      <div class="mx-auto flex w-full flex-col gap-10">
+        <Breadcrumbs items={breadcrumbItems} />
+
+        <div class="flex flex-col gap-3">
+          <h1 class="type-h1 text-content-primary">
+            Agents
+          </h1>
+          <p class="type-body-md text-content-secondary">
+            Browse AI agents that support UI Skills.
+          </p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          {
+            agents.map((agent) => (
+              <a href={`/agents/${agent.id}`} class="group block h-full">
+                <Card className="h-full transition-colors group-hover:border-content-extra-muted">
+                  <div class="flex items-center gap-1">
+                    <img
+                      src={agent.faviconUrl}
+                      alt={`${agent.name} logo`}
+                      width="20"
+                      height="20"
+                      loading="lazy"
+                      class="size-5 rounded-sm border border-line-default"
+                    />
+                    <h2 class="type-body-md font-[450] text-content-primary">
+                      {agent.name}
+                    </h2>
+                  </div>
+                  <p class="type-body-md line-clamp-3 text-content-secondary">
+                    {agent.description}
+                  </p>
+                </Card>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

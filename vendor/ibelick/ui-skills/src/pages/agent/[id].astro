@@ -1,0 +1,11 @@
+---
+import { agents } from "../../data/agents";
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return agents.map((agent) => ({ params: { id: agent.id } }));
+}
+
+return Astro.redirect(`/agents/${Astro.params.id ?? ""}`, 301);
+---
