@@ -1,0 +1,77 @@
+name: Sync source snapshots
+
+on:
+  schedule:
+    - cron: '23 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - README.md
+      - sources.config.json
+      - scripts/sync_sources.py
+      - tests/test_sync_sources.py
+      - .github/workflows/sync-sources.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: source-snapshots
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    # Forks do not start scheduled writes automatically; their owners may adapt this guard.
+    if: github.repository == 'yzy-comfortuni/awesome-ai-taste'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: main
+          fetch-depth: 1
+          submodules: false
+          lfs: false
+      - name: Test the synchronizer (no upstream code is executed)
+        run: python3 -m unittest discover -s tests -v
+      - name: Sync public source snapshots
+        id: sync
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set +e
+          python3 scripts/sync_sources.py --sync
+          result=$?
+          set -e
+          echo "result=$result" >> "$GITHUB_OUTPUT"
+          # Successful sources and explicit blocked statuses may be committed together.
+          test "$result" = 0 || test "$result" = 2
+          python3 scripts/sync_sources.py --verify
+      - name: Commit only managed output, without force-push
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -c core.autocrlf=false add -f -A -- README.md sources.lock.json vendor/
+          if git diff --cached --quiet; then
+            echo 'No source or metadata changes.'
+          else
+            git commit -m 'chore(sources): refresh Stars and upstream snapshots'
+            # A concurrent main update causes a safe failure, never an overwrite.
+            git push origin HEAD:main
+          fi
+      - name: Publish status and surface blocked sources
+        if: always()
+        env:
+          RESULT: ${{ steps.sync.outputs.result }}
+        shell: bash
+        run: |
+          if test -f vendor/README.md; then
+            cat vendor/README.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if test "$RESULT" != 0; then
+            echo '::error::Some sources were blocked or the sync failed. See source status; previous snapshots were retained.'
+            exit 1
+          fi
