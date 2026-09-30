@@ -111,7 +111,7 @@ const breadcrumbItems = [
     return {
       label:
         isLast && skill
-        ? skill.name
+          ? skill.name
           : (matchedSkill?.label ?? titleize(segment)),
       href: isLast ? undefined : `/skills/${currentPath}`,
     };
@@ -373,10 +373,8 @@ const installCommand = (() => {
   description={pageDescription}
   robots={isInvalidSkillsRoute ? "noindex,follow" : undefined}
 >
-  <div
-    class="relative flex min-h-dvh flex-col items-center justify-start"
-  >
-    <div class="relative mt-20 container-3xl">
+  <div class="relative flex min-h-dvh flex-col items-center justify-start">
+    <div class="container-3xl relative mt-20">
       <div class="mx-auto flex w-full flex-col gap-10">
         <div>
           <Breadcrumbs items={breadcrumbItems} />
@@ -416,12 +414,10 @@ const installCommand = (() => {
                     </h1>
                   </div>
                 ) : (
-                  <h1 class="type-h1 text-content-primary">
-                    {groupTitle}
-                  </h1>
+                  <h1 class="type-h1 text-content-primary">{groupTitle}</h1>
                 )}
                 {isTopicGroup && topic?.description ? (
-                  <p class="type-body-md mt-3 text-content-secondary">
+                  <p class="type-body-md text-content-secondary mt-3">
                     {topic.description}
                   </p>
                 ) : null}
@@ -447,10 +443,13 @@ const installCommand = (() => {
 
               {relatedTopicsForTopicPage.length > 0 ? (
                 <div class="flex flex-col gap-2">
-                  <h2 class="type-body-md !font-[450] !text-content-secondary">
+                  <h2 class="type-body-md !text-content-secondary !font-[450]">
                     Related topics
                   </h2>
-                  <div data-topic-row class="flex min-w-0 flex-nowrap items-center gap-2 overflow-hidden">
+                  <div
+                    data-topic-row
+                    class="flex min-w-0 flex-nowrap items-center gap-2 overflow-hidden"
+                  >
                     {relatedTopicsForTopicPage.map((entry) => (
                       <Button
                         href={`/skills/${entry.slug}`}
@@ -484,48 +483,70 @@ const installCommand = (() => {
             <>
               <div class="">
                 <div class="flex items-start justify-between gap-3">
-                <div class="flex min-w-0 items-center gap-3">
-                  <img
-                    src={skillOwnerAvatarUrl}
-                    alt={`${skillOwnerLabel} avatar`}
-                    width="40"
-                    height="40"
-                    loading="lazy"
-                    class="size-10 shrink-0 rounded-xl border border-line-default"
-                  />
-                  <div class="flex min-w-0 flex-1 flex-col">
-                    <h2 class="type-h2 truncate text-content-primary">
-                      {skill.name}
-                    </h2>
+                  <div class="flex min-w-0 items-center gap-3">
                     {skillOwnerKey ? (
                       <a
-                        href={`https://github.com/${skillOwnerKey}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="type-body-md flex items-center gap-1 truncate text-content-muted"
-                        aria-label={`View ${skillOwnerLabel} on GitHub`}
+                        href={`/skills/${skillOwnerKey}`}
+                        aria-label={`View ${skillOwnerLabel} skills`}
+                        class="focus-visible:outline-content-primary shrink-0 rounded-xl focus-visible:outline-1 focus-visible:outline-offset-2"
                       >
-                        <svg aria-hidden="true" class="size-3.5 shrink-0 text-content-extra-muted" viewBox="0 0 98 96" fill="currentColor">
-                          <path d="M48.9 0C21.8 0 0 22.1 0 49.2c0 21.7 14 40.1 33.4 46.6 2.4.4 3.3-1 3.3-2.3v-8.2c-13.6 3-16.5-5.8-16.5-5.8-2.2-5.7-5.4-7.2-5.4-7.2-4.4-3 .3-3 .3-3 4.8.3 7.3 5 7.3 5 4.3 7.4 11.2 5.3 13.9 4 .4-3.1 1.7-5.3 3-6.5-10.9-1.2-22.4-5.5-22.4-24.3 0-5.4 1.9-9.8 5-13.3-.5-1.2-2.2-6.3.5-13.1 0 0 4.1-1.3 13.5 5.1 3.9-1.1 8.1-1.7 12.3-1.7 4.2 0 8.4.6 12.3 1.7 9.4-6.4 13.5-5.1 13.5-5.1 2.7 6.8 1 11.9.5 13.1 3.1 3.5 5 7.9 5 13.3 0 18.9-11.5 23.1-22.5 24.3 1.8 1.6 3.3 4.7 3.3 9.5v14.1c0 1.4.9 2.7 3.4 2.3C84 89.3 98 70.9 98 49.2 98 22.1 76 0 48.9 0Z" />
-                        </svg>
-                        {skillOwnerLabel}
+                        <img
+                          src={skillOwnerAvatarUrl}
+                          alt=""
+                          width="40"
+                          height="40"
+                          loading="lazy"
+                          class="border-line-default size-10 rounded-xl border"
+                        />
                       </a>
-                    ) : null}
+                    ) : (
+                      <img
+                        src={skillOwnerAvatarUrl}
+                        alt={`${skillOwnerLabel} avatar`}
+                        width="40"
+                        height="40"
+                        loading="lazy"
+                        class="border-line-default size-10 shrink-0 rounded-xl border"
+                      />
+                    )}
+                    <div class="flex min-w-0 flex-1 flex-col">
+                      <h2 class="type-h2 text-content-primary truncate">
+                        {skill.name}
+                      </h2>
+                      {skillOwnerKey ? (
+                        <a
+                          href={`https://github.com/${skillOwnerKey}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="type-body-md text-content-muted flex items-center gap-1 truncate"
+                          aria-label={`View ${skillOwnerLabel} on GitHub`}
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="text-content-extra-muted size-3.5 shrink-0"
+                            viewBox="0 0 98 96"
+                            fill="currentColor"
+                          >
+                            <path d="M48.9 0C21.8 0 0 22.1 0 49.2c0 21.7 14 40.1 33.4 46.6 2.4.4 3.3-1 3.3-2.3v-8.2c-13.6 3-16.5-5.8-16.5-5.8-2.2-5.7-5.4-7.2-5.4-7.2-4.4-3 .3-3 .3-3 4.8.3 7.3 5 7.3 5 4.3 7.4 11.2 5.3 13.9 4 .4-3.1 1.7-5.3 3-6.5-10.9-1.2-22.4-5.5-22.4-24.3 0-5.4 1.9-9.8 5-13.3-.5-1.2-2.2-6.3.5-13.1 0 0 4.1-1.3 13.5 5.1 3.9-1.1 8.1-1.7 12.3-1.7 4.2 0 8.4.6 12.3 1.7 9.4-6.4 13.5-5.1 13.5-5.1 2.7 6.8 1 11.9.5 13.1 3.1 3.5 5 7.9 5 13.3 0 18.9-11.5 23.1-22.5 24.3 1.8 1.6 3.3 4.7 3.3 9.5v14.1c0 1.4.9 2.7 3.4 2.3C84 89.3 98 70.9 98 49.2 98 22.1 76 0 48.9 0Z" />
+                          </svg>
+                          {skillOwnerLabel}
+                        </a>
+                      ) : null}
+                    </div>
                   </div>
+                  <SkillNav
+                    previousHref={previousSkillHref}
+                    nextHref={nextSkillHref}
+                  />
                 </div>
-                <SkillNav
-                  previousHref={previousSkillHref}
-                  nextHref={nextSkillHref}
-                />
-                </div>
-                <p class="type-body-md mt-3 text-content-secondary">
+                <p class="type-body-md text-content-secondary mt-3">
                   {skill.description ??
                     "Install this skill with a single command."}
                 </p>
               </div>
 
               <div>
-                <h2 class="type-body-md mb-3 font-[450] text-content-secondary">
+                <h2 class="type-body-md text-content-secondary mb-3 font-[450]">
                   Install
                 </h2>
                 <Command command={installCommand} />
@@ -561,7 +582,7 @@ const installCommand = (() => {
               {relatedSkills.length > 0 ? (
                 <div class="flex flex-col gap-5">
                   <div class="flex flex-col gap-2">
-                    <h2 class="type-body-md font-[450] text-content-secondary">
+                    <h2 class="type-body-md text-content-secondary font-[450]">
                       Related skills
                     </h2>
                     <div class="flex flex-col">
@@ -578,7 +599,10 @@ const installCommand = (() => {
                     </div>
                   </div>
                   {skillTopicSuggestions.length > 0 ? (
-                    <div data-topic-row class="flex min-w-0 flex-nowrap items-center gap-2 overflow-hidden">
+                    <div
+                      data-topic-row
+                      class="flex min-w-0 flex-nowrap items-center gap-2 overflow-hidden"
+                    >
                       {skillTopicSuggestions.map((entry) => (
                         <Button
                           href={`/skills/${entry.slug}`}
@@ -602,7 +626,7 @@ const installCommand = (() => {
                       </Button>
                     </div>
                   ) : null}
-                  </div>
+                </div>
               ) : null}
             </>
           ) : null
@@ -611,10 +635,8 @@ const installCommand = (() => {
         {
           isInvalidSkillsRoute ? (
             <div class="">
-              <h1 class="type-h1 text-content-primary">
-                Skill page not found
-              </h1>
-              <p class="type-body-md mt-3 text-content-secondary">
+              <h1 class="type-h1 text-content-primary">Skill page not found</h1>
+              <p class="type-body-md text-content-secondary mt-3">
                 The route you requested does not match a skill, topic, or source
                 page.
               </p>

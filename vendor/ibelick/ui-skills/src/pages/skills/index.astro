@@ -11,7 +11,10 @@ import Button from "../../ui/button.astro";
 
 const breadcrumbItems = [{ label: "Explore", href: "/" }, { label: "Skills" }];
 
-const compareSkillLabels = (a: (typeof skills)[number], b: (typeof skills)[number]) => {
+const compareSkillLabels = (
+  a: (typeof skills)[number],
+  b: (typeof skills)[number],
+) => {
   const aIsNumeric = /^\d/.test(a.label);
   const bIsNumeric = /^\d/.test(b.label);
 
@@ -19,17 +22,15 @@ const compareSkillLabels = (a: (typeof skills)[number], b: (typeof skills)[numbe
   return a.label.localeCompare(b.label, undefined, { numeric: true });
 };
 
-const mixedSkills = [...skills]
-  .sort(compareSkillLabels)
-  .map((skill) => {
-    const owner = skill.sourceKey ?? "ibelick";
+const mixedSkills = [...skills].sort(compareSkillLabels).map((skill) => {
+  const owner = skill.sourceKey ?? "ibelick";
 
-    return {
-      ...skill,
-      ownerLabel: skill.sourceLabel ?? "Ibelick",
-      avatarUrl: `https://github.com/${owner}.png?size=160`,
-    };
-  });
+  return {
+    ...skill,
+    ownerLabel: skill.sourceLabel ?? "Ibelick",
+    avatarUrl: `https://github.com/${owner}.png?size=160`,
+  };
+});
 
 const topicSelectionSlugs: TopicSlug[] = [
   "accessibility",
@@ -55,16 +56,18 @@ const countSkillsForTopics = (slugs: TopicSlug[]) =>
     slugs.some((slug) => skill.topics?.includes(slug)),
   ).length;
 
-const topicSelections = topicSelectionSlugs.map((slug) => {
-  const topic = topicBySlug.get(slug);
-  return topic
-    ? {
-        label: topic.label,
-        href: `/skills/${topic.slug}`,
-        count: countSkillsForTopics([topic.slug]),
-      }
-    : null;
-}).filter((topic): topic is NonNullable<typeof topic> => topic !== null);
+const topicSelections = topicSelectionSlugs
+  .map((slug) => {
+    const topic = topicBySlug.get(slug);
+    return topic
+      ? {
+          label: topic.label,
+          href: `/skills/${topic.slug}`,
+          count: countSkillsForTopics([topic.slug]),
+        }
+      : null;
+  })
+  .filter((topic): topic is NonNullable<typeof topic> => topic !== null);
 
 topicSelections.splice(14, 0, {
   label: "UI",
@@ -97,10 +100,8 @@ const structuredData = {
   title="UI Skills for Design Engineers | UI Skills"
   description="Browse every skill in UI Skills, with install commands for accessibility, motion, frontend craft, and design engineering workflows."
 >
-  <div
-    class="relative flex min-h-dvh flex-col items-center justify-start"
-  >
-    <div class="relative mt-20 container-3xl">
+  <div class="relative flex min-h-dvh flex-col items-center justify-start">
+    <div class="container-3xl relative mt-20">
       <div class="mx-auto flex w-full flex-col gap-10">
         <Breadcrumbs items={breadcrumbItems} />
 
@@ -109,17 +110,21 @@ const structuredData = {
             Top UI Skills for design engineering
           </h1>
           <p class="type-body-md text-content-secondary">
-            A collection of {mixedSkills.length.toLocaleString()} high-quality
-            skills for design engineers and frontend teams, including accessibility,
-            motion, frameworks, testing, and performance guidance.
+            A collection of {mixedSkills.length.toLocaleString()} high-quality skills
+            for design engineers and frontend teams, including accessibility, motion,
+            frameworks, testing, and performance guidance.
           </p>
           <div class="mt-5 flex flex-wrap gap-2">
-            {topicSelections.map((topic) => (
-              <Button href={topic.href} variant="secondary" size="sm">
-                {topic.label}
-                <span class="type-body-sm text-content-muted tabular-nums">{topic.count}</span>
-              </Button>
-            ))}
+            {
+              topicSelections.map((topic) => (
+                <Button href={topic.href} variant="secondary" size="sm">
+                  {topic.label}
+                  <span class="type-body-sm text-content-muted tabular-nums">
+                    {topic.count}
+                  </span>
+                </Button>
+              ))
+            }
           </div>
         </div>
 

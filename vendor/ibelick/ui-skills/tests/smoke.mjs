@@ -121,13 +121,19 @@ try {
       'dataset.url = "https://collector.onedollarstats.com/events"',
     )
   ) {
-    throw new Error("Homepage is missing the direct One Dollar Stats collector");
+    throw new Error(
+      "Homepage is missing the direct One Dollar Stats collector",
+    );
   }
   if (!homepageBody.includes('script.src = "/analytics/stonks.js"')) {
-    throw new Error("Homepage is missing the first-party One Dollar Stats loader");
+    throw new Error(
+      "Homepage is missing the first-party One Dollar Stats loader",
+    );
   }
   if (homepageBody.includes("assets.onedollarstats.com/stonks.js")) {
-    throw new Error("Homepage still loads One Dollar Stats from a third-party origin");
+    throw new Error(
+      "Homepage still loads One Dollar Stats from a third-party origin",
+    );
   }
 
   const stonksScript = await fetchLocal("/analytics/stonks.js");
@@ -141,7 +147,9 @@ try {
   }
   const mcpMetadataType = mcpMetadata.headers.get("content-type") ?? "";
   if (!mcpMetadataType.startsWith("application/json")) {
-    throw new Error(`Static MCP metadata returned unexpected type: ${mcpMetadataType}`);
+    throw new Error(
+      `Static MCP metadata returned unexpected type: ${mcpMetadataType}`,
+    );
   }
   if (mcpMetadata.headers.get("cache-control") === null) {
     throw new Error("Static MCP metadata is missing cache headers");
@@ -177,7 +185,9 @@ try {
   ) {
     throw new Error("MCP docs are missing the server card code block");
   }
-  if (!mcpDocsBody.includes('data-command-row="https://www.ui-skills.com/mcp"')) {
+  if (
+    !mcpDocsBody.includes('data-command-row="https://www.ui-skills.com/mcp"')
+  ) {
     throw new Error("MCP docs are missing the endpoint command row");
   }
 
