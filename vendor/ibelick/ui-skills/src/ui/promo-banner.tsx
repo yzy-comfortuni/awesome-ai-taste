@@ -139,6 +139,8 @@ export function PromoBanner() {
                 href="https://mesurer.dev"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-s-event="partner_click"
+                data-s-event-props="partner=mesurer"
                 className="focus-visible:outline-content-primary flex w-full items-start gap-2.5 rounded-md focus-visible:outline-1 focus-visible:outline-offset-2"
               >
                 <MesurerLogo />

@@ -4,23 +4,23 @@
     "ibelick/ui-skills": {
       "repository": "ibelick/ui-skills",
       "branch": "main",
-      "upstream_sha": "2eec38c1d71db600f51edcd167fb79fc5c64d89f",
-      "stars": 9265,
+      "upstream_sha": "ebf5f26cd275b1412be8a2c8784c4f8da628e7c2",
+      "stars": 9275,
       "archived": false,
       "scope": [
         "."
       ],
       "config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "copied_sha": "2eec38c1d71db600f51edcd167fb79fc5c64d89f",
+      "copied_sha": "ebf5f26cd275b1412be8a2c8784c4f8da628e7c2",
       "license": {
         "spdx": "MIT",
         "path": "LICENSE",
         "sha": "cac7c466df604fc44527fd89d9662626bab57354"
       },
-      "tree_sha256": "73ff9607cd44c55d4d7ebb89cab57cb9d72a5c07cceed0b3621b106776321f0d",
-      "archive_sha256": "fb0210c939b4621c437c22d1659a09a6a71f39517ceb8b412330d163abe1a6ae",
+      "tree_sha256": "6cceeefd31646fb1feb32e610443e02e74a127fc04ee7a7893fc5ea1d2e131f2",
+      "archive_sha256": "f0f8c3e317c875040883752b3219a1c587ef64621eb572cba89efcefc60f7081",
       "files": 256,
-      "bytes": 2222293,
+      "bytes": 2222391,
       "exclusions": [
         "public/fonts/InterVariable.woff2 (excluded metadata/font)"
       ],
@@ -31,7 +31,7 @@
       "repository": "anthropics/skills",
       "branch": "main",
       "upstream_sha": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
-      "stars": 179098,
+      "stars": 179154,
       "archived": false,
       "scope": [
         "skills/frontend-design"
@@ -54,8 +54,8 @@
     "pbakaus/impeccable": {
       "repository": "pbakaus/impeccable",
       "branch": "main",
-      "upstream_sha": "0d6b47ea19b63afe15e3f93a44d5d9fbbc6fd275",
-      "stars": 72806,
+      "upstream_sha": "f652bd42341c4269cf281d0f569bfc9808e1fdab",
+      "stars": 72920,
       "archived": false,
       "scope": [
         "README.md",
@@ -63,24 +63,24 @@
       ],
       "config_sha256": "67454a40f9ddcedc9d2a2d277bcac3898ade57857396a0c19411b09b67224eba",
       "status": "current",
-      "copied_sha": "0d6b47ea19b63afe15e3f93a44d5d9fbbc6fd275",
+      "copied_sha": "f652bd42341c4269cf281d0f569bfc9808e1fdab",
       "license": {
         "spdx": "Apache-2.0",
         "path": "LICENSE",
         "sha": "bb3f6d23b1f8025514a62a12b51b47d73e3c9aa9"
       },
-      "tree_sha256": "c5789530f837767f8248dcf62f7a9e2bdab8282a90b84b5fb80f858a543f694c",
+      "tree_sha256": "6bb8354e6e6c6fdd1fcdb0f30dc0dc299c84192269359d5829cb57b9d962d84e",
       "archive_sha256": null,
       "fetch_mode": "git-tree",
       "files": 57,
-      "bytes": 2198662,
+      "bytes": 2198792,
       "exclusions": []
     },
     "leonxlnx/taste-skill": {
       "repository": "Leonxlnx/taste-skill",
       "branch": "main",
       "upstream_sha": "ce26fc25c0e5e8cab638f883de62d9a86ee5e45b",
-      "stars": 91429,
+      "stars": 91499,
       "archived": false,
       "scope": [
         "."
@@ -126,7 +126,7 @@
       "repository": "jakubkrehel/skills",
       "branch": "main",
       "upstream_sha": "267330e1adfc66a718fb65fa6918c1f06d0a689e",
-      "stars": 7370,
+      "stars": 7385,
       "archived": false,
       "scope": [
         "."
@@ -151,7 +151,7 @@
       "repository": "emilkowalski/skills",
       "branch": "main",
       "upstream_sha": "d16ebe60d09a5ba2afcb7054ede9d0a10c9f6128",
-      "stars": 42285,
+      "stars": 42390,
       "archived": false,
       "scope": [
         "."
@@ -176,7 +176,7 @@
       "repository": "wshobson/agents",
       "branch": "main",
       "upstream_sha": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
-      "stars": 40104,
+      "stars": 40111,
       "archived": false,
       "scope": [
         "."
@@ -202,7 +202,7 @@
       "repository": "hardikpandya/stop-slop",
       "branch": "main",
       "upstream_sha": "8da1f030185bdfe8471220585162991eaeb970e9",
-      "stars": 17662,
+      "stars": 17671,
       "archived": false,
       "scope": [
         "."
@@ -225,7 +225,7 @@
       "repository": "blader/humanizer",
       "branch": "main",
       "upstream_sha": "225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8",
-      "stars": 53025,
+      "stars": 53084,
       "archived": false,
       "scope": [
         "."
@@ -248,7 +248,7 @@
       "repository": "op7418/Humanizer-zh",
       "branch": "main",
       "upstream_sha": "f4518a8eab97b8bfebc66a89d34320a89bef6930",
-      "stars": 18768,
+      "stars": 18776,
       "archived": false,
       "scope": [
         "."
@@ -271,7 +271,7 @@
       "repository": "ruanyf/document-style-guide",
       "branch": "master",
       "upstream_sha": "571951731efb4b83b1939af1d3dd830441ebef45",
-      "stars": 12973,
+      "stars": 12975,
       "archived": false,
       "scope": [
         "."
@@ -295,7 +295,7 @@
       "repository": "sparanoid/chinese-copywriting-guidelines",
       "branch": "master",
       "upstream_sha": "9a5fbeb842f39644352fd79b5d8c6764718105cc",
-      "stars": 15727,
+      "stars": 15730,
       "archived": false,
       "scope": [
         "."
@@ -368,7 +368,7 @@
       "repository": "K-Dense-AI/scientific-agent-skills",
       "branch": "main",
       "upstream_sha": "65d6e786832e2c52832713117bbbf5096b56f77f",
-      "stars": 47186,
+      "stars": 47208,
       "archived": false,
       "scope": [
         "skills/scientific-visualization"
@@ -392,7 +392,7 @@
       "repository": "nicobailon/visual-explainer",
       "branch": "main",
       "upstream_sha": "7163c3e10660912e0b89e1af465db9f387282b88",
-      "stars": 9951,
+      "stars": 9954,
       "archived": false,
       "scope": [
         "."
@@ -415,7 +415,7 @@
       "repository": "JimLiu/baoyu-skills",
       "branch": "main",
       "upstream_sha": "1567581c26ec29f4216c6e6835415bf30343b0e3",
-      "stars": 26242,
+      "stars": 26243,
       "archived": false,
       "scope": [
         "skills/baoyu-infographic",
@@ -439,7 +439,7 @@
       "repository": "zarazhangrui/frontend-slides",
       "branch": "main",
       "upstream_sha": "9906a34d640d2111f724544cbc50f7f130569ae1",
-      "stars": 30008,
+      "stars": 30013,
       "archived": false,
       "scope": [
         "."
