@@ -5,7 +5,7 @@
       "repository": "ibelick/ui-skills",
       "branch": "main",
       "upstream_sha": "ebf5f26cd275b1412be8a2c8784c4f8da628e7c2",
-      "stars": 9288,
+      "stars": 9299,
       "archived": false,
       "scope": [
         "."
@@ -31,7 +31,7 @@
       "repository": "anthropics/skills",
       "branch": "main",
       "upstream_sha": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
-      "stars": 179218,
+      "stars": 179248,
       "archived": false,
       "scope": [
         "skills/frontend-design"
@@ -55,7 +55,7 @@
       "repository": "pbakaus/impeccable",
       "branch": "main",
       "upstream_sha": "c74755d920985f7a92cef691ca970ba95f90126e",
-      "stars": 73153,
+      "stars": 73292,
       "archived": false,
       "scope": [
         "README.md",
@@ -80,7 +80,7 @@
       "repository": "Leonxlnx/taste-skill",
       "branch": "main",
       "upstream_sha": "ce26fc25c0e5e8cab638f883de62d9a86ee5e45b",
-      "stars": 91605,
+      "stars": 91667,
       "archived": false,
       "scope": [
         "."
@@ -126,7 +126,7 @@
       "repository": "jakubkrehel/skills",
       "branch": "main",
       "upstream_sha": "267330e1adfc66a718fb65fa6918c1f06d0a689e",
-      "stars": 7398,
+      "stars": 7406,
       "archived": false,
       "scope": [
         "."
@@ -151,7 +151,7 @@
       "repository": "emilkowalski/skills",
       "branch": "main",
       "upstream_sha": "d16ebe60d09a5ba2afcb7054ede9d0a10c9f6128",
-      "stars": 42533,
+      "stars": 42610,
       "archived": false,
       "scope": [
         "."
@@ -176,7 +176,7 @@
       "repository": "wshobson/agents",
       "branch": "main",
       "upstream_sha": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
-      "stars": 40125,
+      "stars": 40126,
       "archived": false,
       "scope": [
         "."
@@ -202,7 +202,7 @@
       "repository": "hardikpandya/stop-slop",
       "branch": "main",
       "upstream_sha": "8da1f030185bdfe8471220585162991eaeb970e9",
-      "stars": 17683,
+      "stars": 17688,
       "archived": false,
       "scope": [
         "."
@@ -225,7 +225,7 @@
       "repository": "blader/humanizer",
       "branch": "main",
       "upstream_sha": "225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8",
-      "stars": 53196,
+      "stars": 53264,
       "archived": false,
       "scope": [
         "."
@@ -248,7 +248,7 @@
       "repository": "op7418/Humanizer-zh",
       "branch": "main",
       "upstream_sha": "f4518a8eab97b8bfebc66a89d34320a89bef6930",
-      "stars": 18785,
+      "stars": 18802,
       "archived": false,
       "scope": [
         "."
@@ -271,7 +271,7 @@
       "repository": "ruanyf/document-style-guide",
       "branch": "master",
       "upstream_sha": "571951731efb4b83b1939af1d3dd830441ebef45",
-      "stars": 12977,
+      "stars": 12981,
       "archived": false,
       "scope": [
         "."
@@ -368,7 +368,7 @@
       "repository": "K-Dense-AI/scientific-agent-skills",
       "branch": "main",
       "upstream_sha": "91497e335489dcb544ec8ddc8f6b7ce5fd6d1121",
-      "stars": 47241,
+      "stars": 47265,
       "archived": false,
       "scope": [
         "skills/scientific-visualization"
@@ -392,7 +392,7 @@
       "repository": "nicobailon/visual-explainer",
       "branch": "main",
       "upstream_sha": "7163c3e10660912e0b89e1af465db9f387282b88",
-      "stars": 10043,
+      "stars": 10092,
       "archived": false,
       "scope": [
         "."
@@ -439,7 +439,7 @@
       "repository": "zarazhangrui/frontend-slides",
       "branch": "main",
       "upstream_sha": "9906a34d640d2111f724544cbc50f7f130569ae1",
-      "stars": 30029,
+      "stars": 30033,
       "archived": false,
       "scope": [
         "."
