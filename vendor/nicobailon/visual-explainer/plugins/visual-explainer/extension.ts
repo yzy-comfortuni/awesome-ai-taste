@@ -1,7 +1,8 @@
-import { existsSync, lstatSync, mkdirSync, writeFileSync } from "node:fs";
+import { chmodSync, existsSync, lstatSync, mkdirSync, realpathSync, renameSync, rmSync, writeFileSync } from "node:fs";
 import { spawn } from "node:child_process";
+import { randomUUID } from "node:crypto";
 import { homedir } from "node:os";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 import type { AgentToolResult, ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { renderQuickSpec } from "./quick/render.mjs";
 
@@ -134,6 +135,14 @@ function detectSubagent(pi: ExtensionAPI): SubagentDetection {
     const fallbackError = caught instanceof Error ? caught.message : String(caught);
     return { available: false, error: error ? `${error}; ${fallbackError}` : fallbackError };
   }
+}
+
+function resolveOutputDirectory() {
+  const configured = process.env.VISUAL_EXPLAINER_OUTPUT_DIR?.trim();
+  return {
+    path: configured ? resolve(configured) : join(homedir(), ".agent", "diagrams"),
+    configured: Boolean(configured),
+  };
 }
 
 function outputFilename(input: string) {
@@ -328,16 +337,25 @@ async function writeRenderedHtml(
   const filename = outputFilename(filenameInput);
   assertHtmlDocument(htmlInput);
   const html = prepareRenderedHtml(htmlInput);
-  const outputDir = join(homedir(), ".agent", "diagrams");
+  const { path: outputDir, configured } = resolveOutputDirectory();
   const outputPath = join(outputDir, filename);
   if (existsSync(outputDir) && lstatSync(outputDir).isSymbolicLink()) throw new Error(`${outputDir} must not be a symlink`);
   mkdirSync(outputDir, { recursive: true });
-  if (existsSync(outputPath) && lstatSync(outputPath).isSymbolicLink()) {
-    throw new Error(`${outputPath} must not be a symlink`);
+  if (configured && realpathSync(outputDir) !== outputDir) {
+    throw new Error(`${outputDir} must not contain symlinks and must resolve to itself`);
   }
+  const existing = lstatSync(outputPath, { throwIfNoEntry: false });
+  if (existing?.isSymbolicLink()) throw new Error(`${outputPath} must not be a symlink`);
 
   signal?.throwIfAborted();
-  writeFileSync(outputPath, html, "utf8");
+  const temporaryPath = `${outputPath}.${process.pid}.${randomUUID()}.tmp`;
+  try {
+    writeFileSync(temporaryPath, html, { encoding: "utf8", flag: "wx" });
+    if (existing) chmodSync(temporaryPath, existing.mode & 0o7777);
+    renameSync(temporaryPath, outputPath);
+  } finally {
+    rmSync(temporaryPath, { force: true });
+  }
 
   signal?.throwIfAborted();
 
@@ -389,13 +407,13 @@ export default function (pi: ExtensionAPI) {
   pi.registerTool<typeof visualExplainerParameters, VisualExplainerDetails>({
     name: "visual_explainer",
     label: "Visual Explainer",
-    description: "Plan visual explanations, write complete HTML, or validate and locally render a compact quick spec to ~/.agent/diagrams/.",
+    description: "Plan visual explanations, write complete HTML, or validate and locally render a compact quick spec to ~/.agent/diagrams/ (or VISUAL_EXPLAINER_OUTPUT_DIR when set).",
     promptSnippet: "Plan or render visual-explainer HTML. Use render for complete HTML and render_quick only for an explicit supported --quick prompt.",
     promptGuidelines: [
       "After generating or reviewing a plan, architecture, diff, or substantial implementation, consider offering a visual explanation if it would clarify the work for the user.",
       "Because visual explanations can consume many tokens, ask before calling visual_explainer with action=prepare unless the user explicitly requested a diagram, visual review, recap, or visual plan.",
       "If visual_explainer action=prepare recommends subagent scouting and the subagent tool is available, gather context first, then synthesize complete HTML and finish with visual_explainer action=render.",
-      "Use visual_explainer action=render only after generating a complete visual-explainer HTML document; pass a basename-style filename because it writes under ~/.agent/diagrams/. Use viewer=glimpse only when the user wants a native Glimpse window and glimpseui is installed; viewer=auto may fall back to the browser.",
+      "Use visual_explainer action=render only after generating a complete visual-explainer HTML document; pass a basename-style filename because it writes under ~/.agent/diagrams/ (or VISUAL_EXPLAINER_OUTPUT_DIR when set). Use viewer=glimpse only when the user wants a native Glimpse window and glimpseui is installed; viewer=auto may fall back to the browser.",
       "Use action=render_quick only when --quick is explicit on generate-web-diagram, diff-review, plan-review, or project-recap. Pass the compact schema spec. If it fails or does not fit, use the full HTML workflow and action=render.",
     ],
     parameters: visualExplainerParameters,

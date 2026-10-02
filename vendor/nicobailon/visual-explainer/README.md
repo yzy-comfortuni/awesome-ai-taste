@@ -38,6 +38,7 @@ This skill fixes that. Real typography, dark/light themes, interactive Mermaid d
 | Codex CLI | Native skill path plus optional prompts | Copy to `~/.codex/skills/visual-explainer`; optional prompts go in `~/.codex/prompts/` if your Codex build supports them |
 | OpenCode/opencode | Observed skill/command paths | Copy to `~/.config/opencode/skill/visual-explainer`; optional commands go in `~/.config/opencode/command/` |
 | Cursor | Native Agent Skills path | Copy `plugins/visual-explainer/` to `~/.cursor/skills/visual-explainer` globally or `.cursor/skills/visual-explainer` per workspace; optional legacy rule in `configs/cursor/` |
+| Agent Plugins clients | [Agent Plugins](https://agent-plugins.org/) 1.0.0 plugin | The repository root is the plugin: `plugin.json` plus `skills/visual-explainer`, a link to `plugins/visual-explainer/`. On Windows, clone with `git -c core.symlinks=true` so the link resolves |
 | OpenClaw | Lightweight AGENTS/rules guidance | Use the supplied AGENTS guidance with the canonical skill directory |
 | VS Code Copilot / Copilot CLI | Custom instructions or rules guidance | Add the supplied AGENTS guidance to your supported workspace instruction or rules setup |
 
@@ -71,7 +72,7 @@ The package manifest advertises the canonical skill, command templates, and Pi t
 }
 ```
 
-The Pi extension registers one native `visual_explainer` tool. Use `action: "prepare"` to plan a visual explanation after generating or reviewing a substantial plan, architecture, diff, or implementation, and `action: "render"` to write complete HTML pages to `~/.agent/diagrams/`. The opt-in `action: "render_quick"` validates a compact JSON spec and renders it with the bundled local renderer. Render actions can open with `viewer: "browser"` by default, `viewer: "glimpse"` when `glimpseui` is installed, or `viewer: "auto"` to try Glimpse and fall back to the browser. `/generate-web-diagram` remains the bundled prompt template command.
+The Pi extension registers one native `visual_explainer` tool. Use `action: "prepare"` to plan a visual explanation after generating or reviewing a substantial plan, architecture, diff, or implementation, and `action: "render"` to write complete HTML pages to `~/.agent/diagrams/`, or to `VISUAL_EXPLAINER_OUTPUT_DIR` when set, with the same output jail as the MCP server. The opt-in `action: "render_quick"` validates a compact JSON spec and renders it with the bundled local renderer. Render actions can open with `viewer: "browser"` by default, `viewer: "glimpse"` when `glimpseui` is installed, or `viewer: "auto"` to try Glimpse and fall back to the browser. `/generate-web-diagram` remains the bundled prompt template command.
 
 If you previously used the old curl/manual installer, remove those copied files before using `pi install`; otherwise Pi will report skill and prompt conflicts because the user-level copies shadow the package resources:
 
@@ -500,28 +501,26 @@ plugins/
     ├── quick/             ← JSON schema + deterministic local renderer
     ├── mcp/               ← local stdio MCP server
     ├── pptx/              ← best-effort static PPTX exporter
-    ├── references/        ← agent reads before generating
-    │   ├── css-patterns.md   (layouts, animations, theming)
-    │   ├── libraries.md      (Mermaid, Chart.js, fonts)
-    │   ├── responsive-nav.md (sticky TOC for multi-section pages)
-    │   ├── slide-patterns.md (slide engine, transitions, presets)
-    │   └── themes.md          (11 palettes + runtime theme/font picker)
-    └── templates/         ← reference templates with different palettes
-        ├── architecture.html
-        ├── mermaid-flowchart.html
-        ├── data-table.html
-        └── slide-deck.html
+    ├── references/        ← read on demand
+    │   ├── style-guide.md (four registers, tokens, scale, components, polish pass)
+    │   ├── diagrams.md    (hand-drawn SVG kit, linked highlighting, stepper/scene player)
+    │   ├── mermaid.md     (when auto-layout pays + zoom/pan shell)
+    │   ├── slides.md      (deck budget, engine contract, delivery check)
+    │   └── themes.md      (11 palettes + runtime theme/font picker)
+    └── templates/
+        ├── page.html      (figure-first reference page, Instrument register)
+        └── slide-deck.html (slide engine + reference deck)
 ```
 
 **Output:** `~/.agent/diagrams/filename.html` → opens in browser. When you explicitly request AI-readable output or a source brief, the agent can also write `~/.agent/diagrams/filename.md` as a concise companion. It asks before replacing an existing companion. HTML remains the final visual output; the Markdown companion is not its source. In Pi package installs, agents can offer `visual_explainer` with `action: "prepare"` after generating or reviewing a substantial plan, architecture, diff, or implementation when a visual explanation would help, then call it with `action: "render"` as the final write/open step. MCP hosts use the separate `visual-explainer-mcp` stdio server and default render tools to `open: false`.
 
-The skill routes to the right approach automatically: Mermaid for flowcharts and diagrams, CSS Grid for architecture overviews, HTML tables for data, Chart.js for dashboards.
+Pages are figure-first: the first screen shows the answer as a picture and one sentence. Each page uses one of four registers (Instrument for reviews and metrics, Blueprint for architecture, Paper for concepts, Editorial for recaps and decks), each with fixed fonts, a contrast-checked palette, and one shared spacing and type scale. Terms in the text and parts of the figure light up together on hover. Most diagrams are hand-drawn inline SVG, so they match the page and can step through a process. Mermaid is used only when automatic layout pays off (sequence, ER, large graphs). Tables carry status chips, metrics get bars and sparklines, and prose follows a Simplified Technical English style.
 
 ## Limitations
 
 - Generated HTML is portable and self-contained, but auto-opening depends on the harness, browser access, and sandbox rules.
 - PPTX export is a static best-effort handoff. The HTML deck remains the source of truth for full visual fidelity.
-- All harnesses write visual output to `~/.agent/diagrams/` unless the user asks for a different path.
+- All harnesses write visual output to `~/.agent/diagrams/` unless the user asks for a different path. The Pi tool and the MCP server write to `VISUAL_EXPLAINER_OUTPUT_DIR` instead when it is set.
 - Switching OS theme requires a page refresh for Mermaid SVGs.
 - Results vary by model capability.
 

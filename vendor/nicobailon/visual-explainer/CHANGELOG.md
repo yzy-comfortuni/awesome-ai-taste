@@ -2,6 +2,32 @@
 
 ## [Unreleased]
 
+### Added
+- The Pi `visual_explainer` tool honors `VISUAL_EXPLAINER_OUTPUT_DIR` for `render` and `render_quick`, like the MCP server. The default stays `~/.agent/diagrams/`; a configured directory must not be a symlink and must resolve to itself, and filenames stay basenames inside it. `/fact-check` without an argument looks in the same directory. Thanks to [@eaxeax](https://github.com/eaxeax) for #99.
+- The repository is an [Agent Plugins](https://agent-plugins.org/) 1.0.0 plugin: a root `plugin.json` and `skills/visual-explainer`, a link to the canonical skill, so compatible clients can discover the skill without a client-specific install. Thanks to [@gunzip](https://github.com/gunzip) for #100.
+
+### Changed
+- Rewrote the skill to be figure-first and about 61% smaller (83% fewer lines). The first screen shows the answer as a picture plus one sentence, figures lead every section, and prose follows a Simplified Technical English style.
+- Hand-drawn inline SVG is now the default diagram. Mermaid is reserved for sequence, ER, class, git graph, and large graphs where automatic layout helps.
+- Added a style guide with four registers (Instrument, Blueprint, Paper, Editorial). Each register fixes its fonts and a light and dark palette where all text meets 4.5:1 contrast. All registers share one spacing, type, radius, and motion scale, plus component specs and a polish pass.
+- Added linked highlighting: hovering or focusing a term in the text lights up the matching figure elements and table rows.
+- Pages adapt to their subject: a topic motif takes the accent hue, stage texture, glyphs, or diagram convention from the subject, in two or three subtle touches on top of the register.
+- Figures look crafted rather than flat: raised nodes on a dot-grid stage, shapes that show what a thing is (a cylinder for a datastore), a halo on the focal element, and dots that flow along edges at the real traffic split.
+- Every number gets a picture (waffle, bars, sparkline), sets of cases become small-multiple diagrams instead of tables, and blocks rise in once with numbers counting up. Reduced motion, print, and no-JS show the final state.
+- Added guidance for three.js figures when depth carries data, such as embeddings, spatial layouts, and geometry.
+- Added editorial typography, layout, and chart rules to the style guide, drawn from Bringhurst, Butterick, Müller-Brockmann, Tufte, Datawrapper, and the FT Visual Vocabulary. They cover measure, leading, tracking, numerals, real characters, a 12-column grid with one axis, section openers, entry points, chart choice by relationship, layering, direct labels, and annotation.
+- Theme palettes now lift `--text-dim` where the original value was below 4.5:1 contrast.
+- Added a live figure pattern: one to three controls recompute the diagram, numbers, and headline from one model, including why-demos that show a bad policy's attractive wrong answer. Thanks to [@zanzipanzi](https://github.com/zanzipanzi) for #96.
+- Added a stepper and scene player pattern for step-by-step and animated explainers, plus guidance for narrated video when the user asks for it.
+- Replaced `css-patterns.md`, `libraries.md`, `responsive-nav.md`, and `slide-patterns.md` with `style-guide.md`, `diagrams.md`, `mermaid.md`, and `slides.md`. Replaced the architecture, Mermaid, and data-table templates with one `page.html` reference page. The removed files stay reachable as optional links pinned to v0.11.0.
+
+### Fixed
+- Page styles no longer leak into Mermaid diagrams. The reference page's eyebrow and KPI labels use `.ve-label` instead of `.label`, which Mermaid also uses for every node label, and the Mermaid guidance now names the common bare classes it emits plus a computed-style check. Thanks to [@vnakhate](https://github.com/vnakhate) for #98.
+- Slide resume no longer stops between slides, because the jump is instant instead of smooth. Saving the resume position no longer depends on `history.replaceState`, which fails on `file://` pages. The outline and help dialog has an accessible name again.
+
+### Security
+- Pi renders are written to a temporary file and renamed into place, like MCP renders, so a render target swapped for a symlink after the check is replaced instead of written through. Re-rendering an existing file keeps its permission bits.
+
 ## [0.11.0] - 2026-08-28
 
 ### Highlights

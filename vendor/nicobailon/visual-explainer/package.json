@@ -41,7 +41,6 @@
     "plugins/visual-explainer",
     ".claude-plugin",
     "configs",
-    "scripts",
     "install-pi.sh",
     "banner.png",
     "README.md",
