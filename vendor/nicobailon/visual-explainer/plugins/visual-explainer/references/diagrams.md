@@ -21,6 +21,8 @@ y:210                  ┌──▼───┐
 - SVG text does not wrap: keep lines short (about 18 characters), `<tspan x=".." dy="1.2em">` for a second line.
 - Draw edges first and nodes after, so nodes sit on top.
 - A boundary (process, network, trust zone) is a dashed rect with a mono label in its top-left corner.
+- Over about 12 nodes, draw a 5–8 node overview and put the detail in cards or a second figure.
+- Sequence: one column per actor with a thin lifeline, one row per message, time runs down, each arrow labeled with its call. Schema: one box per table with its key fields in mono, crow's-foot ends for many.
 
 ## Kit
 
@@ -107,7 +109,7 @@ Use 3D only when depth carries data: embeddings and point clouds, physical or sp
 
 ## Page structure for 4+ sections
 
-Sticky `<nav>` table of contents on the left, content on the right; below 1000px it becomes a sticky top bar. Mark the active section with an `IntersectionObserver` (`rootMargin:'-10% 0px -80% 0px'`). Wrap `history.replaceState` in `try/catch`, because it throws on `file://` pages.
+Sticky `<nav>` table of contents on the left, content on the right; below 1000px it becomes a sticky top bar. In the top bar, only the link list scrolls sideways: hide its scrollbar (`scrollbar-width:none`, `::-webkit-scrollbar{display:none}`), fade its right edge with `mask-image`, and keep buttons outside it. Mark the active section with an `IntersectionObserver` (`rootMargin:'-10% 0px -80% 0px'`). Wrap `history.replaceState` in `try/catch`, because it throws on `file://` pages.
 
 ## Other shapes
 
