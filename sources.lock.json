@@ -4,23 +4,23 @@
     "ibelick/ui-skills": {
       "repository": "ibelick/ui-skills",
       "branch": "main",
-      "upstream_sha": "ebf5f26cd275b1412be8a2c8784c4f8da628e7c2",
-      "stars": 9373,
+      "upstream_sha": "e4c80664b61b0006a03bb6ba8339d6d82777b690",
+      "stars": 9390,
       "archived": false,
       "scope": [
         "."
       ],
       "config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "copied_sha": "ebf5f26cd275b1412be8a2c8784c4f8da628e7c2",
+      "copied_sha": "e4c80664b61b0006a03bb6ba8339d6d82777b690",
       "license": {
         "spdx": "MIT",
         "path": "LICENSE",
         "sha": "cac7c466df604fc44527fd89d9662626bab57354"
       },
-      "tree_sha256": "6cceeefd31646fb1feb32e610443e02e74a127fc04ee7a7893fc5ea1d2e131f2",
-      "archive_sha256": "f0f8c3e317c875040883752b3219a1c587ef64621eb572cba89efcefc60f7081",
+      "tree_sha256": "448395a0933304b29f8c5693616f20a69794cf4b6c948165210a7415f6a73f0d",
+      "archive_sha256": "d4efa3462ff5889cbd7a45d1a07256c276d6b4710c43e83d3a23092f173db86d",
       "files": 256,
-      "bytes": 2222391,
+      "bytes": 2228367,
       "exclusions": [
         "public/fonts/InterVariable.woff2 (excluded metadata/font)"
       ],
@@ -31,7 +31,7 @@
       "repository": "anthropics/skills",
       "branch": "main",
       "upstream_sha": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
-      "stars": 179589,
+      "stars": 179649,
       "archived": false,
       "scope": [
         "skills/frontend-design"
@@ -54,8 +54,8 @@
     "pbakaus/impeccable": {
       "repository": "pbakaus/impeccable",
       "branch": "main",
-      "upstream_sha": "6e802bd0ed99f53180e2359fddab6da8d97970d9",
-      "stars": 75840,
+      "upstream_sha": "ce14139c5d294f020e48fb64ad8f155b80b9b474",
+      "stars": 76259,
       "archived": false,
       "scope": [
         "README.md",
@@ -63,24 +63,24 @@
       ],
       "config_sha256": "67454a40f9ddcedc9d2a2d277bcac3898ade57857396a0c19411b09b67224eba",
       "status": "current",
-      "copied_sha": "6e802bd0ed99f53180e2359fddab6da8d97970d9",
+      "copied_sha": "ce14139c5d294f020e48fb64ad8f155b80b9b474",
       "license": {
         "spdx": "Apache-2.0",
         "path": "LICENSE",
         "sha": "bb3f6d23b1f8025514a62a12b51b47d73e3c9aa9"
       },
-      "tree_sha256": "d588a416ac86fdf2b831383f81f357094814fa2354f6906c5727219080ea228e",
+      "tree_sha256": "9c647280975764a4dd3979a9748be20763e0964c503babf4ff91d5916d56cd29",
       "archive_sha256": null,
       "fetch_mode": "git-tree",
       "files": 60,
-      "bytes": 2218558,
+      "bytes": 2219529,
       "exclusions": []
     },
     "leonxlnx/taste-skill": {
       "repository": "Leonxlnx/taste-skill",
       "branch": "main",
       "upstream_sha": "ce26fc25c0e5e8cab638f883de62d9a86ee5e45b",
-      "stars": 92468,
+      "stars": 92595,
       "archived": false,
       "scope": [
         "."
@@ -103,7 +103,7 @@
       "repository": "vercel-labs/web-interface-guidelines",
       "branch": "main",
       "upstream_sha": "e3d624baaf29dc1fc645aff3e38f03e564d2d6b1",
-      "stars": 931,
+      "stars": 933,
       "archived": false,
       "scope": [
         "."
@@ -126,7 +126,7 @@
       "repository": "jakubkrehel/skills",
       "branch": "main",
       "upstream_sha": "267330e1adfc66a718fb65fa6918c1f06d0a689e",
-      "stars": 7443,
+      "stars": 7455,
       "archived": false,
       "scope": [
         "."
@@ -151,7 +151,7 @@
       "repository": "emilkowalski/skills",
       "branch": "main",
       "upstream_sha": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
-      "stars": 43079,
+      "stars": 43333,
       "archived": false,
       "scope": [
         "."
@@ -176,24 +176,24 @@
     "wshobson/agents": {
       "repository": "wshobson/agents",
       "branch": "main",
-      "upstream_sha": "369bf2a0d413e064d91955ad37cfd6c1907b8dd6",
-      "stars": 40186,
+      "upstream_sha": "46891e7e60da0e52baf1050b7b6391b64e84c6d9",
+      "stars": 40199,
       "archived": false,
       "scope": [
         "."
       ],
       "config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "copied_sha": "369bf2a0d413e064d91955ad37cfd6c1907b8dd6",
+      "copied_sha": "46891e7e60da0e52baf1050b7b6391b64e84c6d9",
       "license": {
         "spdx": "MIT",
         "path": "LICENSE",
         "sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e"
       },
-      "tree_sha256": "cad4d4c19bcb0cc60c1e6fcf72a4040ec471e481d07dbbdd8c89832f38390ae7",
-      "archive_sha256": "a0b66e41d1b54708908b1910a07521e31769117189898b22788c6cdde9b1f7a5",
+      "tree_sha256": "77485daf54bc99f879db2ac9c877557ba4c7a2cd37a08d23681792265d1abbc6",
+      "archive_sha256": "34fe203b3105dde9e7ce286c3910b50346c57cf23416144485e66980dc592f51",
       "fetch_mode": "archive",
-      "files": 1190,
-      "bytes": 8240093,
+      "files": 1149,
+      "bytes": 8233847,
       "exclusions": [
         "CLAUDE.md (non-regular file; not followed)"
       ],
@@ -203,7 +203,7 @@
       "repository": "hardikpandya/stop-slop",
       "branch": "main",
       "upstream_sha": "8da1f030185bdfe8471220585162991eaeb970e9",
-      "stars": 17736,
+      "stars": 17746,
       "archived": false,
       "scope": [
         "."
@@ -226,7 +226,7 @@
       "repository": "blader/humanizer",
       "branch": "main",
       "upstream_sha": "225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8",
-      "stars": 53877,
+      "stars": 53963,
       "archived": false,
       "scope": [
         "."
@@ -249,7 +249,7 @@
       "repository": "op7418/Humanizer-zh",
       "branch": "main",
       "upstream_sha": "f4518a8eab97b8bfebc66a89d34320a89bef6930",
-      "stars": 18902,
+      "stars": 18917,
       "archived": false,
       "scope": [
         "."
@@ -369,7 +369,7 @@
       "repository": "K-Dense-AI/scientific-agent-skills",
       "branch": "main",
       "upstream_sha": "154988403bb5a18e9d3c0ce4e6d5e2e4b184a298",
-      "stars": 47545,
+      "stars": 47589,
       "archived": false,
       "scope": [
         "skills/scientific-visualization"
@@ -393,7 +393,7 @@
       "repository": "nicobailon/visual-explainer",
       "branch": "main",
       "upstream_sha": "5846f5aef34a23c8fea389d2f23ce56224cbf840",
-      "stars": 10240,
+      "stars": 10247,
       "archived": false,
       "scope": [
         "."
@@ -419,7 +419,7 @@
       "repository": "JimLiu/baoyu-skills",
       "branch": "main",
       "upstream_sha": "1567581c26ec29f4216c6e6835415bf30343b0e3",
-      "stars": 26331,
+      "stars": 26337,
       "archived": false,
       "scope": [
         "skills/baoyu-infographic",
@@ -456,7 +456,7 @@
       "repository": "zarazhangrui/frontend-slides",
       "branch": "main",
       "upstream_sha": "9906a34d640d2111f724544cbc50f7f130569ae1",
-      "stars": 30118,
+      "stars": 30132,
       "archived": false,
       "scope": [
         "."

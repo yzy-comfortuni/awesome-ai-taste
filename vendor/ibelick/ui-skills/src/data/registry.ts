@@ -4329,6 +4329,132 @@ const registrySource: RegistrySourceSkill[] = [
     description:
       "Blueprint animation that explains UX decisions step by step for case studies and posts, with Explain or Redesign modes on a single continuous screen.",
   },
+  {
+    slug: "break-ui",
+    user: "emilkowalski",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/emilkowalski/skills/main/skills/break-ui/SKILL.md",
+    githubUrl:
+      "https://github.com/emilkowalski/skills/blob/main/skills/break-ui/SKILL.md",
+    name: "break-ui",
+    topics: ["frontend", "testing", "craft"],
+    description:
+      "Stress-test UI with worst-case data behind a demo toggle, then report what broke and how to fix each edge case.",
+  },
+  {
+    slug: "gemini-tts",
+    user: "memex-lab",
+    repo: "product-launch-video-skill",
+    rawUrl:
+      "https://raw.githubusercontent.com/memex-lab/product-launch-video-skill/main/skills/gemini-tts/SKILL.md",
+    githubUrl:
+      "https://github.com/memex-lab/product-launch-video-skill/blob/main/skills/gemini-tts/SKILL.md",
+    name: "gemini-tts",
+    topics: ["video", "tooling"],
+    description:
+      "Generate speech and voiceovers with Google Gemini TTS for narration, podcasts, and product video voice tracks.",
+  },
+  {
+    slug: "remotion-docs",
+    user: "remotion-dev",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/remotion-dev/skills/main/skills/remotion-docs/SKILL.md",
+    githubUrl:
+      "https://github.com/remotion-dev/skills/blob/main/skills/remotion-docs/SKILL.md",
+    name: "remotion-docs",
+    topics: ["video", "remotion", "tooling"],
+    description: "Search and read current Remotion documentation while building video compositions.",
+  },
+  {
+    slug: "remotion-interactivity",
+    user: "remotion-dev",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/remotion-dev/skills/main/skills/remotion-interactivity/SKILL.md",
+    githubUrl:
+      "https://github.com/remotion-dev/skills/blob/main/skills/remotion-interactivity/SKILL.md",
+    name: "remotion-interactivity",
+    topics: ["video", "remotion", "interaction"],
+    description:
+      "Add interactive and input-driven behavior to Remotion compositions and player experiences.",
+  },
+  {
+    slug: "remotion-maps",
+    user: "remotion-dev",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/remotion-dev/skills/main/skills/remotion-maps/SKILL.md",
+    githubUrl:
+      "https://github.com/remotion-dev/skills/blob/main/skills/remotion-maps/SKILL.md",
+    name: "remotion-maps",
+    topics: ["video", "remotion", "visual"],
+    description: "Use map and geospatial visuals inside Remotion video compositions.",
+  },
+  {
+    slug: "remotion-markup",
+    user: "remotion-dev",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/remotion-dev/skills/main/skills/remotion-markup/SKILL.md",
+    githubUrl:
+      "https://github.com/remotion-dev/skills/blob/main/skills/remotion-markup/SKILL.md",
+    name: "remotion-markup",
+    topics: ["video", "remotion", "frontend"],
+    description:
+      "Structure Remotion scenes with markup patterns for layout, typography, and reusable video UI.",
+  },
+  {
+    slug: "remotion-multimedia",
+    user: "remotion-dev",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/remotion-dev/skills/main/skills/remotion-multimedia/SKILL.md",
+    githubUrl:
+      "https://github.com/remotion-dev/skills/blob/main/skills/remotion-multimedia/SKILL.md",
+    name: "remotion-multimedia",
+    topics: ["video", "remotion", "tooling"],
+    description:
+      "Work with audio, video, and mixed media assets in Remotion compositions.",
+  },
+  {
+    slug: "remotion-saas",
+    user: "remotion-dev",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/remotion-dev/skills/main/skills/remotion-saas/SKILL.md",
+    githubUrl:
+      "https://github.com/remotion-dev/skills/blob/main/skills/remotion-saas/SKILL.md",
+    name: "remotion-saas",
+    topics: ["video", "remotion", "systems"],
+    description:
+      "Build SaaS-style video rendering and delivery workflows on top of Remotion.",
+  },
+  {
+    slug: "remotion-studio",
+    user: "remotion-dev",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/remotion-dev/skills/main/skills/remotion-studio/SKILL.md",
+    githubUrl:
+      "https://github.com/remotion-dev/skills/blob/main/skills/remotion-studio/SKILL.md",
+    name: "remotion-studio",
+    topics: ["video", "remotion", "tooling"],
+    description: "Use Remotion Studio for previewing, debugging, and iterating on compositions.",
+  },
+  {
+    slug: "remotion-upgrade",
+    user: "remotion-dev",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/remotion-dev/skills/main/skills/remotion-upgrade/SKILL.md",
+    githubUrl:
+      "https://github.com/remotion-dev/skills/blob/main/skills/remotion-upgrade/SKILL.md",
+    name: "remotion-upgrade",
+    topics: ["video", "remotion", "tooling"],
+    description: "Upgrade Remotion projects across versions with official migration guidance.",
+  },
 ];
 
 const buildInitialPathSlug = (entry: RegistrySourceSkill) => {
