@@ -2,7 +2,7 @@
 
 给 AI 用的设计、写作与可视化手册。
 
-[界面设计](#界面设计) · [文字表达](#文字表达) · [图表与图解](#图表与图解) · [演示文稿](#演示文稿)
+[界面设计](#界面设计) · [文字表达](#文字表达) · [专利写作](#专利写作) · [图表与图解](#图表与图解) · [演示文稿](#演示文稿)
 
 ## 界面设计
 
@@ -23,6 +23,10 @@
 - [中文技术文档写作规范](https://github.com/ruanyf/document-style-guide) — 中文技术文档的标题、文本、段落、数值与标点规范。[文本](https://github.com/ruanyf/document-style-guide/blob/master/docs/text.md) · [段落](https://github.com/ruanyf/document-style-guide/blob/master/docs/paragraph.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/ruanyf/document-style-guide?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/ruanyf/document-style-guide/stargazers) · [副本](vendor/ruanyf/document-style-guide)<!-- /source-meta -->
 - [中文文案排版指北](https://github.com/sparanoid/chinese-copywriting-guidelines) — 中英文混排中的空格、标点、全半角与专有名词写法。[正文](https://github.com/sparanoid/chinese-copywriting-guidelines/blob/master/README.zh-Hans.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/sparanoid/chinese-copywriting-guidelines?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/sparanoid/chinese-copywriting-guidelines/stargazers) · [副本](vendor/sparanoid/chinese-copywriting-guidelines)<!-- /source-meta -->
 - [Google Developer Documentation Style Guide](https://developers.google.com/style/) — 英文技术文档的语气、操作步骤、链接与格式规范。[要点](https://developers.google.com/style/highlights)
+
+## 专利写作
+
+- [WIPO Patent Drafting Manual](https://www.wipo.int/publications/en/details.jsp?id=4706) — 世界知识产权组织的专利撰写手册，用实例讲权利要求层次、术语、说明书支持与附图；适合跨法域起草训练，具体申请仍须核对目标专利局现行规则。[权利要求设计](https://www.wipo.int/edocs/pubdocs/zh/wipo-pub-867-23-zh-wipo-patent-drafting-manual.pdf#page=106)
 
 ## 图表与图解
 
