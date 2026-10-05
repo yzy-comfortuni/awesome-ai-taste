@@ -2,7 +2,7 @@
 
 给 AI 用的设计、写作与可视化手册。
 
-[界面设计](#界面设计) · [文字表达](#文字表达) · [专利写作](#专利写作) · [图表与图解](#图表与图解) · [演示文稿](#演示文稿)
+[界面设计](#界面设计) · [文字表达](#文字表达) · [专利写作](#专利写作) · [学术论文](#学术论文) · [图表与图解](#图表与图解) · [演示文稿](#演示文稿)
 
 ## 界面设计
 
@@ -27,6 +27,10 @@
 ## 专利写作
 
 - [WIPO Patent Drafting Manual](https://www.wipo.int/publications/en/details.jsp?id=4706) — 世界知识产权组织的专利撰写手册，用实例讲权利要求层次、术语、说明书支持与附图；适合跨法域起草训练，具体申请仍须核对目标专利局现行规则。[权利要求设计](https://www.wipo.int/edocs/pubdocs/zh/wipo-pub-867-23-zh-wipo-patent-drafting-manual.pdf#page=106)
+
+## 学术论文
+
+- [Ten Simple Rules for Structuring Papers](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619) — 科学论文的论证结构指南：先确定唯一中心贡献，再让标题、摘要、段落与结果围绕 Context–Content–Conclusion 展开；适合研究论文的组织与修改，不替代具体学科和期刊规范。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619)
 
 ## 图表与图解
 
