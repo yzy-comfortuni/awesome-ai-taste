@@ -107,11 +107,6 @@ export function buildApiCatalogDocument(
             title: "Design system",
           },
           {
-            href: `${origin}/api/github-stars`,
-            type: "application/json",
-            title: "GitHub stars",
-          },
-          {
             href: `${origin}/sitemap.xml`,
             type: "application/xml",
             title: "Sitemap",

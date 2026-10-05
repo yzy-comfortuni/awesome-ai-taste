@@ -1,0 +1,77 @@
+---
+export const prerender = true;
+
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../ui/breadcrumbs.astro";
+import IconLibraryDirectory from "../ui/icon-library-directory";
+import { iconLibraries } from "../data/icon-libraries";
+
+const breadcrumbItems = [
+  { label: "Explore", href: "/" },
+  { label: "Icon libraries" },
+];
+const siteOrigin = Astro.site ?? new URL("https://www.ui-skills.com");
+const pageUrl = new URL("/icons", siteOrigin).toString();
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Best icon libraries for UI design",
+    description:
+      "Compare free and open-source icon libraries for React, web apps, and modern UI design.",
+    url: pageUrl,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: iconLibraries.length,
+      itemListElement: iconLibraries.map((library, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: library.name,
+        url: library.websiteUrl,
+      })),
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbItems.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.label,
+      item: new URL(item.href ?? "/icons", siteOrigin).toString(),
+    })),
+  },
+];
+---
+
+<Layout
+  structuredData={structuredData}
+  title="Best Icon Libraries for UI Design | UI Skills"
+  description="Compare the best free and open-source icon libraries for React, web apps and modern UI design."
+>
+  <div class="relative flex min-h-dvh flex-col items-center">
+    <div class="container-3xl relative mt-20">
+      <div class="mx-auto flex w-full flex-col gap-10">
+        <Breadcrumbs items={breadcrumbItems} />
+
+        <header class="flex max-w-2xl flex-col gap-4">
+          <h1 class="type-h1 text-content-primary text-balance">
+            Best icon libraries for UI design
+          </h1>
+          <p class="type-body-md text-content-secondary text-lg text-pretty">
+            Find free icons and React icon libraries for web apps and product
+            design. Browse open-source sets and choose the right one for your
+            project.
+          </p>
+        </header>
+
+        <section aria-labelledby="library-list-title">
+          <h2 id="library-list-title" class="sr-only">Icon libraries</h2>
+          <div>
+            <IconLibraryDirectory libraries={iconLibraries} client:load />
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</Layout>

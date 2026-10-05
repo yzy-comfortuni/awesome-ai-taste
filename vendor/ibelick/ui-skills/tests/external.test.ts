@@ -1,6 +1,5 @@
 import { afterEach, describe, test } from "node:test";
 import assert from "node:assert/strict";
-import { getGithubStars } from "../src/lib/github-stars.ts";
 import { getRemoteSkill, RemoteSkillError } from "../src/lib/remote-skill.ts";
 
 const originalFetch = globalThis.fetch;
@@ -107,47 +106,5 @@ describe("remote skill content", () => {
     const result = await getRemoteSkill("https://example.com/cache-error.md");
 
     assert.deepEqual(result, { content: "fresh skill", stale: false });
-  });
-});
-
-describe("GitHub stars", () => {
-  test("returns formatted stars from GitHub", async () => {
-    globalThis.fetch = async (_input, init) => {
-      assert.ok(init?.signal);
-      return new Response(JSON.stringify({ stargazers_count: 1234 }), {
-        status: 200,
-      });
-    };
-
-    const result = await getGithubStars();
-
-    assert.deepEqual(result, { stars: 1234, label: "1.2k+" });
-  });
-
-  test("degrades to null for malformed or failed GitHub responses", async () => {
-    globalThis.fetch = async () => new Response("not json", { status: 200 });
-    assert.equal(await getGithubStars(), null);
-
-    globalThis.fetch = async () => {
-      throw new Error("network unavailable");
-    };
-    assert.equal(await getGithubStars(), null);
-  });
-
-  test("renders normally when the GitHub cache is unavailable", async () => {
-    setCache({
-      match: async () => {
-        throw new Error("cache unavailable");
-      },
-      put: async () => {
-        throw new Error("cache unavailable");
-      },
-    });
-    globalThis.fetch = async () =>
-      new Response(JSON.stringify({ stargazers_count: 5392 }), { status: 200 });
-
-    const result = await getGithubStars();
-
-    assert.deepEqual(result, { stars: 5392, label: "5.4k+" });
   });
 });

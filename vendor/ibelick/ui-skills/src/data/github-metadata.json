@@ -1,0 +1,133 @@
+{
+  "generatedAt": "2026-10-04T16:46:06.361Z",
+  "repositories": {
+    "atisawd/boxicons": {
+      "stars": 3178,
+      "forks": 319,
+      "license": "MIT",
+      "pushedAt": "2026-02-16T01:36:14Z",
+      "updatedAt": "2026-10-03T21:00:12Z",
+      "archived": false
+    },
+    "carbon-design-system/carbon": {
+      "stars": 9519,
+      "forks": 2286,
+      "license": "Apache-2.0",
+      "pushedAt": "2026-10-04T15:38:03Z",
+      "updatedAt": "2026-10-04T14:38:54Z",
+      "archived": false
+    },
+    "devicons/devicon": {
+      "stars": 11836,
+      "forks": 2443,
+      "license": "MIT",
+      "pushedAt": "2026-09-24T18:52:19Z",
+      "updatedAt": "2026-10-04T16:01:47Z",
+      "archived": false
+    },
+    "feathericons/feather": {
+      "stars": 26008,
+      "forks": 1282,
+      "license": "MIT",
+      "pushedAt": "2025-03-11T02:18:59Z",
+      "updatedAt": "2026-10-04T14:47:24Z",
+      "archived": false
+    },
+    "google/material-design-icons": {
+      "stars": 54070,
+      "forks": 9749,
+      "license": "Apache-2.0",
+      "pushedAt": "2026-10-02T02:22:12Z",
+      "updatedAt": "2026-10-04T15:40:13Z",
+      "archived": false
+    },
+    "grommet/grommet-icons": {
+      "stars": 342,
+      "forks": 66,
+      "license": "Apache-2.0",
+      "pushedAt": "2026-08-18T10:24:50Z",
+      "updatedAt": "2026-08-18T10:23:29Z",
+      "archived": false
+    },
+    "ibelick/ui-skills": {
+      "stars": 9379,
+      "forks": 430,
+      "license": "MIT",
+      "pushedAt": "2026-10-04T14:09:14Z",
+      "updatedAt": "2026-10-04T15:19:57Z",
+      "archived": false
+    },
+    "iconoir-icons/iconoir": {
+      "stars": 4567,
+      "forks": 198,
+      "license": "MIT",
+      "pushedAt": "2026-08-12T04:18:42Z",
+      "updatedAt": "2026-10-03T15:13:30Z",
+      "archived": false
+    },
+    "ionic-team/ionicons": {
+      "stars": 18188,
+      "forks": 2051,
+      "license": "MIT",
+      "pushedAt": "2026-07-28T20:43:44Z",
+      "updatedAt": "2026-10-03T21:04:21Z",
+      "archived": false
+    },
+    "klarr-agency/circum-icons": {
+      "stars": 181,
+      "forks": 16,
+      "license": "MPL-2.0",
+      "pushedAt": "2024-04-20T18:44:19Z",
+      "updatedAt": "2026-08-11T12:26:40Z",
+      "archived": false
+    },
+    "lucide-icons/lucide": {
+      "stars": 24847,
+      "forks": 1615,
+      "license": null,
+      "pushedAt": "2026-10-04T14:38:46Z",
+      "updatedAt": "2026-10-04T15:30:37Z",
+      "archived": false
+    },
+    "phosphor-icons/core": {
+      "stars": 384,
+      "forks": 53,
+      "license": "MIT",
+      "pushedAt": "2026-01-06T21:28:48Z",
+      "updatedAt": "2026-10-02T11:03:31Z",
+      "archived": false
+    },
+    "radix-ui/icons": {
+      "stars": 2692,
+      "forks": 137,
+      "license": "MIT",
+      "pushedAt": "2026-04-02T03:59:31Z",
+      "updatedAt": "2026-10-04T14:00:33Z",
+      "archived": false
+    },
+    "remix-design/remixicon": {
+      "stars": 8396,
+      "forks": 560,
+      "license": null,
+      "pushedAt": "2026-04-28T09:25:21Z",
+      "updatedAt": "2026-10-03T17:52:06Z",
+      "archived": false
+    },
+    "tabler/tabler-icons": {
+      "stars": 21896,
+      "forks": 1217,
+      "license": "MIT",
+      "pushedAt": "2026-10-04T12:57:26Z",
+      "updatedAt": "2026-10-04T14:44:39Z",
+      "archived": false
+    },
+    "tailwindlabs/heroicons": {
+      "stars": 23850,
+      "forks": 1315,
+      "license": "MIT",
+      "pushedAt": "2026-05-12T13:51:18Z",
+      "updatedAt": "2026-10-04T14:26:56Z",
+      "archived": false
+    }
+  }
+}
