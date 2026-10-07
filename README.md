@@ -2,7 +2,7 @@
 
 给 AI 用的设计、写作与可视化手册。
 
-[界面设计](#界面设计) · [文字表达](#文字表达) · [专利写作](#专利写作) · [学术论文](#学术论文) · [图表与图解](#图表与图解) · [演示文稿](#演示文稿)
+[界面设计](#界面设计) · [文字表达](#文字表达) · [专利写作](#专利写作) · [学术论文](#学术论文) · [小说写作](#小说写作) · [图表与图解](#图表与图解) · [演示文稿](#演示文稿)
 
 ## 界面设计
 
@@ -31,6 +31,10 @@
 ## 学术论文
 
 - [Ten Simple Rules for Structuring Papers](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619) — 科学论文的论证结构指南：先确定唯一中心贡献，再让标题、摘要、段落与结果围绕 Context–Content–Conclusion 展开；适合研究论文的组织与修改，不替代具体学科和期刊规范。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619)
+
+## 小说写作
+
+- [Steering the Craft](https://www.ursulakleguin.com/steering-the-craft) — Ursula K. Le Guin 的叙事写作练习，从语言声音、句法、重复、视角到叙述距离训练 prose 的节奏与控制；主要基于英语小说与叙事散文，不是固定情节公式。[节选](https://www.ursulakleguin.com/steering-the-craft)
 
 ## 图表与图解
 
