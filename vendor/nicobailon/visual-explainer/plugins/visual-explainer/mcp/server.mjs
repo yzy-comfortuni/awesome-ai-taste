@@ -9,6 +9,7 @@ import { McpServer } from "@modelcontextprotocol/server";
 import { serveStdio } from "@modelcontextprotocol/server/stdio";
 import * as z from "zod/v4";
 import { renderQuickSpec } from "../quick/render.mjs";
+import { renderPlanForHost } from "../plan/render.mjs";
 
 const serverPath = fileURLToPath(import.meta.url);
 const mcpDir = dirname(serverPath);
@@ -38,6 +39,7 @@ const prepareOutputSchema = z.object({
 const renderInputSchema = z.object({
   filename: z.string().min(1).describe("Basename filename. The server appends .html when no .html/.htm suffix is present."),
   html: z.string().min(1).describe("Complete self-contained HTML document."),
+  root: z.string().min(1).optional().describe("For a plan source (<ve-plan> tags): the repository its file citations are checked against. Defaults to the server's working directory."),
   open: z.boolean().default(false).describe("Open the written file after rendering. Defaults to false for MCP."),
   viewer: viewerSchema.default("browser").describe("Viewer to use when open is true."),
 }).strict();
@@ -58,6 +60,7 @@ const renderOutputSchema = z.object({
   openError: z.string().optional(),
   fallbackFrom: openTargetSchema.optional(),
   fallbackError: z.string().optional(),
+  planSource: z.string().optional(),
 });
 
 const promptArgsSchema = z.object({
@@ -68,6 +71,7 @@ const promptFiles = [
   "diff-review.md",
   "fact-check.md",
   "generate-slides.md",
+  "generate-video.md",
   "generate-visual-plan.md",
   "generate-web-diagram.md",
   "plan-review.md",
@@ -288,10 +292,12 @@ function prepareVisualExplanation(params) {
   return renderToolResult(message, structuredContent);
 }
 
-async function writeRenderedHtml(filenameInput, htmlInput, open, viewer) {
-  const filename = outputFilename(filenameInput);
+async function writeRenderedHtml(filenameInput, htmlInput, open, viewer, planRoot) {
   assertHtmlDocument(htmlInput);
-  const html = prepareRenderedHtml(htmlInput);
+  // MCP cannot put the reader's response into the chat, so plan pages here always copy it instead (no sendBack).
+  const page = renderPlanForHost(htmlInput, { root: planRoot, filename: outputFilename(filenameInput) });
+  const filename = page?.filename ?? outputFilename(filenameInput);
+  const html = page ? page.html : prepareRenderedHtml(htmlInput);
   const { path: outputDir, configured } = resolveOutputDirectory();
   const outputPath = join(outputDir, filename);
 
@@ -308,6 +314,13 @@ async function writeRenderedHtml(filenameInput, htmlInput, open, viewer) {
   const outputStatus = lstatSync(outputPath, { throwIfNoEntry: false });
   if (outputStatus?.isSymbolicLink()) throw new Error(`${outputPath} must not be a symlink`);
 
+  // Keep the plan source beside the page: revisions and build receipts are small edits to it, then a new render.
+  // The source goes first, so a failed write never leaves a new page beside an old source.
+  const planSource = page?.source ? join(outputDir, page.source) : undefined;
+  if (planSource) {
+    if (lstatSync(planSource, { throwIfNoEntry: false })?.isSymbolicLink()) throw new Error(`${planSource} must not be a symlink`);
+    writeRenderedFile(planSource, htmlInput);
+  }
   writeRenderedFile(outputPath, html);
 
   const openResult = open ? await openRenderedPage(outputPath, viewer) : { openAttempted: false, openStatus: "disabled" };
@@ -322,8 +335,9 @@ async function writeRenderedHtml(filenameInput, htmlInput, open, viewer) {
   if (openResult.fallbackFrom === "glimpse") {
     message += ` Glimpse fallback reason: ${openResult.fallbackError ?? "unknown error"}.`;
   }
+  if (page) message += page.note;
 
-  return { message, output: compact({ path: outputPath, viewer, ...openResult }) };
+  return { message, output: compact({ path: outputPath, viewer, ...openResult, planSource }) };
 }
 
 function registerResources(server) {
@@ -390,9 +404,9 @@ function registerTools(server) {
     inputSchema: renderInputSchema,
     outputSchema: renderOutputSchema,
     annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
-  }, async ({ filename, html, open, viewer }) => {
+  }, async ({ filename, html, root, open, viewer }) => {
     try {
-      const result = await writeRenderedHtml(filename, html, open, viewer);
+      const result = await writeRenderedHtml(filename, html, open, viewer, root ?? process.cwd());
       return renderToolResult(result.message, result.output);
     } catch (error) {
       return renderToolError(error);

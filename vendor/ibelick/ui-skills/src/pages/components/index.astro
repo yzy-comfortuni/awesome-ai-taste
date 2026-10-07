@@ -1,0 +1,111 @@
+---
+export const prerender = true;
+
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../ui/breadcrumbs.astro";
+import ComponentLibraryDirectory from "../../ui/component-library-directory";
+import ComponentCollectionNav from "../../ui/component-collection-nav.astro";
+import RelatedDirectoryLinks from "../../ui/related-directory-links.astro";
+import {
+  componentCollections,
+  componentLibraries,
+} from "../../data/component-libraries";
+
+const breadcrumbItems = [
+  { label: "Explore", href: "/" },
+  { label: "Components" },
+];
+const siteOrigin = Astro.site ?? new URL("https://www.ui-skills.com");
+const pageUrl = new URL("/components", siteOrigin).toString();
+const collectionSelections = componentCollections
+  .map((collection) => ({
+    ...collection,
+    count: componentLibraries.filter(
+      (library) => library.collection === collection.slug,
+    ).length,
+  }))
+  .filter((collection) => collection.count > 0);
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "React Component Libraries",
+    description:
+      "Browse curated React component libraries, UI libraries, primitives, shadcn components, Tailwind CSS systems, and generative UI tools.",
+    url: pageUrl,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: componentLibraries.length,
+      itemListElement: componentLibraries.map((library, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: library.name,
+        url: library.websiteUrl,
+      })),
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbItems.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.label,
+      item: new URL(item.href ?? "/components", siteOrigin).toString(),
+    })),
+  },
+];
+---
+
+<Layout
+  structuredData={structuredData}
+  title="React Component Libraries | UI Skills"
+  description="Browse curated React component libraries, UI libraries, primitives, shadcn components, Tailwind CSS systems, and generative UI tools."
+>
+  <div class="relative flex min-h-dvh flex-col items-center justify-start">
+    <div class="container-3xl relative mt-20">
+      <div class="mx-auto flex w-full flex-col gap-10">
+        <Breadcrumbs items={breadcrumbItems} />
+
+        <div class="flex flex-col gap-3">
+          <h1 class="type-h1 text-content-primary">
+            React component libraries
+          </h1>
+          <p class="type-body-md text-content-secondary">
+            Find production-ready React component libraries, UI libraries,
+            primitives, copy-paste components, Tailwind CSS systems, animated
+            interfaces, and generative UI kits for modern web projects.
+          </p>
+          <div class="mt-5">
+            <ComponentCollectionNav collections={collectionSelections} />
+          </div>
+        </div>
+
+        <section aria-labelledby="library-list-title">
+          <h2 id="library-list-title" class="sr-only">Component libraries</h2>
+          <ComponentLibraryDirectory
+            libraries={componentLibraries}
+            showCollectionHeaders={false}
+            client:idle
+          />
+        </section>
+        <RelatedDirectoryLinks
+          links={[
+            {
+              label: "Icon libraries",
+              href: "/icons",
+              description:
+                "Browse open-source icon libraries for product interfaces and web apps.",
+            },
+            {
+              label: "Design.md files",
+              href: "/design-md",
+              description:
+                "Browse DESIGN.md files from real-world companies and open-source projects.",
+            },
+          ]}
+        />
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -4455,6 +4455,32 @@ const registrySource: RegistrySourceSkill[] = [
     topics: ["video", "remotion", "tooling"],
     description: "Upgrade Remotion projects across versions with official migration guidance.",
   },
+  {
+    slug: "hairline-create",
+    user: "lucasmarkes",
+    repo: "hairline",
+    rawUrl:
+      "https://raw.githubusercontent.com/lucasmarkes/hairline/main/skills/hairline-create/SKILL.md",
+    githubUrl:
+      "https://github.com/lucasmarkes/hairline/blob/main/skills/hairline-create/SKILL.md",
+    name: "hairline-create",
+    topics: ["visual", "interaction", "frontend"],
+    description:
+      "Create a new isometric Hairline line figure that answers the pointer, in the style of @lucasmarkes/hairline, as a self-contained HTML file.",
+  },
+  {
+    slug: "fluid-functionalism",
+    user: "mickadesign",
+    repo: "fluid-functionalism",
+    rawUrl:
+      "https://raw.githubusercontent.com/mickadesign/fluid-functionalism/main/skills/fluid-functionalism/SKILL.md",
+    githubUrl:
+      "https://github.com/mickadesign/fluid-functionalism/blob/main/skills/fluid-functionalism/SKILL.md",
+    name: "fluid-functionalism",
+    topics: ["motion", "interaction", "frontend", "visual"],
+    description:
+      "Build React UIs with the Fluid Functionalism @fluid registry: animated components, shared spring motion, and hover highlights that glide between items without layout shift.",
+  },
 ];
 
 const buildInitialPathSlug = (entry: RegistrySourceSkill) => {

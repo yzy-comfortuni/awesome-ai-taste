@@ -48,7 +48,7 @@
 
 ## 动画与视频
 
-- [huashu-art-motion](https://github.com/alchaincyf/huashu-art-motion) — 面向 coding agent 的艺术动画 skill：先设计关键帧，再用代码建立主动作、风格母题循环、签名转场和节拍，并以确定性渲染与独立审片验收；适合程序化艺术动画和解说片，人物示范素材另有使用限制。[正文](https://github.com/alchaincyf/huashu-art-motion/blob/main/SKILL.md)
+- [huashu-art-motion](https://github.com/alchaincyf/huashu-art-motion) — 面向 coding agent 的艺术动画 skill：先设计关键帧，再用代码建立主动作、风格母题循环、签名转场和节拍，并以确定性渲染与独立审片验收；适合程序化艺术动画和解说片，人物示范素材另有使用限制。[正文](https://github.com/alchaincyf/huashu-art-motion/blob/main/SKILL.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/alchaincyf/huashu-art-motion?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/alchaincyf/huashu-art-motion/stargazers)<!-- /source-meta -->
 
 ## 演示文稿
 

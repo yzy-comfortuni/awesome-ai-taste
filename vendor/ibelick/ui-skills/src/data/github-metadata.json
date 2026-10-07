@@ -1,44 +1,164 @@
 {
-  "generatedAt": "2026-10-04T16:46:06.361Z",
+  "generatedAt": "2026-10-05T19:19:57.873Z",
   "repositories": {
+    "adobe/react-spectrum": {
+      "stars": 15916,
+      "forks": 1591,
+      "license": "Apache-2.0",
+      "pushedAt": "2026-10-05T04:18:00Z",
+      "updatedAt": "2026-10-05T11:52:11Z",
+      "archived": false
+    },
+    "airbnb/visx": {
+      "stars": 21075,
+      "forks": 772,
+      "license": "MIT",
+      "pushedAt": "2026-06-22T14:25:22Z",
+      "updatedAt": "2026-10-05T01:08:35Z",
+      "archived": false
+    },
+    "ant-design/ant-design": {
+      "stars": 99686,
+      "forks": 54684,
+      "license": "MIT",
+      "pushedAt": "2026-10-05T07:17:17Z",
+      "updatedAt": "2026-10-05T16:49:26Z",
+      "archived": false
+    },
+    "assistant-ui/assistant-ui": {
+      "stars": 12410,
+      "forks": 1226,
+      "license": "MIT",
+      "pushedAt": "2026-10-05T19:11:25Z",
+      "updatedAt": "2026-10-05T19:09:00Z",
+      "archived": false
+    },
     "atisawd/boxicons": {
-      "stars": 3178,
+      "stars": 3177,
       "forks": 319,
       "license": "MIT",
       "pushedAt": "2026-02-16T01:36:14Z",
-      "updatedAt": "2026-10-03T21:00:12Z",
+      "updatedAt": "2026-10-05T08:10:34Z",
+      "archived": false
+    },
+    "barvian/number-flow": {
+      "stars": 7730,
+      "forks": 160,
+      "license": "MIT",
+      "pushedAt": "2026-09-20T13:51:56Z",
+      "updatedAt": "2026-10-05T15:50:55Z",
       "archived": false
     },
     "carbon-design-system/carbon": {
-      "stars": 9519,
-      "forks": 2286,
+      "stars": 9521,
+      "forks": 2287,
       "license": "Apache-2.0",
-      "pushedAt": "2026-10-04T15:38:03Z",
-      "updatedAt": "2026-10-04T14:38:54Z",
+      "pushedAt": "2026-10-05T19:18:30Z",
+      "updatedAt": "2026-10-05T19:18:34Z",
+      "archived": false
+    },
+    "chakra-ui/ark": {
+      "stars": 5407,
+      "forks": 221,
+      "license": "MIT",
+      "pushedAt": "2026-10-05T18:40:33Z",
+      "updatedAt": "2026-10-05T19:01:23Z",
+      "archived": false
+    },
+    "chakra-ui/chakra-ui": {
+      "stars": 40678,
+      "forks": 3649,
+      "license": "MIT",
+      "pushedAt": "2026-09-24T06:11:42Z",
+      "updatedAt": "2026-10-05T18:54:40Z",
+      "archived": false
+    },
+    "chakra-ui/park-ui": {
+      "stars": 2369,
+      "forks": 105,
+      "license": "MIT",
+      "pushedAt": "2026-04-10T23:05:11Z",
+      "updatedAt": "2026-10-04T00:50:08Z",
+      "archived": false
+    },
+    "cocopon/tweakpane": {
+      "stars": 4601,
+      "forks": 129,
+      "license": "MIT",
+      "pushedAt": "2026-03-15T08:28:50Z",
+      "updatedAt": "2026-10-05T08:09:24Z",
+      "archived": false
+    },
+    "codesandbox/sandpack": {
+      "stars": 6245,
+      "forks": 486,
+      "license": "Apache-2.0",
+      "pushedAt": "2025-04-24T13:17:28Z",
+      "updatedAt": "2026-10-03T12:47:11Z",
+      "archived": false
+    },
+    "copilotkit/copilotkit": {
+      "stars": 37763,
+      "forks": 4700,
+      "license": "MIT",
+      "pushedAt": "2026-10-05T19:09:20Z",
+      "updatedAt": "2026-10-05T19:09:38Z",
+      "archived": false
+    },
+    "cosscom/coss": {
+      "stars": 10647,
+      "forks": 546,
+      "license": "AGPL-3.0",
+      "pushedAt": "2026-09-30T08:00:46Z",
+      "updatedAt": "2026-10-05T13:25:25Z",
       "archived": false
     },
     "devicons/devicon": {
       "stars": 11836,
-      "forks": 2443,
+      "forks": 2446,
       "license": "MIT",
-      "pushedAt": "2026-09-24T18:52:19Z",
-      "updatedAt": "2026-10-04T16:01:47Z",
+      "pushedAt": "2026-10-05T18:57:18Z",
+      "updatedAt": "2026-10-05T11:08:29Z",
       "archived": false
     },
     "feathericons/feather": {
-      "stars": 26008,
-      "forks": 1282,
+      "stars": 26010,
+      "forks": 1281,
       "license": "MIT",
       "pushedAt": "2025-03-11T02:18:59Z",
-      "updatedAt": "2026-10-04T14:47:24Z",
+      "updatedAt": "2026-10-05T11:31:38Z",
+      "archived": false
+    },
+    "floating-ui/floating-ui": {
+      "stars": 32757,
+      "forks": 1715,
+      "license": "MIT",
+      "pushedAt": "2026-09-28T06:32:08Z",
+      "updatedAt": "2026-10-05T16:45:49Z",
+      "archived": false
+    },
+    "fortawesome/font-awesome": {
+      "stars": 76954,
+      "forks": 12168,
+      "license": null,
+      "pushedAt": "2026-07-15T18:15:53Z",
+      "updatedAt": "2026-10-05T14:51:57Z",
       "archived": false
     },
     "google/material-design-icons": {
-      "stars": 54070,
-      "forks": 9749,
+      "stars": 54074,
+      "forks": 9747,
       "license": "Apache-2.0",
       "pushedAt": "2026-10-02T02:22:12Z",
-      "updatedAt": "2026-10-04T15:40:13Z",
+      "updatedAt": "2026-10-05T19:05:41Z",
+      "archived": false
+    },
+    "greensock/gsap": {
+      "stars": 28825,
+      "forks": 2235,
+      "license": null,
+      "pushedAt": "2026-04-13T13:08:58Z",
+      "updatedAt": "2026-10-05T18:26:41Z",
       "archived": false
     },
     "grommet/grommet-icons": {
@@ -49,28 +169,84 @@
       "updatedAt": "2026-08-18T10:23:29Z",
       "archived": false
     },
+    "heroui-inc/heroui": {
+      "stars": 30869,
+      "forks": 2236,
+      "license": "Apache-2.0",
+      "pushedAt": "2026-10-03T04:44:09Z",
+      "updatedAt": "2026-10-05T17:18:05Z",
+      "archived": false
+    },
+    "htmlstreamofficial/preline": {
+      "stars": 6471,
+      "forks": 414,
+      "license": null,
+      "pushedAt": "2026-08-31T01:53:38Z",
+      "updatedAt": "2026-10-05T19:02:29Z",
+      "archived": false
+    },
+    "ibelick/motion-primitives": {
+      "stars": 6467,
+      "forks": 272,
+      "license": "MIT",
+      "pushedAt": "2026-09-28T13:32:11Z",
+      "updatedAt": "2026-10-05T18:41:08Z",
+      "archived": false
+    },
+    "ibelick/prompt-kit": {
+      "stars": 3108,
+      "forks": 167,
+      "license": "MIT",
+      "pushedAt": "2026-09-28T13:33:31Z",
+      "updatedAt": "2026-10-05T18:33:02Z",
+      "archived": false
+    },
     "ibelick/ui-skills": {
-      "stars": 9379,
+      "stars": 9406,
       "forks": 430,
       "license": "MIT",
-      "pushedAt": "2026-10-04T14:09:14Z",
-      "updatedAt": "2026-10-04T15:19:57Z",
+      "pushedAt": "2026-10-05T06:26:21Z",
+      "updatedAt": "2026-10-05T18:10:17Z",
       "archived": false
     },
     "iconoir-icons/iconoir": {
-      "stars": 4567,
+      "stars": 4569,
       "forks": 198,
       "license": "MIT",
       "pushedAt": "2026-08-12T04:18:42Z",
-      "updatedAt": "2026-10-03T15:13:30Z",
+      "updatedAt": "2026-10-05T00:32:39Z",
       "archived": false
     },
     "ionic-team/ionicons": {
-      "stars": 18188,
+      "stars": 18187,
       "forks": 2051,
       "license": "MIT",
       "pushedAt": "2026-07-28T20:43:44Z",
-      "updatedAt": "2026-10-03T21:04:21Z",
+      "updatedAt": "2026-10-05T11:39:01Z",
+      "archived": false
+    },
+    "jakubantalik/transitions.dev": {
+      "stars": 4558,
+      "forks": 188,
+      "license": null,
+      "pushedAt": "2026-10-03T11:06:20Z",
+      "updatedAt": "2026-10-05T18:58:51Z",
+      "archived": false
+    },
+    "jakubkrehel/loading": {
+      "stars": 308,
+      "forks": 13,
+      "license": "MIT",
+      "pushedAt": "2026-10-05T15:02:04Z",
+      "updatedAt": "2026-10-05T17:17:51Z",
+      "archived": false
+    },
+    "juliangarnier/anime": {
+      "stars": 73367,
+      "forks": 4959,
+      "license": "MIT",
+      "pushedAt": "2026-08-21T21:29:50Z",
+      "updatedAt": "2026-10-05T19:03:33Z",
       "archived": false
     },
     "klarr-agency/circum-icons": {
@@ -81,52 +257,220 @@
       "updatedAt": "2026-08-11T12:26:40Z",
       "archived": false
     },
+    "kvnkld/aicss": {
+      "stars": 160,
+      "forks": 4,
+      "license": "MIT",
+      "pushedAt": "2026-09-30T07:05:23Z",
+      "updatedAt": "2026-10-04T10:23:00Z",
+      "archived": false
+    },
+    "lochie/torph": {
+      "stars": 1460,
+      "forks": 29,
+      "license": "MIT",
+      "pushedAt": "2026-09-07T13:18:33Z",
+      "updatedAt": "2026-10-05T14:28:51Z",
+      "archived": false
+    },
     "lucide-icons/lucide": {
-      "stars": 24847,
-      "forks": 1615,
+      "stars": 24866,
+      "forks": 1617,
       "license": null,
       "pushedAt": "2026-10-04T14:38:46Z",
-      "updatedAt": "2026-10-04T15:30:37Z",
+      "updatedAt": "2026-10-05T19:10:43Z",
+      "archived": false
+    },
+    "magicuidesign/magicui": {
+      "stars": 22474,
+      "forks": 1141,
+      "license": "MIT",
+      "pushedAt": "2026-10-05T10:22:01Z",
+      "updatedAt": "2026-10-05T17:40:02Z",
+      "archived": false
+    },
+    "mantinedev/mantine": {
+      "stars": 31797,
+      "forks": 2386,
+      "license": "MIT",
+      "pushedAt": "2026-10-05T08:10:19Z",
+      "updatedAt": "2026-10-05T16:22:25Z",
+      "archived": false
+    },
+    "microsoft/fluentui": {
+      "stars": 20312,
+      "forks": 2940,
+      "license": null,
+      "pushedAt": "2026-10-05T17:05:16Z",
+      "updatedAt": "2026-10-05T16:57:07Z",
+      "archived": false
+    },
+    "motiondivision/motion": {
+      "stars": 33841,
+      "forks": 1389,
+      "license": "MIT",
+      "pushedAt": "2026-10-05T18:34:20Z",
+      "updatedAt": "2026-10-05T19:08:51Z",
+      "archived": false
+    },
+    "mui/base-ui": {
+      "stars": 11069,
+      "forks": 564,
+      "license": "MIT",
+      "pushedAt": "2026-10-05T14:44:47Z",
+      "updatedAt": "2026-10-05T14:44:56Z",
       "archived": false
     },
     "phosphor-icons/core": {
-      "stars": 384,
-      "forks": 53,
+      "stars": 385,
+      "forks": 54,
       "license": "MIT",
       "pushedAt": "2026-01-06T21:28:48Z",
-      "updatedAt": "2026-10-02T11:03:31Z",
+      "updatedAt": "2026-10-05T15:26:39Z",
+      "archived": false
+    },
+    "pmndrs/react-spring": {
+      "stars": 29165,
+      "forks": 1219,
+      "license": "MIT",
+      "pushedAt": "2026-10-05T07:29:36Z",
+      "updatedAt": "2026-10-05T08:35:52Z",
       "archived": false
     },
     "radix-ui/icons": {
-      "stars": 2692,
+      "stars": 2694,
       "forks": 137,
       "license": "MIT",
       "pushedAt": "2026-04-02T03:59:31Z",
-      "updatedAt": "2026-10-04T14:00:33Z",
+      "updatedAt": "2026-10-05T16:44:50Z",
+      "archived": false
+    },
+    "radix-ui/primitives": {
+      "stars": 19360,
+      "forks": 1256,
+      "license": "MIT",
+      "pushedAt": "2026-08-08T16:39:51Z",
+      "updatedAt": "2026-10-05T16:44:14Z",
+      "archived": false
+    },
+    "recharts/recharts": {
+      "stars": 27614,
+      "forks": 2000,
+      "license": "MIT",
+      "pushedAt": "2026-10-05T13:59:58Z",
+      "updatedAt": "2026-10-05T14:12:34Z",
       "archived": false
     },
     "remix-design/remixicon": {
-      "stars": 8396,
+      "stars": 8397,
       "forks": 560,
       "license": null,
       "pushedAt": "2026-04-28T09:25:21Z",
-      "updatedAt": "2026-10-03T17:52:06Z",
+      "updatedAt": "2026-10-04T17:09:37Z",
       "archived": false
     },
+    "saadeghi/daisyui": {
+      "stars": 42542,
+      "forks": 1702,
+      "license": "MIT",
+      "pushedAt": "2026-09-30T02:05:20Z",
+      "updatedAt": "2026-10-05T18:17:47Z",
+      "archived": false
+    },
+    "shadcn-ui/ui": {
+      "stars": 125155,
+      "forks": 12245,
+      "license": "MIT",
+      "pushedAt": "2026-10-05T18:59:25Z",
+      "updatedAt": "2026-10-05T19:19:30Z",
+      "archived": false
+    },
+    "shadcnblocks/shadcn-ui-blocks": {
+      "stars": 401,
+      "forks": 30,
+      "license": null,
+      "pushedAt": "2025-10-09T20:08:07Z",
+      "updatedAt": "2026-10-05T08:16:38Z",
+      "archived": false
+    },
+    "shopify/polaris-react-archive": {
+      "stars": 6170,
+      "forks": 1252,
+      "license": null,
+      "pushedAt": "2026-09-11T19:54:08Z",
+      "updatedAt": "2026-10-01T10:42:39Z",
+      "archived": true
+    },
     "tabler/tabler-icons": {
-      "stars": 21896,
+      "stars": 21908,
       "forks": 1217,
       "license": "MIT",
-      "pushedAt": "2026-10-04T12:57:26Z",
-      "updatedAt": "2026-10-04T14:44:39Z",
+      "pushedAt": "2026-10-05T17:00:20Z",
+      "updatedAt": "2026-10-05T19:10:10Z",
+      "archived": false
+    },
+    "tailgrids/tailgrids": {
+      "stars": 1643,
+      "forks": 134,
+      "license": "MIT",
+      "pushedAt": "2026-08-04T11:52:38Z",
+      "updatedAt": "2026-10-05T19:10:37Z",
+      "archived": false
+    },
+    "tailwindlabs/headlessui": {
+      "stars": 28768,
+      "forks": 1208,
+      "license": "MIT",
+      "pushedAt": "2026-04-13T16:12:31Z",
+      "updatedAt": "2026-10-05T17:24:48Z",
       "archived": false
     },
     "tailwindlabs/heroicons": {
-      "stars": 23850,
+      "stars": 23852,
       "forks": 1315,
       "license": "MIT",
       "pushedAt": "2026-05-12T13:51:18Z",
-      "updatedAt": "2026-10-04T14:26:56Z",
+      "updatedAt": "2026-10-05T09:14:18Z",
+      "archived": false
+    },
+    "tanstack/table": {
+      "stars": 28473,
+      "forks": 3587,
+      "license": "MIT",
+      "pushedAt": "2026-10-04T17:56:17Z",
+      "updatedAt": "2026-10-05T18:37:09Z",
+      "archived": false
+    },
+    "themesberg/flowbite": {
+      "stars": 9368,
+      "forks": 868,
+      "license": "MIT",
+      "pushedAt": "2026-06-27T08:36:12Z",
+      "updatedAt": "2026-10-05T07:05:41Z",
+      "archived": false
+    },
+    "tremorlabs/tremor": {
+      "stars": 3646,
+      "forks": 192,
+      "license": "Apache-2.0",
+      "pushedAt": "2025-10-10T13:08:24Z",
+      "updatedAt": "2026-10-05T08:14:39Z",
+      "archived": false
+    },
+    "turbokach/ai-native-react-components": {
+      "stars": 21,
+      "forks": 4,
+      "license": "MIT",
+      "pushedAt": "2026-08-12T05:45:43Z",
+      "updatedAt": "2026-09-30T01:04:34Z",
+      "archived": false
+    },
+    "xyflow/xyflow": {
+      "stars": 38584,
+      "forks": 2540,
+      "license": "MIT",
+      "pushedAt": "2026-09-29T11:30:06Z",
+      "updatedAt": "2026-10-05T13:58:36Z",
       "archived": false
     }
   }

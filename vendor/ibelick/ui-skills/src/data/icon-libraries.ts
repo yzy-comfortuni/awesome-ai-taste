@@ -112,4 +112,11 @@ export const iconLibraries: IconLibrary[] = [
     websiteUrl: "https://devicons.io/icons/",
     githubRepo: "devicons/devicon",
   },
+  {
+    name: "Font Awesome",
+    description:
+      "A broad icon toolkit with free solid, regular, and brand icons for websites, products, and applications.",
+    websiteUrl: "https://fontawesome.com/icons",
+    githubRepo: "FortAwesome/Font-Awesome",
+  },
 ];

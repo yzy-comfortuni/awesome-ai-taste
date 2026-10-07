@@ -50,7 +50,14 @@ export default function IconLibraryDirectory({ libraries }: Props) {
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
                   <h2 className="type-body-md text-content-primary truncate font-[450]">
-                    {library.name}
+                    <a
+                      href={library.websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline"
+                    >
+                      {library.name}
+                    </a>
                   </h2>
                   {displayStars && (
                     <span

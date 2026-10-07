@@ -53,7 +53,8 @@ const footerSections: FooterSection[] = [
     links: [
       { label: "Home", href: "/" },
       { label: "Skills", href: "/skills" },
-      { label: "Icon libraries", href: "/icons" },
+      { label: "Icon", href: "/icons" },
+      { label: "Components", href: "/components" },
       { label: "Collections", href: "/collections" },
       { label: "Design.md", href: "/design-md" },
       { label: "Agents", href: "/agents" },
@@ -140,7 +141,7 @@ const footerSections: FooterSection[] = [
         {
           footerSections.map((section) => (
             <div>
-              <h3 class="type-body-md leading-snug font-[450] text-content-secondary">
+              <h3 class="type-body-md text-content-secondary leading-snug font-[450]">
                 {section.title}
               </h3>
               <ul class="mt-3 space-y-2 leading-snug">
@@ -152,7 +153,7 @@ const footerSections: FooterSection[] = [
                       rel={link.external ? "noopener noreferrer" : undefined}
                       title={link.label}
                       aria-label={link.label}
-                      class="type-body-md block max-w-full truncate font-normal text-content-secondary hover:text-content-primary"
+                      class="type-body-md text-content-secondary hover:text-content-primary block max-w-full truncate font-normal"
                     >
                       {link.label}
                     </a>
@@ -165,7 +166,7 @@ const footerSections: FooterSection[] = [
       </div>
 
       <div
-        class="type-body-md border-line-default mt-16 flex w-full justify-center border-t pt-16 leading-snug text-content-secondary"
+        class="type-body-md border-line-default text-content-secondary mt-16 flex w-full justify-center border-t pt-16 leading-snug"
       >
         <p class="text-center">
           ©{currentYear}

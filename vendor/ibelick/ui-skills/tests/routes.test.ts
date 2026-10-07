@@ -5,6 +5,7 @@ import { GET as getSkillContent } from "../src/pages/skills/[...slug]/llms.txt.t
 import { GET as getSitemap } from "../src/pages/sitemap.xml.ts";
 import { renderSkillMarkdown } from "../src/lib/render-skill-markdown.ts";
 import { collections } from "../src/data/collections.ts";
+import { componentCollections } from "../src/data/component-libraries.ts";
 
 describe("route boundaries", () => {
   test("includes Playbook pages in the sitemap", async () => {
@@ -33,6 +34,22 @@ describe("route boundaries", () => {
         body,
         new RegExp(
           `https://www\\.ui-skills\\.com/collections/${collection.slug}`,
+        ),
+      );
+    }
+  });
+
+  test("includes every component collection in the sitemap", async () => {
+    const response = await getSitemap({
+      site: new URL("https://www.ui-skills.com"),
+    } as never);
+    const body = await response.text();
+
+    for (const collection of componentCollections) {
+      assert.match(
+        body,
+        new RegExp(
+          `https://www\\.ui-skills\\.com/components/${collection.routeSlug}`,
         ),
       );
     }

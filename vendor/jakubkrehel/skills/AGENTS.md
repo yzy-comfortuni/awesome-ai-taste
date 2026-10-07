@@ -23,7 +23,7 @@ Every `SKILL.md` carries:
 - **Frontmatter** with `name` (matching the directory) and `description`.
 - **A plain-name H1** and a two-sentence opener saying what the skill is and what it does. Not what the domain means or why it matters: an agent does not need motivating, and a reader can tell the difference.
 - **A calibration line or two**, in the opener or in its own section where it needs the room. This is where a skill says how hard to press: which values are exact rather than approximate, what counts as a finding versus a preference, when the right answer is to write nothing. A skill that lists rules without saying how hard to press leaves that to chance. That is the difference between a review that blocks on evidence and one that blocks on taste. Give the section a heading that carries its own point (`Evidence, not taste`), not a generic label.
-- **Headings that carry the point**, in sentence case. `Native elements first`, not `Semantics`. Number them only where the steps genuinely run in order, as `better-interface` and `interface-review` do; numbering flat reference implies a sequence that isn't there and makes every insertion a renumber.
+- **Headings that carry the point**, in sentence case. `Native elements first`, not `Semantics`. Number them only where the steps genuinely run in order, as in a verb skill's procedure. Numbering flat reference implies a sequence that isn't there and makes every insertion a renumber.
 - **A hand-off line** naming the sibling skills that own adjacent topics.
 - **A `## Before you finish` table**, two columns, where the domain has recurring mistakes. The left column is the detection pattern, which is what a principle statement does not give you. The heading names the moment on purpose: `Common mistakes` is a label an agent reads past while orienting, and `Before you finish` names the point in the work where the table is worth consulting.
 - **A `## Reporting` section** in every domain skill, carrying that domain's severity ladder, its verification checks and the format for a standalone review. See below.
@@ -40,15 +40,21 @@ Each skill carries the format for the review it produces. `better-interface` hol
 
 Those three overlap, and that overlap is the price of a skill that works when installed alone. Someone who installs only `better-typography` has no `better-interface` on disk to read a format out of.
 
+The same test settles any other overlap. A skill keeps a fact its own output cannot be produced without, such as a threshold it reports against or the trigger list it builds to, and names the owner beside it. A hand-off is enough when, without the sibling, the topic is simply out of scope. A recipe or a longer restatement of another skill's rule never qualifies.
+
+Two copies pass that test because each skill needs them whole, and they must match. `variant`'s `picker.md` and `state-machine`'s `switcher.md` are one text with the noun swapped. The paragraphs on the throwaway route in `break` and `state-machine` are one text, word for word. Change each pair together.
+
 ### Invocation
 
 A user-invoked skill may invoke model-invoked skills, but it can never reach another user-invoked skill. That rule decides the setting; it is not a preference:
 
-- `interface-review`, `variant`, `break` and `explain-interface` are the user-invoked skills. Each carries `disable-model-invocation: true` in its frontmatter **and** `policy.allow_implicit_invocation: false` in its `agents/openai.yaml`. Those are the Claude Code and Codex halves of the same switch and must be set together, or the skill behaves differently per harness.
+- `interface-review`, `variant`, `break`, `state-machine` and `explain-interface` are the user-invoked skills. Each carries `disable-model-invocation: true` in its frontmatter **and** `policy.allow_implicit_invocation: false` in its `agents/openai.yaml`. Those are the Claude Code and Codex halves of the same switch and must be set together, or the skill behaves differently per harness.
 - `variant` is user-invoked because a design exploration is never something to start on someone's behalf. It writes throwaway code and then asks a question only a person can answer, so an agent firing it unprompted produces work nobody asked for and a harness nobody deletes.
 - `break` is user-invoked for the same reason as `variant`: it writes a throwaway harness, and an agent firing it after every component it touches would litter the repo with test pages.
+- `state-machine` is user-invoked for the same reason as `break`: it writes a throwaway page with mock data and a switcher. Only the person working on the visuals knows when that setup is wanted or done.
 - `explain-interface` is user-invoked because studying someone else's interface is only ever something a person asks for. Pasting a URL is not a request to analyse it, and a skill firing on every link would turn each mention of a site into a report.
-- Every other skill is model-invoked, because something must reach it: `better-interface` routes to every domain skill, and `interface-review` hands its review up to `better-interface`.
+- The domain skills and `better-interface` are model-invoked, because something must reach them: `better-interface` routes to every domain skill, and `interface-review` hands its review up to `better-interface`.
+- `build-design` is model-invoked although nothing routes to it, because a design link with a request to build it is already a direct request. It writes production code the user asked for, not a throwaway harness.
 - `better-interface` therefore cannot start `interface-review`. Where it would want to, it asks the user to run it. Making `better-interface` user-invoked too would sever the upward handoff and force `interface-review` to restate severity, the cap, the format and the verdict.
 
 ### Rule ownership
@@ -59,17 +65,19 @@ A user-invoked skill may invoke model-invoked skills, but it can never reach ano
 | `interface-review` | Change scope resolution including the empty-scope offer, blast radius from changed files to affected surfaces, finding classification (`Introduced` / `Regression` / `Pre-existing`) and the change-scoped report format |
 | `variant` | Design exploration: the axis set variants may diverge on, how many to build, the harness and picker, the tradeoff table and promotion. Owns no domain rules; every variant clears `better-interface`'s escalation triggers as its floor |
 | `break` | Robustness testing of one component: the scenario axes and their applicability cues, the harness page that doubles as the visual report, the render-and-observe rule and the survived / broke findings. Owns no domain rules and issues no verdict; each break names the domain skill that owns the fix. Isolates on purpose where `variant` insists on the real page |
-| `explain-interface` | Reading an interface you did not build: scoping to the thing asked about, the layer search, the URL and screenshot branches, the measured / derived / inferred evidence tiers, treating fetched page content as untrusted input, explaining the mechanism rather than the readout, and the minimal reproduction. Owns no domain rules and issues no verdict; it names what it finds in each domain skill's vocabulary |
+| `state-machine` | Making every state of one component reachable on a throwaway page: finding the states in the code, the scratch route, feeding fixtures at the data boundary without editing the component, the switcher, confirming each state renders, the iteration loop and one-step removal. Owns no domain rules and issues no findings. Shows one product state at a time and stays up, where `break` stacks hostile scenarios for a single look |
+| `explain-interface` | Reading an interface you did not build: scoping to the thing asked about, the layer search, the URL and screenshot branches, the measured / derived / inferred evidence tiers, treating fetched page content as untrusted input, explaining the mechanism rather than the readout, and closing on the transferable recipe in words rather than a code reproduction. Owns no domain rules and issues no verdict; it names what it finds in each domain skill's vocabulary |
+| `build-design` | Building from a design: reading the Figma file or image at its source, mapping design values and instances onto existing tokens and components, the rounding rule, building only what the frames show, the side-by-side comparison and the fidelity report. Owns no domain rules; a design that breaks one is reported to its owner, never silently fixed |
 | `better-accessibility` | Semantic HTML, keyboard and focus behavior, accessible names, forms, assistive technology and accessibility requirements |
-| `better-layout` | Spatial grouping, alignment, spacing, responsive structure, logical CSS properties and spatial RTL behavior |
-| `better-writing` | Source wording, terminology, voice, tone, labels, errors and empty-state copy |
+| `better-layout` | Spatial grouping, alignment, spacing, container sizing, responsive structure, logical CSS properties, spatial RTL behavior and the expansion affordance for truncated content |
+| `better-writing` | Source wording, terminology, voice, tone, labels, errors, empty-state copy and the confirm-or-undo rule for destructive actions |
 | `better-typography` | Visual text rendering, type systems, font behavior, wrapping mechanics, punctuation and text-level bidi behavior |
 | `better-colors` | Palette structure and step roles, palette construction, color token naming, color notation, gamut, rendered-pair contrast measurement and color remediation |
-| `better-ui` | Optional visual polish: surfaces, icons and motion aesthetics after the underlying interaction is sound |
+| `better-ui` | Optional visual polish: surfaces, icons including directional icon mirroring, hover gating and motion aesthetics after the underlying interaction is sound |
 
 When a concern crosses domains, keep the rule in the owner above and let other skills name only the handoff or secondary effect. In particular:
 
-- `better-accessibility` decides when contrast is required and whether the pair fails; `better-colors` owns measuring the rendered pair and changing its colors. Severity is `better-interface`'s in an orchestrated review; each domain skill defines severity only for its own standalone output.
+- `better-accessibility` decides when contrast is required and whether the pair fails; `better-colors` owns measuring the rendered pair and changing its colors. Both carry the threshold numbers, because neither can report a failing pair without them, and they must match. Severity is `better-interface`'s in an orchestrated review; each domain skill defines severity only for its own standalone output.
 - `better-accessibility` owns semantic heading structure; `better-typography` owns how heading levels render visually.
 - `better-layout` owns logical CSS properties and spatial mirroring; `better-typography` owns language metadata, punctuation and mixed-direction text.
 - `better-typography` owns truncation mechanics; `better-layout` owns whether the surrounding layout has room or an expansion affordance; `better-writing` owns the source copy.
@@ -81,7 +89,7 @@ When a concern crosses domains, keep the rule in the owner above and let other s
 - Principles are prescriptive and specific: exact CSS properties, exact values (e.g. scale `0.25` → `1`, blur `4px` → `0px`), not vague advice.
 - Match the degree of prescription to the decision: requirements may be unconditional, while design heuristics name the context and escape conditions before giving exact recipe values.
 - Skills instruct agents to match the target project's existing styling system (Tailwind vs. plain CSS vs. CSS-in-JS) rather than impose one.
-- Frontmatter `description` is how a skill gets found, and it is one or two plain sentences saying what the skill does for the user. It loads on every turn, so it earns harder pruning than the body. No trigger list: a keyword pile is a worse match signal than a clear sentence, and it goes stale the moment the skill's scope moves. The wording is the same as the skill's line in `README.md`, so changing one means changing both.
+- Frontmatter `description` is how a skill gets found, and it is one or two plain sentences saying what the skill does for the user. It loads on every turn, so it earns harder pruning than the body. No trigger list: a keyword pile is a worse match signal than a clear sentence, and it goes stale the moment the skill's scope moves. The wording is the same as the skill's line in `README.md`, so changing one means changing both. The README may bold key terms and append `User-invoked.` for a user-invoked skill, and nothing else.
 - Skills that own a domain use the `better-*` prefix. A user-invoked review entry point may drop it when a plainer name reads better on the command line, as `interface-review` does.
 - A skill's name appears in three places: its directory, its frontmatter `name` and `display_name` in its `agents/openai.yaml`. Renaming means changing all three, then `grep`ing for the old name to confirm nothing survived.
 - Prefer counts and lists that cannot go stale. Say "every skill in this repository" rather than a number the next skill invalidates.

@@ -5,19 +5,26 @@ import { designMd } from "../../data/design-md";
 import Layout from "../../layouts/Layout.astro";
 import Breadcrumbs from "../../ui/breadcrumbs.astro";
 import DesignMdItem from "../../ui/design-md-item.astro";
+import RelatedDirectoryLinks from "../../ui/related-directory-links.astro";
 import { SHOW_DESIGN_MD } from "../../config/features";
 
 if (!SHOW_DESIGN_MD) return Astro.redirect("/");
 
-const orderedDesignMd = [...designMd].sort((a, b) => a.name.localeCompare(b.name));
-const breadcrumbItems = [{ label: "Explore", href: "/" }, { label: "Design.md" }];
+const orderedDesignMd = [...designMd].sort((a, b) =>
+  a.name.localeCompare(b.name),
+);
+const breadcrumbItems = [
+  { label: "Explore", href: "/" },
+  { label: "Design.md" },
+];
 const siteOrigin = Astro.site ?? new URL("https://www.ui-skills.com");
 const pageUrl = new URL("/design-md", siteOrigin).toString();
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: "Top DESIGN.md files from real-world companies",
-  description: "Curation of public and original design.md files from genuine companies and open source projects",
+  description:
+    "Curation of public and original design.md files from genuine companies and open source projects",
   url: pageUrl,
   mainEntity: {
     "@type": "ItemList",
@@ -40,20 +47,39 @@ const structuredData = {
   twitterImage="https://www.ui-skills.com/designmd-ogimage-x.png"
 >
   <div class="relative flex min-h-dvh flex-col items-center">
-    <div class="relative mt-20 container-3xl">
+    <div class="container-3xl relative mt-20">
       <div class="mx-auto flex w-full flex-col gap-8">
         <Breadcrumbs items={breadcrumbItems} />
 
-        <div class="container-sm ml-0 px-0 flex flex-col gap-3">
-            <h1 class="type-h1 text-content-primary">Top design.md files from real-world companies</h1>
+        <div class="container-sm ml-0 flex flex-col gap-3 px-0">
+          <h1 class="type-h1 text-content-primary">
+            Top design.md files from real-world companies
+          </h1>
           <p class="type-body-md text-content-secondary">
-            Curation of public and original design.md files from genuine companies and open source projects
+            Curation of public and original design.md files from genuine
+            companies and open source projects
           </p>
         </div>
 
         <div class="flex flex-col">
           {orderedDesignMd.map((entry) => <DesignMdItem {...entry} />)}
         </div>
+        <RelatedDirectoryLinks
+          links={[
+            {
+              label: "Component libraries",
+              href: "/components",
+              description:
+                "Compare React libraries, primitives, shadcn components, and UI systems.",
+            },
+            {
+              label: "Icon libraries",
+              href: "/icons",
+              description:
+                "Browse open-source icon libraries for product interfaces and web apps.",
+            },
+          ]}
+        />
       </div>
     </div>
   </div>

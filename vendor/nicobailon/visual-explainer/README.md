@@ -34,6 +34,7 @@ This skill fixes that. Real typography, dark/light themes, hand-drawn diagrams t
 | Pi | Package metadata plus installer | `package.json` advertises the skill, prompts, and native `visual_explainer` tool with `prepare` and `render` actions; `install-pi.sh` installs copied skill/prompt resources for legacy manual installs |
 | MCP hosts | Local stdio MCP server | `visual-explainer-mcp` exposes render tools, prompt templates, and read-only skill resources without starting an HTTP server |
 | PPTX export | Best-effort static utility | `visual-explainer-pptx` converts simple HTML slide decks to `.pptx`; HTML remains the source of truth |
+| Video export | Local renderer (needs ffmpeg, Chrome, and `playwright-core`, installed separately) | `/generate-video` writes a video deck and `visual-explainer-video` records it to a 1080p MP4, frame by frame, narrated when a speech API key is set and captioned otherwise |
 | Antigravity CLI | Native Agent Skills path | Copy `plugins/visual-explainer/` to `~/.gemini/antigravity-cli/skills/visual-explainer` for global use or `.agents/skills/visual-explainer` for one workspace |
 | Codex CLI | Native skill path plus optional prompts | Copy to `~/.codex/skills/visual-explainer`; optional prompts go in `~/.codex/prompts/` if your Codex build supports them |
 | OpenCode/opencode | Observed skill/command paths | Copy to `~/.config/opencode/skill/visual-explainer`; optional commands go in `~/.config/opencode/command/` |
@@ -433,10 +434,11 @@ Use `configs/copilot/AGENTS.md` as custom instructions or rules guidance. For VS
 | Command | What it does |
 |---------|-------------|
 | `/generate-web-diagram` | Generate an HTML diagram for any topic |
-| `/generate-visual-plan` | Generate a visual implementation plan for a feature or extension |
+| `/generate-visual-plan` | An implementation plan you answer in the page: the change drawn, a short tree of claims, decisions with suggested defaults, then one response to paste back. After the build, the same page shows what was built |
 | `/generate-slides` | Generate a magazine-quality slide deck |
+| `/generate-video` | Generate a narrated MP4 explainer, or record a walkthrough of a live web app |
 | `/diff-review` | Visual diff review with architecture comparison and code review |
-| `/plan-review` | Compare a plan against the codebase with risk assessment |
+| `/plan-review` | Check a plan against the codebase: each finding shows its evidence and a fix you accept or reject in the page |
 | `/project-recap` | Mental model snapshot for context-switching back to a project |
 | `/fact-check` | Verify accuracy of a document against actual code |
 
@@ -501,10 +503,12 @@ plugins/
     ├── quick/             ← JSON schema + deterministic local renderer
     ├── mcp/               ← local stdio MCP server
     ├── pptx/              ← best-effort static PPTX exporter
+    ├── video/             ← MP4 renderer for video decks
     ├── references/        ← read on demand
     │   ├── style-guide.md (four registers, tokens, scale, components, polish pass)
     │   ├── diagrams.md    (hand-drawn SVG kit, linked highlighting, stepper/scene player)
     │   ├── slides.md      (deck budget, engine contract, delivery check)
+    │   ├── video.md       (video deck contract, script and look rules, voice clips, tutorials)
     │   └── themes.md      (11 palettes + runtime theme/font picker)
     └── templates/
         ├── page.html      (figure-first reference page, Instrument register)

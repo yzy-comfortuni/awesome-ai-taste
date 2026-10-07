@@ -3,8 +3,10 @@ import { spawn } from "node:child_process";
 import { randomUUID } from "node:crypto";
 import { homedir } from "node:os";
 import { join, resolve } from "node:path";
+import { createInterface } from "node:readline";
 import type { AgentToolResult, ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { renderQuickSpec } from "./quick/render.mjs";
+import { renderPlanForHost } from "./plan/render.mjs";
 
 type VisualExplainerParams = {
   action: "prepare" | "render" | "render_quick";
@@ -56,6 +58,7 @@ type RenderDetails = OpenResult & {
   action: "render" | "render_quick";
   path: string;
   viewer: Viewer;
+  planSource?: string;
 };
 
 type VisualExplainerDetails = PrepareDetails | RenderDetails;
@@ -193,9 +196,18 @@ function prepareRenderedHtml(html: string) {
   return ensureDocumentMetadata(ensureFavicon(escapeDisplayMath(html)));
 }
 
-function runOpener(command: string, args: string[], openTarget: OpenTarget): Promise<OpenResult> {
+function runOpener(command: string, args: string[], openTarget: OpenTarget, onMessage?: (data: unknown) => void): Promise<OpenResult> {
   return new Promise<OpenResult>((resolve) => {
-    const child = spawn(command, args, { detached: true, stdio: "ignore", windowsHide: true });
+    const child = spawn(command, args, { detached: true, stdio: onMessage ? ["ignore", "pipe", "ignore"] : "ignore", windowsHide: true });
+    if (onMessage && child.stdout) {
+      // glimpseui prints each window.glimpse.send(...) payload as one JSON line
+      createInterface({ input: child.stdout }).on("line", (line) => {
+        let data: unknown;
+        try { data = JSON.parse(line); } catch { return; }
+        onMessage(data);
+      });
+      (child.stdout as unknown as { unref(): void }).unref();
+    }
     let settled = false;
 
     const settle = (result: OpenResult) => {
@@ -240,15 +252,15 @@ async function openInBrowser(path: string): Promise<OpenResult> {
   return { openAttempted: false, openStatus: "unsupported", openTarget: "browser" };
 }
 
-async function openInGlimpse(path: string): Promise<OpenResult> {
-  return await runOpener("glimpseui", ["--width", "1200", "--height", "900", "--title", "Visual Explainer", "--open-links", path], "glimpse");
+async function openInGlimpse(path: string, onMessage?: (data: unknown) => void): Promise<OpenResult> {
+  return await runOpener("glimpseui", ["--width", "1200", "--height", "900", "--title", "Visual Explainer", "--open-links", path], "glimpse", onMessage);
 }
 
-async function openRenderedPage(path: string, viewer: Viewer): Promise<OpenResult> {
+async function openRenderedPage(path: string, viewer: Viewer, onMessage?: (data: unknown) => void): Promise<OpenResult> {
   if (viewer === "browser") return await openInBrowser(path);
-  if (viewer === "glimpse") return await openInGlimpse(path);
+  if (viewer === "glimpse") return await openInGlimpse(path, onMessage);
 
-  const glimpseResult = await openInGlimpse(path);
+  const glimpseResult = await openInGlimpse(path, onMessage);
   if (glimpseResult.openStatus !== "failed") return glimpseResult;
 
   const browserResult = await openInBrowser(path);
@@ -331,12 +343,16 @@ async function writeRenderedHtml(
   open: boolean | undefined,
   viewer: Viewer,
   signal?: AbortSignal,
+  plan?: { root: string; onResponse: (markdown: string, page: string) => void },
 ): Promise<AgentToolResult<VisualExplainerDetails>> {
   signal?.throwIfAborted();
 
-  const filename = outputFilename(filenameInput);
   assertHtmlDocument(htmlInput);
-  const html = prepareRenderedHtml(htmlInput);
+  // Only a page Pi opens in Glimpse itself can send the reader's response back into this chat.
+  const sendBack = open !== false && viewer !== "browser";
+  const page = plan ? renderPlanForHost(htmlInput, { root: plan.root, filename: outputFilename(filenameInput), sendBack }) : null;
+  const filename = page?.filename ?? outputFilename(filenameInput);
+  const html = page ? page.html : prepareRenderedHtml(htmlInput);
   const { path: outputDir, configured } = resolveOutputDirectory();
   const outputPath = join(outputDir, filename);
   if (existsSync(outputDir) && lstatSync(outputDir).isSymbolicLink()) throw new Error(`${outputDir} must not be a symlink`);
@@ -344,24 +360,35 @@ async function writeRenderedHtml(
   if (configured && realpathSync(outputDir) !== outputDir) {
     throw new Error(`${outputDir} must not contain symlinks and must resolve to itself`);
   }
-  const existing = lstatSync(outputPath, { throwIfNoEntry: false });
-  if (existing?.isSymbolicLink()) throw new Error(`${outputPath} must not be a symlink`);
+  const writeAtomically = (path: string, content: string) => {
+    const existing = lstatSync(path, { throwIfNoEntry: false });
+    if (existing?.isSymbolicLink()) throw new Error(`${path} must not be a symlink`);
+    const temporaryPath = `${path}.${process.pid}.${randomUUID()}.tmp`;
+    try {
+      writeFileSync(temporaryPath, content, { encoding: "utf8", flag: "wx" });
+      if (existing) chmodSync(temporaryPath, existing.mode & 0o7777);
+      renameSync(temporaryPath, path);
+    } finally {
+      rmSync(temporaryPath, { force: true });
+    }
+  };
 
   signal?.throwIfAborted();
-  const temporaryPath = `${outputPath}.${process.pid}.${randomUUID()}.tmp`;
-  try {
-    writeFileSync(temporaryPath, html, { encoding: "utf8", flag: "wx" });
-    if (existing) chmodSync(temporaryPath, existing.mode & 0o7777);
-    renameSync(temporaryPath, outputPath);
-  } finally {
-    rmSync(temporaryPath, { force: true });
-  }
+  // Keep the plan source beside the page: revisions and build receipts are small edits to it, then a new render.
+  // The source goes first, so a failed write never leaves a new page beside an old source.
+  const planSource = page?.source ? join(outputDir, page.source) : undefined;
+  if (planSource) writeAtomically(planSource, htmlInput);
+  writeAtomically(outputPath, html);
 
   signal?.throwIfAborted();
 
+  const onMessage = page && plan ? (data: unknown) => {
+    const d = data as { type?: unknown; markdown?: unknown } | null;
+    if (d?.type === "visual-explainer:plan-response" && typeof d.markdown === "string") plan.onResponse(d.markdown, outputPath);
+  } : undefined;
   const openResult = open === false
     ? { openAttempted: false, openStatus: "disabled" as const }
-    : await openRenderedPage(outputPath, viewer);
+    : await openRenderedPage(outputPath, viewer, onMessage);
 
   let message = `Wrote ${outputPath}.`;
   if (openResult.openStatus === "dispatched") {
@@ -374,10 +401,12 @@ async function writeRenderedHtml(
   if (openResult.fallbackFrom === "glimpse") {
     message += ` Glimpse fallback reason: ${openResult.fallbackError ?? "unknown error"}.`;
   }
+  if (page) message += page.note;
+  if (onMessage && openResult.openTarget === "glimpse" && openResult.openStatus === "dispatched") message += " When the reader presses Send to agent, their response arrives here as a plan response message; wait for it.";
 
   return {
     content: [{ type: "text" as const, text: message }],
-    details: { action, path: outputPath, viewer, ...openResult },
+    details: { action, path: outputPath, viewer, ...openResult, ...(planSource ? { planSource } : {}) },
   };
 }
 
@@ -389,10 +418,10 @@ function validateRenderOptions(params: VisualExplainerParams): asserts params is
   }
 }
 
-async function renderVisualExplanation(params: VisualExplainerParams, signal?: AbortSignal): Promise<AgentToolResult<VisualExplainerDetails>> {
+async function renderVisualExplanation(params: VisualExplainerParams, plan: { root: string; onResponse: (markdown: string, page: string) => void }, signal?: AbortSignal): Promise<AgentToolResult<VisualExplainerDetails>> {
   validateRenderOptions(params);
   if (typeof params.html !== "string") throw new Error("html must be a string for action=render");
-  return await writeRenderedHtml("render", params.filename, params.html, params.open, params.viewer ?? "browser", signal);
+  return await writeRenderedHtml("render", params.filename, params.html, params.open, params.viewer ?? "browser", signal, plan);
 }
 
 async function renderQuickVisualExplanation(params: VisualExplainerParams, signal?: AbortSignal): Promise<AgentToolResult<VisualExplainerDetails>> {
@@ -415,17 +444,23 @@ export default function (pi: ExtensionAPI) {
       "If visual_explainer action=prepare recommends subagent scouting and the subagent tool is available, gather context first, then synthesize complete HTML and finish with visual_explainer action=render.",
       "Use visual_explainer action=render only after generating a complete visual-explainer HTML document; pass a basename-style filename because it writes under ~/.agent/diagrams/ (or VISUAL_EXPLAINER_OUTPUT_DIR when set). Use viewer=glimpse only when the user wants a native Glimpse window and glimpseui is installed; viewer=auto may fall back to the browser.",
       "Use action=render_quick only when --quick is explicit on generate-web-diagram, diff-review, plan-review, or project-recap. Pass the compact schema spec. If it fails or does not fit, use the full HTML workflow and action=render.",
+      "For an implementation plan, pass the plan source (<ve-plan> tags, see the skill's references/plans.md) to action=render. It checks the plan against the session's cwd, writes the page, and keeps the source beside it as <name>.src.html.",
     ],
     parameters: visualExplainerParameters,
     executionMode: "sequential",
-    async execute(_toolCallId: string, params: VisualExplainerParams, signal?: AbortSignal) {
+    async execute(_toolCallId: string, params: VisualExplainerParams, signal: AbortSignal | undefined, _onUpdate: unknown, ctx: { cwd: string }) {
       if (params.action !== "prepare" && params.action !== "render" && params.action !== "render_quick") {
         throw new Error("action must be 'prepare', 'render', or 'render_quick'");
       }
 
       if (params.action === "prepare") return prepareVisualExplanation(pi, params);
       if (params.action === "render_quick") return await renderQuickVisualExplanation(params, signal);
-      return await renderVisualExplanation(params, signal);
+      // a labeled message from the page rather than text the user typed; it starts a turn, or waits if the agent is busy
+      const onResponse = (markdown: string, page: string) => pi.sendMessage(
+        { customType: "visual_explainer_plan_response", content: `The reader answered the plan at ${page}:\n\n${markdown}`, display: true, details: { page } },
+        { triggerTurn: true, deliverAs: "followUp" },
+      );
+      return await renderVisualExplanation(params, { root: ctx.cwd, onResponse }, signal);
     },
   });
 }

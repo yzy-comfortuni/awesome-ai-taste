@@ -1,0 +1,45 @@
+---
+type RelatedLink = {
+  label: string;
+  href: string;
+  description: string;
+};
+
+type Props = {
+  links: RelatedLink[];
+};
+
+import Card from "./card.astro";
+
+const { links } = Astro.props as Props;
+---
+
+<section
+  class="flex flex-col gap-5"
+  aria-labelledby="related-directories-title"
+>
+  <h2
+    id="related-directories-title"
+    class="type-body-md text-content-secondary font-[450] text-balance"
+  >
+    Explore related directories
+  </h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    {
+      links.map((link) => (
+        <a href={link.href} aria-label={link.label} class="group block h-full">
+          <Card className="h-full transition-colors group-hover:border-content-extra-muted">
+            <div class="flex flex-col gap-0.5">
+              <div class="type-body-md text-content-primary font-[450]">
+                {link.label}
+              </div>
+              <div class="type-body-md text-content-secondary line-clamp-3">
+                {link.description}
+              </div>
+            </div>
+          </Card>
+        </a>
+      ))
+    }
+  </div>
+</section>

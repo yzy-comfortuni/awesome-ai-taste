@@ -124,6 +124,37 @@ try {
     );
   }
 
+  const components = await fetchLocal("/components");
+  if (components.status !== 200) {
+    throw new Error(`Components directory returned ${components.status}`);
+  }
+  const componentsBody = await components.text();
+  for (const marker of [
+    "React component libraries",
+    "Motion Primitives",
+    "prompt-kit",
+    'href="/components/react"',
+    "Explore related directories",
+    '"@type":"CollectionPage"',
+  ]) {
+    if (!componentsBody.includes(marker)) {
+      throw new Error(`Components page is missing ${marker}`);
+    }
+  }
+
+  const productionComponents = await fetchLocal("/components/react");
+  if (productionComponents.status !== 200) {
+    throw new Error(
+      `Production components page returned ${productionComponents.status}`,
+    );
+  }
+  const productionComponentsBody = await productionComponents.text();
+  for (const marker of ["React component libraries", 'href="/components"']) {
+    if (!productionComponentsBody.includes(marker)) {
+      throw new Error(`Production components page is missing ${marker}`);
+    }
+  }
+
   const stonksScript = await fetchLocal("/analytics/stonks.js");
   if (stonksScript.status !== 200) {
     throw new Error("First-party One Dollar Stats script is missing");

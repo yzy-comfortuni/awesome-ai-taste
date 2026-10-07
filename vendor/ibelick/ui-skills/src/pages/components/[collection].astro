@@ -1,0 +1,110 @@
+---
+export const prerender = true;
+
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../ui/breadcrumbs.astro";
+import ComponentLibraryDirectory from "../../ui/component-library-directory";
+import RelatedDirectoryLinks from "../../ui/related-directory-links.astro";
+import {
+  componentCollections,
+  componentLibraries,
+} from "../../data/component-libraries";
+
+export function getStaticPaths() {
+  return componentCollections.map((collection) => ({
+    params: { collection: collection.routeSlug },
+    props: { collection },
+  }));
+}
+
+const { collection } = Astro.props as {
+  collection: (typeof componentCollections)[number];
+};
+const collectionLibraries = componentLibraries.filter(
+  (library) => library.collection === collection.slug,
+);
+const breadcrumbItems = [
+  { label: "Explore", href: "/" },
+  { label: "Components", href: "/components" },
+  { label: collection.title },
+];
+const siteOrigin = Astro.site ?? new URL("https://www.ui-skills.com");
+const pageUrl = new URL(
+  `/components/${collection.routeSlug}`,
+  siteOrigin,
+).toString();
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: collection.seoTitle,
+    description: collection.metaDescription,
+    url: pageUrl,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: collectionLibraries.length,
+      itemListElement: collectionLibraries.map((library, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: library.name,
+        url: library.websiteUrl,
+      })),
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbItems.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.label,
+      item: new URL(
+        item.href ?? `/components/${collection.routeSlug}`,
+        siteOrigin,
+      ).toString(),
+    })),
+  },
+];
+---
+
+<Layout
+  structuredData={structuredData}
+  title={`${collection.seoTitle} | UI Skills`}
+  description={collection.metaDescription}
+>
+  <div class="relative flex min-h-dvh flex-col items-center justify-start">
+    <div class="container-3xl relative mt-20">
+      <div class="mx-auto flex w-full flex-col gap-10">
+        <Breadcrumbs items={breadcrumbItems} />
+
+        <div class="flex flex-col gap-3">
+          <h1 class="type-h1 text-content-primary">{collection.title}</h1>
+          <p class="type-body-md text-content-secondary">{collection.intro}</p>
+        </div>
+
+        <ComponentLibraryDirectory
+          libraries={collectionLibraries}
+          showCollectionHeaders={false}
+          client:idle
+        />
+
+        <RelatedDirectoryLinks
+          links={[
+            {
+              label: "All component libraries",
+              href: "/components",
+              description:
+                "Browse every curated component library and UI system in one directory.",
+            },
+            {
+              label: "Icon libraries",
+              href: "/icons",
+              description:
+                "Browse open-source icon libraries for product interfaces and web apps.",
+            },
+          ]}
+        />
+      </div>
+    </div>
+  </div>
+</Layout>
