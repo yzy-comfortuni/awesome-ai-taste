@@ -2,7 +2,7 @@
 
 给 AI 用的设计、写作与可视化手册。
 
-[界面设计](#界面设计) · [文字表达](#文字表达) · [专利写作](#专利写作) · [学术论文](#学术论文) · [小说写作](#小说写作) · [图表与图解](#图表与图解) · [动画与视频](#动画与视频) · [演示文稿](#演示文稿)
+[界面设计](#界面设计) · [文字表达](#文字表达) · [专利写作](#专利写作) · [学术论文](#学术论文) · [小说写作](#小说写作) · [诗歌写作](#诗歌写作) · [图表与图解](#图表与图解) · [动画与视频](#动画与视频) · [演示文稿](#演示文稿)
 
 ## 界面设计
 
@@ -20,7 +20,7 @@
 - [Stop Slop](https://github.com/hardikpandya/stop-slop) — 英文写作短清单，处理空泛开场、冗余修饰和格言式收尾。[规则](https://github.com/hardikpandya/stop-slop/blob/main/SKILL.md#core-rules) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/hardikpandya/stop-slop?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/hardikpandya/stop-slop/stargazers) · [副本](vendor/hardikpandya/stop-slop)<!-- /source-meta -->
 - [Humanizer](https://github.com/blader/humanizer) — 英文稿件的句式、节奏与语气校订，附修改示例。[正文](https://github.com/blader/humanizer/blob/main/SKILL.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/blader/humanizer?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/blader/humanizer/stargazers) · [副本](vendor/blader/humanizer)<!-- /source-meta -->
 - [Humanizer-zh](https://github.com/op7418/Humanizer-zh) — 中文文章与文档的编辑指南，删套话、理长句，保留原意和作者语气。[正文](https://github.com/op7418/Humanizer-zh/blob/main/SKILL.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/op7418/Humanizer-zh?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/op7418/Humanizer-zh/stargazers) · [副本](vendor/op7418/humanizer-zh)<!-- /source-meta -->
-- [中文技术文档写作规范](https://github.com/ruanyf/document-style-guide) — 中文技术文档的标题、文本、段落、数值与标点规范。[文本](https://github.com/ruanyf/document-style-guide/blob/master/docs/text.md) · [段落](https://github.com/ruanyf/document-style-guide/blob/master/docs/paragraph.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/ruanyf/document-style-guide?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/ruanyf/document-style-guide/stargazers) · [副本](vendor/ruanyf/document-style-guide)<!-- /source-meta -->
+- [中文技术文档写作规范](https://github.com/ruanyf/document-style-guide) — 中文技术文档的标题、文本、段落、数值与标点规范。[文本](https://github.com/ruanyf/document-style-guide/blob/master/docs/text.md) · [段落](https://github.com/ruanyf/document-style-guide/blob/master/docs/paragraph.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/ruanyf/document-style-guide?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/sparanoid/chinese-copywriting-guidelines/stargazers) · [副本](vendor/ruanyf/document-style-guide)<!-- /source-meta -->
 - [中文文案排版指北](https://github.com/sparanoid/chinese-copywriting-guidelines) — 中英文混排中的空格、标点、全半角与专有名词写法。[正文](https://github.com/sparanoid/chinese-copywriting-guidelines/blob/master/README.zh-Hans.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/sparanoid/chinese-copywriting-guidelines?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/sparanoid/chinese-copywriting-guidelines/stargazers) · [副本](vendor/sparanoid/chinese-copywriting-guidelines)<!-- /source-meta -->
 - [Google Developer Documentation Style Guide](https://developers.google.com/style/) — 英文技术文档的语气、操作步骤、链接与格式规范。[要点](https://developers.google.com/style/highlights)
 
@@ -35,6 +35,10 @@
 ## 小说写作
 
 - [Steering the Craft](https://www.ursulakleguin.com/steering-the-craft) — Ursula K. Le Guin 的叙事写作练习，从语言声音、句法、重复、视角到叙述距离训练 prose 的节奏与控制；主要基于英语小说与叙事散文，不是固定情节公式。[节选](https://www.ursulakleguin.com/steering-the-craft)
+
+## 诗歌写作
+
+- [Some Thoughts on the Integrity of the Single Line in Poetry](https://poets.org/text/some-thoughts-integrity-single-line-poetry) — Alberto Ríos 用分行对照讨论诗行的独立意味、停顿与跨行，检查断行是否只是拖延信息；适合英语抒情诗的写作与修改，是一种诗学立场而非所有诗歌的通则。[正文](https://poets.org/text/some-thoughts-integrity-single-line-poetry)
 
 ## 图表与图解
 
