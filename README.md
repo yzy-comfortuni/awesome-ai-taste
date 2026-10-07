@@ -2,7 +2,7 @@
 
 给 AI 用的设计、写作与可视化手册。
 
-[界面设计](#界面设计) · [文字表达](#文字表达) · [专利写作](#专利写作) · [学术论文](#学术论文) · [小说写作](#小说写作) · [图表与图解](#图表与图解) · [演示文稿](#演示文稿)
+[界面设计](#界面设计) · [文字表达](#文字表达) · [专利写作](#专利写作) · [学术论文](#学术论文) · [小说写作](#小说写作) · [图表与图解](#图表与图解) · [动画与视频](#动画与视频) · [演示文稿](#演示文稿)
 
 ## 界面设计
 
@@ -45,6 +45,10 @@
 - [Baoyu Infographic](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-infographic) — 信息图的结构与画风分开选择，覆盖时间线、对比、层级、循环等布局。[布局](https://github.com/JimLiu/baoyu-skills/blob/main/skills/baoyu-infographic/SKILL.md#layout-gallery-21) · [风格](https://github.com/JimLiu/baoyu-skills/blob/main/skills/baoyu-infographic/SKILL.md#style-gallery-22) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/JimLiu/baoyu-skills?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/JimLiu/baoyu-skills/stargazers) · [副本](vendor/jimliu/baoyu-skills)<!-- /source-meta -->
 - [Dashboard Design Guidebook](https://www.digital.go.jp/resources/dashboard-guidebook) — 日本数字厅的仪表盘设计手册，用 Do’s/Don’ts、网格与色板约束信息层级和图表表达；适合决策与概览型仪表盘，Power BI 模板只是配套实现。[正文](https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/1948e3cd-736a-4378-9e31-039b08d11106/2a3a0ebc/20260331_resources_dashboard-guidebook_guidebook_02.pdf)
 - [Chartability](https://github.com/Chartability/POUR-CAF) — 数据可视化可访问性审核清单，用可测试的启发式检查对比度、颜色冗余编码、键盘操作和屏幕阅读器支持；适合图表与交互式数据界面，不替代合规审计。[工作簿](https://github.com/Chartability/POUR-CAF/blob/main/workbook.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/Chartability/POUR-CAF?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/Chartability/POUR-CAF/stargazers)<!-- /source-meta -->
+
+## 动画与视频
+
+- [huashu-art-motion](https://github.com/alchaincyf/huashu-art-motion) — 面向 coding agent 的艺术动画 skill：先设计关键帧，再用代码建立主动作、风格母题循环、签名转场和节拍，并以确定性渲染与独立审片验收；适合程序化艺术动画和解说片，人物示范素材另有使用限制。[正文](https://github.com/alchaincyf/huashu-art-motion/blob/main/SKILL.md)
 
 ## 演示文稿
 
