@@ -2,7 +2,7 @@
 
 给 AI 用的设计、写作与可视化手册。
 
-[界面设计](#界面设计) · [文字表达](#文字表达) · [专利写作](#专利写作) · [学术论文](#学术论文) · [小说写作](#小说写作) · [诗歌写作](#诗歌写作) · [图表与图解](#图表与图解) · [动画与视频](#动画与视频) · [演示文稿](#演示文稿)
+[界面设计](#界面设计) · [文字表达](#文字表达) · [专利写作](#专利写作) · [学术论文](#学术论文) · [小说写作](#小说写作) · [诗歌写作](#诗歌写作) · [剧本写作](#剧本写作) · [图表与图解](#图表与图解) · [动画与视频](#动画与视频) · [演示文稿](#演示文稿)
 
 ## 界面设计
 
@@ -39,6 +39,10 @@
 ## 诗歌写作
 
 - [Some Thoughts on the Integrity of the Single Line in Poetry](https://poets.org/text/some-thoughts-integrity-single-line-poetry) — Alberto Ríos 用分行对照讨论诗行的独立意味、停顿与跨行，检查断行是否只是拖延信息；适合英语抒情诗的写作与修改，是一种诗学立场而非所有诗歌的通则。[正文](https://poets.org/text/some-thoughts-integrity-single-line-poetry)
+
+## 剧本写作
+
+- [How to Write a Scene](https://johnaugust.com/2007/write-scene) — John August 的影视剧本场景写作指南，从删场测试、出场人物与地点，到开场备选和简稿，判断一场戏为何存在、如何展开；主要面向英语影视剧本，不是所有叙事的通用公式。[正文](https://johnaugust.com/2007/write-scene)
 
 ## 图表与图解
 
