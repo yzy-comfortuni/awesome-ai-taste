@@ -24,8 +24,8 @@
 
 <table align="center">
   <tr>
-    <td align="center" width="104"><a href="https://fluxionai.world/register?source=github&amp;campaign=tasteskill&amp;promo=TASTESKILL"><img src="assets/sponsors/fluxion-ai.png" alt="Fluxion AI" width="80" height="80" /></a></td>
-    <td><sub><a href="https://fluxionai.world/register?source=github&amp;campaign=tasteskill&amp;promo=TASTESKILL"><strong>Fluxion AI</strong></a> provides reliable, cost-efficient access to GPT, Claude, and other leading AI models through one unified API.<br />Save up to 70% compared with official API pricing and get $3 in API credits when you sign up through this link.</sub></td>
+    <td align="center" width="104"><a href="https://fluxionai.space/register?source=github&amp;campaign=github-tasteskill&amp;promo=TASTESKILL"><img src="assets/sponsors/sidrune-ai.png" alt="Sidrune AI" width="80" height="80" /></a></td>
+    <td><sub><a href="https://fluxionai.space/register?source=github&amp;campaign=github-tasteskill&amp;promo=TASTESKILL"><strong>Sidrune AI</strong></a>: one API for GPT, Claude, and other leading AI models.<br />Sign up through this link and get $3 in API credit.</sub></td>
   </tr>
   <tr>
     <td align="center" width="104">
