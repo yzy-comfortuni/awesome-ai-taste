@@ -1,8 +1,6 @@
 {
   "anthropics/skills": {
-    "paths": [
-      "skills/frontend-design"
-    ],
+    "paths": ["skills/frontend-design"],
     "license": {
       "path": "skills/frontend-design/LICENSE.txt",
       "sha": "f433b1a53f5b830a205fd2df78e2b34974656c7b",
@@ -19,22 +17,14 @@
     "fetch": "git-tree"
   },
   "k-dense-ai/scientific-agent-skills": {
-    "paths": [
-      "skills/scientific-visualization"
-    ],
+    "paths": ["skills/scientific-visualization"],
     "fetch": "git-tree"
   },
   "jimliu/baoyu-skills": {
-    "paths": [
-      "skills/baoyu-infographic",
-      "skills/baoyu-slide-deck"
-    ]
+    "paths": ["skills/baoyu-infographic", "skills/baoyu-slide-deck"]
   },
   "pbakaus/impeccable": {
-    "paths": [
-      "README.md",
-      "skill"
-    ],
+    "paths": ["README.md", "skill"],
     "fetch": "git-tree"
   },
   "ruanyf/document-style-guide": {
@@ -43,5 +33,18 @@
       "sha": "84b7e4c5f32e0b8116b26245f033062db416e25a",
       "spdx": "LicenseRef-Public-Domain"
     }
+  },
+  "chartability/pour-caf": {
+    "paths": ["README.md", "workbook.md", "includes/footer.html", "images"],
+    "fetch": "git-tree",
+    "license": {
+      "path": "includes/footer.html",
+      "sha": "cb21e39d1b870d05fa2cecb61c846ec78cfbfabf",
+      "spdx": "CC-BY-SA-3.0"
+    }
+  },
+  "alchaincyf/huashu-art-motion": {
+    "paths": ["README.md", "SKILL.md", "references"],
+    "fetch": "git-tree"
   }
 }

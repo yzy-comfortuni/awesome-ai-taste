@@ -7,6 +7,7 @@ on:
     paths:
       - README.md
       - sources.config.json
+      - pages.config.json
       - scripts/**
       - tests/**
       - .github/workflows/sync-sources.yml
@@ -20,7 +21,6 @@ concurrency:
 
 jobs:
   sync:
-    # Forks do not start scheduled writes automatically; their owners may adapt this guard.
     if: github.repository == 'yzy-comfortuni/awesome-ai-taste'
     runs-on: ubuntu-24.04
     timeout-minutes: 20
@@ -31,22 +31,21 @@ jobs:
           fetch-depth: 1
           submodules: false
           lfs: false
-      - name: Test the synchronizer (no upstream code is executed)
+      - name: Test the synchronizers (no upstream code is executed)
         run: python3 -m unittest discover -s tests -v
-      - name: Sync public source snapshots
+      - name: Sync repository snapshots and article Markdown
         id: sync
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set +e
-          python3 scripts/sync_sources.py --sync
+          python3 scripts/sync_library.py --sync
           result=$?
           set -e
           echo "result=$result" >> "$GITHUB_OUTPUT"
-          # Successful sources and explicit blocked statuses may be committed together.
           test "$result" = 0 || test "$result" = 2
-          python3 scripts/sync_sources.py --verify
+          python3 scripts/sync_library.py --verify
       - name: Commit only managed output, without force-push
         shell: bash
         run: |
@@ -56,8 +55,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No source or metadata changes.'
           else
-            git commit -m 'chore(sources): refresh Stars and upstream snapshots'
-            # A concurrent main update causes a safe failure, never an overwrite.
+            git commit -m 'chore(sources): refresh repository and article snapshots'
             git push origin HEAD:main
           fi
       - name: Publish status and surface blocked sources
@@ -66,9 +64,11 @@ jobs:
           RESULT: ${{ steps.sync.outputs.result }}
         shell: bash
         run: |
-          if test -f vendor/README.md; then
-            cat vendor/README.md >> "$GITHUB_STEP_SUMMARY"
-          fi
+          for report in vendor/README.md vendor/articles/README.md; do
+            if test -f "$report"; then
+              cat "$report" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
           if test "$RESULT" != 0; then
             echo '::error::Some sources were blocked or the sync failed. See source status; previous snapshots were retained.'
             exit 1
