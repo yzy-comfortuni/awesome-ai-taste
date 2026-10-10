@@ -1230,14 +1230,15 @@ const registrySource: RegistrySourceSkill[] = [
   },
   {
     slug: "rams",
-    user: "rams",
-    repo: "rams-ai",
+    user: "rams-design",
+    repo: "rams-plugin",
     rawUrl: "https://www.rams.ai/rams.md",
-    githubUrl: "",
+    githubUrl:
+      "https://github.com/rams-design/rams-plugin/blob/master/skills/rams/SKILL.md",
     name: "rams",
-    topics: ["visual", "accessibility", "interaction"],
+    topics: ["craft", "accessibility", "visual", "code-quality"],
     description:
-      "Real-time design feedback skill focused on accessibility, spacing, typography, contrast, and component quality.",
+      "Design review for UI code. Reviews React, Vue, Svelte, CSS, and SwiftUI for accessibility, typography, spacing, color, and component quality, with severity-rated findings, concrete fixes, and a 0-100 score.",
   },
   {
     slug: "bencium-innovative-ux-designer",

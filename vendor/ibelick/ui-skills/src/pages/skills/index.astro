@@ -75,6 +75,9 @@ topicSelections.splice(14, 0, {
   count: countSkillsForTopics(["visual", "craft", "taste"]),
 });
 
+const pageTitle = `Browse ${mixedSkills.length.toLocaleString()} UI skills for design engineers | UI Skills`;
+const pageDescription = `Browse ${mixedSkills.length.toLocaleString()} UI skills for design engineers, with install commands for accessibility, motion, frontend craft, and design engineering workflows.`;
+
 const siteOrigin = Astro.site ?? new URL("https://www.ui-skills.com");
 const skillsIndexUrl = new URL("/skills", siteOrigin).toString();
 const structuredData = {
@@ -97,8 +100,8 @@ const structuredData = {
 
 <Layout
   structuredData={structuredData}
-  title="UI Skills for Design Engineers | UI Skills"
-  description="Browse every skill in UI Skills, with install commands for accessibility, motion, frontend craft, and design engineering workflows."
+  title={pageTitle}
+  description={pageDescription}
 >
   <div class="relative flex min-h-dvh flex-col items-center justify-start">
     <div class="container-3xl relative mt-20">

@@ -4,6 +4,7 @@ export const prerender = true;
 import Layout from "../layouts/Layout.astro";
 import { playbook } from "../data/playbook";
 import { skills } from "../data/skills";
+import { FEATURED_PATH_SLUGS as FEATURED_SKILL_PATH_SLUGS } from "../data/featured-skills";
 import { designMd } from "../data/design-md";
 import { SHOW_DESIGN_MD } from "../config/features";
 import AgentAccessStart from "../ui/agent-access-start.astro";
@@ -14,27 +15,7 @@ import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
 const MAX_SKILLS = 20;
 
-const FEATURED_PATH_SLUGS = [
-  "ibelick/ui-skills-root",
-  "ibelick/improve-ui",
-  "anthropics/frontend-design",
-  "mengto/design-taste-frontend",
-  "emilkowalski/improve-animations",
-  "millionco/improve-react",
-  "shadcn/improve",
-  "jakubkrehel/better-ui",
-  "0xdesign/design-lab",
-  "nextlevelbuilder/ui-ux-pro-max",
-  "dammyjay93/interface-design",
-  "raphaelsalaja/12-principles-of-animation",
-  "pbakaus/impeccable",
-  "bencium/bencium-innovative-ux-designer",
-  "leonxlnx/gpt-tasteskill",
-  "antfu/web-design-guidelines",
-  "rams/rams",
-  "wshobson/interaction-design",
-  "addyosmani/frontend-ui-engineering",
-] as const;
+const FEATURED_PATH_SLUGS = FEATURED_SKILL_PATH_SLUGS;
 
 const skillByPathSlug = new Map(skills.map((skill) => [skill.pathSlug, skill]));
 const isDefined = <T,>(value: T | undefined): value is T => value !== undefined;

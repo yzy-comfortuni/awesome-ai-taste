@@ -5,7 +5,10 @@ import AgentAccessStart from "../../ui/agent-access-start.astro";
 import Breadcrumbs from "../../ui/breadcrumbs.astro";
 import Button from "../../ui/button.astro";
 import { PlusIcon } from "@heroicons/react/24/outline";
+import SkillCard from "../../ui/skill-card.astro";
 import { agentById, agents } from "../../data/agents";
+import { FEATURED_PATH_SLUGS } from "../../data/featured-skills";
+import { getSkillByPath } from "../../lib/skill-catalog";
 
 export const prerender = true;
 
@@ -32,7 +35,7 @@ const pageTitle = agent
   ? `${agent.name} Skills for Design Engineers | UI Skills`
   : "Agent Not Found | UI Skills";
 const pageDescription = agent
-  ? `Browse the best UI Skills for ${agent.name}. ${agent.description}`
+  ? `Browse UI Skills for ${agent.name}. ${agent.description}`
   : "The requested agent page could not be found.";
 const focusTopics = agent?.topics.slice(0, 3) ?? [];
 const focusSentence = focusTopics.length
@@ -65,6 +68,20 @@ const exploreTopics = [
   { label: "Tooling", href: "/skills/tooling" },
 ];
 const otherAgents = agents.filter((entry) => entry.id !== agentId).slice(0, 4);
+const featuredSkills = FEATURED_PATH_SLUGS.slice(0, 6)
+  .map((pathSlug) => {
+    const skill = getSkillByPath(pathSlug);
+    if (!skill) return null;
+    const owner = skill.sourceKey ?? pathSlug.split("/")[0];
+    return {
+      href: `/skills/${pathSlug}`,
+      slug: skill.slug,
+      description: skill.description,
+      ownerLabel: skill.sourceLabel ?? owner,
+      avatarUrl: `https://github.com/${owner}.png?size=160`,
+    };
+  })
+  .filter((skill): skill is NonNullable<typeof skill> => Boolean(skill));
 const breadcrumbStructuredData = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -147,11 +164,19 @@ const structuredDataItems = agent
                   {agent.description}
                 </p>
 
-                <p class="type-body-md font-[450] text-content-secondary text-pretty">
-                  UI Skills helps you find the right skills depending on the
-                  current context so {agent.name} can load the most useful
-                  guidance across sessions.
-                </p>
+                {agent.skills ? (
+                  <p class="type-body-md font-[450] text-content-secondary text-pretty">
+                    {agent.name} looks for skills in{" "}
+                    <code class="type-code">{agent.skills.path}</code>. See{" "}
+                    <a
+                      href={agent.skills.docsUrl}
+                      class="underline underline-offset-2 hover:text-content-primary"
+                    >
+                      the {agent.name} skills documentation
+                    </a>
+                    .
+                  </p>
+                ) : null}
 
                 {focusSentence ? (
                   <p class="type-body-md font-[450] text-content-secondary text-pretty">
@@ -162,6 +187,32 @@ const structuredDataItems = agent
             </div>
 
              <AgentAccessStart />
+
+            <section class="flex flex-col gap-5">
+              <h2 class="type-body-md font-[450] text-content-secondary">
+                Featured skills
+              </h2>
+              <div class="flex flex-col">
+                {featuredSkills.map((skill) => (
+                  <SkillCard
+                    href={skill.href}
+                    slug={skill.slug}
+                    description={skill.description}
+                    ownerLabel={skill.ownerLabel}
+                    avatarUrl={skill.avatarUrl}
+                    variant="list"
+                  />
+                ))}
+              </div>
+              <Button
+                href="/skills"
+                variant="secondary"
+                size="sm"
+                className="self-start"
+              >
+                All skills
+              </Button>
+            </section>
 
             <section class="flex flex-col gap-5">
               <h2 class="type-body-md font-[450] text-content-secondary">

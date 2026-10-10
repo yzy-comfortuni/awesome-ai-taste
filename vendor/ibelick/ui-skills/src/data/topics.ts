@@ -58,7 +58,7 @@ export const topicsBySlug = {
     slug: "taste",
     label: "Taste",
     description:
-      "Aesthetic judgment, style direction, and anti-generic UI quality.",
+      "Design taste for frontend UI: aesthetic judgment, style direction, and anti-generic quality. Browse taste skills such as design-taste-frontend.",
     isDesignCore: true,
   },
   typography: {
