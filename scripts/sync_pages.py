@@ -87,16 +87,31 @@ class Redirect(urllib.request.HTTPRedirectHandler):
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
+def decode_text(raw, declared=None):
+    """Honor Unicode BOMs before HTTP charset; do not silently replace bad bytes."""
+    for bom, encoding in ((b'\xff\xfe\x00\x00', 'utf-32'),
+                          (b'\x00\x00\xfe\xff', 'utf-32'),
+                          (b'\xff\xfe', 'utf-16'),
+                          (b'\xfe\xff', 'utf-16'),
+                          (b'\xef\xbb\xbf', 'utf-8-sig')):
+        if raw.startswith(bom):
+            return raw.decode(encoding, errors='strict')
+    try:
+        return raw.decode(declared or 'utf-8', errors='strict')
+    except (UnicodeError, LookupError) as e:
+        raise ArchiveError(f'unsupported text encoding (declared={declared!r}; prefix={raw[:8].hex()})') from e
+
+
 def get(url):
     url_ok(url)
     req = urllib.request.Request(url, headers={'User-Agent': 'awesome-ai-taste-article-archive/1.0', 'Accept': 'text/html,text/plain,application/xml;q=0.9'})
     try:
         with urllib.request.build_opener(Redirect()).open(req, timeout=25) as r:
             raw = r.read(LIMIT + 1)
-            encoding = r.headers.get_content_charset() or 'utf-8'
+            encoding = r.headers.get_content_charset()
         if len(raw) > LIMIT:
             raise ArchiveError('page exceeds 4 MiB limit')
-        return raw.decode(encoding, errors='strict')
+        return decode_text(raw, encoding)
     except urllib.error.HTTPError as e:
         raise ArchiveError(f'HTTP {e.code}') from e
     except (urllib.error.URLError, TimeoutError, UnicodeError) as e:
