@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "pages": {
+    "google-style-highlights": {
+      "path": "vendor/articles/google-style-highlights.md",
+      "kind": "fulltext",
+      "sha256": "73ad3acc1fbb497504ef89eadd0abf1048f94309c27cf878a4ce33a708243b91",
+      "source_sha256": "992f08cf0e135a9345d00eea622718085e45a6343ec2fdfb98c7d74a1b19644a",
+      "config_sha256": "1757bb26daeb2c2cada980c04e331e9e5763bed21fc659838436ca4ee5d851b0",
+      "converter_version": 1,
+      "license": "CC-BY-4.0",
+      "source_url": "https://developers.google.com/style/highlights",
+      "saved_at": "2026-10-10T02:47:42.026716+00:00",
+      "source_evidence": {
+        "url": "https://developers.google.com/style/highlights",
+        "license_evidence_sha256": "073e276ff674cb4db3051552733ff6cb602b13a07341ea3f122637f746803398"
+      },
+      "status": "current"
+    },
+    "wipo-patent-drafting-manual": {
+      "path": "vendor/articles/wipo-patent-drafting-manual.md",
+      "kind": "document-index",
+      "sha256": "056dc104772c2b9ecaae78eb8adaeba465c781f982e6fb6998256424387fdce2",
+      "source_sha256": null,
+      "config_sha256": "5922c24e2c94f144648eb11fe0c18e04d6da082b555338719f0c6cb2d6367040",
+      "converter_version": 1,
+      "license": "原书许可未在此索引中重新授予",
+      "source_url": "https://www.wipo.int/publications/en/details.jsp?id=4706",
+      "saved_at": "2026-10-10T02:47:42.027090+00:00",
+      "source_evidence": null,
+      "status": "index-only"
+    },
+    "ten-simple-rules-structuring-papers": {
+      "path": "vendor/articles/ten-simple-rules-structuring-papers.md",
+      "kind": "fulltext",
+      "sha256": "a5a37928fea524715aa8986a01f3ce61d841527ae57b3a2ef743bfda11262ea6",
+      "source_sha256": "5025c0e8869c20a1048a7aab41849f199219c65dd22fd7be71f99af19cd836dd",
+      "config_sha256": "09692deefb6a753dd3124717544249252a6f3503141aca3e420971e3d16aff57",
+      "converter_version": 1,
+      "license": "CC-BY-4.0",
+      "source_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619",
+      "saved_at": "2026-10-10T02:47:42.761501+00:00",
+      "source_evidence": {
+        "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619",
+        "license_evidence_sha256": "190fa51b5e7020f220d237b5cf3bb238594e5bbc538761b307d6653fc181ebad"
+      },
+      "status": "current"
+    },
+    "organizing-literature-reviews": {
+      "path": "vendor/articles/organizing-literature-reviews.md",
+      "kind": "summary",
+      "sha256": "78da730f548acc73a3905fb0489d52601c0f1b5972c7f4d6e6fb0048473ab9a0",
+      "source_sha256": null,
+      "config_sha256": "4934625b07f4f64c1d91f01283cc1507ecd26228b9a5debf82fc3b83a02fd163",
+      "converter_version": 1,
+      "license": "原站 All Rights Reserved；未取得全文转载许可",
+      "source_url": "https://writingcenter.gmu.edu/writing-resources/research-based-writing/organizing-literature-reviews-the-basics",
+      "saved_at": "2026-10-10T02:47:42.761826+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
+    },
+    "steering-the-craft": {
+      "path": "vendor/articles/steering-the-craft.md",
+      "kind": "summary",
+      "sha256": "30540df685c5cddebfeca36c19b0f68eee04491ad5128bba4e0cf142d143eadf",
+      "source_sha256": null,
+      "config_sha256": "328ae7a987db089169bea1f62fa7edaef93c88b0fd168d558daa60d8d0983d0e",
+      "converter_version": 1,
+      "license": "原著及节选受版权保护；未取得全文转载许可",
+      "source_url": "https://www.ursulakleguin.com/steering-the-craft",
+      "saved_at": "2026-10-10T02:47:42.762189+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
+    },
+    "integrity-of-the-poetic-line": {
+      "path": "vendor/articles/integrity-of-the-poetic-line.md",
+      "kind": "summary",
+      "sha256": "b13691e7b804b58b587e4de00238131f4b3b1c10ddb4e3a48aeb2f5b558e74e8",
+      "source_sha256": null,
+      "config_sha256": "873edfe9f90056f57866d9ee5ab2784cf34769eae7ebca1715bcac02497cdb70",
+      "converter_version": 1,
+      "license": "© 2011 Alberto Ríos；原站经 University of Iowa Press 许可转载",
+      "source_url": "https://poets.org/text/some-thoughts-integrity-single-line-poetry",
+      "saved_at": "2026-10-10T02:47:42.762502+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
+    },
+    "how-to-write-a-scene": {
+      "path": "vendor/articles/how-to-write-a-scene.md",
+      "kind": "summary",
+      "sha256": "6e0e7ad46d986b23f9dd096612bfcc8c6f6997fdf41b641566b4238db68ea61f",
+      "source_sha256": null,
+      "config_sha256": "2eda00e75a3d8b3e2362d869e0ad65c5c9a0b96469a01819c6753b4443e99575",
+      "converter_version": 1,
+      "license": "原站 All Rights Reserved；未取得全文转载许可",
+      "source_url": "https://johnaugust.com/2007/write-scene",
+      "saved_at": "2026-10-10T02:47:42.762796+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
+    },
+    "dashboard-design-guidebook": {
+      "path": "vendor/articles/dashboard-design-guidebook.md",
+      "kind": "fulltext",
+      "sha256": "11c55a5d16e7621bdf665180e16fd393c989fc238693b402f7928420d7d2065c",
+      "source_sha256": "bd3f9562295417b5925b224c740c94e2aa1a6683af8c4aaa83317d000056d574",
+      "config_sha256": "706acbbec826a3653153d10694277338d010490d4b5dc742350fbadb3235d055",
+      "converter_version": 1,
+      "license": "LicenseRef-PDL-1.0",
+      "source_url": "https://www.digital.go.jp/resources/dashboard-guidebook",
+      "saved_at": "2026-10-10T02:47:43.036244+00:00",
+      "source_evidence": {
+        "url": "https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/1948e3cd-736a-4378-9e31-039b08d11106/e7f7ad2f/20260331_resources_dashboard-guidebook_guidebook_02.txt",
+        "text_encoding": "cp932",
+        "license_evidence_sha256": "4a0093e3b1c099b1b455f8c3babdc63efe9e6b470df51dca51639c7cb157ccf0"
+      },
+      "status": "current"
+    },
+    "assertion-evidence-tutorial": {
+      "path": "vendor/articles/assertion-evidence-tutorial.md",
+      "kind": "summary",
+      "sha256": "70266a1b1c3a8e3b3419dce468bd19a7e52817d963ef7a8bfb807b5c59c5def7",
+      "source_sha256": null,
+      "config_sha256": "75092ce3aef606641018a8b0123a7081b6c8ae1551c053510ebe74fa746552e6",
+      "converter_version": 1,
+      "license": "未发现适用于教程全文的开放转载许可",
+      "source_url": "https://www.craftscicom.org/ae_tutorial.html",
+      "saved_at": "2026-10-10T02:47:43.036564+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
+    }
+  },
+  "unregistered": []
+}

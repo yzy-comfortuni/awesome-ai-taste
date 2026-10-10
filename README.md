@@ -62,41 +62,41 @@
 
   **规则：** 中文与英文单词之间加空格；“豆瓣FM”等官方固定名称保持原写法。[出处](https://github.com/sparanoid/chinese-copywriting-guidelines/blob/master/README.zh-Hans.md)
 
-- [Google Developer Documentation Style Guide](https://developers.google.com/style/) — 英文技术文档的语气、操作步骤、链接与格式规范。[要点](https://developers.google.com/style/highlights)
+- [Google Developer Documentation Style Guide](https://developers.google.com/style/) — 英文技术文档的语气、操作步骤、链接与格式规范。[要点](https://developers.google.com/style/highlights) <!-- article-copy --> · [Markdown 正文](vendor/articles/google-style-highlights.md)<!-- /article-copy -->
 
   **规则：** 操作说明先写适用条件，再写动作，避免读者执行后才看到限制。[出处](https://developers.google.com/style/highlights)
 
 ## 专利写作
 
-- [WIPO Patent Drafting Manual](https://www.wipo.int/publications/en/details.jsp?id=4706) — 世界知识产权组织的专利撰写手册，用实例讲权利要求层次、术语、说明书支持与附图；适合跨法域起草训练，具体申请仍须核对目标专利局现行规则。[权利要求设计](https://www.wipo.int/edocs/pubdocs/zh/wipo-pub-867-23-zh-wipo-patent-drafting-manual.pdf#page=106)
+- [WIPO Patent Drafting Manual](https://www.wipo.int/publications/en/details.jsp?id=4706) — 世界知识产权组织的专利撰写手册，用实例讲权利要求层次、术语、说明书支持与附图；适合跨法域起草训练，具体申请仍须核对目标专利局现行规则。[权利要求设计](https://www.wipo.int/edocs/pubdocs/zh/wipo-pub-867-23-zh-wipo-patent-drafting-manual.pdf#page=106) <!-- article-copy --> · [Markdown 阅读索引](vendor/articles/wipo-patent-drafting-manual.md)<!-- /article-copy -->
 
   **规则：** 起草时逐项检查权利要求的概括范围是否有说明书依据，不把单个实施例扩写成未经支持的全部情形。[出处](https://www.wipo.int/edocs/pubdocs/zh/wipo-pub-867-23-zh-wipo-patent-drafting-manual.pdf#page=108)
 
 ## 学术论文
 
-- [Ten Simple Rules for Structuring Papers](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619) — 科学论文的论证结构指南：先确定唯一中心贡献，再让标题、摘要、段落与结果围绕 Context–Content–Conclusion 展开；适合研究论文的组织与修改，不替代具体学科和期刊规范。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619)
+- [Ten Simple Rules for Structuring Papers](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619) — 科学论文的论证结构指南：先确定唯一中心贡献，再让标题、摘要、段落与结果围绕 Context–Content–Conclusion 展开；适合研究论文的组织与修改，不替代具体学科和期刊规范。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619) <!-- article-copy --> · [Markdown 正文](vendor/articles/ten-simple-rules-structuring-papers.md)<!-- /article-copy -->
 
   **规则：** 按逐步支持中心贡献的逻辑组织结果小节，为各项判断配数据和图表，而不是照实验日期排列。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619)
 
-- [Organizing Literature Reviews: The Basics](https://writingcenter.gmu.edu/writing-resources/research-based-writing/organizing-literature-reviews-the-basics) — 乔治梅森大学写作中心的文献综述组织指南，按研究问题综合不同文献，形成论点式提纲；用于综述的组织与修改，不替代系统综述的方法规范。[正文](https://writingcenter.gmu.edu/writing-resources/research-based-writing/organizing-literature-reviews-the-basics)
+- [Organizing Literature Reviews: The Basics](https://writingcenter.gmu.edu/writing-resources/research-based-writing/organizing-literature-reviews-the-basics) — 乔治梅森大学写作中心的文献综述组织指南，按研究问题综合不同文献，形成论点式提纲；用于综述的组织与修改，不替代系统综述的方法规范。[正文](https://writingcenter.gmu.edu/writing-resources/research-based-writing/organizing-literature-reviews-the-basics) <!-- article-copy --> · [Markdown 摘要](vendor/articles/organizing-literature-reviews.md)<!-- /article-copy -->
 
   **规则：** 按研究问题把不同文献的观点归组，再把主题标签改写成由该组证据支持的判断句。[出处](https://writingcenter.gmu.edu/writing-resources/research-based-writing/organizing-literature-reviews-the-basics)
 
 ## 小说写作
 
-- [Steering the Craft](https://www.ursulakleguin.com/steering-the-craft) — Ursula K. Le Guin 的叙事写作练习，从语言声音、句法、重复、视角到叙述距离训练 prose 的节奏与控制；主要基于英语小说与叙事散文，不是固定情节公式。[节选](https://www.ursulakleguin.com/steering-the-craft)
+- [Steering the Craft](https://www.ursulakleguin.com/steering-the-craft) — Ursula K. Le Guin 的叙事写作练习，从语言声音、句法、重复、视角到叙述距离训练 prose 的节奏与控制；主要基于英语小说与叙事散文，不是固定情节公式。[节选](https://www.ursulakleguin.com/steering-the-craft) <!-- article-copy --> · [Markdown 摘要](vendor/articles/steering-the-craft.md)<!-- /article-copy -->
 
   **规则：** 把叙事段落大声读出来，检查句子的声音和节奏是否推动阅读，再修改绊住耳朵的地方。[出处](https://lithub.com/a-writing-lesson-from-ursula-k-leguin/)
 
 ## 诗歌写作
 
-- [Some Thoughts on the Integrity of the Single Line in Poetry](https://poets.org/text/some-thoughts-integrity-single-line-poetry) — Alberto Ríos 用分行对照讨论诗行的独立意味、停顿与跨行，检查断行是否只是拖延信息；适合英语抒情诗的写作与修改，是一种诗学立场而非所有诗歌的通则。[正文](https://poets.org/text/some-thoughts-integrity-single-line-poetry)
+- [Some Thoughts on the Integrity of the Single Line in Poetry](https://poets.org/text/some-thoughts-integrity-single-line-poetry) — Alberto Ríos 用分行对照讨论诗行的独立意味、停顿与跨行，检查断行是否只是拖延信息；适合英语抒情诗的写作与修改，是一种诗学立场而非所有诗歌的通则。[正文](https://poets.org/text/some-thoughts-integrity-single-line-poetry) <!-- article-copy --> · [Markdown 摘要](vendor/articles/integrity-of-the-poetic-line.md)<!-- /article-copy -->
 
   **规则：** 逐一比较断行前后：若只是拖延信息，没有必要的停顿或意义变化，就考虑合并诗行。[出处](https://poets.org/text/some-thoughts-integrity-single-line-poetry)
 
 ## 剧本写作
 
-- [How to Write a Scene](https://johnaugust.com/2007/write-scene) — John August 的影视剧本场景写作指南，从删场测试、出场人物与地点，到开场备选和简稿，判断一场戏为何存在、如何展开；主要面向英语影视剧本，不是所有叙事的通用公式。[正文](https://johnaugust.com/2007/write-scene)
+- [How to Write a Scene](https://johnaugust.com/2007/write-scene) — John August 的影视剧本场景写作指南，从删场测试、出场人物与地点，到开场备选和简稿，判断一场戏为何存在、如何展开；主要面向英语影视剧本，不是所有叙事的通用公式。[正文](https://johnaugust.com/2007/write-scene) <!-- article-copy --> · [Markdown 摘要](vendor/articles/how-to-write-a-scene.md)<!-- /article-copy -->
 
   **规则：** 先做删场测试：如果去掉这场戏，故事仍能成立，就重新审视它存在的必要。[出处](https://johnaugust.com/2007/write-scene)
 
@@ -122,17 +122,17 @@
 
   **规则：** 先按信息关系选布局，再选画风；比较、层级、时间线等结构不因换画风而改变。[出处](https://github.com/JimLiu/baoyu-skills/blob/main/skills/baoyu-infographic/SKILL.md)
 
-- [Dashboard Design Guidebook](https://www.digital.go.jp/resources/dashboard-guidebook) — 日本数字厅的仪表盘设计手册，用 Do’s/Don’ts、网格与色板约束信息层级和图表表达；适合决策与概览型仪表盘，Power BI 模板只是配套实现。[正文](https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/1948e3cd-736a-4378-9e31-039b08d11106/2a3a0ebc/20260331_resources_dashboard-guidebook_guidebook_02.pdf)
+- [Dashboard Design Guidebook](https://www.digital.go.jp/resources/dashboard-guidebook) — 日本数字厅的仪表盘设计手册，用 Do’s/Don’ts、网格与色板约束信息层级和图表表达；适合决策与概览型仪表盘，Power BI 模板只是配套实现。[正文](https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/1948e3cd-736a-4378-9e31-039b08d11106/2a3a0ebc/20260331_resources_dashboard-guidebook_guidebook_02.pdf) <!-- article-copy --> · [Markdown 正文](vendor/articles/dashboard-design-guidebook.md)<!-- /article-copy -->
 
   **规则：** 把仪表盘图表对齐到统一布局网格，用共同的边线和间距组织整页，而不是逐块随意定位。[出处](https://www.digital.go.jp/resources/dashboard-guidebook)
 
-- [Chartability](https://github.com/Chartability/POUR-CAF) — 数据可视化可访问性审核清单，用可测试的启发式检查对比度、颜色冗余编码、键盘操作和屏幕阅读器支持；适合图表与交互式数据界面，不替代合规审计。[工作簿](https://github.com/Chartability/POUR-CAF/blob/main/workbook.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/Chartability/POUR-CAF?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/Chartability/POUR-CAF/stargazers)<!-- /source-meta -->
+- [Chartability](https://github.com/Chartability/POUR-CAF) — 数据可视化可访问性审核清单，用可测试的启发式检查对比度、颜色冗余编码、键盘操作和屏幕阅读器支持；适合图表与交互式数据界面，不替代合规审计。[工作簿](https://github.com/Chartability/POUR-CAF/blob/main/workbook.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/Chartability/POUR-CAF?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/Chartability/POUR-CAF/stargazers) · [副本](vendor/chartability/pour-caf)<!-- /source-meta -->
 
   **规则：** 分类图表不能只靠颜色区分，同时用纹理、形状或线型编码，让类别在不辨颜色时仍可识别。[出处](https://github.com/Chartability/POUR-CAF/blob/main/workbook.md)
 
 ## 动画与视频
 
-- [huashu-art-motion](https://github.com/alchaincyf/huashu-art-motion) — 面向 coding agent 的艺术动画 skill：先设计关键帧，再用代码建立主动作、风格母题循环、签名转场和节拍，并以确定性渲染与独立审片验收；适合程序化艺术动画和解说片，人物示范素材另有使用限制。[正文](https://github.com/alchaincyf/huashu-art-motion/blob/main/SKILL.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/alchaincyf/huashu-art-motion?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/alchaincyf/huashu-art-motion/stargazers)<!-- /source-meta -->
+- [huashu-art-motion](https://github.com/alchaincyf/huashu-art-motion) — 面向 coding agent 的艺术动画 skill：先设计关键帧，再用代码建立主动作、风格母题循环、签名转场和节拍，并以确定性渲染与独立审片验收；适合程序化艺术动画和解说片，人物示范素材另有使用限制。[正文](https://github.com/alchaincyf/huashu-art-motion/blob/main/SKILL.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/alchaincyf/huashu-art-motion?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/alchaincyf/huashu-art-motion/stargazers) · [副本](vendor/alchaincyf/huashu-art-motion)<!-- /source-meta -->
 
   **规则：** 在这套艺术动画做法中，每幕安排一个主动作和两个风格母题循环，让画面内部动起来。[出处](https://github.com/alchaincyf/huashu-art-motion/blob/main/SKILL.md)
 
@@ -146,15 +146,15 @@
 
   **规则：** 面向阅读与分享的幻灯片，要让每页脱离口头讲解也能说清主要信息。[出处](https://github.com/JimLiu/baoyu-skills/blob/main/skills/baoyu-slide-deck/SKILL.md)
 
-- [Assertion-Evidence](https://www.assertion-evidence.com/) — 科研与技术演示的逐页表达方法：标题直接说结论，图形呈现证据，次要细节放入备注；适合现场讲解。[教程](https://www.craftscicom.org/ae_tutorial.html)
+- [Assertion-Evidence](https://www.assertion-evidence.com/) — 科研与技术演示的逐页表达方法：标题直接说结论，图形呈现证据，次要细节放入备注；适合现场讲解。[教程](https://www.craftscicom.org/ae_tutorial.html) <!-- article-copy --> · [Markdown 摘要](vendor/articles/assertion-evidence-tutorial.md)<!-- /article-copy -->
 
   **规则：** 每页标题写成完整结论句，用视觉证据支撑，把次要细节移到备注。[出处](https://www.craftscicom.org/ae_tutorial.html)
 
 ## 获取副本
 
-[副本状态](vendor/README.md) · [使用与更新说明](SYNC.md)
+[副本状态](vendor/README.md) · [网页 Markdown 状态](vendor/articles/README.md) · [使用与更新说明](SYNC.md)
 
-GitHub 条目显示上游 Stars；已成功同步的来源另有「副本」入口。副本不带上游 Git 历史，保留原许可证，每 6 小时检查更新。大集合仓库仅同步已收录目录，具体范围与受阻项见状态页。
+GitHub 条目显示上游 Stars；已成功同步的来源另有「副本」入口。副本不带上游 Git 历史，保留原许可证，在本仓库相关内容推送或手动触发时检查更新。大集合仓库仅同步已收录目录，具体范围与受阻项见状态页。
 
 ---
 
