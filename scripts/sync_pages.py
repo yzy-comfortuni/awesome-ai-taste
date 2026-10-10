@@ -102,7 +102,7 @@ def decode_text(raw, declared=None):
         raise ArchiveError(f'unsupported text encoding (declared={declared!r}; prefix={raw[:8].hex()})') from e
 
 
-def get(url):
+def get(url, encoding_override=None):
     url_ok(url)
     req = urllib.request.Request(url, headers={'User-Agent': 'awesome-ai-taste-article-archive/1.0', 'Accept': 'text/html,text/plain,application/xml;q=0.9'})
     try:
@@ -111,7 +111,7 @@ def get(url):
             encoding = r.headers.get_content_charset()
         if len(raw) > LIMIT:
             raise ArchiveError('page exceeds 4 MiB limit')
-        return decode_text(raw, encoding)
+        return decode_text(raw, encoding_override or encoding)
     except urllib.error.HTTPError as e:
         raise ArchiveError(f'HTTP {e.code}') from e
     except (urllib.error.URLError, TimeoutError, UnicodeError) as e:
@@ -210,12 +210,14 @@ def content_for(cfg):
         if len(links) != 1:
             raise ArchiveError('official alternative-text link missing or ambiguous')
         text_url = urllib.parse.urljoin(cfg['url'], links[0].attrs.get('href',''))
-        body = get(text_url).lstrip('\ufeff')
+        body = get(text_url, cfg.get('text_encoding')).lstrip('\ufeff')
         if '<html' in body[:1000].lower() or len(body) < cfg['min_chars']:
             raise ArchiveError('official text download is not a complete text document')
+        if not all(marker in body for marker in cfg.get('text_markers', [])):
+            raise ArchiveError('official text content/encoding markers changed')
         # Preserve the official accessible text; do not manufacture PDF headings.
         body = clean(body)
-        return body, digest(body), {'url': text_url, 'license_evidence_sha256': digest(evidence)}
+        return body, digest(body), {'url': text_url, 'text_encoding': cfg.get('text_encoding'), 'license_evidence_sha256': digest(evidence)}
     node = extract(html, cfg['markers'])
     body = clean(md(node, cfg['url']))
     if len(body) < cfg['min_chars'] or not all(m.casefold() in body.casefold() for m in cfg['markers']):

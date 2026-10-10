@@ -110,6 +110,8 @@
       "license_marker": "PDL1.0",
       "reviewed_on": "2026-10-10",
       "min_chars": 5000,
+      "text_encoding": "cp932",
+      "text_markers": ["ダッシュボード"],
       "scope_note": "出典：デジタル庁『ダッシュボードデザインの実践ガイドブック』。由 awesome-ai-taste 根据官方发布的替代文本整理为 Markdown，非政府原样发布版本。保留日文文本，不包含原 PDF 的版面、图片或 Power BI 模板；因此不声称是原 PDF 的完整视觉复制。依据 PDL1.0 使用，商标、标志和另列权利的第三方内容不在一般许可范围内。"
     },
     {
