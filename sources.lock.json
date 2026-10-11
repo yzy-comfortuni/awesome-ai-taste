@@ -54,8 +54,8 @@
     "pbakaus/impeccable": {
       "repository": "pbakaus/impeccable",
       "branch": "main",
-      "upstream_sha": "d631a8827f99414d2b6daba4ef08b7f8701751d7",
-      "stars": 79571,
+      "upstream_sha": "c63b8dd7dd5a5f3c32eaabe1af76d0694f863ed2",
+      "stars": 79572,
       "archived": false,
       "scope": [
         "README.md",
@@ -63,7 +63,7 @@
       ],
       "config_sha256": "67454a40f9ddcedc9d2a2d277bcac3898ade57857396a0c19411b09b67224eba",
       "status": "current",
-      "copied_sha": "d631a8827f99414d2b6daba4ef08b7f8701751d7",
+      "copied_sha": "c63b8dd7dd5a5f3c32eaabe1af76d0694f863ed2",
       "license": {
         "spdx": "Apache-2.0",
         "path": "LICENSE",

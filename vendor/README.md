@@ -11,7 +11,7 @@
 | --- | ---: | --- | --- | --- |
 | [ibelick/ui-skills](https://github.com/ibelick/ui-skills) | 9597 | current | [`d036a68`](https://github.com/ibelick/ui-skills/commit/d036a68c7a0785ae753f3b6d02dec515a419cf42) · [文件](ibelick/ui-skills/) | `.` |
 | [anthropics/skills](https://github.com/anthropics/skills) | 180399 | current | [`dbd4588`](https://github.com/anthropics/skills/commit/dbd4588f9e1033efb41dad4bef2f7947c8993d44) · [文件](anthropics/skills/) | `skills/frontend-design` |
-| [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 79571 | current | [`d631a88`](https://github.com/pbakaus/impeccable/commit/d631a8827f99414d2b6daba4ef08b7f8701751d7) · [文件](pbakaus/impeccable/) | `README.md, skill` |
+| [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 79572 | current | [`c63b8dd`](https://github.com/pbakaus/impeccable/commit/c63b8dd7dd5a5f3c32eaabe1af76d0694f863ed2) · [文件](pbakaus/impeccable/) | `README.md, skill` |
 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 94531 | current | [`717446e`](https://github.com/Leonxlnx/taste-skill/commit/717446e07a78d4e6d7918b1fde1a263378eebac9) · [文件](leonxlnx/taste-skill/) | `.` |
 | [vercel-labs/web-interface-guidelines](https://github.com/vercel-labs/web-interface-guidelines) | 956 | current | [`434b7f9`](https://github.com/vercel-labs/web-interface-guidelines/commit/434b7f91364665f2f733b310ec54809bf8f37937) · [文件](vercel-labs/web-interface-guidelines/) | `.` |
 | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | 7727 | current | [`c0588bb`](https://github.com/jakubkrehel/skills/commit/c0588bb6d654eb725046f0bf9deec338c34891ab) · [文件](jakubkrehel/skills/) | `.` |
