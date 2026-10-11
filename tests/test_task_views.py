@@ -59,6 +59,10 @@ class TaskViewTests(unittest.TestCase):
         self.assertIn('[副本·正文](../owner/repo/skills/edit/SKILL.md#rules)', self.page())
         self.assertIn(RULE, self.page())
         self.assertIn('中文润色，保留限定。', self.page())
+        # Reading an in-memory view must not require its output directory to exist.
+        target = (self.root / 'vendor/tasks' / '../owner/repo/skills/edit/SKILL.md').resolve()
+        self.assertTrue(target.is_file())
+        self.assertFalse((self.root / 'vendor/tasks').exists())
 
     def test_badges_removed_only_from_view(self):
         decorated = INTRO + ' <!-- source-meta -->[![Stars](https://img.example/a)](https://example.org) · [副本](vendor/owner/repo)<!-- /source-meta -->'
@@ -201,7 +205,8 @@ class PublishedTaskViewTests(unittest.TestCase):
             self.assertNotIn('source-meta', page)
             for _, target in views.LINK.findall(page):
                 if target.startswith('../'):
-                    path = (ROOT / relative).parent / unquote(urlsplit(target).path)
+                    path = ((ROOT / relative).parent / unquote(urlsplit(target).path)).resolve()
+                    self.assertTrue(path.is_relative_to(ROOT.resolve()), target)
                     self.assertTrue(path.is_file(), target)
 
     def test_home_uses_task_files_when_enabled(self):
