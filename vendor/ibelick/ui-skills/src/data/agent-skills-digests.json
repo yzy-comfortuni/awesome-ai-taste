@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-10T15:30:25.899Z",
-  "skillCount": 347,
+  "generatedAt": "2026-10-11T08:18:46.303Z",
+  "skillCount": 349,
   "digests": {
     "ibelick/ui-skills-root": "sha256:d4e1033f910467164a9cd3931277c1b309cb87c6d23cb5f184a65bfdf92b1c9c",
     "ibelick/baseline-ui": "sha256:fea3322f36d58fdafafce2aef56e4556dd2ac7b20876b7dff7d8be7f25fa597f",
@@ -213,7 +213,7 @@
     "mattpocock/to-prd": "sha256:43ad9cf318e5e7d3d1fa360253a37021796dc87a0c2e595ad262661a10f85088",
     "hardikpandya/stop-slop": "sha256:7432a1d9ebdd42b27666da8458af252edf549f723fb14bcd4791425103930310",
     "petergyang/no-ai-slop": "sha256:992b365f51a2f62cf4c1c5ed22049a9ee551dfea677550c1a72b371c0ceadd62",
-    "cursor/unslop": "sha256:195411d320b5b328f9f642baf59757ed19aaf0931c0838740e0aca273d538dc1",
+    "cursor/unslop": "sha256:3126b9e2cf46022f5e0c332e84be5e17a9730669cb3d6ac0a7e5e7e94b1e24fa",
     "blader/humanizer": "sha256:0612f1dfb1672b0ea9b97e139bf1f06cabe98d8b27424fe8ff01e1fb4cc99cad",
     "ehmo/slopbeth": "sha256:dfb2d461b8c4e73036f3bdb58893ae56f353f4767eb9ed30e637b47197091166",
     "stephenturner/deslop": "sha256:90fd6355859239630bf9e1b36f8a0b9071fe7fa63f57b1bf28cf069ad702c546",
@@ -229,7 +229,7 @@
     "emilkowalski/write-swift": "sha256:16a4b6adb74e338e55e704ce5753ad54d825438b8a63930eeaede9f3c04c9447",
     "jakubkrehel/interface-review": "sha256:8977988d63d7c17b8b0cd334ebd722d4e2dff00af0f152de2bc6f100d13d59ce",
     "jakubkrehel/explain-interface": "sha256:6795aff9a133b94c6398a95b5c8958a2eaccade5db18f58e752bc02460a356e0",
-    "jakubkrehel/variant": "sha256:e5bb95b72aa1589f72f350e2201be031129155db3cb27e9c3bec284ee08bc245",
+    "jakubkrehel/variant": "sha256:2d8eef43768e01d7fcec5ec2fd56dcfc453904b31a23fe8ea53170eb828d24ea",
     "flornkm/prefer-container-queries": "sha256:aaa09557f532585e06f1c122f18f2e585bf0f55fb8293be20ffed18fc9507bf5",
     "openai/define-goal": "sha256:708df89ff19cbae82a762efae036735d1914b5c7e44df1832e0b723f6cd9ee30",
     "flornkm/webgl-components": "sha256:76c0ea1b855dd07bab92c8ec5f63e4dd44ea42cff59c5e2d566e28f4dfc74272",
@@ -345,9 +345,11 @@
     "remotion-dev/remotion-studio": "sha256:796616d725b8f301d2838a0ac174a3118e602a8911b541f5900f8e9e63225cc2",
     "lucasmarkes/hairline-create": "sha256:528890cf33862c2b48e5af3b835a0ff5d0d91ce153a70dbc521f743d62542510",
     "mickadesign/fluid-functionalism": "sha256:148465e2b67125d70c961fed08a96bf292d6d406ce6ebe1f52e4e7d035cd13b8",
-    "jakubkrehel/state-machine": "sha256:f944409b17c9c0641e8049dd628ee93610279f882779a81f8876e6466aea586d",
+    "jakubkrehel/state-machine": "sha256:30b72100000bc8039a81fd4150919430d6ba5bcff5b4e86de11e7490afa54010",
     "jakubkrehel/build-design": "sha256:c5b3f67eba6f88c703a89f2698cdd6f0baf5e149a86cc68da08bb919db577202",
-    "elithrar/animated-sprites": "sha256:ff8ddcb9a4936438d30084bdcca49a6d2e584f9570c900ea74cd1469dadf7204",
-    "humanlayer/rpi": "sha256:309bed87e4c4ac88d59cca3f27ca44cf152ebf4cd4342e0095f3d72b5cb1188f"
+    "elithrar/animated-sprites": "sha256:9ce05a7e3e20875423c4ef9e9852d797e863aaf98456037653c3dd0582feaaf4",
+    "humanlayer/rpi": "sha256:309bed87e4c4ac88d59cca3f27ca44cf152ebf4cd4342e0095f3d72b5cb1188f",
+    "anthropics/pdf": "sha256:9f78b8359fbd4943ad260a7a1e436e5a96503406d6c34e99f69223d647d85b9c",
+    "wheresryan22/anatomy": "sha256:8798bed1ba9b1cc5d0e6f77a9613ab61a707ce3fb7fc0750d20b7c0c3ca1d893"
   }
 }

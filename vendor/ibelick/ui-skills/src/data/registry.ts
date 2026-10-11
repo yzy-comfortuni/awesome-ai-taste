@@ -4627,6 +4627,28 @@ const registrySource: RegistrySourceSkill[] = [
     description:
       "Create, repair, and review custom characters for 2D animation, animated sprite sheets, and custom Codex or ChatGPT pets, with consistent identity, readable motion, and timing-faithful previews.",
   },
+  {
+    slug: "anatomy",
+    user: "wheresryan22",
+    repo: "anatomy",
+    rawUrl:
+      "https://raw.githubusercontent.com/wheresryan22/anatomy/main/SKILL.md",
+    githubUrl: "https://github.com/wheresryan22/anatomy/blob/main/SKILL.md",
+    files: [
+      "references/3d.md",
+      "references/craft.md",
+      "references/kit.md",
+      "references/motion.md",
+      "references/react.md",
+      "references/verify.md",
+      "references/walkthrough.md",
+      "references/webgl.md",
+    ],
+    name: "anatomy",
+    topics: ["visual", "craft", "motion", "frontend"],
+    description:
+      "Build crafted, highly detailed, interactive isometric SVG figures that explain a technical idea as a real physical object, with precise solid parts, four-tone shading, painter's order, a framed card with live readout, and calm eased motion—for docs, landing pages, and interactive explainers (framework-free or React/Next.js, with optional in-perspective WebGL).",
+  },
 ];
 
 const buildInitialPathSlug = (entry: RegistrySourceSkill) => {
