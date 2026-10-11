@@ -4,6 +4,7 @@ import argparse
 from pathlib import Path
 import sync_sources
 import sync_pages
+import task_views
 
 # Chartability's reviewed footer grants CC BY-SA 3.0 (not 4.0).
 # The existing exact license-blob check remains in force via sources.config.json.
@@ -20,7 +21,7 @@ def main():
     args = parser.parse_args()
     mode = 'sync' if args.sync else 'check' if args.check else 'verify'
     results = []
-    for module in (sync_sources,sync_pages):
+    for module in (sync_sources,sync_pages,task_views):
         try:
             results.append(module.run(ROOT,mode))
         except (OSError,ValueError,KeyError,sync_sources.SyncError,sync_pages.ArchiveError) as e:
