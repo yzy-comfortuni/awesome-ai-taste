@@ -31,7 +31,7 @@
       "repository": "anthropics/skills",
       "branch": "main",
       "upstream_sha": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
-      "stars": 180396,
+      "stars": 180398,
       "archived": false,
       "scope": [
         "skills/frontend-design"
@@ -55,7 +55,7 @@
       "repository": "pbakaus/impeccable",
       "branch": "main",
       "upstream_sha": "d631a8827f99414d2b6daba4ef08b7f8701751d7",
-      "stars": 79558,
+      "stars": 79568,
       "archived": false,
       "scope": [
         "README.md",
@@ -80,7 +80,7 @@
       "repository": "Leonxlnx/taste-skill",
       "branch": "main",
       "upstream_sha": "717446e07a78d4e6d7918b1fde1a263378eebac9",
-      "stars": 94521,
+      "stars": 94529,
       "archived": false,
       "scope": [
         "."
@@ -154,7 +154,7 @@
       "repository": "emilkowalski/skills",
       "branch": "main",
       "upstream_sha": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
-      "stars": 45118,
+      "stars": 45124,
       "archived": false,
       "scope": [
         "."
@@ -180,7 +180,7 @@
       "repository": "wshobson/agents",
       "branch": "main",
       "upstream_sha": "46891e7e60da0e52baf1050b7b6391b64e84c6d9",
-      "stars": 40366,
+      "stars": 40365,
       "archived": false,
       "scope": [
         "."
@@ -206,7 +206,7 @@
       "repository": "hardikpandya/stop-slop",
       "branch": "main",
       "upstream_sha": "8da1f030185bdfe8471220585162991eaeb970e9",
-      "stars": 17904,
+      "stars": 17905,
       "archived": false,
       "scope": [
         "."
@@ -229,7 +229,7 @@
       "repository": "blader/humanizer",
       "branch": "main",
       "upstream_sha": "225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8",
-      "stars": 55517,
+      "stars": 55522,
       "archived": false,
       "scope": [
         "."
@@ -252,7 +252,7 @@
       "repository": "op7418/Humanizer-zh",
       "branch": "main",
       "upstream_sha": "f4518a8eab97b8bfebc66a89d34320a89bef6930",
-      "stars": 19386,
+      "stars": 19387,
       "archived": false,
       "scope": [
         "."
@@ -372,7 +372,7 @@
       "repository": "K-Dense-AI/scientific-agent-skills",
       "branch": "main",
       "upstream_sha": "92ace75ac21efe19a620434e0ca4e356081fe807",
-      "stars": 48334,
+      "stars": 48337,
       "archived": false,
       "scope": [
         "skills/scientific-visualization"
@@ -473,7 +473,7 @@
       "repository": "alchaincyf/huashu-art-motion",
       "branch": "main",
       "upstream_sha": "9ff59339f934e08483ba0a5b1db20f4c2c421b35",
-      "stars": 3287,
+      "stars": 3293,
       "archived": false,
       "scope": [
         "README.md",
@@ -499,7 +499,7 @@
       "repository": "zarazhangrui/frontend-slides",
       "branch": "main",
       "upstream_sha": "9906a34d640d2111f724544cbc50f7f130569ae1",
-      "stars": 30429,
+      "stars": 30431,
       "archived": false,
       "scope": [
         "."
