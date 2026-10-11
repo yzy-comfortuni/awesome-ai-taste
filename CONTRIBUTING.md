@@ -1,12 +1,16 @@
 # 参与整理
 
-通过 PR 添加条目，或在 [Issue](https://github.com/yzy-comfortuni/awesome-ai-taste/issues/new) 留下链接。本页是唯一编辑规则入口。
+通过 PR 添加条目，或在 [Issue](https://github.com/yzy-comfortuni/awesome-ai-taste/issues/new) 留下链接。本页是唯一编辑规则入口；使用收录的规则完成其他任务，不必读本页。
 
 ## 目录与首页
 
 `README.md` 只放用途、分类导航和维护入口，保持在 1,200 UTF-8 字节以内。助手按任务选读，不必加载整个仓库。
 
 `CATALOG.md` 保存全部条目、规则、出处和副本入口。规则直接可见，不折叠、不只写进提交说明或 ChatGPT 回报；不要把目录搬回首页。
+
+首页分类链接指向 `vendor/tasks/` 中的独立 Markdown 文件，不再用整份目录的章节锚点。分类页由 `scripts/task_views.py` 从 CATALOG 生成，保留原规则、用途和出处，省去 Stars 装饰，优先链接实际存在的正文副本；全文、摘要和书籍索引分开标注。只编辑 CATALOG，不手工维护第二套条目。
+
+修改目录后可离线运行 `python3 scripts/task_views.py --sync` 和 `--verify`。既有 `sync_library.py` 入口也会生成并核验分类页，仍沿用原 push／手动工作流，不新增触发器。首页只链接已经生成的页面。
 
 ```markdown
 - [名称](项目地址) — 一句话用途与必要条件。[正文](原作者的规则或示例)
