@@ -11,11 +11,11 @@ cd awesome-ai-taste
 
 ## 副本包含什么
 
-根 README 是收录清单。GitHub 来源按 `owner/repo` 去重，存放在 `vendor/<owner>/<repo>/`。同一仓库的多个技能共用一份副本；具体范围和已复制的 commit 见状态页。
+`CATALOG.md` 是收录清单，README 是简短导航。GitHub 来源按 `owner/repo` 去重，存放在 `vendor/<owner>/<repo>/`。同一仓库的多个技能共用一份副本；具体范围和已复制的 commit 见状态页。
 
 仓库副本不带上游 Git 历史，也不是安装包。原文件的字节、可执行位、许可证和署名保持不变。字体、Git 属性、符号链接等非普通文件不复制；子模块不递归下载，LFS 只保留指针。图片、依赖和外部链接可能仍需联网。完整性校验只检查文件，不能证明代码安全或使用效果。
 
-网页来源登记在 `pages.config.json`，保存到 `vendor/articles/`，并在根 README 链接到对应文件。GitHub 已有的 Markdown 不重复归档。
+网页来源登记在 `pages.config.json`，保存到 `vendor/articles/`，并在 CATALOG 链接到对应文件。GitHub 已有的 Markdown 不重复归档。
 
 | 类型 | 内容 |
 | --- | --- |
@@ -37,13 +37,15 @@ huashu-art-motion 只保存 README、SKILL 和 `references/`。人物帧、示�
 
 现有工作流只在本仓库相关内容 push 到 `main` 或手动触发时运行；没有 cron，也不监听上游仓库的推送。精选任务决定收录内容，同步脚本维护副本，不调用模型或执行上游代码。
 
+增删目录条目时，同时更新 README 的 `catalog-count` 数字，沿用现有 push 触发；数量不符、目录缺失或为空时停止同步，避免误删副本。只改目录措辞时，副本在下次相关 push 或手动触发时检查。CATALOG 的 Stars 和副本入口由编辑者核验后维护，同步器不重写目录；最新记录见状态页。
+
 脚本需要 Python 3.11+，仅使用标准库。手动命令不会自动提交或推送：
 
 ```bash
 # 联网查更新，不写文件
 python3 scripts/sync_library.py --check
 
-# 更新副本、状态和 README 入口
+# 更新副本和状态；短首页保持简短
 python3 scripts/sync_library.py --sync
 
 # 离线检查文件完整性和 Markdown 覆盖
@@ -71,4 +73,4 @@ python3 -m unittest discover -s tests -v
 
 Actions 的短期 `GITHUB_TOKEN` 只发给 GitHub API，不随网页请求发送。手动查询可用环境变量 `GH_TOKEN` 提供正常只读凭据；不要将凭据写进仓库。
 
-删除根 README 中某仓库的最后一个条目，会删除其受管理副本。移除网页条目时，同时撤销 `pages.config.json` 对应登记，并检查旧归档是否保留。
+删除 CATALOG 中某仓库的最后一个条目，会删除其受管理副本。移除网页条目时，同时撤销 `pages.config.json` 对应登记，并检查旧归档是否保留。
