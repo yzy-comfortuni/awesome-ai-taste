@@ -5,7 +5,7 @@
       "repository": "ibelick/ui-skills",
       "branch": "main",
       "upstream_sha": "d036a68c7a0785ae753f3b6d02dec515a419cf42",
-      "stars": 9595,
+      "stars": 9597,
       "archived": false,
       "scope": [
         "."
@@ -31,7 +31,7 @@
       "repository": "anthropics/skills",
       "branch": "main",
       "upstream_sha": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
-      "stars": 180392,
+      "stars": 180396,
       "archived": false,
       "scope": [
         "skills/frontend-design"
@@ -55,7 +55,7 @@
       "repository": "pbakaus/impeccable",
       "branch": "main",
       "upstream_sha": "d631a8827f99414d2b6daba4ef08b7f8701751d7",
-      "stars": 79552,
+      "stars": 79558,
       "archived": false,
       "scope": [
         "README.md",
@@ -80,7 +80,7 @@
       "repository": "Leonxlnx/taste-skill",
       "branch": "main",
       "upstream_sha": "717446e07a78d4e6d7918b1fde1a263378eebac9",
-      "stars": 94519,
+      "stars": 94521,
       "archived": false,
       "scope": [
         "."
@@ -154,7 +154,7 @@
       "repository": "emilkowalski/skills",
       "branch": "main",
       "upstream_sha": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
-      "stars": 45117,
+      "stars": 45118,
       "archived": false,
       "scope": [
         "."
@@ -206,7 +206,7 @@
       "repository": "hardikpandya/stop-slop",
       "branch": "main",
       "upstream_sha": "8da1f030185bdfe8471220585162991eaeb970e9",
-      "stars": 17903,
+      "stars": 17904,
       "archived": false,
       "scope": [
         "."
@@ -372,7 +372,7 @@
       "repository": "K-Dense-AI/scientific-agent-skills",
       "branch": "main",
       "upstream_sha": "92ace75ac21efe19a620434e0ca4e356081fe807",
-      "stars": 48332,
+      "stars": 48334,
       "archived": false,
       "scope": [
         "skills/scientific-visualization"
@@ -473,7 +473,7 @@
       "repository": "alchaincyf/huashu-art-motion",
       "branch": "main",
       "upstream_sha": "9ff59339f934e08483ba0a5b1db20f4c2c421b35",
-      "stars": 3284,
+      "stars": 3287,
       "archived": false,
       "scope": [
         "README.md",
