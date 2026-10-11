@@ -10,9 +10,9 @@
 | 仓库 | Stars | 状态 | 已复制 commit | 范围 |
 | --- | ---: | --- | --- | --- |
 | [ibelick/ui-skills](https://github.com/ibelick/ui-skills) | 9595 | current | [`ce5ce3e`](https://github.com/ibelick/ui-skills/commit/ce5ce3e0a955b13674a93dbf455e83306d2dcfc4) · [文件](ibelick/ui-skills/) | `.` |
-| [anthropics/skills](https://github.com/anthropics/skills) | 180391 | current | [`dbd4588`](https://github.com/anthropics/skills/commit/dbd4588f9e1033efb41dad4bef2f7947c8993d44) · [文件](anthropics/skills/) | `skills/frontend-design` |
-| [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 79549 | current | [`d631a88`](https://github.com/pbakaus/impeccable/commit/d631a8827f99414d2b6daba4ef08b7f8701751d7) · [文件](pbakaus/impeccable/) | `README.md, skill` |
-| [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 94517 | current | [`717446e`](https://github.com/Leonxlnx/taste-skill/commit/717446e07a78d4e6d7918b1fde1a263378eebac9) · [文件](leonxlnx/taste-skill/) | `.` |
+| [anthropics/skills](https://github.com/anthropics/skills) | 180392 | current | [`dbd4588`](https://github.com/anthropics/skills/commit/dbd4588f9e1033efb41dad4bef2f7947c8993d44) · [文件](anthropics/skills/) | `skills/frontend-design` |
+| [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 79551 | current | [`d631a88`](https://github.com/pbakaus/impeccable/commit/d631a8827f99414d2b6daba4ef08b7f8701751d7) · [文件](pbakaus/impeccable/) | `README.md, skill` |
+| [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 94518 | current | [`717446e`](https://github.com/Leonxlnx/taste-skill/commit/717446e07a78d4e6d7918b1fde1a263378eebac9) · [文件](leonxlnx/taste-skill/) | `.` |
 | [vercel-labs/web-interface-guidelines](https://github.com/vercel-labs/web-interface-guidelines) | 956 | current | [`434b7f9`](https://github.com/vercel-labs/web-interface-guidelines/commit/434b7f91364665f2f733b310ec54809bf8f37937) · [文件](vercel-labs/web-interface-guidelines/) | `.` |
 | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | 7727 | current | [`c0588bb`](https://github.com/jakubkrehel/skills/commit/c0588bb6d654eb725046f0bf9deec338c34891ab) · [文件](jakubkrehel/skills/) | `.` |
 | [emilkowalski/skills](https://github.com/emilkowalski/skills) | 45113 | current | [`e8a175d`](https://github.com/emilkowalski/skills/commit/e8a175de22ae1e49370fc144c1f3bb9aeedf988d) · [文件](emilkowalski/skills/) | `.` |

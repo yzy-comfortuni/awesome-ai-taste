@@ -31,7 +31,7 @@
       "repository": "anthropics/skills",
       "branch": "main",
       "upstream_sha": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
-      "stars": 180391,
+      "stars": 180392,
       "archived": false,
       "scope": [
         "skills/frontend-design"
@@ -55,7 +55,7 @@
       "repository": "pbakaus/impeccable",
       "branch": "main",
       "upstream_sha": "d631a8827f99414d2b6daba4ef08b7f8701751d7",
-      "stars": 79549,
+      "stars": 79551,
       "archived": false,
       "scope": [
         "README.md",
@@ -80,7 +80,7 @@
       "repository": "Leonxlnx/taste-skill",
       "branch": "main",
       "upstream_sha": "717446e07a78d4e6d7918b1fde1a263378eebac9",
-      "stars": 94517,
+      "stars": 94518,
       "archived": false,
       "scope": [
         "."
