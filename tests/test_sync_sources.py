@@ -252,7 +252,9 @@ class SyncTests(unittest.TestCase):
         self.assertEqual((self.root / 'sources.lock.json').read_text(), '{broken')
 
     def test_checked_in_catalog_roundtrip_preserves_text(self):
-        text = (SCRIPT.parents[1] / 'README.md').read_text(encoding='utf-8')
+        root = SCRIPT.parents[1]
+        home = (root / 'README.md').read_text(encoding='utf-8')
+        text = sync.read_catalog(root, home)
         self.assertTrue(sync.discover(text))
         clean = sync.DECORATION.sub('', text)
         self.assertEqual(sync.DECORATION.sub('', sync.decorate(clean, {})), clean)
