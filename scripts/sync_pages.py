@@ -16,6 +16,10 @@ import urllib.request
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
+try:
+    from catalog import read_catalog
+except ModuleNotFoundError:
+    from scripts.catalog import read_catalog
 
 ROOT = Path(__file__).resolve().parents[1]
 VERSION = 1
@@ -81,7 +85,6 @@ def url_ok(url):
 class Redirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         url_ok(newurl)
-        # Do not follow cross-host redirects, even between separately approved hosts.
         if urllib.parse.urlsplit(req.full_url).hostname != urllib.parse.urlsplit(newurl).hostname:
             raise ArchiveError('cross-host redirect requires review')
         return super().redirect_request(req, fp, code, msg, headers, newurl)
@@ -198,7 +201,6 @@ def extract(html, markers):
 
 def content_for(cfg):
     if cfg['kind'] != 'fulltext':
-        # No copyrighted original is written into a summary file.
         return cfg['summary'].strip() + '\n', None, None
     html = get(cfg['url'])
     evidence_url = cfg['license_evidence_url']
@@ -215,7 +217,6 @@ def content_for(cfg):
             raise ArchiveError('official text download is not a complete text document')
         if not all(marker in body for marker in cfg.get('text_markers', [])):
             raise ArchiveError('official text content/encoding markers changed')
-        # Preserve the official accessible text; do not manufacture PDF headings.
         body = clean(body)
         return body, digest(body), {'url': text_url, 'text_encoding': cfg.get('text_encoding'), 'license_evidence_sha256': digest(evidence)}
     node = extract(html, cfg['markers'])
@@ -299,14 +300,14 @@ def decorate(text, pages, records):
 
 def page_index(pages, records, uncovered):
     lines = ['# 网页文章的 Markdown 版本', '',
-             '正文副本、摘要和书籍索引分别统计。摘要不是全文副本；没有转载许可的原文仍是全文归档缺口。', '',
+             '下表区分正文、摘要和书籍索引；只有“正文 Markdown”包含所列范围的原文。', '',
              '| 来源 | Markdown 类型 | 状态 | 文件 |', '| --- | --- | --- | --- |']
     for c in pages:
         r = records[c['id']]
         f = '['+c['id']+'.md]('+c['id']+'.md)' if r.get('sha256') else '尚未生成'
         lines.append(f'| {c["title"]} | {KINDS[c["kind"]]} | {r["status"]} | {f} |')
-    lines += ['', '## 全文与更新边界', '',
-              '摘要只随编辑明确修改而更新；自动同步不会抓取受版权保护的全文代替摘要。正文转换在每次本仓库相关 push 或手动触发时检查来源和许可，失败时保留已验证版本。书籍不冒充单页文章。', '',
+    lines += ['', '## 更新方式', '',
+              '摘要随编辑修改；没有全文转载许可时不自动补抓原文。正文在本仓库相关 push 或手动触发时检查来源和许可，失败时保留已验证版本。书籍索引不含原书全文。', '',
               '文件头保存作者、来源、类型、许可和审阅日期；`manifest.json` 保存内容 SHA-256、正文来源摘要、转换版本和实际抓取记录。哈希只校验保存完整性，不代表内容权威性。', '',
               'GitHub 原生 Markdown 文档在上级各仓库副本目录中，不在这里重复复制。', '']
     for c in pages:
@@ -322,13 +323,14 @@ def run(root, mode):
     pages = load(root)
     readme = safe_file(root, 'README.md')
     text = readme.read_text(encoding='utf-8')
+    catalog_text = read_catalog(root, text)
     lock_path = safe_file(root, 'vendor/articles/manifest.json')
     state = json.loads(lock_path.read_text(encoding='utf-8')) if lock_path.exists() else {'version':VERSION,'pages':{}}
     if state.get('version') != VERSION:
         raise ArchiveError('unrecognized article manifest')
     old = state['pages']
     approved = {u for c in pages for u in c['catalog_urls']}
-    external = [m[2] for line in text.splitlines() if (m := ENTRY.match(line)) and urllib.parse.urlsplit(m[2]).hostname != 'github.com']
+    external = [m[2] for line in catalog_text.splitlines() if (m := ENTRY.match(line)) and urllib.parse.urlsplit(m[2]).hostname != 'github.com']
     uncovered = sorted(set(external)-approved)
     if mode == 'verify':
         if uncovered:
@@ -375,7 +377,6 @@ def run(root, mode):
         write(lock_path, json.dumps({'version':VERSION,'pages':records,'unregistered':uncovered},ensure_ascii=False,indent=2)+'\n')
         write(safe_file(root, 'vendor/articles/README.md'), page_index(pages,records,uncovered))
         result = decorate(text,pages,records)
-        # Correct an old schedule description; do not change actual trigger cadence.
         result = result.replace('保留原许可证，每 6 小时检查更新。', '保留原许可证，在本仓库相关内容推送或手动触发时检查更新。')
         if '[网页 Markdown 状态](vendor/articles/README.md)' not in result:
             result = result.replace('[副本状态](vendor/README.md)', '[副本状态](vendor/README.md) · [网页 Markdown 状态](vendor/articles/README.md)')
