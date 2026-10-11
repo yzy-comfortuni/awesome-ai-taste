@@ -2,7 +2,7 @@
 
 [网页文章 Markdown 状态](articles/README.md)。正文、摘要和多页书籍索引分别列明。
 
-由 `scripts/sync_sources.py --sync` 生成。Star 数为最近一次成功检查的快照；README 徽章独立缓存刷新。
+由 `scripts/sync_sources.py --sync` 生成。Stars 是最近一次检查的记录；徽章有独立缓存。
 
 目录中的文件保持各自的原始许可证，不由本仓库重新授权。这里只同步源码，不安装或执行上游代码。
 “current”表示记录的上游 commit 已复制并通过本地内容校验，不代表安全审计或效果验证。错误时保留上次成功副本。
@@ -11,8 +11,8 @@
 | --- | ---: | --- | --- | --- |
 | [ibelick/ui-skills](https://github.com/ibelick/ui-skills) | 9595 | current | [`ce5ce3e`](https://github.com/ibelick/ui-skills/commit/ce5ce3e0a955b13674a93dbf455e83306d2dcfc4) · [文件](ibelick/ui-skills/) | `.` |
 | [anthropics/skills](https://github.com/anthropics/skills) | 180391 | current | [`dbd4588`](https://github.com/anthropics/skills/commit/dbd4588f9e1033efb41dad4bef2f7947c8993d44) · [文件](anthropics/skills/) | `skills/frontend-design` |
-| [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 79547 | current | [`d631a88`](https://github.com/pbakaus/impeccable/commit/d631a8827f99414d2b6daba4ef08b7f8701751d7) · [文件](pbakaus/impeccable/) | `README.md, skill` |
-| [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 94516 | current | [`717446e`](https://github.com/Leonxlnx/taste-skill/commit/717446e07a78d4e6d7918b1fde1a263378eebac9) · [文件](leonxlnx/taste-skill/) | `.` |
+| [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 79549 | current | [`d631a88`](https://github.com/pbakaus/impeccable/commit/d631a8827f99414d2b6daba4ef08b7f8701751d7) · [文件](pbakaus/impeccable/) | `README.md, skill` |
+| [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 94517 | current | [`717446e`](https://github.com/Leonxlnx/taste-skill/commit/717446e07a78d4e6d7918b1fde1a263378eebac9) · [文件](leonxlnx/taste-skill/) | `.` |
 | [vercel-labs/web-interface-guidelines](https://github.com/vercel-labs/web-interface-guidelines) | 956 | current | [`434b7f9`](https://github.com/vercel-labs/web-interface-guidelines/commit/434b7f91364665f2f733b310ec54809bf8f37937) · [文件](vercel-labs/web-interface-guidelines/) | `.` |
 | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | 7727 | current | [`c0588bb`](https://github.com/jakubkrehel/skills/commit/c0588bb6d654eb725046f0bf9deec338c34891ab) · [文件](jakubkrehel/skills/) | `.` |
 | [emilkowalski/skills](https://github.com/emilkowalski/skills) | 45113 | current | [`e8a175d`](https://github.com/emilkowalski/skills/commit/e8a175de22ae1e49370fc144c1f3bb9aeedf988d) · [文件](emilkowalski/skills/) | `.` |
@@ -24,14 +24,14 @@
 | [sparanoid/chinese-copywriting-guidelines](https://github.com/sparanoid/chinese-copywriting-guidelines) | 15735 | current | [`9a5fbeb`](https://github.com/sparanoid/chinese-copywriting-guidelines/commit/9a5fbeb842f39644352fd79b5d8c6764718105cc) · [文件](sparanoid/chinese-copywriting-guidelines/) | `.` |
 | [Financial-Times/chart-doctor](https://github.com/Financial-Times/chart-doctor) | 3367 | current | [`befb9cb`](https://github.com/Financial-Times/chart-doctor/commit/befb9cba21849432a4029d0cfdda938819ae733f) · [文件](financial-times/chart-doctor/) | `visual-vocabulary/README.md, visual-vocabulary/Visual-vocabulary-cn-simplified.pdf, visual-vocabulary/Visual-vocabulary-en.pdf, visual-vocabulary/poster.png` |
 | [antvis/chart-visualization-skills](https://github.com/antvis/chart-visualization-skills) | 506 | current | [`a105fa1`](https://github.com/antvis/chart-visualization-skills/commit/a105fa12a9fa41fccccc2eba7f4b34973628f5d3) · [文件](antvis/chart-visualization-skills/) | `.` |
-| [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 48329 | current | [`92ace75`](https://github.com/K-Dense-AI/scientific-agent-skills/commit/92ace75ac21efe19a620434e0ca4e356081fe807) · [文件](k-dense-ai/scientific-agent-skills/) | `skills/scientific-visualization` |
+| [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 48330 | current | [`92ace75`](https://github.com/K-Dense-AI/scientific-agent-skills/commit/92ace75ac21efe19a620434e0ca4e356081fe807) · [文件](k-dense-ai/scientific-agent-skills/) | `skills/scientific-visualization` |
 | [nicobailon/visual-explainer](https://github.com/nicobailon/visual-explainer) | 10344 | current | [`1829e4f`](https://github.com/nicobailon/visual-explainer/commit/1829e4f61ee804dff3651eb9ffdec4dfb779dbfc) · [文件](nicobailon/visual-explainer/) | `.` |
 | [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | 26530 | current | [`1567581`](https://github.com/JimLiu/baoyu-skills/commit/1567581c26ec29f4216c6e6835415bf30343b0e3) · [文件](jimliu/baoyu-skills/) | `skills/baoyu-infographic, skills/baoyu-slide-deck` |
 | [Chartability/POUR-CAF](https://github.com/Chartability/POUR-CAF) | 119 | current | [`1eec6bb`](https://github.com/Chartability/POUR-CAF/commit/1eec6bbf21b1df6b118f7c9ff6ef25bfbf85c9dd) · [文件](chartability/pour-caf/) | `README.md, images, includes/footer.html, workbook.md` |
 | [alchaincyf/huashu-art-motion](https://github.com/alchaincyf/huashu-art-motion) | 3281 | current | [`9ff5933`](https://github.com/alchaincyf/huashu-art-motion/commit/9ff59339f934e08483ba0a5b1db20f4c2c421b35) · [文件](alchaincyf/huashu-art-motion/) | `README.md, SKILL.md, references` |
 | [zarazhangrui/frontend-slides](https://github.com/zarazhangrui/frontend-slides) | 30429 | current | [`9906a34`](https://github.com/zarazhangrui/frontend-slides/commit/9906a34d640d2111f724544cbc50f7f130569ae1) · [文件](zarazhangrui/frontend-slides/) | `.` |
 
-## 边界与待处理项
+## 副本范围
 
 `.` 表示仓库范围，其他路径表示仅收录目录，不是完整安装包。Git 历史和子模块不会递归复制；Git 属性文件、字体和非普通文件不复制，LFS 只保留指针。完整排除清单、许可证、SHA 和内容摘要见 [`sources.lock.json`](../sources.lock.json)。
 
