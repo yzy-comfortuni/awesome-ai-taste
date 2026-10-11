@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Maintain Stars badges and commit-pinned source snapshots. Python 3.11+, stdlib only.
 
-README is the catalog; sources.config.json only contains scope/license exceptions.
+CATALOG.md lists sources; README is the short entry point. Scope/license exceptions
+remain in sources.config.json.
 No upstream scripts, package managers, hooks, submodules, or LFS objects are run.
 """
 from __future__ import annotations
@@ -22,6 +23,10 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path, PurePosixPath
+try:
+    from catalog import read_catalog
+except ModuleNotFoundError:
+    from scripts.catalog import read_catalog
 
 ROOT = Path(__file__).resolve().parents[1]
 ENTRY = re.compile(r'^- \[[^\]\n]+\]\(https://github\.com/([A-Za-z0-9][A-Za-z0-9-]*)/([A-Za-z0-9_.-]+)(?:[/#?][^\s)]*)?\)')
@@ -412,7 +417,7 @@ def decorate(text: str, records: dict) -> str:
 
 
 def status_page(records: dict) -> str:
-    rows = ['# 来源副本状态', '', '由 `scripts/sync_sources.py --sync` 生成。Star 数为最近一次成功检查的快照；README 徽章独立缓存刷新。', '',
+    rows = ['# 来源副本状态', '', '由 `scripts/sync_sources.py --sync` 生成。Stars 是最近一次检查的记录；徽章有独立缓存。', '',
             '目录中的文件保持各自的原始许可证，不由本仓库重新授权。这里只同步源码，不安装或执行上游代码。',
             '“current”表示记录的上游 commit 已复制并通过本地内容校验，不代表安全审计或效果验证。错误时保留上次成功副本。', '',
             '| 仓库 | Stars | 状态 | 已复制 commit | 范围 |', '| --- | ---: | --- | --- | --- |']
@@ -422,11 +427,11 @@ def status_page(records: dict) -> str:
         copied = f'[`{sha[:7]}`](https://github.com/{repo}/commit/{sha}) · [文件]({key}/)' if sha else '—'
         scope = ', '.join(r.get('scope', ['.']))
         rows.append(f'| [{repo}](https://github.com/{repo}) | {r.get("stars", "—")} | {r["status"]} | {copied} | `{scope}` |')
-    rows.extend(['', '## 边界与待处理项', '',
+    rows.extend(['', '## 副本范围', '',
                  '`.` 表示仓库范围，其他路径表示仅收录目录，不是完整安装包。Git 历史和子模块不会递归复制；Git 属性文件、字体和非普通文件不复制，LFS 只保留指针。完整排除清单、许可证、SHA 和内容摘要见 [`sources.lock.json`](../sources.lock.json)。', ''])
     for key, r in records.items():
         if r.get('error'):
-            rows.append(f'- **{key}**：{r["error"]}。' + ('保留旧副本，未声称已更新。' if r.get('copied_sha') else '暂未生成副本。'))
+            rows.append(f'- **{key}**：{r["error"]}。' + ('保留上次成功副本。' if r.get('copied_sha') else '没有已保存的副本。'))
         if r.get('exclusions'):
             rows.append(f'- **{key}**：有 {len(r["exclusions"])} 项排除或 LFS 提示，见锁定文件。')
     return '\n'.join(rows) + '\n'
@@ -451,7 +456,7 @@ def run(root: Path, mode: str) -> int:
             raise SyncError('managed path is a symlink')
     readme = root / 'README.md'
     text = readme.read_text(encoding='utf-8')
-    repos = discover(text)
+    repos = discover(read_catalog(root, text))
     lock_path = root / 'sources.lock.json'
     state = json.loads(lock_path.read_text(encoding='utf-8')) if lock_path.exists() else {'version': 1, 'sources': {}}
     if state.get('version') != 1 or not isinstance(state.get('sources'), dict):
@@ -482,7 +487,7 @@ def run(root: Path, mode: str) -> int:
         records[key] = r
         print(f'{repo}: {r["status"]}' + (f' — {r["error"]}' if r.get('error') else ''))
     if mode == 'sync':
-        # A removal from the reviewed README removes its managed snapshot, never restores it.
+        # A removal from the full catalog removes its managed snapshot, never restores it.
         for key in old.keys() - repos.keys():
             target = source_target(root, key)
             if target.exists():
