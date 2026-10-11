@@ -9,6 +9,7 @@ import Breadcrumbs from "../../ui/breadcrumbs.astro";
 import PlaybookCard from "../../ui/playbook-card.astro";
 import SkillCard from "../../ui/skill-card.astro";
 import SkillNav from "../../ui/skill-nav.astro";
+import SkillFileList from "../../ui/skill-file-list.astro";
 import Command from "../../ui/command.astro";
 import Button from "../../ui/button.astro";
 import { PlusIcon } from "@heroicons/react/24/outline";
@@ -189,6 +190,14 @@ const relatedTopicsForTopicPage =
         .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
         .slice(0, 5)
     : [];
+
+const skillRegistryEntry = skill
+  ? getRegistryByPath(skill.pathSlug)
+  : undefined;
+const skillFileLinks = (skillRegistryEntry?.files ?? []).map((file) => ({
+  path: file,
+  href: new URL(file, skillRegistryEntry?.githubUrl ?? "").toString(),
+}));
 
 const skillTopicSuggestions = skill
   ? Array.from(
@@ -577,6 +586,10 @@ const installCommand = (() => {
                     ))}
                   </div>
                 </div>
+              ) : null}
+
+              {skillFileLinks.length > 0 ? (
+                <SkillFileList files={skillFileLinks} />
               ) : null}
 
               {relatedSkills.length > 0 ? (

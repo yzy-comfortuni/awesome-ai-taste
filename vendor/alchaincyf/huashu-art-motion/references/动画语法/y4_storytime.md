@@ -74,7 +74,7 @@
 | 呼吸 | 身体竖向缩放 | ±1.2%，周期 1.6s |
 | 眨眼 | 固定时刻表，间隔 2.4–3.6s | 闭眼 2 帧@24fps（83ms）；「无语」慢眨 3 帧 |
 | 眼神 | 指向某物时黑点往那边移 | 0.09R |
-| 镜头 | 中景慢推、反应镜头慢推、全景慢拉、近景慢推 | 中景 +3.5%/2.0s；特写 +6%/1.2s；全景 0.53→0.50（quintOut）；近景 1.90→1.98 |
+| 镜头 | 示范片用了中景、特写、近景慢推和全景慢拉（旧做法）；新片优先定住，变化靠硬切、跳近、砸镜 | 示范片：中景 +3.5%/2.0s；特写 +6%/1.2s；全景 0.53→0.50（quintOut）；近景 1.90→1.98 |
 | 开场 | 镜头 1.04→1.01 落定（0.5s expoOut），代替「第一帧静止」 | |
 | 汗滴 | 太阳穴处沿脸侧滑落 | 0.9s，expoOut 混线性 |
 | 镜片反光 | 白色斜带扫过两片镜片 | 0.3s |
@@ -106,10 +106,10 @@
 - **复用 skill**：引擎（段落表、转场时新旧两段离屏合成、`GLOBAL_OVERLAY`）、`render.py`、`PAINT.cached`（房间背景整张缓存）、`U.rng` 种子随机（代码瀑布的色块布局）。
 - **engine 两处改动（已并进 skill 引擎）**：段落表任何段都可以直接写 `dur`（秒），不必凑八分音符——storytime 按口播切，不按节拍；转场可以写 `punch: 0`（或片级 `window.PUNCH = 0`）关掉引擎默认的拍点冲击（storytime 没有拍点）。
 - **新写、现已统一进库**（`lib/toon.js` / `typo.js` / `camera.js` / `motion.js`，转场进 `transitions.js`）：
-  - `TOON.bean(c, {x, y, s, pose, expr, mouth, blink, look, squash, bob, tilt, lw})`：正面豆子花叔，全部 Path2D 程序化，返回双手和头的坐标（给道具、符号定位）。
+  - `TOON.bean(c, {x, y, s, char, pose, expr, mouth, blink, look, squash, bob, tilt, lw})`：正面豆子角色，全部 Path2D 程序化，返回双手和头的坐标（给道具、符号定位）。这套代码画的豆子角色只留给示范片和白模预演：作者看过多个模型做的片子后，判代码画的小人是一眼 AI 味（原话「很多视频里用到的小人和机器人角色都太差了」）。参数化片段 y4 只接受你自己的帧库（`data.character.frames`，AI 生帧，见 10 号和 `references/角色精细度.md`），没有帧库启动就失败。
   - `TOON.POSES`：rest / talk / point / type / shrug / stiff，每个姿势只是两只手相对肩的目标点（单位：头半径）。
   - `TOON.mouth(t)`：读 `window.VO_ENV`（音频脚本导出的 60fps RMS 包络），一拍二量化成 0/1/2。
-  - `MO.springHz / settle / backOut / expoOut / step`，`CAM.with`、`CAM.drift`，`TOON.sweat`、`TOON.mark`。
+  - `MO.springHz / settle / backOut / expoOut / step`，`CAM.with`、`CAM.drift`（示范片用过的手持微漂；新片定住就是定住，不加），`TOON.sweat`、`TOON.mark`。
   - 转场 `whip`、`smash`（y5 用的冲进色块转场收进库后改名 `fillZoom`，另有 `bands / push`）。
 - **本片 `y4_storytime/story.js`**：`STORY.poseAt(keys, t)`（姿势时间线＋换姿势回弹），`blinkAt`、`alive`（点头＋呼吸），字幕 overlay。
 - **音频（实验归档里的 `build_y4.py`，没收进 skill）**：摆口播、合成音效（whoosh、键盘、bloop、thump、「噔」、蟋蟀、pip、boing），同时导出 `vo_env.js`。口播是 macOS `say` 的 Eddy 占位——**正式片换成真人口播后重新导出包络，口型自动跟上**。
@@ -131,7 +131,7 @@
 
 1. **把它当「全动画」做，什么都在动。** 这个风格的生命在「快切＋定住」：TheOdd1sOut 七成帧完全静止。所有东西都在慢慢飘，反而软、反而没节奏（Oddballs 团队最怕的「too soft, too slow」）。姿势切换要快到 0.1s，然后**真的停住**；持续微动只给呼吸、眨眼、背景小物，幅度 ≤ 1–2%。
 2. **背景画得和角色一样精彩。** 背景饱和度、对比、线宽都要比角色低一档（本片背景线 3px 灰 vs 角色 8px 黑）。背景一花，观众的眼睛就离开脸，口播的笑点就丢了。
-3. **反应镜头不给沉默。** 说完离谱那句马上接下一句，等于把笑点讲掉了。反应镜头要放在口播的空白里，至少 0.8s，镜头只做极慢推近和一两个小细节（汗滴、慢眨、眉毛一垮）。
+3. **反应镜头不给沉默。** 说完离谱那句马上接下一句，等于把笑点讲掉了。反应镜头要放在口播的空白里，至少 0.8s。镜头定住，只给一两个小细节（汗滴、慢眨、眉毛一垮）；要加强就在包袱那一下跳近一档（硬切到约 2 倍近景）或砸入 0.17 秒，不用匀速慢推去填。
 
 ---
 

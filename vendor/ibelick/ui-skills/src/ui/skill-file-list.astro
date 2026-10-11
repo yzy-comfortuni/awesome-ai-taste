@@ -1,0 +1,81 @@
+---
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+
+type FileLink = {
+  path: string;
+  href: string;
+};
+
+type Props = {
+  files: FileLink[];
+  previewCount?: number;
+};
+
+const { files, previewCount = 6 } = Astro.props as Props;
+const hasMore = files.length > previewCount;
+---
+
+<div class="flex flex-col gap-3" data-file-list data-preview-count={previewCount}>
+  <h2 class="type-body-md text-content-secondary font-[450]">Other files</h2>
+  <div class="flex flex-col rounded-lg border border-line-default bg-surface-default">
+    <ul class="flex flex-col">
+      {
+        files.map((file, index) => (
+          <li
+            data-file-item
+            hidden={index >= previewCount}
+            class="border-line-default border-t first:border-t-0"
+          >
+            <a
+              href={file.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group hover:bg-fill-subtle focus-visible:outline-content-primary flex items-start justify-between gap-4 px-3 py-3 focus-visible:outline-1 focus-visible:-outline-offset-1"
+            >
+              <span class="type-code text-content-primary min-w-0 break-all">{file.path}</span>
+              <ArrowTopRightOnSquareIcon
+                className="text-content-muted group-hover:text-content-primary mt-0.5 size-4 shrink-0 transition-colors"
+                aria-hidden="true"
+              />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    {
+      hasMore ? (
+        <button
+          type="button"
+          data-file-toggle
+          aria-expanded="false"
+          data-label-more={`Show all ${files.length} files`}
+          data-label-fewer="Show fewer"
+          class="type-body-md text-content-secondary hover:text-content-primary focus-visible:outline-content-primary border-line-default flex w-full cursor-pointer items-center justify-between border-t px-3 py-3 text-left focus-visible:outline-1 focus-visible:-outline-offset-1"
+        >
+          Show all {files.length} files
+        </button>
+      ) : null
+    }
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-file-list]").forEach((list) => {
+    const toggle = list.querySelector<HTMLButtonElement>("[data-file-toggle]");
+    if (!toggle) return;
+
+    const items = Array.from(list.querySelectorAll<HTMLElement>("[data-file-item]"));
+    const previewCount = Number(list.dataset.previewCount ?? 6);
+
+    toggle.addEventListener("click", () => {
+      const expanded = toggle.getAttribute("aria-expanded") === "true";
+      items.forEach((item, index) => {
+        item.hidden = expanded && index >= previewCount;
+      });
+      toggle.setAttribute("aria-expanded", String(!expanded));
+      toggle.textContent = expanded
+        ? (toggle.dataset.labelMore ?? "Show all")
+        : (toggle.dataset.labelFewer ?? "Show fewer");
+    });
+  });
+</script>

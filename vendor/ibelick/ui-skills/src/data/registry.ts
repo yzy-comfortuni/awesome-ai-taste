@@ -10,6 +10,8 @@ export type RegistrySkill = {
   name: string;
   description: string;
   topics?: TopicSlug[];
+  /** Extra markdown files in the skill folder, relative to SKILL.md (e.g. "references/tokens.md"). */
+  files?: string[];
 };
 
 export type TopicSlug =
@@ -109,6 +111,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/MengTo/Skills/main/agent-skills/ui/design-first-ui-prompting/SKILL.md",
     githubUrl:
       "https://github.com/MengTo/Skills/blob/main/agent-skills/ui/design-first-ui-prompting/SKILL.md",
+    files: ["ARTICLE.md", "REFERENCES.md"],
     name: "design-first-ui-prompting",
     topics: ["visual", "systems", "frontend"],
     description:
@@ -122,6 +125,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/MengTo/Skills/main/agent-skills/web-design/landing-page/SKILL.md",
     githubUrl:
       "https://github.com/MengTo/Skills/blob/main/agent-skills/web-design/landing-page/SKILL.md",
+    files: ["REFERENCES.md"],
     name: "landing-page",
     topics: ["visual", "frontend", "interaction"],
     description:
@@ -135,6 +139,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/MengTo/Skills/main/agent-skills/web-design/pricing-page/SKILL.md",
     githubUrl:
       "https://github.com/MengTo/Skills/blob/main/agent-skills/web-design/pricing-page/SKILL.md",
+    files: ["REFERENCES.md"],
     name: "pricing-page",
     topics: ["visual", "frontend", "interaction"],
     description:
@@ -148,6 +153,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/MengTo/Skills/main/agent-skills/web-design/tailwindcss/SKILL.md",
     githubUrl:
       "https://github.com/MengTo/Skills/blob/main/agent-skills/web-design/tailwindcss/SKILL.md",
+    files: ["REFERENCES.md"],
     name: "tailwindcss",
     topics: ["frontend", "systems", "tooling"],
     description:
@@ -187,6 +193,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/MengTo/Skills/main/agent-skills/web-design/gsap/SKILL.md",
     githubUrl:
       "https://github.com/MengTo/Skills/blob/main/agent-skills/web-design/gsap/SKILL.md",
+    files: ["REFERENCES.md"],
     name: "gsap",
     topics: ["motion", "frontend", "interaction"],
     description:
@@ -213,6 +220,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/MengTo/Skills/main/agent-skills/web-design/threejs/SKILL.md",
     githubUrl:
       "https://github.com/MengTo/Skills/blob/main/agent-skills/web-design/threejs/SKILL.md",
+    files: ["REFERENCES.md"],
     name: "threejs",
     topics: ["threejs", "motion", "frontend"],
     description:
@@ -226,6 +234,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/MengTo/Skills/main/agent-skills/web-design/cobejs/SKILL.md",
     githubUrl:
       "https://github.com/MengTo/Skills/blob/main/agent-skills/web-design/cobejs/SKILL.md",
+    files: ["REFERENCES.md"],
     name: "cobejs",
     topics: ["3d", "visual", "frontend"],
     description:
@@ -330,6 +339,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/MengTo/Skills/main/agent-skills/web-design/webgl-landing-steering/SKILL.md",
     githubUrl:
       "https://github.com/MengTo/Skills/blob/main/agent-skills/web-design/webgl-landing-steering/SKILL.md",
+    files: ["REFERENCES.md"],
     name: "webgl-landing-steering",
     topics: ["threejs", "visual", "frontend"],
     description:
@@ -538,6 +548,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/vercel/next.js/canary/skills/next-cache-components-optimizer/SKILL.md",
     githubUrl:
       "https://github.com/vercel/next.js/blob/canary/skills/next-cache-components-optimizer/SKILL.md",
+    files: ["rig-template.md", "test-template.md"],
     name: "next-cache-components-optimizer",
     topics: ["nextjs", "performance", "testing"],
     description:
@@ -577,6 +588,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/vercel-labs/agent-skills/main/skills/react-best-practices/SKILL.md",
     githubUrl:
       "https://github.com/vercel-labs/agent-skills/blob/main/skills/react-best-practices/SKILL.md",
+    files: ["AGENTS.md"],
     name: "vercel-react-best-practices",
     topics: ["frontend", "performance", "systems"],
     description:
@@ -655,6 +667,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/callstackincubator/agent-skills/main/skills/react-native-best-practices/SKILL.md",
     githubUrl:
       "https://github.com/callstackincubator/agent-skills/blob/main/skills/react-native-best-practices/SKILL.md",
+    files: ["POWER.md"],
     name: "react-native-best-practices",
     topics: ["react-native", "performance", "frontend"],
     description:
@@ -869,6 +882,20 @@ const registrySource: RegistrySourceSkill[] = [
       "Create original visual designs and art on digital canvases using design philosophy, focusing on form, space, and color.",
   },
   {
+    slug: "pdf",
+    user: "anthropics",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/anthropics/skills/main/skills/pdf/SKILL.md",
+    githubUrl:
+      "https://github.com/anthropics/skills/blob/main/skills/pdf/SKILL.md",
+    name: "pdf",
+    topics: ["tooling"],
+    files: ["forms.md", "reference.md"],
+    description:
+      "Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks, creating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images, and OCR on scanned PDFs to make them searchable. If the user mentions a .pdf file or asks to produce one, use this skill.",
+  },
+  {
     slug: "antfu",
     user: "antfu",
     repo: "skills",
@@ -888,6 +915,7 @@ const registrySource: RegistrySourceSkill[] = [
     rawUrl:
       "https://raw.githubusercontent.com/antfu/skills/main/skills/nuxt/SKILL.md",
     githubUrl: "https://github.com/antfu/skills/blob/main/skills/nuxt/SKILL.md",
+    files: ["GENERATION.md"],
     name: "nuxt",
     topics: ["nuxt", "frontend", "performance"],
     description:
@@ -901,6 +929,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/antfu/skills/main/skills/pinia/SKILL.md",
     githubUrl:
       "https://github.com/antfu/skills/blob/main/skills/pinia/SKILL.md",
+    files: ["GENERATION.md"],
     name: "pinia",
     topics: ["vue", "systems", "frontend"],
     description:
@@ -913,6 +942,7 @@ const registrySource: RegistrySourceSkill[] = [
     rawUrl:
       "https://raw.githubusercontent.com/antfu/skills/main/skills/pnpm/SKILL.md",
     githubUrl: "https://github.com/antfu/skills/blob/main/skills/pnpm/SKILL.md",
+    files: ["GENERATION.md"],
     name: "pnpm",
     topics: ["tooling", "frontend", "performance"],
     description:
@@ -965,6 +995,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/antfu/skills/main/skills/unocss/SKILL.md",
     githubUrl:
       "https://github.com/antfu/skills/blob/main/skills/unocss/SKILL.md",
+    files: ["GENERATION.md"],
     name: "unocss",
     topics: ["tooling", "visual", "frontend"],
     description:
@@ -977,6 +1008,7 @@ const registrySource: RegistrySourceSkill[] = [
     rawUrl:
       "https://raw.githubusercontent.com/antfu/skills/main/skills/vite/SKILL.md",
     githubUrl: "https://github.com/antfu/skills/blob/main/skills/vite/SKILL.md",
+    files: ["GENERATION.md"],
     name: "vite",
     topics: ["tooling", "performance", "frontend"],
     description:
@@ -990,6 +1022,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/antfu/skills/main/skills/vitepress/SKILL.md",
     githubUrl:
       "https://github.com/antfu/skills/blob/main/skills/vitepress/SKILL.md",
+    files: ["GENERATION.md"],
     name: "vitepress",
     topics: ["nuxt", "tooling", "frontend"],
     description:
@@ -1003,6 +1036,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/antfu/skills/main/skills/vitest/SKILL.md",
     githubUrl:
       "https://github.com/antfu/skills/blob/main/skills/vitest/SKILL.md",
+    files: ["GENERATION.md"],
     name: "vitest",
     topics: ["testing", "tooling", "frontend"],
     description:
@@ -1015,6 +1049,7 @@ const registrySource: RegistrySourceSkill[] = [
     rawUrl:
       "https://raw.githubusercontent.com/antfu/skills/main/skills/vue/SKILL.md",
     githubUrl: "https://github.com/antfu/skills/blob/main/skills/vue/SKILL.md",
+    files: ["GENERATION.md"],
     name: "vue",
     topics: ["vue", "interaction", "frontend"],
     description:
@@ -1106,6 +1141,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/0xdesign/design-plugin/main/design-and-refine/skills/design-lab/SKILL.md",
     githubUrl:
       "https://github.com/0xdesign/design-plugin/blob/main/design-and-refine/skills/design-lab/SKILL.md",
+    files: ["DESIGN_PRINCIPLES.md"],
     name: "design-lab",
     topics: ["visual", "interaction", "systems"],
     description:
@@ -1119,6 +1155,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/jakubkrehel/make-interfaces-feel-better/main/skills/make-interfaces-feel-better/SKILL.md",
     githubUrl:
       "https://github.com/jakubkrehel/make-interfaces-feel-better/blob/main/skills/make-interfaces-feel-better/SKILL.md",
+    files: ["animations.md", "icons.md", "performance.md", "surfaces.md", "typography.md"],
     name: "make-interfaces-feel-better",
     topics: ["craft", "interaction", "visual"],
     description:
@@ -1132,6 +1169,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/jakubkrehel/oklch-skill/main/skills/oklch-skill/SKILL.md",
     githubUrl:
       "https://github.com/jakubkrehel/oklch-skill/blob/main/skills/oklch-skill/SKILL.md",
+    files: ["accessibility-contrast.md", "color-conversion.md", "gamut-and-tailwind.md", "palette-generation.md"],
     name: "oklch-skill",
     topics: ["color", "accessibility", "systems"],
     description:
@@ -1145,6 +1183,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/jakubkrehel/skills/main/skills/better-ui/SKILL.md",
     githubUrl:
       "https://github.com/jakubkrehel/skills/blob/main/skills/better-ui/SKILL.md",
+    files: ["animations.md", "enter-exit.md", "icon-transitions.md", "icons.md", "performance.md", "surfaces.md"],
     name: "better-ui",
     topics: ["visual", "interaction", "motion"],
     description:
@@ -1158,6 +1197,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/jakubkrehel/skills/main/skills/better-colors/SKILL.md",
     githubUrl:
       "https://github.com/jakubkrehel/skills/blob/main/skills/better-colors/SKILL.md",
+    files: ["color-formats.md", "color-usage.md", "contrast.md", "palette-generation.md", "palette-structure.md", "token-naming.md"],
     name: "better-colors",
     topics: ["color", "accessibility", "systems"],
     description:
@@ -1171,6 +1211,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/jakubkrehel/skills/main/skills/better-typography/SKILL.md",
     githubUrl:
       "https://github.com/jakubkrehel/skills/blob/main/skills/better-typography/SKILL.md",
+    files: ["choosing-fonts.md", "css-cheat-sheet.md", "details-and-accessibility.md", "spacing-and-sizing.md", "variable-fonts-and-opentype.md", "wrapping-and-punctuation.md"],
     name: "better-typography",
     topics: ["typography", "visual", "accessibility"],
     description:
@@ -1210,6 +1251,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/millionco/react-doctor/main/skills/improve-react/SKILL.md",
     githubUrl:
       "https://github.com/millionco/react-doctor/blob/main/skills/improve-react/SKILL.md",
+    files: ["AUDIT.md", "PLAN-TEMPLATE.md"],
     name: "improve-react",
     topics: ["code-quality", "performance", "architecture", "frontend"],
     description:
@@ -1352,6 +1394,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/emilkowalski/skills/main/skills/improve-animations/SKILL.md",
     githubUrl:
       "https://github.com/emilkowalski/skills/blob/main/skills/improve-animations/SKILL.md",
+    files: ["AUDIT.md", "PLAN-TEMPLATE.md"],
     name: "improve-animations",
     topics: ["motion", "performance", "testing"],
     description:
@@ -1365,6 +1408,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/emilkowalski/skills/main/skills/animate/SKILL.md",
     githubUrl:
       "https://github.com/emilkowalski/skills/blob/main/skills/animate/SKILL.md",
+    files: ["RECIPES.md"],
     name: "animate",
     topics: ["motion", "interaction", "craft"],
     description:
@@ -1378,6 +1422,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/emilkowalski/skills/main/skills/animate-expo/SKILL.md",
     githubUrl:
       "https://github.com/emilkowalski/skills/blob/main/skills/animate-expo/SKILL.md",
+    files: ["RECIPES.md"],
     name: "animate-expo",
     topics: ["motion", "interaction", "frontend"],
     description:
@@ -1391,6 +1436,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/emilkowalski/skills/main/skills/ask-sonner/SKILL.md",
     githubUrl:
       "https://github.com/emilkowalski/skills/blob/main/skills/ask-sonner/SKILL.md",
+    files: ["API.md"],
     name: "ask-sonner",
     topics: ["frontend", "interaction", "tooling"],
     description:
@@ -1533,6 +1579,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/shadcn-ui/ui/main/skills/shadcn/SKILL.md",
     githubUrl:
       "https://github.com/shadcn-ui/ui/blob/main/skills/shadcn/SKILL.md",
+    files: ["cli.md", "customization.md", "design-system-page.md", "design-system.md", "mcp.md", "registry.md"],
     name: "shadcn",
     topics: ["systems", "tooling", "frontend"],
     description:
@@ -1624,6 +1671,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/Leonxlnx/taste-skill/main/skills/stitch-skill/SKILL.md",
     githubUrl:
       "https://github.com/Leonxlnx/taste-skill/blob/main/skills/stitch-skill/SKILL.md",
+    files: ["DESIGN.md"],
     name: "stitch-design-taste",
     topics: ["systems", "tooling", "taste"],
     description:
@@ -1884,6 +1932,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/Jakubantalik/transitions-dev/main/skills/transitions-dev/SKILL.md",
     githubUrl:
       "https://github.com/Jakubantalik/transitions-dev/blob/main/skills/transitions-dev/SKILL.md",
+    files: ["01-card-resize.md", "02-number-pop-in.md", "03-notification-badge.md", "04-text-states-swap.md", "05-menu-dropdown.md", "06-modal.md", "07-panel-reveal.md", "08-page-side-by-side.md", "09-icon-swap.md", "10-success-check.md", "11-avatar-group-hover.md", "12-error-state-shake.md"],
     name: "transitions-dev",
     topics: ["motion", "interaction", "frontend"],
     description:
@@ -1936,6 +1985,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/latent-spaces/brag/main/skills/brag/SKILL.md",
     githubUrl:
       "https://github.com/latent-spaces/brag/blob/main/skills/brag/SKILL.md",
+    files: ["slim.md"],
     name: "brag",
     topics: ["video", "motion", "frontend"],
     description:
@@ -1975,6 +2025,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/emilkowalski/skills/main/skills/review-animations/SKILL.md",
     githubUrl:
       "https://github.com/emilkowalski/skills/blob/main/skills/review-animations/SKILL.md",
+    files: ["STANDARDS.md"],
     name: "review-animations",
     topics: ["motion", "performance", "testing", "interaction"],
     description:
@@ -2014,6 +2065,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/mattpocock/skills/main/skills/engineering/ask-matt/SKILL.md",
     githubUrl:
       "https://github.com/mattpocock/skills/blob/main/skills/engineering/ask-matt/SKILL.md",
+    files: ["PHASE-BOUNDARIES.md"],
     name: "ask-matt",
     topics: ["tooling", "architecture", "frontend"],
     description:
@@ -2040,6 +2092,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/mattpocock/skills/main/skills/engineering/triage/SKILL.md",
     githubUrl:
       "https://github.com/mattpocock/skills/blob/main/skills/engineering/triage/SKILL.md",
+    files: ["AGENT-BRIEF.md", "OUT-OF-SCOPE.md"],
     name: "triage",
     topics: ["tooling", "testing", "architecture"],
     description: "Moves issues through a structured triage state machine.",
@@ -2052,6 +2105,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/mattpocock/skills/main/skills/engineering/improve-codebase-architecture/SKILL.md",
     githubUrl:
       "https://github.com/mattpocock/skills/blob/main/skills/engineering/improve-codebase-architecture/SKILL.md",
+    files: ["HTML-REPORT.md"],
     name: "improve-codebase-architecture",
     topics: ["architecture", "systems", "testing"],
     description:
@@ -2065,6 +2119,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/mattpocock/skills/main/skills/engineering/setup-matt-pocock-skills/SKILL.md",
     githubUrl:
       "https://github.com/mattpocock/skills/blob/main/skills/engineering/setup-matt-pocock-skills/SKILL.md",
+    files: ["domain.md", "issue-tracker-github.md", "issue-tracker-gitlab.md", "issue-tracker-local.md", "triage-labels.md"],
     name: "setup-matt-pocock-skills",
     topics: ["tooling", "architecture"],
     description:
@@ -2103,6 +2158,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/mattpocock/skills/main/skills/engineering/prototype/SKILL.md",
     githubUrl:
       "https://github.com/mattpocock/skills/blob/main/skills/engineering/prototype/SKILL.md",
+    files: ["LOGIC.md", "UI.md"],
     name: "prototype",
     topics: ["frontend", "interaction", "systems"],
     description:
@@ -2129,6 +2185,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/mattpocock/skills/main/skills/engineering/tdd/SKILL.md",
     githubUrl:
       "https://github.com/mattpocock/skills/blob/main/skills/engineering/tdd/SKILL.md",
+    files: ["mocking.md", "tests.md"],
     name: "tdd",
     topics: ["testing", "tooling", "frontend"],
     description:
@@ -2142,6 +2199,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/mattpocock/skills/main/skills/engineering/domain-modeling/SKILL.md",
     githubUrl:
       "https://github.com/mattpocock/skills/blob/main/skills/engineering/domain-modeling/SKILL.md",
+    files: ["ADR-FORMAT.md", "GLOSSARY-FORMAT.md"],
     name: "domain-modeling",
     topics: ["architecture", "systems", "frontend"],
     description: "Builds and sharpens project domain models and terminology.",
@@ -2154,6 +2212,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/mattpocock/skills/main/skills/engineering/codebase-design/SKILL.md",
     githubUrl:
       "https://github.com/mattpocock/skills/blob/main/skills/engineering/codebase-design/SKILL.md",
+    files: ["DEEPENING.md", "DESIGN-IT-TWICE.md"],
     name: "codebase-design",
     topics: ["architecture", "systems", "testing"],
     description:
@@ -2426,6 +2485,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/tjcages/linear/main/skills/linear-methodology/SKILL.md",
     githubUrl:
       "https://github.com/tjcages/linear/blob/main/skills/linear-methodology/SKILL.md",
+    files: ["ALWAYS_ON.md", "AUTH.md", "AUTOMATION.md", "EXAMPLES.md", "METHODOLOGY.md", "RESPONSE.md"],
     name: "linear-methodology",
     topics: ["tooling", "architecture"],
     description:
@@ -2439,6 +2499,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/tjcages/linear/main/skills/linear-setup/SKILL.md",
     githubUrl:
       "https://github.com/tjcages/linear/blob/main/skills/linear-setup/SKILL.md",
+    files: ["ALWAYS_ON.md", "AUTH.md", "AUTOMATION.md", "EXAMPLES.md", "METHODOLOGY.md", "RESPONSE.md"],
     name: "linear-setup",
     topics: ["tooling", "architecture", "systems"],
     description:
@@ -2452,6 +2513,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/tjcages/linear/main/skills/linear-sync/SKILL.md",
     githubUrl:
       "https://github.com/tjcages/linear/blob/main/skills/linear-sync/SKILL.md",
+    files: ["ALWAYS_ON.md", "AUTH.md", "AUTOMATION.md", "EXAMPLES.md", "METHODOLOGY.md", "RESPONSE.md"],
     name: "linear-sync",
     topics: ["tooling", "architecture", "debugging"],
     description:
@@ -2465,6 +2527,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/tjcages/linear/main/skills/linear-monitor/SKILL.md",
     githubUrl:
       "https://github.com/tjcages/linear/blob/main/skills/linear-monitor/SKILL.md",
+    files: ["ALWAYS_ON.md", "AUTH.md", "AUTOMATION.md", "EXAMPLES.md", "METHODOLOGY.md", "RESPONSE.md"],
     name: "linear-monitor",
     topics: ["tooling", "testing", "architecture"],
     description:
@@ -2478,6 +2541,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/tjcages/linear/main/skills/linear-discipline/SKILL.md",
     githubUrl:
       "https://github.com/tjcages/linear/blob/main/skills/linear-discipline/SKILL.md",
+    files: ["ALWAYS_ON.md", "AUTH.md", "AUTOMATION.md", "EXAMPLES.md", "METHODOLOGY.md", "RESPONSE.md"],
     name: "linear-discipline",
     topics: ["tooling", "code-quality"],
     description:
@@ -2491,6 +2555,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/tjcages/linear/main/skills/linear-finish-install/SKILL.md",
     githubUrl:
       "https://github.com/tjcages/linear/blob/main/skills/linear-finish-install/SKILL.md",
+    files: ["ALWAYS_ON.md", "AUTH.md", "AUTOMATION.md", "RESPONSE.md"],
     name: "linear-finish-install",
     topics: ["tooling", "architecture"],
     description:
@@ -2543,6 +2608,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/emilkowalski/skills/main/skills/prototype/SKILL.md",
     githubUrl:
       "https://github.com/emilkowalski/skills/blob/main/skills/prototype/SKILL.md",
+    files: ["PICKER.md"],
     name: "prototype",
     topics: ["frontend", "interaction", "visual", "systems"],
     description:
@@ -2556,6 +2622,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/jakubkrehel/skills/main/skills/better-interface/SKILL.md",
     githubUrl:
       "https://github.com/jakubkrehel/skills/blob/main/skills/better-interface/SKILL.md",
+    files: ["review-format.md"],
     name: "better-interface",
     topics: ["visual", "accessibility", "systems", "craft"],
     description:
@@ -2569,6 +2636,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/jakubkrehel/skills/main/skills/better-accessibility/SKILL.md",
     githubUrl:
       "https://github.com/jakubkrehel/skills/blob/main/skills/better-accessibility/SKILL.md",
+    files: ["focus-and-keyboard.md", "forms.md", "hit-areas.md", "motion-and-zoom.md", "screen-readers.md", "semantics-and-aria.md"],
     name: "better-accessibility",
     topics: ["accessibility", "interaction", "testing"],
     description:
@@ -2582,6 +2650,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/jakubkrehel/skills/main/skills/better-layout/SKILL.md",
     githubUrl:
       "https://github.com/jakubkrehel/skills/blob/main/skills/better-layout/SKILL.md",
+    files: ["grouping-and-alignment.md", "spacing-and-adaptivity.md"],
     name: "better-layout",
     topics: ["systems", "visual", "frontend", "architecture"],
     description:
@@ -2595,6 +2664,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/jakubkrehel/skills/main/skills/better-writing/SKILL.md",
     githubUrl:
       "https://github.com/jakubkrehel/skills/blob/main/skills/better-writing/SKILL.md",
+    files: ["patterns.md"],
     name: "better-writing",
     topics: ["frontend", "accessibility", "craft"],
     description:
@@ -2608,6 +2678,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/jakubkrehel/skills/main/skills/explain-interface/SKILL.md",
     githubUrl:
       "https://github.com/jakubkrehel/skills/blob/main/skills/explain-interface/SKILL.md",
+    files: ["find-the-effect.md", "from-an-image.md", "no-browser.md", "read-the-system.md"],
     name: "explain-interface",
     topics: ["craft", "frontend", "visual", "architecture"],
     description:
@@ -2621,6 +2692,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/jakubkrehel/skills/main/skills/interface-review/SKILL.md",
     githubUrl:
       "https://github.com/jakubkrehel/skills/blob/main/skills/interface-review/SKILL.md",
+    files: ["removed-signals.md", "scope-resolution.md"],
     name: "interface-review",
     topics: ["craft", "visual", "testing", "code-quality"],
     description:
@@ -2634,6 +2706,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/jakubkrehel/skills/main/skills/variant/SKILL.md",
     githubUrl:
       "https://github.com/jakubkrehel/skills/blob/main/skills/variant/SKILL.md",
+    files: ["picker.md"],
     name: "variant",
     topics: ["visual", "interaction", "craft", "frontend"],
     description:
@@ -2855,6 +2928,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/petergyang/no-ai-slop/main/skills/no-ai-slop/SKILL.md",
     githubUrl:
       "https://github.com/petergyang/no-ai-slop/blob/main/skills/no-ai-slop/SKILL.md",
+    files: ["eval.md"],
     name: "no-ai-slop",
     topics: ["craft", "taste", "tooling"],
     description:
@@ -2894,6 +2968,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/ehmo/slopkit/main/plugins/slopbeth/skills/slopbeth/SKILL.md",
     githubUrl:
       "https://github.com/ehmo/slopkit/blob/main/plugins/slopbeth/skills/slopbeth/SKILL.md",
+    files: ["BENCHMARKS.md"],
     name: "slopbeth",
     topics: ["craft", "taste", "tooling"],
     description:
@@ -3050,6 +3125,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/ericzakariasson/scandinavian-design/main/skills/scandinavian-design/SKILL.md",
     githubUrl:
       "https://github.com/ericzakariasson/scandinavian-design/blob/main/skills/scandinavian-design/SKILL.md",
+    files: ["websites.md"],
     name: "scandinavian-design",
     topics: ["visual", "taste", "craft", "typography"],
     description:
@@ -3063,6 +3139,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/Superfuture/design-review/main/design-review/skills/design-review/SKILL.md",
     githubUrl:
       "https://github.com/Superfuture/design-review/blob/main/design-review/skills/design-review/SKILL.md",
+    files: ["checklist.md"],
     name: "design-review",
     topics: ["visual", "craft", "accessibility", "testing"],
     description:
@@ -3206,6 +3283,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/antfu/skills/main/skills/nitro/SKILL.md",
     githubUrl:
       "https://github.com/antfu/skills/blob/main/skills/nitro/SKILL.md",
+    files: ["GENERATION.md"],
     name: "nitro",
     topics: ["frontend", "craft", "visual"],
     description:
@@ -3388,10 +3466,37 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/jakubkrehel/skills/main/skills/break/SKILL.md",
     githubUrl:
       "https://github.com/jakubkrehel/skills/blob/main/skills/break/SKILL.md",
+    files: ["scenarios.md"],
     name: "break",
     topics: ["frontend", "craft", "visual"],
     description:
       "Answers \"does this survive?\" for one component. Renders it on a page in every state real use can put it in, and hands that page over as a visual report of what broke.",
+  },
+  {
+    slug: "build-design",
+    user: "jakubkrehel",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/jakubkrehel/skills/main/skills/build-design/SKILL.md",
+    githubUrl:
+      "https://github.com/jakubkrehel/skills/blob/main/skills/build-design/SKILL.md",
+    name: "build-design",
+    topics: ["craft", "frontend", "visual", "systems"],
+    description:
+      "Builds UI from a Figma file or a design image so it matches the design, using your project's existing tokens and components.",
+  },
+  {
+    slug: "state-machine",
+    user: "jakubkrehel",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/jakubkrehel/skills/main/skills/state-machine/SKILL.md",
+    githubUrl:
+      "https://github.com/jakubkrehel/skills/blob/main/skills/state-machine/SKILL.md",
+    name: "state-machine",
+    topics: ["frontend", "craft", "interaction", "testing"],
+    description:
+      "Renders every state of a component you choose on a throwaway page, with mock data and a switcher, so you can work on each state.",
   },
   {
     slug: "brandkit",
@@ -3609,6 +3714,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/millionco/skills/main/skills/paper-flex/SKILL.md",
     githubUrl:
       "https://github.com/millionco/skills/blob/main/skills/paper-flex/SKILL.md",
+    files: ["SPEC.md"],
     name: "paper-flex",
     topics: ["systems", "frontend", "visual"],
     description:
@@ -3661,6 +3767,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/Jakubantalik/transitions.dev/main/skills/transitions-polish/SKILL.md",
     githubUrl:
       "https://github.com/Jakubantalik/transitions.dev/blob/main/skills/transitions-polish/SKILL.md",
+    files: ["_refine-rules.md"],
     name: "transitions-polish",
     topics: ["motion", "craft", "frontend"],
     description:
@@ -3713,6 +3820,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/shadcn-ui/ui/main/skills/migrate-radix-to-base/SKILL.md",
     githubUrl:
       "https://github.com/shadcn-ui/ui/blob/main/skills/migrate-radix-to-base/SKILL.md",
+    files: ["class-mapping.md", "consumer-props.md", "disclosure.md", "display-misc.md", "form-controls.md", "menus.md", "overlays.md", "universal-patterns.md", "wrapper-shapes.md"],
     name: "migrate-radix-to-base",
     topics: ["systems", "frontend", "tooling"],
     description:
@@ -3856,6 +3964,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/coldteadotai/pr-lens/main/packages/agent-skill/SKILL.md",
     githubUrl:
       "https://github.com/coldteadotai/pr-lens/blob/main/packages/agent-skill/SKILL.md",
+    files: ["manual.md"],
     name: "agent-skill",
     topics: ["visual", "systems", "tooling"],
     description:
@@ -3908,6 +4017,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/microsoft/playwright-cli/main/.claude/skills/dev/SKILL.md",
     githubUrl:
       "https://github.com/microsoft/playwright-cli/blob/main/.claude/skills/dev/SKILL.md",
+    files: ["release.md", "roll.md"],
     name: "dev",
     topics: ["tooling", "testing"],
     description:
@@ -4236,6 +4346,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/heygen-com/hyperframes/main/skills/motion-graphics/SKILL.md",
     githubUrl:
       "https://github.com/heygen-com/hyperframes/blob/main/skills/motion-graphics/SKILL.md",
+    files: ["catalog-map.md"],
     name: "motion-graphics",
     topics: ["video", "motion", "visual"],
     description:
@@ -4275,6 +4386,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/remotion-dev/skills/main/skills/remotion-create/SKILL.md",
     githubUrl:
       "https://github.com/remotion-dev/skills/blob/main/skills/remotion-create/SKILL.md",
+    files: ["tailwind.md", "video-layout.md"],
     name: "remotion-create",
     topics: ["video", "remotion", "tooling"],
     description: "Create a new Remotion video project with official scaffolding and conventions.",
@@ -4287,6 +4399,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/remotion-dev/skills/main/skills/remotion-render/SKILL.md",
     githubUrl:
       "https://github.com/remotion-dev/skills/blob/main/skills/remotion-render/SKILL.md",
+    files: ["transparent-videos.md"],
     name: "remotion-render",
     topics: ["video", "remotion", "tooling"],
     description: "Export and render a Remotion composition to video with the official render workflow.",
@@ -4299,6 +4412,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/remotion-dev/skills/main/skills/remotion-captions/SKILL.md",
     githubUrl:
       "https://github.com/remotion-dev/skills/blob/main/skills/remotion-captions/SKILL.md",
+    files: ["display-captions.md", "import-srt-captions.md", "transcribe-captions.md"],
     name: "remotion-captions",
     topics: ["video", "remotion", "accessibility"],
     description:
@@ -4338,6 +4452,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/emilkowalski/skills/main/skills/break-ui/SKILL.md",
     githubUrl:
       "https://github.com/emilkowalski/skills/blob/main/skills/break-ui/SKILL.md",
+    files: ["CATALOG.md"],
     name: "break-ui",
     topics: ["frontend", "testing", "craft"],
     description:
@@ -4376,6 +4491,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/remotion-dev/skills/main/skills/remotion-interactivity/SKILL.md",
     githubUrl:
       "https://github.com/remotion-dev/skills/blob/main/skills/remotion-interactivity/SKILL.md",
+    files: ["inline-effects.md"],
     name: "remotion-interactivity",
     topics: ["video", "remotion", "interaction"],
     description:
@@ -4401,6 +4517,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/remotion-dev/skills/main/skills/remotion-markup/SKILL.md",
     githubUrl:
       "https://github.com/remotion-dev/skills/blob/main/skills/remotion-markup/SKILL.md",
+    files: ["3d.md", "audio-visualization.md", "audio.md", "calculate-metadata.md", "compositions.md", "connected-compositions.md", "cropping.md", "effects.md", "embedding-videos.md", "ffmpeg.md", "gifs.md", "google-fonts.md", "html-in-canvas.md", "images.md", "light-leaks.md", "local-fonts.md", "lottie.md", "measuring-dom-nodes.md", "measuring-text.md", "motion-blur.md", "multi-scene-video.md", "parameters.md", "sequencing.md", "sfx.md", "silence-detection.md", "text-highlights.md", "timing-props.md", "timing.md", "transitions.md", "video-editing.md", "voiceover.md"],
     name: "remotion-markup",
     topics: ["video", "remotion", "frontend"],
     description:
@@ -4414,6 +4531,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/remotion-dev/skills/main/skills/remotion-multimedia/SKILL.md",
     githubUrl:
       "https://github.com/remotion-dev/skills/blob/main/skills/remotion-multimedia/SKILL.md",
+    files: ["get-audio-duration.md", "get-video-dimensions.md", "get-video-duration.md"],
     name: "remotion-multimedia",
     topics: ["video", "remotion", "tooling"],
     description:
@@ -4427,6 +4545,7 @@ const registrySource: RegistrySourceSkill[] = [
       "https://raw.githubusercontent.com/remotion-dev/skills/main/skills/remotion-saas/SKILL.md",
     githubUrl:
       "https://github.com/remotion-dev/skills/blob/main/skills/remotion-saas/SKILL.md",
+    files: ["framework.md", "player.md", "rendering.md"],
     name: "remotion-saas",
     topics: ["video", "remotion", "systems"],
     description:
@@ -4481,6 +4600,32 @@ const registrySource: RegistrySourceSkill[] = [
     topics: ["motion", "interaction", "frontend", "visual"],
     description:
       "Build React UIs with the Fluid Functionalism @fluid registry: animated components, shared spring motion, and hover highlights that glide between items without layout shift.",
+  },
+  {
+    slug: "rpi",
+    user: "humanlayer",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/humanlayer/skills/main/plugins/rpi/skills/rpi/SKILL.md",
+    githubUrl:
+      "https://github.com/humanlayer/skills/blob/main/plugins/rpi/skills/rpi/SKILL.md",
+    name: "rpi",
+    topics: ["craft", "architecture", "tooling"],
+    description:
+      "Research, design, and implement workflow: phased documents for exploring a change, choosing PRD or TDD paths, then implementing.",
+  },
+  {
+    slug: "animated-sprites",
+    user: "elithrar",
+    repo: "dotfiles",
+    rawUrl:
+      "https://raw.githubusercontent.com/elithrar/dotfiles/main/.agents/skills/animated-sprites/SKILL.md",
+    githubUrl:
+      "https://github.com/elithrar/dotfiles/blob/main/.agents/skills/animated-sprites/SKILL.md",
+    name: "animated-sprites",
+    topics: ["motion", "visual", "craft"],
+    description:
+      "Create, repair, and review custom characters for 2D animation, animated sprite sheets, and custom Codex or ChatGPT pets, with consistent identity, readable motion, and timing-faithful previews.",
   },
 ];
 
