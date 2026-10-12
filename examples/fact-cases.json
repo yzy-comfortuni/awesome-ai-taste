@@ -1,0 +1,12 @@
+{
+  "note": "New editorial fixtures informed by issues #1 and #4, not recovered reporter logs. Literal checks do not prove semantic equivalence.",
+  "cases": [
+    {"id":"qualifiers", "before":"Our exporter is a breakthrough. It probably reduced time. We tested CSV only.", "after":"It probably reduced time. We tested CSV only.", "invalid":"It reduced time. We tested CSV.", "required":["probably","CSV only"]},
+    {"id":"unknown-actor", "before":"The patch was approved on Tuesday; the approver is not recorded.", "after":"The patch was approved on Tuesday; the approver is not recorded.", "invalid":"The team approved the patch on Tuesday.", "required":["Tuesday","the approver is not recorded"]},
+    {"id":"numeric-bound", "before":"The area is more than 3000 square metres.", "after":"The area is more than 3000 square metres.", "invalid":"The area is 3000 square metres.", "required":["more than 3000"]},
+    {"id":"three-real-features", "before":"Imports support CSV, TSV, and JSON. Files over 10 MB fail.", "after":"Imports support CSV, TSV, and JSON. Files over 10 MB fail.", "invalid":"Imports support CSV and JSON.", "required":["CSV","TSV","JSON","over 10 MB fail"]},
+    {"id":"planned-not-released", "before":"离线编辑仅在计划中，尚未测试；没有性能测量。", "after":"离线编辑仅在计划中，尚未测试；没有性能测量。", "invalid":"离线编辑已上线，性能更快。", "required":["仅在计划中","尚未测试","没有性能测量"]},
+    {"id":"code-and-link", "before":"执行 `rebuild --dry-run`；参考 [说明](https://example.invalid/a?q=1#b)。", "after":"先执行 `rebuild --dry-run`；参考 [说明](https://example.invalid/a?q=1#b)。", "invalid":"执行 `rebuild`；参考 [说明](https://example.invalid/a)。", "required":["`rebuild --dry-run`","https://example.invalid/a?q=1#b"]}
+  ],
+  "condition_counterexample": {"source":"A successful run ends with READY.", "invalid":"A run ending with READY is successful.", "success":false,"ready":true,"note":"Both keep the same keywords; only the assigned logical relation distinguishes them."}
+}
