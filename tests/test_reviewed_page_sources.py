@@ -62,7 +62,8 @@ class ReviewedArticleRightsTests(unittest.TestCase):
     def test_fixture_retains_entire_selected_body(self):
         html = ('<nav>Menu</nav><article><h1>Context</h1><p>First paragraph.</p>'
                 '<h2>Consequences</h2><p>Last paragraph.</p>'
-                '<p>has waived all copyright</p></article><footer>Footer</footer>')
+                '<p>has waived all copyright. This work is published from: United States.</p>'
+                '</article><footer>Footer</footer>')
         with patch.object(pages, 'get', return_value=html):
             body, content_hash, evidence = pages.content_for(self.cfg)
         self.assertIn('First paragraph.', body)
