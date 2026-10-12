@@ -5,7 +5,7 @@
       "repository": "ibelick/ui-skills",
       "branch": "main",
       "upstream_sha": "d036a68c7a0785ae753f3b6d02dec515a419cf42",
-      "stars": 9613,
+      "stars": 9614,
       "archived": false,
       "scope": [
         "."
@@ -31,7 +31,7 @@
       "repository": "anthropics/skills",
       "branch": "main",
       "upstream_sha": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
-      "stars": 180514,
+      "stars": 180524,
       "archived": false,
       "scope": [
         "skills/frontend-design"
@@ -55,7 +55,7 @@
       "repository": "pbakaus/impeccable",
       "branch": "main",
       "upstream_sha": "c63b8dd7dd5a5f3c32eaabe1af76d0694f863ed2",
-      "stars": 79887,
+      "stars": 79901,
       "archived": false,
       "scope": [
         "README.md",
@@ -80,7 +80,7 @@
       "repository": "Leonxlnx/taste-skill",
       "branch": "main",
       "upstream_sha": "d237dd399d57524945c0c81327da5da19f7a468d",
-      "stars": 94754,
+      "stars": 94766,
       "archived": false,
       "scope": [
         "."
@@ -130,7 +130,7 @@
       "repository": "jakubkrehel/skills",
       "branch": "main",
       "upstream_sha": "c0588bb6d654eb725046f0bf9deec338c34891ab",
-      "stars": 7798,
+      "stars": 7801,
       "archived": false,
       "scope": [
         "."
@@ -156,7 +156,7 @@
       "repository": "emilkowalski/skills",
       "branch": "main",
       "upstream_sha": "2d228630ba1446365f614a108cb8252f1feda202",
-      "stars": 45396,
+      "stars": 45412,
       "archived": false,
       "scope": [
         "."
@@ -182,7 +182,7 @@
       "repository": "wshobson/agents",
       "branch": "main",
       "upstream_sha": "46891e7e60da0e52baf1050b7b6391b64e84c6d9",
-      "stars": 40417,
+      "stars": 40422,
       "archived": false,
       "scope": [
         "."
@@ -208,7 +208,7 @@
       "repository": "hardikpandya/stop-slop",
       "branch": "main",
       "upstream_sha": "8da1f030185bdfe8471220585162991eaeb970e9",
-      "stars": 17928,
+      "stars": 17931,
       "archived": false,
       "scope": [
         "."
@@ -231,7 +231,7 @@
       "repository": "blader/humanizer",
       "branch": "main",
       "upstream_sha": "225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8",
-      "stars": 55801,
+      "stars": 55822,
       "archived": false,
       "scope": [
         "."
@@ -254,7 +254,7 @@
       "repository": "op7418/Humanizer-zh",
       "branch": "main",
       "upstream_sha": "f4518a8eab97b8bfebc66a89d34320a89bef6930",
-      "stars": 19428,
+      "stars": 19435,
       "archived": false,
       "scope": [
         "."
@@ -320,6 +320,131 @@
       "exclusions": [],
       "status": "current"
     },
+    "ddbeck/readme-checklist": {
+      "repository": "ddbeck/readme-checklist",
+      "branch": "main",
+      "upstream_sha": "8c4c070e9d7f1843b6d0b878556796015e1a3cb8",
+      "stars": 667,
+      "archived": false,
+      "scope": [
+        "README.md",
+        "checklist.md"
+      ],
+      "config_sha256": "a4d849eb963f2749f4b7531d8ff0c4c89b6765e97d6a20de6c5ee814c7d481e4",
+      "copied_sha": "8c4c070e9d7f1843b6d0b878556796015e1a3cb8",
+      "license": {
+        "spdx": "CC0-1.0",
+        "path": "LICENSE",
+        "sha": "670154e3538863b2d9891fd5483160fbdfc89164"
+      },
+      "tree_sha256": "c882f04efd0269661e5bbcce34294e44d69b703759acf4cdb3e367bd4edc1ff5",
+      "archive_sha256": "facfedc2441ac8da8d540333dc7fe28629837a9e00e58948750b5e1d01dd2bc1",
+      "fetch_mode": "archive",
+      "files": 3,
+      "bytes": 16135,
+      "exclusions": [],
+      "status": "current"
+    },
+    "evildmp/diataxis-documentation-framework": {
+      "repository": "evildmp/diataxis-documentation-framework",
+      "branch": "main",
+      "upstream_sha": "957c09ca40b4a1edc23874f713e01937d50d54d5",
+      "stars": 1250,
+      "archived": false,
+      "scope": [
+        "README.rst",
+        "source/how-to-guides.rst"
+      ],
+      "config_sha256": "4a3433193eb99353c3b14cc67849828f7f8e56102ccb5f56711d9d20b578d661",
+      "copied_sha": "957c09ca40b4a1edc23874f713e01937d50d54d5",
+      "license": {
+        "spdx": "CC-BY-SA-4.0",
+        "path": "LICENSE.rst",
+        "sha": "33d423fcc11debdef3357552687c364c64e8273b"
+      },
+      "tree_sha256": "808e149af3569254fc003498679ba80b85472e1039f62925ab3be876bd7b805a",
+      "archive_sha256": "f63fde3dd2893ba2bd98472f1b3f05f754266d162e2b62828e233d227ae9e4a7",
+      "fetch_mode": "archive",
+      "files": 3,
+      "bytes": 31264,
+      "exclusions": [],
+      "status": "current"
+    },
+    "jtleek/reviews": {
+      "repository": "jtleek/reviews",
+      "branch": "master",
+      "upstream_sha": "66f16a064fab15b8bd4507a241db2676ff26734e",
+      "stars": 533,
+      "archived": false,
+      "scope": [
+        "README.md",
+        "review-template.Rmd"
+      ],
+      "config_sha256": "2a1fed0b6068a9d9886173017d4fcbde5e8bbf4c2413a08034b1febce1b32916",
+      "copied_sha": "66f16a064fab15b8bd4507a241db2676ff26734e",
+      "license": {
+        "spdx": "GPL-2.0",
+        "path": "LICENSE",
+        "sha": "1453ac52cbffdf312470fba2d013e308af96b712"
+      },
+      "tree_sha256": "b1099c9f816b90826653929bc4720514e8354a8316df63865f8b27cc238f2fd0",
+      "archive_sha256": "e3da1f46f0c5cd10f72a17eb909e95dc5206258c0ea117f2ef3c4e3adbd5b2b4",
+      "fetch_mode": "archive",
+      "files": 3,
+      "bytes": 32386,
+      "exclusions": [],
+      "status": "current"
+    },
+    "haowjy/creative-writing-skills": {
+      "repository": "haowjy/creative-writing-skills",
+      "branch": "main",
+      "upstream_sha": "254d4bb9b3b2e50a47def955b6461c06057eedae",
+      "stars": 510,
+      "archived": false,
+      "scope": [
+        "README.md",
+        "skills/writing-principles"
+      ],
+      "config_sha256": "8ac6e4a8a3ceb7ba635dcb826bdb41e54a7aef5b9b03a669b3d943150e16688d",
+      "copied_sha": "254d4bb9b3b2e50a47def955b6461c06057eedae",
+      "license": {
+        "spdx": "Apache-2.0",
+        "path": "LICENSE",
+        "sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+      },
+      "tree_sha256": "852349177a62dc6c22846c9442049482ab0d4c11d5854dda5c652cf4077c461a",
+      "archive_sha256": "737c9e1d8c2506a1f409a3891bf09fba9a084daf2183009fe8550bd732491ca7",
+      "fetch_mode": "archive",
+      "files": 5,
+      "bytes": 42133,
+      "exclusions": [],
+      "status": "current"
+    },
+    "penglonghuang/chinese-novelist-skill": {
+      "repository": "PenglongHuang/chinese-novelist-skill",
+      "branch": "master",
+      "upstream_sha": "6a64a04651036aa519c6354a93d6e01d68a9c22a",
+      "stars": 3368,
+      "archived": false,
+      "scope": [
+        "README.md",
+        "references/guides/dialogue-writing.md"
+      ],
+      "config_sha256": "977cba42f17cd968f1cbfc000a2a961e76713cee5f4e6d2b821ca0b8237fcaae",
+      "copied_sha": "6a64a04651036aa519c6354a93d6e01d68a9c22a",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "sha": "2f6b7e59b8c5af624617520313285dcfe0b47c28"
+      },
+      "tree_sha256": "4df2eb3de040ba6a0130a1e94bab8c3e5a9ae349f954bc3d6c5ac58584ce17c2",
+      "archive_sha256": "0dbf23546c93291646825122372c4278d7d85abbad55e29e1a33bc7955f30317",
+      "fetch_mode": "archive",
+      "files": 3,
+      "bytes": 21354,
+      "exclusions": [],
+      "status": "current"
+    },
     "financial-times/chart-doctor": {
       "repository": "Financial-Times/chart-doctor",
       "branch": "main",
@@ -374,7 +499,7 @@
       "repository": "K-Dense-AI/scientific-agent-skills",
       "branch": "main",
       "upstream_sha": "92ace75ac21efe19a620434e0ca4e356081fe807",
-      "stars": 48404,
+      "stars": 48415,
       "archived": false,
       "scope": [
         "skills/scientific-visualization"
@@ -398,7 +523,7 @@
       "repository": "nicobailon/visual-explainer",
       "branch": "main",
       "upstream_sha": "1829e4f61ee804dff3651eb9ffdec4dfb779dbfc",
-      "stars": 10358,
+      "stars": 10360,
       "archived": false,
       "scope": [
         "."
@@ -424,7 +549,7 @@
       "repository": "JimLiu/baoyu-skills",
       "branch": "main",
       "upstream_sha": "1567581c26ec29f4216c6e6835415bf30343b0e3",
-      "stars": 26545,
+      "stars": 26546,
       "archived": false,
       "scope": [
         "skills/baoyu-infographic",
@@ -475,7 +600,7 @@
       "repository": "alchaincyf/huashu-art-motion",
       "branch": "main",
       "upstream_sha": "9ff59339f934e08483ba0a5b1db20f4c2c421b35",
-      "stars": 3386,
+      "stars": 3400,
       "archived": false,
       "scope": [
         "README.md",
@@ -501,7 +626,7 @@
       "repository": "zarazhangrui/frontend-slides",
       "branch": "main",
       "upstream_sha": "9906a34d640d2111f724544cbc50f7f130569ae1",
-      "stars": 30473,
+      "stars": 30478,
       "archived": false,
       "scope": [
         "."
