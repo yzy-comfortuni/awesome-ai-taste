@@ -141,7 +141,10 @@ def md(n, base):
         return re.sub(r'\s+', ' ', n).replace('<', '&lt;').replace('>', '&gt;')
     if n.tag in SKIP or n.attrs.get('aria-hidden') == 'true':
         return ''
-    if 'devsite-summary' in n.attrs.get('class', '') or n.tag.startswith('devsite-'):
+    if 'devsite-summary' in n.attrs.get('class', ''):
+        return ''
+    if n.tag.startswith('devsite-') and not (
+            n.tag == 'devsite-code' and base == 'https://developers.google.com/tech-writing/two/large-docs'):
         return ''
     if n.tag == 'pre':
         text = n.text().strip('\n')
@@ -209,6 +212,21 @@ def extract(html, markers):
     return min(candidates, key=lambda n: len(n.text()))
 
 
+def check_reviewed_body(node, body, cfg):
+    """Retain the reviewed exercises and trim only a verified article footer."""
+    if cfg['url'] == 'https://developers.google.com/tech-writing/two/large-docs':
+        examples = [n.text().strip('\n') for n in node.walk() if n.tag == 'pre']
+        if len(examples) < 9 or any(not text.strip() or text not in body for text in examples):
+            raise ArchiveError('large-docs exercise/example content missing from Markdown')
+    if cfg['url'] == REVIEWED_PUBLIC_DOMAIN['url']:
+        end = re.search(r'has waived all copyright.*?This work is published from:\s+United States\.', body, re.S)
+        if not end:
+            raise ArchiveError('reviewed article ending/waiver changed')
+        # The full article ends with its waiver; random/recent lists are site navigation.
+        body = body[:end.end()].rstrip() + '\n'
+    return body
+
+
 def content_for(cfg):
     if cfg['kind'] != 'fulltext':
         return cfg['summary'].strip() + '\n', None, None
@@ -230,7 +248,7 @@ def content_for(cfg):
         body = clean(body)
         return body, digest(body), {'url': text_url, 'text_encoding': cfg.get('text_encoding'), 'license_evidence_sha256': digest(evidence)}
     node = extract(html, cfg['markers'])
-    body = clean(md(node, cfg['url']))
+    body = check_reviewed_body(node, clean(md(node, cfg['url'])), cfg)
     if len(body) < cfg['min_chars'] or not all(m.casefold() in body.casefold() for m in cfg['markers']):
         raise ArchiveError('empty/truncated Markdown article')
     return body, digest(body), {'url': cfg['url'], 'license_evidence_sha256': digest(evidence)}
