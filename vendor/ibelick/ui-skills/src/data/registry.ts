@@ -4649,6 +4649,604 @@ const registrySource: RegistrySourceSkill[] = [
     description:
       "Build crafted, highly detailed, interactive isometric SVG figures that explain a technical idea as a real physical object, with precise solid parts, four-tone shading, painter's order, a framed card with live readout, and calm eased motion—for docs, landing pages, and interactive explainers (framework-free or React/Next.js, with optional in-perspective WebGL).",
   },
+  {
+    slug: "ai-output-judgement",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/ai-output-judgement/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/ai-output-judgement/SKILL.md",
+    name: "ai-output-judgement",
+    topics: ["craft", "tooling"],
+    description:
+      "Critique generated UI, copy, or code when the user requests a quality review of AI output.",
+  },
+  {
+    slug: "android-native-ui",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/android-native-ui/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/android-native-ui/SKILL.md",
+    name: "android-native-ui",
+    topics: ["frontend", "interaction", "visual"],
+    description:
+      "Build or review Android interfaces in Compose or Views, including Material conventions, accessibility, adaptive layout, and state.",
+  },
+  {
+    slug: "apple-native-ui",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/apple-native-ui/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/apple-native-ui/SKILL.md",
+    name: "apple-native-ui",
+    topics: ["frontend", "interaction", "visual"],
+    description:
+      "Build or review native Apple interfaces, including platform controls, accessibility, state, navigation, and macOS window behavior.",
+  },
+  {
+    slug: "design-engineering",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/design-engineering/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/design-engineering/SKILL.md",
+    name: "design-engineering",
+    topics: ["craft", "frontend", "visual"],
+    description:
+      "Translate design intent into production components or improve collaboration between design and engineering.",
+  },
+  {
+    slug: "design-for-repetition",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/design-for-repetition/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/design-for-repetition/SKILL.md",
+    name: "design-for-repetition",
+    topics: ["craft", "frontend", "visual"],
+    description:
+      "Improve workflows used repeatedly by examining recurring effort, waiting, setup, interruption, context retention, and expert paths. Use when an experience works once but may become tiring or inefficient in regular use.",
+  },
+  {
+    slug: "design-system-evolution",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/design-system-evolution/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/design-system-evolution/SKILL.md",
+    name: "design-system-evolution",
+    topics: ["systems", "craft", "frontend"],
+    description:
+      "Decide how an existing design system should evolve: reuse a component, add a variant, change its API, or introduce a new pattern. Use when real design or code consumers expose a mismatch and a bounded compatibility or migration decision is needed.",
+  },
+  {
+    slug: "dxe",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/dxe/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/dxe/SKILL.md",
+    name: "dxe",
+    topics: ["craft", "frontend", "visual"],
+    description:
+      "Review a repository or UI surface for design engineering quality. Use for a DXE pass or broad interface review; fix only when requested and load specialist guidance from evidence.",
+  },
+  {
+    slug: "fluid-design",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/fluid-design/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/fluid-design/SKILL.md",
+    name: "fluid-design",
+    topics: ["motion", "visual", "frontend"],
+    description:
+      "Design or refine springs, gestures, and interruptible motion when physical continuity or direct manipulation matters.",
+  },
+  {
+    slug: "hiring-manager-bar",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/hiring-manager-bar/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/hiring-manager-bar/SKILL.md",
+    name: "hiring-manager-bar",
+    topics: ["craft", "tooling"],
+    description:
+      "Review a job-seeking portfolio against Karl Koch's hiring manager bar and recommend prioritized changes to site code and content. Use for portfolio readiness, hiring clarity, or a portfolio review with actionable implementation guidance.",
+  },
+  {
+    slug: "humane-functionalism",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/humane-functionalism/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/humane-functionalism/SKILL.md",
+    name: "humane-functionalism",
+    topics: ["craft", "interaction", "visual"],
+    description:
+      "Improve UI and UX through Danish functionalism. Use for a Danish functionalist design pass on a screen or flow, grounding hierarchy, interaction, human fit, and craft in actual use.",
+  },
+  {
+    slug: "intentional-craft",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/intentional-craft/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/intentional-craft/SKILL.md",
+    name: "intentional-craft",
+    topics: ["craft", "interaction", "visual"],
+    description:
+      "Develop or refine design and engineering ideas through Apple's Intention film: connect a human outcome to focused scope, implementation choices, and evidence of craft. Use when this lens is requested or a substantial idea needs an experience-led direction.",
+  },
+  {
+    slug: "interaction-contracts",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/interaction-contracts/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/interaction-contracts/SKILL.md",
+    name: "interaction-contracts",
+    topics: ["interaction", "craft", "frontend"],
+    description:
+      "Define or review the behaviour promised by an interaction before or during implementation: triggers, state changes, persistence, interruption, recovery, and acceptance checks. Use when a mockup or component leaves consequential behaviour unresolved.",
+  },
+  {
+    slug: "interface-affordances",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/interface-affordances/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/interface-affordances/SKILL.md",
+    name: "interface-affordances",
+    topics: ["interaction", "craft", "frontend"],
+    description:
+      "Fix unclear interaction cues, hidden actions, weak hit targets, or mismatches between a control’s appearance and behavior.",
+  },
+  {
+    slug: "modern-css-html",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/modern-css-html/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/modern-css-html/SKILL.md",
+    name: "modern-css-html",
+    topics: ["frontend", "accessibility", "craft"],
+    description:
+      "Choose native CSS and HTML features, assess browser support, or replace legacy workarounds with progressive enhancement.",
+  },
+  {
+    slug: "product-delight",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/product-delight/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/product-delight/SKILL.md",
+    name: "product-delight",
+    topics: ["craft", "interaction", "visual"],
+    description:
+      "Improve product care, anticipation, and useful feedback when the user asks for delight or polish.",
+  },
+  {
+    slug: "prototype-to-production",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/prototype-to-production/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/prototype-to-production/SKILL.md",
+    name: "prototype-to-production",
+    topics: ["craft", "frontend", "visual"],
+    description:
+      "Harden an existing prototype for real use, including failure states, accessibility, security boundaries, and maintainability.",
+  },
+  {
+    slug: "real-content-design",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/real-content-design/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/real-content-design/SKILL.md",
+    name: "real-content-design",
+    topics: ["craft", "frontend", "visual"],
+    description:
+      "Shape interface structure using representative content before layout decisions settle. Use when placeholders, uniform examples, incomplete records, or mixed content types may hide problems in hierarchy, comparison, navigation, or component design.",
+  },
+  {
+    slug: "semantic-html-first",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/semantic-html-first/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/semantic-html-first/SKILL.md",
+    name: "semantic-html-first",
+    topics: ["frontend", "accessibility", "craft"],
+    description:
+      "Choose HTML semantics and accessible behavior for controls, forms, and custom interaction primitives.",
+  },
+  {
+    slug: "subtractive-design",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/subtractive-design/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/subtractive-design/SKILL.md",
+    name: "subtractive-design",
+    topics: ["craft", "frontend", "visual"],
+    description:
+      "Simplify noisy interfaces and evaluate whether proposed UI additions serve a concrete user need.",
+  },
+  {
+    slug: "write-first-design",
+    user: "kemiljk",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/kemiljk/skills/main/skills/write-first-design/SKILL.md",
+    githubUrl:
+      "https://github.com/kemiljk/skills/blob/main/skills/write-first-design/SKILL.md",
+    name: "write-first-design",
+    topics: ["craft", "frontend", "visual"],
+    description:
+      "Clarify uncertain product decisions in a short written brief before substantial design or implementation work.",
+  },
+  {
+    slug: "build-design-system",
+    user: "arla6ka",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/arla6ka/skills/main/skills/build-design-system/SKILL.md",
+    githubUrl:
+      "https://github.com/arla6ka/skills/blob/main/skills/build-design-system/SKILL.md",
+    name: "build-design-system",
+    topics: ["systems", "craft", "frontend"],
+    description:
+      "Use when an ask names one phase of design system work, such as \"extract tokens from the app\" or \"add states and specs to our Button\", or for an empty repo, such as \"start a design system from scratch\". A whole-app ask on a shipped app (\"we need a design system\") goes to design-system-boss when it is installed. Moving an app onto an existing system is migrate-design-system.",
+  },
+  {
+    slug: "component-docs",
+    user: "arla6ka",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/arla6ka/skills/main/skills/component-docs/SKILL.md",
+    githubUrl:
+      "https://github.com/arla6ka/skills/blob/main/skills/component-docs/SKILL.md",
+    name: "component-docs",
+    topics: ["systems", "craft", "frontend"],
+    description:
+      "Writes one component's documentation entry from its code, stories and real call sites, in a Geist-style page order. Use for \"document the button\", \"write docs for Select\", \"what states does Toast have\", usage rules for a component, or a new or changed component. Skip foundations, overview pages and multi-component patterns. Docs for a whole design system go to design-system-boss.",
+  },
+  {
+    slug: "design-system-boss",
+    user: "arla6ka",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/arla6ka/skills/main/skills/design-system-boss/SKILL.md",
+    githubUrl:
+      "https://github.com/arla6ka/skills/blob/main/skills/design-system-boss/SKILL.md",
+    name: "design-system-boss",
+    topics: ["systems", "craft", "frontend"],
+    description:
+      "Use for vague whole-app design system asks on an app that already ships UI, like \"our UI is a mess, fix it\", \"we need a design system\", \"we hardcode colors everywhere\", \"make the buttons consistent for an upstream PR\", \"document our whole design system\" or \"check the app before I ship\". Triages the app, then runs the design.how skills in order. One named screen goes to ui-review, one component to component-docs, an empty repo to build-design-system.",
+  },
+  {
+    slug: "migrate-design-system",
+    user: "arla6ka",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/arla6ka/skills/main/skills/migrate-design-system/SKILL.md",
+    githubUrl:
+      "https://github.com/arla6ka/skills/blob/main/skills/migrate-design-system/SKILL.md",
+    name: "migrate-design-system",
+    topics: ["systems", "craft", "frontend"],
+    description:
+      "Use when an app has to move onto a design system that already exists, such as \"migrate the app to our design system\", \"move every screen onto the new components\", a rollout, or an adoption audit. When design-system-boss is installed and nobody has checked the system's specs, the boss triages first, since a migration copies a weak system's gaps everywhere. Not for making the system.",
+  },
+  {
+    slug: "token-mapping",
+    user: "arla6ka",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/arla6ka/skills/main/skills/token-mapping/SKILL.md",
+    githubUrl:
+      "https://github.com/arla6ka/skills/blob/main/skills/token-mapping/SKILL.md",
+    name: "token-mapping",
+    topics: ["systems", "color", "frontend"],
+    description:
+      "Reports how hardcoded style values on a page, file or diff map onto a project's existing design tokens, purpose first, then value. Use for \"are we using our tokens here\", \"which hardcoded colors map to which tokens\", a token audit or planning a token migration. It never edits and never creates or renames tokens. Fixes and whole-app consistency go to design-system-boss.",
+  },
+  {
+    slug: "ui-review",
+    user: "arla6ka",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/arla6ka/skills/main/skills/ui-review/SKILL.md",
+    githubUrl:
+      "https://github.com/arla6ka/skills/blob/main/skills/ui-review/SKILL.md",
+    name: "ui-review",
+    topics: ["craft", "visual", "frontend"],
+    description:
+      "Critiques a screen, flow, prototype or running build against agreed criteria, accessibility included, and ranks findings by severity. Use for \"check this page before I ship\", \"is this flow ready\", \"is it accessible\", keyboard or screen-reader checks, \"it feels off on my phone\", \"it feels janky\", or a second read on UI. A whole-app ship check goes to design-system-boss, token compliance to token-mapping.",
+  },
+  {
+    slug: "ponytail",
+    user: "DietrichGebert",
+    repo: "ponytail",
+    rawUrl:
+      "https://raw.githubusercontent.com/DietrichGebert/ponytail/main/skills/ponytail/SKILL.md",
+    githubUrl:
+      "https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail/SKILL.md",
+    name: "ponytail",
+    topics: ["craft", "visual", "frontend", "systems"],
+    description:
+      ">",
+  },
+  {
+    slug: "ponytail-audit",
+    user: "DietrichGebert",
+    repo: "ponytail",
+    rawUrl:
+      "https://raw.githubusercontent.com/DietrichGebert/ponytail/main/skills/ponytail-audit/SKILL.md",
+    githubUrl:
+      "https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail-audit/SKILL.md",
+    name: "ponytail-audit",
+    topics: ["craft", "visual", "frontend", "systems"],
+    description:
+      ">",
+  },
+  {
+    slug: "ponytail-debt",
+    user: "DietrichGebert",
+    repo: "ponytail",
+    rawUrl:
+      "https://raw.githubusercontent.com/DietrichGebert/ponytail/main/skills/ponytail-debt/SKILL.md",
+    githubUrl:
+      "https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail-debt/SKILL.md",
+    name: "ponytail-debt",
+    topics: ["craft", "visual", "frontend", "systems"],
+    description:
+      ">",
+  },
+  {
+    slug: "ponytail-gain",
+    user: "DietrichGebert",
+    repo: "ponytail",
+    rawUrl:
+      "https://raw.githubusercontent.com/DietrichGebert/ponytail/main/skills/ponytail-gain/SKILL.md",
+    githubUrl:
+      "https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail-gain/SKILL.md",
+    name: "ponytail-gain",
+    topics: ["craft", "visual", "frontend", "systems"],
+    description:
+      ">",
+  },
+  {
+    slug: "ponytail-help",
+    user: "DietrichGebert",
+    repo: "ponytail",
+    rawUrl:
+      "https://raw.githubusercontent.com/DietrichGebert/ponytail/main/skills/ponytail-help/SKILL.md",
+    githubUrl:
+      "https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail-help/SKILL.md",
+    name: "ponytail-help",
+    topics: ["craft", "visual", "frontend", "systems"],
+    description:
+      ">",
+  },
+  {
+    slug: "ponytail-review",
+    user: "DietrichGebert",
+    repo: "ponytail",
+    rawUrl:
+      "https://raw.githubusercontent.com/DietrichGebert/ponytail/main/skills/ponytail-review/SKILL.md",
+    githubUrl:
+      "https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail-review/SKILL.md",
+    name: "ponytail-review",
+    topics: ["craft", "visual", "frontend", "systems"],
+    description:
+      ">",
+  },
+  {
+    slug: "graphify",
+    user: "Graphify-Labs",
+    repo: "graphify",
+    rawUrl:
+      "https://raw.githubusercontent.com/Graphify-Labs/graphify/main/skills/graphify/skill.md",
+    githubUrl:
+      "https://github.com/Graphify-Labs/graphify/blob/main/skills/graphify/skill.md",
+    name: "graphify",
+    topics: ["visual", "frontend", "craft"],
+    description:
+      "any input (code, docs, papers, images) → knowledge graph → clustered communities → HTML + JSON + audit report",
+  },
+  {
+    slug: "api-and-interface-design",
+    user: "addyosmani",
+    repo: "agent-skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/addyosmani/agent-skills/main/skills/api-and-interface-design/SKILL.md",
+    githubUrl:
+      "https://github.com/addyosmani/agent-skills/blob/main/skills/api-and-interface-design/SKILL.md",
+    name: "api-and-interface-design",
+    topics: ["frontend", "systems", "architecture"],
+    description:
+      "Guides stable API and interface design. Use when designing APIs, module boundaries, or any public interface. Use when creating REST or GraphQL endpoints, defining type contracts between modules, or establishing boundaries between frontend and backend.",
+  },
+  {
+    slug: "browser-testing-with-devtools",
+    user: "addyosmani",
+    repo: "agent-skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/addyosmani/agent-skills/main/skills/browser-testing-with-devtools/SKILL.md",
+    githubUrl:
+      "https://github.com/addyosmani/agent-skills/blob/main/skills/browser-testing-with-devtools/SKILL.md",
+    name: "browser-testing-with-devtools",
+    topics: ["testing", "frontend", "tooling"],
+    description:
+      "Tests in real browsers via Chrome DevTools MCP. Use when building or debugging anything that runs in a browser. Use when you need to inspect the DOM, capture console errors, analyze network requests, profile performance, or verify visual output with real runtime data. Requires the chrome-devtools MCP server to be configured.",
+  },
+  {
+    slug: "understand",
+    user: "Egonex-AI",
+    repo: "Understand-Anything",
+    rawUrl:
+      "https://raw.githubusercontent.com/Egonex-AI/Understand-Anything/main/understand-anything-plugin/skills/understand/SKILL.md",
+    githubUrl:
+      "https://github.com/Egonex-AI/Understand-Anything/blob/main/understand-anything-plugin/skills/understand/SKILL.md",
+    name: "understand",
+    topics: ["craft", "frontend", "tooling"],
+    description:
+      "Analyze a codebase to produce an interactive knowledge graph for understanding architecture, components, and relationships",
+  },
+  {
+    slug: "understand-chat",
+    user: "Egonex-AI",
+    repo: "Understand-Anything",
+    rawUrl:
+      "https://raw.githubusercontent.com/Egonex-AI/Understand-Anything/main/understand-anything-plugin/skills/understand-chat/SKILL.md",
+    githubUrl:
+      "https://github.com/Egonex-AI/Understand-Anything/blob/main/understand-anything-plugin/skills/understand-chat/SKILL.md",
+    name: "understand-chat",
+    topics: ["craft", "frontend", "tooling"],
+    description:
+      "Use when you need to ask questions about a codebase or understand code using a knowledge graph",
+  },
+  {
+    slug: "understand-dashboard",
+    user: "Egonex-AI",
+    repo: "Understand-Anything",
+    rawUrl:
+      "https://raw.githubusercontent.com/Egonex-AI/Understand-Anything/main/understand-anything-plugin/skills/understand-dashboard/SKILL.md",
+    githubUrl:
+      "https://github.com/Egonex-AI/Understand-Anything/blob/main/understand-anything-plugin/skills/understand-dashboard/SKILL.md",
+    name: "understand-dashboard",
+    topics: ["craft", "frontend", "tooling"],
+    description:
+      "Launch the interactive web dashboard to visualize a codebase's knowledge graph",
+  },
+  {
+    slug: "understand-diff",
+    user: "Egonex-AI",
+    repo: "Understand-Anything",
+    rawUrl:
+      "https://raw.githubusercontent.com/Egonex-AI/Understand-Anything/main/understand-anything-plugin/skills/understand-diff/SKILL.md",
+    githubUrl:
+      "https://github.com/Egonex-AI/Understand-Anything/blob/main/understand-anything-plugin/skills/understand-diff/SKILL.md",
+    name: "understand-diff",
+    topics: ["craft", "frontend", "tooling"],
+    description:
+      "Use when you need to analyze git diffs or pull requests to understand what changed, affected components, and risks",
+  },
+  {
+    slug: "understand-domain",
+    user: "Egonex-AI",
+    repo: "Understand-Anything",
+    rawUrl:
+      "https://raw.githubusercontent.com/Egonex-AI/Understand-Anything/main/understand-anything-plugin/skills/understand-domain/SKILL.md",
+    githubUrl:
+      "https://github.com/Egonex-AI/Understand-Anything/blob/main/understand-anything-plugin/skills/understand-domain/SKILL.md",
+    name: "understand-domain",
+    topics: ["craft", "frontend", "tooling"],
+    description:
+      "Extract business domain knowledge from a codebase and generate an interactive domain flow graph. Works standalone (lightweight scan) or derives from an existing /understand knowledge graph.",
+  },
+  {
+    slug: "understand-explain",
+    user: "Egonex-AI",
+    repo: "Understand-Anything",
+    rawUrl:
+      "https://raw.githubusercontent.com/Egonex-AI/Understand-Anything/main/understand-anything-plugin/skills/understand-explain/SKILL.md",
+    githubUrl:
+      "https://github.com/Egonex-AI/Understand-Anything/blob/main/understand-anything-plugin/skills/understand-explain/SKILL.md",
+    name: "understand-explain",
+    topics: ["craft", "frontend", "tooling"],
+    description:
+      "Use when you need a deep-dive explanation of a specific file, function, or module in the codebase",
+  },
+  {
+    slug: "understand-figma",
+    user: "Egonex-AI",
+    repo: "Understand-Anything",
+    rawUrl:
+      "https://raw.githubusercontent.com/Egonex-AI/Understand-Anything/main/understand-anything-plugin/skills/understand-figma/SKILL.md",
+    githubUrl:
+      "https://github.com/Egonex-AI/Understand-Anything/blob/main/understand-anything-plugin/skills/understand-figma/SKILL.md",
+    name: "understand-figma",
+    topics: ["systems", "frontend", "tooling"],
+    description:
+      "Analyze a Figma file via the Figma REST API and generate an interactive design knowledge graph (pages, screens, components, component sets, instances, design tokens) with a kind:\"design\" dashboard.",
+  },
+  {
+    slug: "understand-knowledge",
+    user: "Egonex-AI",
+    repo: "Understand-Anything",
+    rawUrl:
+      "https://raw.githubusercontent.com/Egonex-AI/Understand-Anything/main/understand-anything-plugin/skills/understand-knowledge/SKILL.md",
+    githubUrl:
+      "https://github.com/Egonex-AI/Understand-Anything/blob/main/understand-anything-plugin/skills/understand-knowledge/SKILL.md",
+    name: "understand-knowledge",
+    topics: ["craft", "frontend", "tooling"],
+    description:
+      "Analyze a Karpathy-pattern LLM wiki knowledge base and generate an interactive knowledge graph with entity extraction, implicit relationships, and topic clustering.",
+  },
+  {
+    slug: "understand-onboard",
+    user: "Egonex-AI",
+    repo: "Understand-Anything",
+    rawUrl:
+      "https://raw.githubusercontent.com/Egonex-AI/Understand-Anything/main/understand-anything-plugin/skills/understand-onboard/SKILL.md",
+    githubUrl:
+      "https://github.com/Egonex-AI/Understand-Anything/blob/main/understand-anything-plugin/skills/understand-onboard/SKILL.md",
+    name: "understand-onboard",
+    topics: ["craft", "frontend", "tooling"],
+    description:
+      "Use when you need to generate an onboarding guide for new team members joining a project",
+  },
+  {
+    slug: "archify",
+    user: "tt-a1i",
+    repo: "archify",
+    rawUrl:
+      "https://raw.githubusercontent.com/tt-a1i/archify/main/archify/SKILL.md",
+    githubUrl:
+      "https://github.com/tt-a1i/archify/blob/main/archify/SKILL.md",
+    name: "archify",
+    topics: ["architecture", "craft", "frontend"],
+    description:
+      "Create polished, validated architecture, workflow, sequence, data-flow, and lifecycle/state diagrams as explorable standalone HTML with inline SVG, dark/light themes, optional trace motion, and PNG/JPEG/WebP/SVG/WebM export. Accept plain-language requirements or pasted Mermaid flowchart, sequenceDiagram, and stateDiagram input; inspect repository evidence when the diagram must reflect real code. Use when the user asks to visualize system architecture, infrastructure, cloud/security/network topology, technical workflows, API call sequences, request lifecycles, data pipelines, ETL/ELT, data lineage, state machines, or to convert/beautify Mermaid. Also use for everyday subjects with steps, parts, relationships, or states: a leave or travel plan, an application or approval process, a back-and-forth such as renting, where money or documents go, or where an application or order stands. Not for numeric charts or dashboards.",
+  },
+  {
+    slug: "archify-review",
+    user: "tt-a1i",
+    repo: "archify",
+    rawUrl:
+      "https://raw.githubusercontent.com/tt-a1i/archify/main/.agents/skills/archify-review/SKILL.md",
+    githubUrl:
+      "https://github.com/tt-a1i/archify/blob/main/.agents/skills/archify-review/SKILL.md",
+    name: "archify-review",
+    topics: ["architecture", "craft", "frontend"],
+    description:
+      "Review Archify issues, PRs, or code through value, cost, and impact to support evidence-based maintenance decisions. Use for issue triage, change reviews, and code quality assessments.",
+  },
 ];
 
 const buildInitialPathSlug = (entry: RegistrySourceSkill) => {

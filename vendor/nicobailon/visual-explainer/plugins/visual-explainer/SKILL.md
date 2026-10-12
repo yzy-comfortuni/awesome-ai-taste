@@ -108,6 +108,7 @@ recaps, decks      Editorial     Instrument Serif + Sans           the domain's 
 - Do not put `display:flex` on `<li>` when its markers matter.
 - If the user asks for Mermaid: `theme:'base'` with `themeVariables` read from `getComputedStyle` (Mermaid cannot read CSS variables), re-rendered on a theme or font switch. Quote labels that hold punctuation; `<br/>`, not `\n`. Natural size in a scroll box, never shrunk to fit. No page class named `.node`, `.label`, `.nodeLabel`, `.edgeLabel`, `.cluster`, `.marker`, `.note`, `.actor`, or `.commit`; Mermaid uses them. For zoom and pan, copy `templates/mermaid-flowchart.html` from Older recipes.
 - Wrap `history.replaceState` in `try/catch`. It throws on `file://` pages.
+- Write `<` as `&lt;` inside KaTeX or MathJax math (`$$ y_{&lt;t} $$`). The browser reads a raw `<t` as a tag before the math library runs.
 - Add section navigation (sticky TOC with scroll-spy) only for 4+ sections.
 - Respect `prefers-reduced-motion`: copy the template's `.js-motion` pattern, so the final state shows without JS, in print, and under reduced motion.
 

@@ -655,8 +655,7 @@ ${js}
 
 /**
  * The plan step shared by the Pi tool and the MCP server. Returns null for an ordinary page. A plan source becomes the
- * page, renamed from <name>.src.html, with the source kept beside it. A page already rendered passes through untouched:
- * hosts must not run their display-math escape on plan pages, because `$$` in plan.js and in cited code would break.
+ * page, renamed from <name>.src.html, with the source kept beside it. A page already rendered passes through untouched.
  */
 export function renderPlanForHost(html, { root, filename, sendBack = false }) {
   if (!hasPlan(html)) return /<script data-ve-plan>/.test(html) ? { html, filename, note: "" } : null;

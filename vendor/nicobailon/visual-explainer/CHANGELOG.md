@@ -16,6 +16,8 @@
 - Section navigation on narrow screens no longer shows a grey scrollbar under the links. The links scroll with a faded edge, and buttons such as a skim toggle stay in place.
 - Sources at the end of a page are now always visible. They were hidden in a small grey toggle that readers easily missed, so they now sit in their own section at full size.
 - In Pi, pressing Send to agent in a Glimpse plan window after `/new`, `/resume`, `/fork`, or `/reload` no longer crashes pi. Ending the session now closes the plan windows it opened, since their responses have nowhere to go. Thanks to [@masonc15](https://github.com/masonc15) for #112.
+- A `VISUAL_EXPLAINER_OUTPUT_DIR` that passes through a symlink is now rejected before the directory is created, and the error shows where the path really leads, such as `/private/tmp` for `/tmp` on macOS. Before, the directory was created through the symlink anyway. The default `~/.agent/diagrams/` still follows a symlinked `~/.agent`, as the docs now say. Thanks to [@tharanee-bit](https://github.com/tharanee-bit) for #115.
+- Rendering a page that uses `$$` outside math, such as a `$$` query helper in a script or prices like `$$5`, no longer breaks the page. Render used to escape `<` and `>` between any two `$$` in the file. It now writes the HTML as given, and the skill tells agents to write `&lt;` inside math. Thanks to [@tharanee-bit](https://github.com/tharanee-bit) for #115.
 
 ## [0.12.0] - 2026-10-02
 

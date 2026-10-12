@@ -3,7 +3,7 @@ import { spawn } from "node:child_process";
 import { randomUUID } from "node:crypto";
 import { lstatSync, mkdirSync, readFileSync, realpathSync, renameSync, rmSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
-import { dirname, join, resolve, sep } from "node:path";
+import { dirname, join, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { McpServer } from "@modelcontextprotocol/server";
 import { serveStdio } from "@modelcontextprotocol/server/stdio";
@@ -123,6 +123,15 @@ function resolveOutputDirectory() {
   };
 }
 
+// Checks the nearest existing ancestor, so a rejected directory is never created through a symlink.
+function assertResolvesToItself(path) {
+  let existing = path;
+  // A missing Windows drive or UNC root is its own dirname; stop there and let realpathSync throw.
+  while (!lstatSync(existing, { throwIfNoEntry: false }) && dirname(existing) !== existing) existing = dirname(existing);
+  const resolved = join(realpathSync(existing), relative(existing, path));
+  if (resolved !== path) throw new Error(`${path} must not contain symlinks and must resolve to itself (it resolves to ${resolved})`);
+}
+
 function assertOutputPathContained(resolvedDir, outputPath) {
   const resolvedPath = resolve(outputPath);
   const dirPrefix = resolvedDir.endsWith(sep) ? resolvedDir : `${resolvedDir}${sep}`;
@@ -155,10 +164,6 @@ function assertHtmlDocument(html) {
 
 const standardFavicon = '<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 64 64\'%3E%3Crect width=\'64\' height=\'64\' rx=\'14\' fill=\'%230f172a\'/%3E%3Cpath d=\'M18 40V24l14-8 14 8v16l-14 8-14-8Z\' fill=\'none\' stroke=\'%23fbbf24\' stroke-width=\'4\' stroke-linejoin=\'round\'/%3E%3Ccircle cx=\'32\' cy=\'32\' r=\'5\' fill=\'%2338bdf8\'/%3E%3C/svg%3E">';
 
-function escapeDisplayMath(html) {
-  return html.replace(/\$\$([\s\S]*?)\$\$/g, (_match, math) => `$$${math.replace(/</g, "&lt;").replace(/>/g, "&gt;")}$$`);
-}
-
 function ensureFavicon(html) {
   if (/<link\b[^>]*\brel=["'][^"']*(?:icon|shortcut icon)[^"']*["'][^>]*>/i.test(html)) return html;
   if (/<\/title>/i.test(html)) return html.replace(/<\/title>/i, `</title>\n${standardFavicon}`);
@@ -177,7 +182,7 @@ function ensureDocumentMetadata(html) {
 }
 
 function prepareRenderedHtml(html) {
-  return ensureDocumentMetadata(ensureFavicon(escapeDisplayMath(html)));
+  return ensureDocumentMetadata(ensureFavicon(html));
 }
 
 function runOpener(command, args, openTarget) {
@@ -303,12 +308,10 @@ async function writeRenderedHtml(filenameInput, htmlInput, open, viewer, planRoo
 
   const outputDirStatus = lstatSync(outputDir, { throwIfNoEntry: false });
   if (outputDirStatus?.isSymbolicLink()) throw new Error(`${outputDir} must not be a symlink`);
+  if (configured) assertResolvesToItself(outputDir);
   mkdirSync(outputDir, { recursive: true });
-
+  if (configured) assertResolvesToItself(outputDir);
   const resolvedDir = realpathSync(outputDir);
-  if (configured && resolvedDir !== outputDir) {
-    throw new Error(`${outputDir} must not contain symlinks and must resolve to itself`);
-  }
   assertOutputPathContained(resolvedDir, join(resolvedDir, filename));
 
   const outputStatus = lstatSync(outputPath, { throwIfNoEntry: false });
