@@ -26,7 +26,17 @@ VERSION = 1
 LIMIT = 4 * 1024 * 1024
 HOSTS = {'developers.google.com', 'journals.plos.org', 'www.digital.go.jp',
          'writingcenter.gmu.edu', 'www.ursulakleguin.com', 'lithub.com',
-         'poets.org', 'johnaugust.com', 'www.craftscicom.org', 'www.wipo.int'}
+         'poets.org', 'johnaugust.com', 'www.craftscicom.org', 'www.wipo.int',
+         'www.epo.org', 'www.uspto.gov', 'owl.purdue.edu',
+         'emmadarwin.substack.com', 'www.animationmentor.com', 'cognitect.com'}
+# This article has its own explicit copyright waiver; this is not a site-wide grant.
+REVIEWED_PUBLIC_DOMAIN = {
+    'id': 'documenting-architecture-decisions',
+    'url': 'https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions',
+    'license': 'LicenseRef-Public-Domain',
+    'license_evidence_url': 'https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions',
+    'license_marker': 'has waived all copyright',
+}
 KINDS = {'fulltext': '正文 Markdown', 'summary': '摘要 Markdown（非全文）',
          'document-index': '书籍阅读索引（非全文）'}
 ENTRY = re.compile(r'^- \[([^\]]+)\]\((https://[^\s)]+)\)')
@@ -261,7 +271,8 @@ def load(root):
             raise ArchiveError('unknown copy kind')
         url_ok(c['url'])
         if c['kind'] == 'fulltext' and c['license'] not in {'CC-BY-4.0','LicenseRef-PDL-1.0'}:
-            raise ArchiveError('full-text license requires review')
+            if not all(c.get(k) == v for k, v in REVIEWED_PUBLIC_DOMAIN.items()):
+                raise ArchiveError('full-text license requires review')
         if c['kind'] != 'fulltext' and not c.get('summary', '').strip():
             raise ArchiveError('empty editorial summary')
         for u in c['catalog_urls']:
