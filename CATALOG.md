@@ -72,6 +72,14 @@
 
   **规则：** 在决策记录的后果部分同时写收益、代价和新增约束，不只列支持所选方案的理由。[出处](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)
 
+- [README Checklist](https://github.com/ddbeck/readme-checklist) — Daniel D. Beck 的 README 检查表，帮助读者判断用途并完成首次使用；不是固定栏目模板，进阶文档不必挤进首页。[正文](https://github.com/ddbeck/readme-checklist/blob/main/checklist.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/ddbeck/readme-checklist?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/ddbeck/readme-checklist/stargazers) · [副本](vendor/ddbeck/readme-checklist)<!-- /source-meta -->
+
+  **规则：** README 的上手说明写到读者能完成第一次使用就停，进阶用法移到专门文档。[出处](https://github.com/ddbeck/readme-checklist/blob/main/checklist.md)
+
+- [Diátaxis](https://github.com/evildmp/diataxis-documentation-framework) — 按读者任务区分教程、操作指南、参考与解释；这里选读操作指南章节，适合技术产品文档，不是统一文风模板。[正文](https://github.com/evildmp/diataxis-documentation-framework/blob/main/source/how-to-guides.rst) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/evildmp/diataxis-documentation-framework?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/evildmp/diataxis-documentation-framework/stargazers) · [副本](vendor/evildmp/diataxis-documentation-framework)<!-- /source-meta -->
+
+  **规则：** 面向熟练用户的操作指南只保留完成目标所需的动作；原理说明和完整参数另页链接，不夹进步骤。[出处](https://github.com/evildmp/diataxis-documentation-framework/blob/main/source/how-to-guides.rst)
+
 ## 专利写作
 
 - [WIPO Patent Drafting Manual](https://www.wipo.int/publications/en/details.jsp?id=4706) — 世界知识产权组织的专利撰写手册，用实例讲权利要求层次、术语、说明书支持与附图；适合跨法域起草训练，具体申请仍须核对目标专利局现行规则。[权利要求设计](https://www.wipo.int/edocs/pubdocs/zh/wipo-pub-867-23-zh-wipo-patent-drafting-manual.pdf#page=106) <!-- article-copy --> · [Markdown 阅读索引](vendor/articles/wipo-patent-drafting-manual.md)<!-- /article-copy -->
@@ -104,6 +112,10 @@
 
   **规则：** 论文正文写研究问题、算法创新和结果；超过几句的使用教程移到附录或与论文版本对应的文档。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008390)
 
+- [Reviewing Academic Papers](https://github.com/jtleek/reviews) — Jeff Leek 的审稿写作指南，区分主要问题、次要问题和笔误；源于研究组惯例，评审标准仍以目标期刊为准。[正文](https://github.com/jtleek/reviews/blob/master/README.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/jtleek/reviews?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/jtleek/reviews/stargazers) · [副本](vendor/jtleek/reviews)<!-- /source-meta -->
+
+  **规则：** 每条主要批评都指向具体图表、段落或结果，写清问题所在，不只说“论证不充分”。[出处](https://github.com/jtleek/reviews/blob/master/README.md)
+
 ## 小说写作
 
 - [Steering the Craft](https://www.ursulakleguin.com/steering-the-craft) — Le Guin 的英语叙事写作练习，训练句子节奏、视角和叙述距离；适合小说与叙事散文，不套固定情节公式。[节选](https://www.ursulakleguin.com/steering-the-craft) <!-- article-copy --> · [Markdown 摘要](vendor/articles/steering-the-craft.md)<!-- /article-copy -->
@@ -117,6 +129,14 @@
 - [Ping-Pong Dialogue](https://emmadarwin.substack.com/p/ping-pong-dialogue) — 用改写示例把轮流报台词的对白放回小说场景；主要面向英语叙事，不要求每句台词都配动作。[正文](https://emmadarwin.substack.com/p/ping-pong-dialogue) <!-- article-copy --> · [Markdown 摘要](vendor/articles/ping-pong-dialogue.md)<!-- /article-copy -->
 
   **规则：** 对话像轮流报台词时，把无关寒暄压成叙述，把有作用的动作、目光或未说出的想法放回场景。[出处](https://emmadarwin.substack.com/p/ping-pong-dialogue)
+
+- [Creative Writing Skills — 限知视角与修订](https://github.com/haowjy/creative-writing-skills) — 选读人物视角与修订规则及反例；主要面向英语小说，不采用整套多代理流程或把作者的标点偏好当通则。[正文](https://github.com/haowjy/creative-writing-skills/blob/main/skills/writing-principles/SKILL.md) · [反例](https://github.com/haowjy/creative-writing-skills/blob/main/skills/writing-principles/resources/failure-modes.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/haowjy/creative-writing-skills?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/haowjy/creative-writing-skills/stargazers) · [副本](vendor/haowjy/creative-writing-skills)<!-- /source-meta -->
+
+  **规则：** 采用人物限知视角时，逐句核对人物此刻实际知道什么，不把大纲中的真相直接写进人物的认知。[出处](https://github.com/haowjy/creative-writing-skills/blob/main/skills/writing-principles/SKILL.md)
+
+- [Chinese Novelist — 对话指南](https://github.com/PenglongHuang/chinese-novelist-skill) — 中文小说对白的潜台词、节奏和角色区分，附正反例；仅选读对话指南，不把章数、字数或章末钩子当通用要求。[正文](https://github.com/PenglongHuang/chinese-novelist-skill/blob/master/references/guides/dialogue-writing.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/PenglongHuang/chinese-novelist-skill?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/PenglongHuang/chinese-novelist-skill/stargazers) · [副本](vendor/penglonghuang/chinese-novelist-skill)<!-- /source-meta -->
+
+  **规则：** 暂时遮住说话人标签，检查能否从用词、句式和语气识别人物；无法区分时，先改各自的说话方式。[出处](https://github.com/PenglongHuang/chinese-novelist-skill/blob/master/references/guides/dialogue-writing.md)
 
 ## 诗歌写作
 
