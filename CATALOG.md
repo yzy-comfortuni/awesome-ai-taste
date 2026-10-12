@@ -64,11 +64,27 @@
 
   **规则：** 操作说明先写适用条件，再写动作，避免读者执行后才看到限制。[出处](https://developers.google.com/style/highlights)
 
+- [Organizing Large Documents](https://developers.google.com/tech-writing/two/large-docs) — Google 的长技术文档组织课程，附提纲、导语和标题的修改练习；适合教程与概念说明，不是通用报告格式。[正文](https://developers.google.com/tech-writing/two/large-docs) <!-- article-copy --> · [Markdown 正文](vendor/articles/organizing-large-documents.md)<!-- /article-copy -->
+
+  **规则：** 在长文档开头交代读者需要的前提、本文覆盖什么及不覆盖什么，再对照成稿检查是否兑现。[出处](https://developers.google.com/tech-writing/two/large-docs)
+
+- [Documenting Architecture Decisions](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) — 用简短记录说明架构选择的背景、决定、状态和后果；适合技术决策记录，不代替完整设计文档或验证报告。[正文](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) <!-- article-copy --> · [Markdown 正文](vendor/articles/documenting-architecture-decisions.md)<!-- /article-copy -->
+
+  **规则：** 在决策记录的后果部分同时写收益、代价和新增约束，不只列支持所选方案的理由。[出处](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)
+
 ## 专利写作
 
 - [WIPO Patent Drafting Manual](https://www.wipo.int/publications/en/details.jsp?id=4706) — 世界知识产权组织的专利撰写手册，用实例讲权利要求层次、术语、说明书支持与附图；适合跨法域起草训练，具体申请仍须核对目标专利局现行规则。[权利要求设计](https://www.wipo.int/edocs/pubdocs/zh/wipo-pub-867-23-zh-wipo-patent-drafting-manual.pdf#page=106) <!-- article-copy --> · [Markdown 阅读索引](vendor/articles/wipo-patent-drafting-manual.md)<!-- /article-copy -->
 
   **规则：** 起草时逐项检查权利要求的概括范围是否有说明书依据，不把单个实施例扩写成未经支持的全部情形。[出处](https://www.wipo.int/edocs/pubdocs/zh/wipo-pub-867-23-zh-wipo-patent-drafting-manual.pdf#page=108)
+
+- [EPO Guidelines F-IV, 3.4 — Independent and Dependent Claims](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_3_4.html) — 欧洲专利局 2026 年审查指南中的独立与从属权利要求；适用 EPC 审查，不构成其他法域的法律意见或授权保证。[正文](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_3_4.html) <!-- article-copy --> · [Markdown 摘要](vendor/articles/epo-dependent-claims.md)<!-- /article-copy -->
+
+  **规则：** 把从属权利要求的引用链展开，确认它保留被引用权利要求的全部特征，再加入进一步限定。[出处](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_3_4.html)
+
+- [MPEP 2173.05(e) — Lack of Antecedent Basis](https://www.uspto.gov/web/offices/pac/mpep/s2173.html) — 美国 MPEP 2173.05(e) 的术语指代审查，节内标为 R-01.2024；缺少显式先行词不当然等于不清楚。[正文](https://www.uspto.gov/web/offices/pac/mpep/s2173.html) <!-- article-copy --> · [Markdown 摘要](vendor/articles/uspto-antecedent-basis.md)<!-- /article-copy -->
+
+  **规则：** 逐个核对“该／所述”的指代；前文有两个同名部件时，把后续指称写到能唯一确定对象。[出处](https://www.uspto.gov/web/offices/pac/mpep/s2173.html)
 
 ## 学术论文
 
@@ -80,11 +96,27 @@
 
   **规则：** 按研究问题把不同文献的观点归组，再把主题标签改写成由该组证据支持的判断句。[出处](https://writingcenter.gmu.edu/writing-resources/research-based-writing/organizing-literature-reviews-the-basics)
 
+- [Ten Simple Rules for Writing a Response to Reviewers](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005730) — 英文期刊返修的逐点回复指南，区分审稿意见、回应和稿件改动；仍须遵守目标期刊要求，不得虚构补做的实验。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005730) <!-- article-copy --> · [Markdown 正文](vendor/articles/response-to-reviewers.md)<!-- /article-copy -->
+
+  **规则：** 保留审稿意见原文，逐点回应；一条意见含两个独立问题时，拆开分别回答。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005730)
+
+- [Ten Simple Rules for Writing a Paper about Scientific Software](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008390) — 科学软件论文的写作指南，区分研究贡献、使用教程和版本文档；主要面向计算研究，不替代软件评测或复现证据。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008390) <!-- article-copy --> · [Markdown 正文](vendor/articles/scientific-software-papers.md)<!-- /article-copy -->
+
+  **规则：** 论文正文写研究问题、算法创新和结果；超过几句的使用教程移到附录或与论文版本对应的文档。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008390)
+
 ## 小说写作
 
 - [Steering the Craft](https://www.ursulakleguin.com/steering-the-craft) — Le Guin 的英语叙事写作练习，训练句子节奏、视角和叙述距离；适合小说与叙事散文，不套固定情节公式。[节选](https://www.ursulakleguin.com/steering-the-craft) <!-- article-copy --> · [Markdown 摘要](vendor/articles/steering-the-craft.md)<!-- /article-copy -->
 
   **规则：** 把叙事段落大声读出来，检查句子的声音和节奏是否推动阅读，再修改绊住耳朵的地方。[出处](https://lithub.com/a-writing-lesson-from-ursula-k-leguin/)
+
+- [Fiction Writing Basics](https://owl.purdue.edu/owl/subject_specific_writing/creative_writing/writers/fiction_writing_basics/index.html) — 小说入门讲义，从人物行动、对白和因果关系组织故事；以英语叙事为主，保留概述与实验性写法的空间。[正文](https://owl.purdue.edu/owl/subject_specific_writing/creative_writing/writers/fiction_writing_basics/index.html) <!-- article-copy --> · [Markdown 摘要](vendor/articles/fiction-writing-basics.md)<!-- /article-copy -->
+
+  **规则：** 把人物标签落实为场景里的选择、行动或对白，让读者据此判断性格；必要的概述仍可保留。[出处](https://owl.purdue.edu/owl/subject_specific_writing/creative_writing/writers/fiction_writing_basics/index.html)
+
+- [Ping-Pong Dialogue](https://emmadarwin.substack.com/p/ping-pong-dialogue) — 用改写示例把轮流报台词的对白放回小说场景；主要面向英语叙事，不要求每句台词都配动作。[正文](https://emmadarwin.substack.com/p/ping-pong-dialogue) <!-- article-copy --> · [Markdown 摘要](vendor/articles/ping-pong-dialogue.md)<!-- /article-copy -->
+
+  **规则：** 对话像轮流报台词时，把无关寒暄压成叙述，把有作用的动作、目光或未说出的想法放回场景。[出处](https://emmadarwin.substack.com/p/ping-pong-dialogue)
 
 ## 诗歌写作
 
@@ -92,11 +124,27 @@
 
   **规则：** 逐一比较断行前后：若只是拖延信息，没有必要的停顿或意义变化，就考虑合并诗行。[出处](https://poets.org/text/some-thoughts-integrity-single-line-poetry)
 
+- [Image in Poetry — Exercises](https://owl.purdue.edu/owl/subject_specific_writing/writing_in_literature/image_in_poetry/exercises.html) — 从具体观察练习诗歌意象，让物象与观察者的情绪发生联系；以英语诗歌教学为主，不代替中文格律规范。[正文](https://owl.purdue.edu/owl/subject_specific_writing/writing_in_literature/image_in_poetry/exercises.html) <!-- article-copy --> · [Markdown 摘要](vendor/articles/poetic-image-exercises.md)<!-- /article-copy -->
+
+  **规则：** 从一个物体的具体观察出发，让细节带出观察者的想法或情绪，检查写下的是意象而不只是物品说明。[出处](https://owl.purdue.edu/owl/subject_specific_writing/writing_in_literature/image_in_poetry/exercises.html)
+
+- [Flying Revision’s Flag](https://poets.org/text/flying-revisions-flag) — 诗人 Donald Hall 谈修改如何改变诗的结构、声音和内容；是英语诗人的创作经验，不是固定修改次数或形式要求。[正文](https://poets.org/text/flying-revisions-flag) <!-- article-copy --> · [Markdown 摘要](vendor/articles/flying-revisions-flag.md)<!-- /article-copy -->
+
+  **规则：** 修改卡住时，试把同一首诗改成另一种分节或节律安排，再比较新形式带出的内容，不只替换同义词。[出处](https://poets.org/text/flying-revisions-flag)
+
 ## 剧本写作
 
 - [How to Write a Scene](https://johnaugust.com/2007/write-scene) — John August 的英语影视剧本指南，帮助判断一场戏是否必要，以及如何安排人物、地点和开场。[正文](https://johnaugust.com/2007/write-scene) <!-- article-copy --> · [Markdown 摘要](vendor/articles/how-to-write-a-scene.md)<!-- /article-copy -->
 
   **规则：** 先做删场测试：如果去掉这场戏，故事仍能成立，就重新审视它存在的必要。[出处](https://johnaugust.com/2007/write-scene)
+
+- [How to Write Dialogue](https://johnaugust.com/2007/how-to-write-dialogue) — 影视对白的动机和回应方式，附同一信息的台词对照；主要面向英语剧本，不以自然闲聊代替戏剧目的。[正文](https://johnaugust.com/2007/how-to-write-dialogue) <!-- article-copy --> · [Markdown 摘要](vendor/articles/writing-screen-dialogue.md)<!-- /article-copy -->
+
+  **规则：** 写解释背景的台词前，先明确说话人想让对方怎样反应，再按这个目的安排信息，而不是直接向观众报事实。[出处](https://johnaugust.com/2007/how-to-write-dialogue)
+
+- [Writing Fight Scenes](https://johnaugust.com/2011/writing-fight-scenes) — 通过剧本片段讨论动作场面的取舍，让人物、场地和利害关系进入动作；不把剧本写成逐招编排表。[正文](https://johnaugust.com/2011/writing-fight-scenes) <!-- article-copy --> · [Markdown 摘要](vendor/articles/writing-fight-scenes.md)<!-- /article-copy -->
+
+  **规则：** 挑出由人物、场地和利害关系决定的关键动作，让打斗属于这场戏，不逐拳记录流水账。[出处](https://johnaugust.com/2011/writing-fight-scenes)
 
 ## 图表与图解
 
@@ -134,6 +182,14 @@
 
   **规则：** 按作者的方法，每幕至少安排一个主要动作和两个体现画风的循环动作，不只切换静态画面。[出处](https://github.com/alchaincyf/huashu-art-motion/blob/main/SKILL.md)
 
+- [Staging — The 12 Basic Principles of Animation](https://www.animationmentor.com/blog/staging-the-12-basic-principles-of-animation/) — 叙事动画的注意力安排与镜头空间关系，附场面调度示例；用于分镜检查，不是不可打破的摄影定律。[正文](https://www.animationmentor.com/blog/staging-the-12-basic-principles-of-animation/) <!-- article-copy --> · [Markdown 摘要](vendor/articles/animation-staging.md)<!-- /article-copy -->
+
+  **规则：** 连续对话镜头中保持人物的画面左右关系，切到近景也不无故对调，让观众能跟住空间关系。[出处](https://www.animationmentor.com/blog/staging-the-12-basic-principles-of-animation/)
+
+- [Anticipation — The 12 Basic Principles of Animation](https://www.animationmentor.com/blog/anticipation-the-12-basic-principles-of-animation/) — 角色动画的预备动作与力度检查，附跳跃、步行和表情示例；预备动作不只限于先向反方向移动。[正文](https://www.animationmentor.com/blog/anticipation-the-12-basic-principles-of-animation/) <!-- article-copy --> · [Markdown 摘要](vendor/articles/animation-anticipation.md)<!-- /article-copy -->
+
+  **规则：** 让预备动作的幅度和时长配合紧随其后的主动作；跳跃前的下蹲不能与跳跃力度脱节。[出处](https://www.animationmentor.com/blog/anticipation-the-12-basic-principles-of-animation/)
+
 ## 演示文稿
 
 - [Frontend Slides](https://github.com/zarazhangrui/frontend-slides) — HTML 幻灯片的版式与视觉指南，区分演讲型和阅读型内容密度。[设计规则](https://github.com/zarazhangrui/frontend-slides/blob/main/SKILL.md#design-aesthetics) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/zarazhangrui/frontend-slides?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/zarazhangrui/frontend-slides/stargazers) · [副本](vendor/zarazhangrui/frontend-slides)<!-- /source-meta -->
@@ -147,6 +203,10 @@
 - [Assertion-Evidence](https://www.assertion-evidence.com/) — 科研与技术演示的逐页表达方法：标题直接说结论，图形呈现证据，次要细节放入备注；适合现场讲解。[教程](https://www.craftscicom.org/ae_tutorial.html) <!-- article-copy --> · [Markdown 摘要](vendor/articles/assertion-evidence-tutorial.md)<!-- /article-copy -->
 
   **规则：** 每页标题写成完整结论句，用视觉证据支撑，把次要细节移到备注。[出处](https://www.craftscicom.org/ae_tutorial.html)
+
+- [Ten Simple Rules for Effective Presentation Slides](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554) — 科研演讲的逐页信息安排与排练检查，附复杂图形的拆解示例；偏向现场讲解，不套用到所有阅读型报告。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554) <!-- article-copy --> · [Markdown 正文](vendor/articles/effective-presentation-slides.md)<!-- /article-copy -->
+
+  **规则：** 把复杂流程图拆成逐步增加信息的连续页，最后给出全图，不在开头一次展示所有细节。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554)
 
 ## 获取副本
 
