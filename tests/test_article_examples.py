@@ -64,5 +64,41 @@ class ArticleExampleTests(unittest.TestCase):
                 pages.content_for(cfg)
 
 
+class ArticleTailTests(unittest.TestCase):
+    URL = 'https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554'
+
+    def cfg(self):
+        return {'url': self.URL, 'license_evidence_url': self.URL, 'kind': 'fulltext',
+                'license_marker': 'reviewed-license',
+                'markers': ['Rule 1:', 'Rule 10:', 'Conclusions', 'Acknowledgments', 'References'],
+                'min_chars': 20}
+
+    def html(self, tail):
+        return ('<article><div><p>reviewed-license</p><h2>Rule 1: Start</h2>'
+                '<p>Conclusions Acknowledgments References are mentioned here.</p>'
+                '<h2>Rule 10: End</h2></div>' + tail + '</article>')
+
+    def test_incidental_keywords_do_not_select_a_partial_article(self):
+        tail = ('<h2>Conclusions</h2><p>Closing argument.</p><h2>Acknowledgments</h2>'
+                '<p>I would like to thank the countless presenters and colleagues.</p>'
+                '<h2>References</h2><p>Final reference. Annu Rev Biomed Data Sci.</p>')
+        with patch.object(pages, 'get', return_value=self.html(tail)):
+            body, _, _ = pages.content_for(self.cfg())
+        self.assertIn('Closing argument.', body)
+        self.assertIn('## Acknowledgments', body)
+        self.assertIn('Final reference.', body)
+
+    def test_missing_actual_tail_fails_despite_incidental_keywords(self):
+        with patch.object(pages, 'get', return_value=self.html('')):
+            with self.assertRaisesRegex(pages.ArchiveError, 'markers changed'):
+                pages.content_for(self.cfg())
+
+    def test_final_reference_is_required(self):
+        tail = '<p>I would like to thank the countless presenters and colleagues.</p>'
+        with patch.object(pages, 'get', return_value=self.html(tail)):
+            with self.assertRaisesRegex(pages.ArchiveError, 'markers changed'):
+                pages.content_for(self.cfg())
+
+
 if __name__ == '__main__':
     unittest.main()
