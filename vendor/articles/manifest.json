@@ -325,13 +325,13 @@
     "effective-presentation-slides": {
       "path": "vendor/articles/effective-presentation-slides.md",
       "kind": "fulltext",
-      "sha256": "222e376e3a994de4254e08ef30ee038e92723f0a38dd677dcb26870829b050df",
-      "source_sha256": "cf22f95e3c6923b9c6a0ce6b0ee027fa579df61e7816eb737a345229fd74eab7",
+      "sha256": "a843ea4d26f881ebee6d5b34e42befce94d2fad06f93ff62bf561dd585a9507c",
+      "source_sha256": "859147f50059dc8c4829850c950a1ef7d5dfc6ca0244f988f28e3abdb79c9ad2",
       "config_sha256": "126e471f861a89b8910d8f9f99c84bbb2a48dc105ed0062e775847ce91dacdc6",
       "converter_version": 1,
       "license": "CC-BY-4.0",
       "source_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554",
-      "saved_at": "2026-10-12T00:39:43.705158+00:00",
+      "saved_at": "2026-10-12T00:56:33.931496+00:00",
       "source_evidence": {
         "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554",
         "license_evidence_sha256": "94662fcb2af5a4732eb6bbddf66d77c56d4f15178d3ca9b123b3a575e9e5f3c8"

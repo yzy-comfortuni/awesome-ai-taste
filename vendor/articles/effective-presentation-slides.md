@@ -19,6 +19,16 @@ reviewed_on: "2026-10-12"
 
 ---
 
+**Citation:**Naegle KM (2021) Ten simple rules for effective presentation slides. PLoS Comput Biol 17(12): e1009554. https://doi.org/10.1371/journal.pcbi.1009554
+
+**Published:** December 2, 2021
+
+**Copyright:** © 2021 Kristen M. Naegle. This is an open access article distributed under the terms of the [Creative Commons Attribution License](http://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.
+
+**Funding:**The author received no specific funding for this work.
+
+**Competing interests:** The author has declared no competing interests exist.
+
 ## Introduction
 
 The “presentation slide” is the building block of all academic presentations, whether they are journal clubs, thesis committee meetings, short conference talks, or hour-long seminars. A slide is a single page projected on a screen, usually built on the premise of a title, body, and figures or tables and includes both what is shown and what is spoken about that slide. Multiple slides are strung together to tell the larger story of the presentation. While there have been excellent 10 simple rules on giving entire presentations [[1](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554#pcbi.1009554.ref001),[2](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554#pcbi.1009554.ref002)], there was an absence in the fine details of how to design a slide for optimal effect—such as the design elements that allow slides to convey meaningful information, to keep the audience engaged and informed, and to deliver the information intended and in the time frame allowed. As all research presentations seek to teach, effective slide design borrows from the same principles as effective teaching, including the consideration of cognitive processing your audience is relying on to organize, process, and retain information. This is written for anyone who needs to prepare slides from any length scale and for most purposes of conveying research to broad audiences. The rules are broken into 3 primary areas. Rules 1 to 5 are about optimizing the scope of each slide. Rules 6 to 8 are about principles around designing elements of the slide. Rules 9 to 10 are about preparing for your presentation, with the slides as the central focus of that preparation.
@@ -88,3 +98,51 @@ The real presentation almost never goes as we planned in our heads or during our
 - Save your presentation as a PDF—if the version of Keynote or PowerPoint on a host computer cause issues, you still have a functional copy that has a higher guarantee of compatibility.
 - In using videos, create a backup slide with screen shots of key results. For example, if I have a video of cell migration, I’ll be sure to have a copy of the start and end of the video, in case the video doesn’t play. Even if the video worked, you can pause on this backup slide and take the time to highlight the key results in words if someone could not see or understand the video.
 - Avoid animations, such as figures or text that flash/fly-in/etc. Surveys suggest that no one likes movement in presentations [[3](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554#pcbi.1009554.ref003),[4](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554#pcbi.1009554.ref004)]. There is likely a cognitive underpinning to the almost universal distaste of pointless animations that relates to the idea proposed by Kosslyn and colleagues that animations are salient perceptual units that captures direct attention [[4](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554#pcbi.1009554.ref004)]. Although perceptual salience can be used to draw attention to and improve retention of specific points, if you use this approach for unnecessary/unimportant things (like animation of your bullet point text, fly-ins of figures, etc.), then you will distract your audience from the important content. Finally, animations cause additional processing burdens for people with visual impairments [[10](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554#pcbi.1009554.ref010)] and create opportunities for technical disasters if the software on the host system is not compatible with your planned animation.
+
+## Conclusions
+
+These rules are just a start in creating more engaging presentations that increase audience retention of your material. However, there are wonderful resources on continuing on the journey of becoming an amazing public speaker, which includes understanding the psychology and neuroscience behind human perception and learning. For example, as highlighted in Rule 7, David JP Phillips has a wonderful TEDx talk on the subject [[5](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554#pcbi.1009554.ref005)], and “PowerPoint presentation flaws and failures: A psychological analysis,” by Kosslyn and colleagues is deeply detailed about a number of aspects of human cognition and presentation style [[4](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554#pcbi.1009554.ref004)]. There are many books on the topic, including the popular “Presentation Zen” by Garr Reynolds [[11](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554#pcbi.1009554.ref011)]. Finally, although briefly touched on here, the visualization of data is an entire topic of its own that is worth perfecting for both written and oral presentations of work, with fantastic resources like Edward Tufte’s “The Visual Display of Quantitative Information” [[12](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554#pcbi.1009554.ref012)] or the article “Visualization of Biomedical Data” by O’Donoghue and colleagues [[13](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554#pcbi.1009554.ref013)].
+
+## Acknowledgments
+
+I would like to thank the countless presenters, colleagues, students, and mentors from which I have learned a great deal from on effective presentations. Also, a thank you to the wonderful resources published by organizations on how to increase inclusivity. A special thanks to Dr. Jason Papin and Dr. Michael Guertin on early feedback of this editorial.
+
+## References
+
+1. 1. Lortie CJ. Ten simple rules for short and swift presentations. PLoS Comput Biol. 2017;13:1–6. pmid:28358832 
+   
+   - [View Article](https://doi.org/10.1371/journal.pcbi.1005373)
+   - [PubMed/NCBI](http://www.ncbi.nlm.nih.gov/pubmed/28358832)
+   - [Google Scholar](http://scholar.google.com/scholar?q=Ten+simple+rules+for+short+and+swift+presentations.+Lortie+2017)
+2. 2. Bourne PE. Ten simple rules for making good oral presentations. PLoS Comput Biol. 2007;3:593–4. pmid:17500596 
+   
+   - [View Article](https://doi.org/10.1371/journal.pcbi.0030077)
+   - [PubMed/NCBI](http://www.ncbi.nlm.nih.gov/pubmed/17500596)
+   - [Google Scholar](http://scholar.google.com/scholar?q=Ten+simple+rules+for+making+good+oral+presentations.+Bourne+2007)
+3. 3. Teaching VUC for Making Better PowerPoint Presentations. n.d. Available from: [https://cft.vanderbilt.edu/guides-sub-pages/making-better-powerpoint-presentations/#baddeley](https://cft.vanderbilt.edu/guides-sub-pages/making-better-powerpoint-presentations/#baddeley).
+4. 4. Kosslyn SM, Kievit RA, Russell AG, Shephard JM. PowerPoint® presentation flaws and failures: A psychological analysis. Front Psychol. 2012;3:1–22. pmid:22279440 
+   
+   - [View Article](https://doi.org/10.3389/fpsyg.2012.00001)
+   - [PubMed/NCBI](http://www.ncbi.nlm.nih.gov/pubmed/22279440)
+   - [Google Scholar](http://scholar.google.com/scholar?q=PowerPoint%C2%AE+presentation+flaws+and+failures%3A+A+psychological+analysis.+Kosslyn+2012)
+5. 5. Phillips DJ. How to avoid death by PowerPoint. TEDxStocholmSalon. 2014. 
+   
+   - [View Article](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554)
+   - [Google Scholar](http://scholar.google.com/scholar?q=How+to+avoid+death+by+PowerPoint.+Phillips+2014)
+6. 6. Mayer RE, Moreno R. Nine Ways to Reduce Cognitive Load in Multimedia Learning. Educ Psychol. 2003;38:43–52. 
+   
+   - [View Article](https://doi.org/10.1007/s10509-010-0328-8)
+   - [Google Scholar](http://scholar.google.com/scholar?q=Nine+Ways+to+Reduce+Cognitive+Load+in+Multimedia+Learning.+Mayer+2003)
+7. 7. Mayer RE, Johnson CI. Revising the Redundancy Principle in Multimedia Learning. J Educ Psychol. 2008;100:380–6. 
+   
+   - [View Article](https://doi.org/10.1037/0022-0663.100.2.380)
+   - [Google Scholar](http://scholar.google.com/scholar?q=Revising+the+Redundancy+Principle+in+Multimedia+Learning.+Mayer+2008)
+8. 8. Creating a dyslexia friendly workplace. Dyslexia friendly style guide. nd. Available from: [https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide](https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide).
+9. 9. Cravit R. How to Use Color Blind Friendly Palettes to Make Your Charts Accessible. 2019. Available from: [https://venngage.com/blog/color-blind-friendly-palette/](https://venngage.com/blog/color-blind-friendly-palette/).
+10. 10. Making your conference presentation more accessible to blind and partially sighted people. n.d. Available from: [https://vocaleyes.co.uk/services/resources/guidelines-for-making-your-conference-presentation-more-accessible-to-blind-and-partially-sighted-people/](https://vocaleyes.co.uk/services/resources/guidelines-for-making-your-conference-presentation-more-accessible-to-blind-and-partially-sighted-people/).
+11. 11. Reynolds G. Presentation Zen: Simple Ideas on Presentation Design and Delivery. 2nd ed. New Riders Pub; 2011.
+12. 12. Tufte ER. The Visual Display of Quantitative Information. 2nd ed. Graphics Press; 2001.
+13. 13. O’Donoghue SI, Baldi BF, Clark SJ, Darling AE, Hogan JM, Kaur S, et al. Visualization of Biomedical Data. Annu Rev Biomed Data Sci. 2018;1:275–304. 
+   
+   - [View Article](https://doi.org/10.1146/annurev-biodatasci-080917-013424)
+   - [Google Scholar](http://scholar.google.com/scholar?q=Visualization+of+Biomedical+Data.+O%E2%80%99Donoghue+2018)
