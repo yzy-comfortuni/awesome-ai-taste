@@ -337,6 +337,22 @@
         "license_evidence_sha256": "94662fcb2af5a4732eb6bbddf66d77c56d4f15178d3ca9b123b3a575e9e5f3c8"
       },
       "status": "current"
+    },
+    "graphical-abstracts-rules": {
+      "path": "vendor/articles/graphical-abstracts-rules.md",
+      "kind": "fulltext",
+      "sha256": "34f647f546020a889e3e7bfd94c3f22e22aded634a95e218fa052a3bc1e5f9fb",
+      "source_sha256": "273af29879876438bb66596b04ac84ac9b6ab300a1db583040a83bd5aca790dd",
+      "config_sha256": "acdf215fd0110ed1b0ca2cee33d7a3ecd9c90acf5d09c5aff4b33fa6f1540712",
+      "converter_version": 1,
+      "license": "CC-BY-4.0",
+      "source_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011789",
+      "saved_at": "2026-10-12T23:17:50.148522+00:00",
+      "source_evidence": {
+        "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011789",
+        "license_evidence_sha256": "223da26d1ae5aa2d3ef0da4bf301da4d389d22095398b3bdf00f85c8907b187d"
+      },
+      "status": "current"
     }
   },
   "unregistered": []
