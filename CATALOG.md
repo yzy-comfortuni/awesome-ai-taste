@@ -1,6 +1,6 @@
 # 资源目录
 
-[返回首页](README.md)。按任务查阅；每项包含用途、具体规则和原文出处。
+[返回首页](README.md)。按任务查阅；每项包含用途、具体规则和原文出处。先读[使用边界](USAGE.md)与[已知勘误](ERRATA.md)；逐项输入输出和环境见首页分类页，[练习集中在这里](examples/README.md)。
 
 [界面设计](#界面设计) · [文字表达](#文字表达) · [专利写作](#专利写作) · [学术论文](#学术论文) · [小说写作](#小说写作) · [诗歌写作](#诗歌写作) · [剧本写作](#剧本写作) · [图表与图解](#图表与图解) · [动画与视频](#动画与视频) · [演示文稿](#演示文稿)
 
@@ -82,7 +82,7 @@
 
 ## 专利写作
 
-- [WIPO Patent Drafting Manual](https://www.wipo.int/publications/en/details.jsp?id=4706) — 世界知识产权组织的专利撰写手册，用实例讲权利要求层次、术语、说明书支持与附图；适合跨法域起草训练，具体申请仍须核对目标专利局现行规则。[权利要求设计](https://www.wipo.int/edocs/pubdocs/zh/wipo-pub-867-23-zh-wipo-patent-drafting-manual.pdf#page=106) <!-- article-copy --> · [Markdown 阅读索引](vendor/articles/wipo-patent-drafting-manual.md)<!-- /article-copy -->
+- [WIPO Patent Drafting Manual](https://www.wipo.int/publications/en/details.jsp?id=4706) — 世界知识产权组织的专利撰写手册，用实例讲权利要求层次、术语、说明书支持与附图；适合跨法域起草训练，具体申请仍须核对目标专利局现行规则。[说明书支持（第六单元第 10 节）](https://www.wipo.int/edocs/pubdocs/zh/wipo-pub-867-23-zh-wipo-patent-drafting-manual.pdf#page=108) <!-- article-copy --> · [Markdown 阅读索引](vendor/articles/wipo-patent-drafting-manual.md)<!-- /article-copy -->
 
   **规则：** 起草时逐项检查权利要求的概括范围是否有说明书依据，不把单个实施例扩写成未经支持的全部情形。[出处](https://www.wipo.int/edocs/pubdocs/zh/wipo-pub-867-23-zh-wipo-patent-drafting-manual.pdf#page=108)
 
@@ -126,7 +126,7 @@
 
 ## 小说写作
 
-- [Steering the Craft](https://www.ursulakleguin.com/steering-the-craft) — Le Guin 的英语叙事写作练习，训练句子节奏、视角和叙述距离；适合小说与叙事散文，不套固定情节公式。[节选](https://www.ursulakleguin.com/steering-the-craft) <!-- article-copy --> · [Markdown 摘要](vendor/articles/steering-the-craft.md)<!-- /article-copy -->
+- [Steering the Craft](https://www.ursulakleguin.com/steering-the-craft) — Le Guin 的英语叙事写作练习，训练句子节奏、视角和叙述距离；适合小说与叙事散文，不套固定情节公式。[第一章节选](https://lithub.com/a-writing-lesson-from-ursula-k-leguin/) <!-- article-copy --> · [Markdown 摘要](vendor/articles/steering-the-craft.md)<!-- /article-copy -->
 
   **规则：** 把叙事段落大声读出来，检查句子的声音和节奏是否推动阅读，再修改绊住耳朵的地方。[出处](https://lithub.com/a-writing-lesson-from-ursula-k-leguin/)
 
@@ -180,7 +180,7 @@
 
   **规则：** 要表达高于或低于目标的偏差，先标出共同参考线，再用两侧延伸的条形呈现正负变化。[出处](https://github.com/Financial-Times/chart-doctor/blob/main/visual-vocabulary/README.md)
 
-- [AntV Chart Visualization](https://github.com/antvis/chart-visualization-skills) — 基于 AntV API 的图表技能，按趋势、比较、占比与关系选择图形。[选型规则](https://github.com/antvis/chart-visualization-skills/blob/master/skills/chart-visualization/SKILL.md#图表选择指南) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/antvis/chart-visualization-skills?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/antvis/chart-visualization-skills/stargazers) · [副本](vendor/antvis/chart-visualization-skills)<!-- /source-meta -->
+- [AntV Chart Visualization](https://github.com/antvis/chart-visualization-skills) — 按趋势、比较、占比与关系选图；完整流程会将输入数据发送至远程 AntV API。[选型规则](https://github.com/antvis/chart-visualization-skills/blob/master/skills/chart-visualization/SKILL.md#图表选择指南) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/antvis/chart-visualization-skills?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/antvis/chart-visualization-skills/stargazers) · [副本](vendor/antvis/chart-visualization-skills)<!-- /source-meta -->
 
   **规则：** 先按表达任务选图：时间变化用折线、分类比较用条形，不以现成模板代替选型。[出处](https://github.com/antvis/chart-visualization-skills/blob/master/skills/chart-visualization/SKILL.md)
 
@@ -188,7 +188,7 @@
 
   **规则：** 画误差线时写明它表示标准差、标准误还是置信区间，并交代样本量及独立重复单位。[出处](https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/scientific-visualization/SKILL.md)
 
-- [Visual Explainer](https://github.com/nicobailon/visual-explainer) — 用 HTML 与 Mermaid 组织架构图、流程图和对照表，规定箭头含义与信息层级。[图解规则](https://github.com/nicobailon/visual-explainer/blob/main/plugins/visual-explainer/SKILL.md#mermaid-invariants) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/nicobailon/visual-explainer?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/nicobailon/visual-explainer/stargazers) · [副本](vendor/nicobailon/visual-explainer)<!-- /source-meta -->
+- [Visual Explainer](https://github.com/nicobailon/visual-explainer) — 所选 v0.12.0 默认单文件 HTML 与手写 SVG，Mermaid 按需使用；组织机制图并标明箭头动作，须在浏览器检查。[图解规则](https://github.com/nicobailon/visual-explainer/blob/main/plugins/visual-explainer/SKILL.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/nicobailon/visual-explainer?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/nicobailon/visual-explainer/stargazers) · [副本](vendor/nicobailon/visual-explainer)<!-- /source-meta -->
 
   **规则：** 给图解箭头标明“写入、失效、轮询”等动作，让读者知道连线代表什么。[出处](https://github.com/nicobailon/visual-explainer/blob/main/plugins/visual-explainer/SKILL.md)
 
