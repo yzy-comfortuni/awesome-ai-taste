@@ -10,8 +10,10 @@ from urllib.parse import quote, unquote, urlsplit
 
 try:
     from .catalog import read_catalog
+    from . import practice
 except ImportError:
     from catalog import read_catalog
+    import practice
 
 ROOT = Path(__file__).resolve().parents[1]
 MARKER = '<!-- generated: task-views; edit CATALOG.md -->'
@@ -76,7 +78,7 @@ def sections(text: str) -> dict[str, list[tuple[str, str]]]:
 
 
 def snapshot_link(root: Path, url: str, records: dict) -> str | None:
-    """Map a reviewed GitHub blob URL to an existing Markdown file, never a directory."""
+    """Map a reviewed GitHub blob URL to an existing text file, never a directory."""
     parsed = urlsplit(url)
     parts = unquote(parsed.path).strip('/').split('/')
     if parsed.scheme != 'https' or parsed.netloc != 'github.com' or len(parts) < 5 or parts[2] != 'blob':
@@ -91,7 +93,7 @@ def snapshot_link(root: Path, url: str, records: dict) -> str | None:
         if not rest.startswith(ref + '/'):
             continue
         tail = rest[len(ref) + 1:]
-        if Path(tail).suffix.lower() not in {'.md', '.markdown'}:
+        if Path(tail).suffix.lower() not in {'.md', '.markdown', '.rst'}:
             return None
         path = safe(root, f'vendor/{key}/{tail}')
         if path.is_file():
@@ -124,6 +126,7 @@ def article_link(root: Path, url: str, pages: list, records: dict) -> str:
 def render(root: Path) -> dict[str, str]:
     home = safe(root, 'README.md').read_text(encoding='utf-8')
     text = read_catalog(root, home)
+    trials = practice.load(root, text)
     sources = read_json(root, 'sources.lock.json', {'sources': {}})['sources']
     pages = read_json(root, 'pages.config.json', {'pages': []})['pages']
     articles = read_json(root, 'vendor/articles/manifest.json', {'pages': {}})['pages']
@@ -144,6 +147,8 @@ def render(root: Path) -> dict[str, str]:
             intro += article_link(root, canonical, pages, articles)
             # Source attribution and the full rule are kept verbatim.
             lines.extend([intro, '', rule, ''])
+            if canonical in trials:
+                lines.extend([practice.render(trials[canonical]), ''])
         output[f'vendor/tasks/{heading}.md'] = '\n'.join(lines)
     return output
 
