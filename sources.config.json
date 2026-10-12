@@ -46,5 +46,25 @@
   "alchaincyf/huashu-art-motion": {
     "paths": ["README.md", "SKILL.md", "references"],
     "fetch": "git-tree"
+  },
+  "ddbeck/readme-checklist": {
+    "paths": ["README.md", "checklist.md"]
+  },
+  "evildmp/diataxis-documentation-framework": {
+    "paths": ["README.rst", "source/how-to-guides.rst"],
+    "license": {
+      "path": "LICENSE.rst",
+      "sha": "33d423fcc11debdef3357552687c364c64e8273b",
+      "spdx": "CC-BY-SA-4.0"
+    }
+  },
+  "jtleek/reviews": {
+    "paths": ["README.md", "review-template.Rmd"]
+  },
+  "haowjy/creative-writing-skills": {
+    "paths": ["README.md", "skills/writing-principles"]
+  },
+  "penglonghuang/chinese-novelist-skill": {
+    "paths": ["README.md", "references/guides/dialogue-writing.md"]
   }
 }
