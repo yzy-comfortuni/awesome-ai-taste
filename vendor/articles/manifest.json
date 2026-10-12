@@ -127,6 +127,216 @@
       "saved_at": "2026-10-10T02:47:43.036564+00:00",
       "source_evidence": null,
       "status": "summary-only"
+    },
+    "response-to-reviewers": {
+      "path": "vendor/articles/response-to-reviewers.md",
+      "kind": "fulltext",
+      "sha256": "cf52172b3950218c4b5562abc0321f48bc2bfb6899fb062d607a551d40732749",
+      "source_sha256": "d2c3d65b588daf08bd32f7c715747d4114efebfecb117dd4147bbeb29710649d",
+      "config_sha256": "8cf7f641062518a500e9fad4794cddd66ab6c82e4996150071b2bfb3d0521418",
+      "converter_version": 1,
+      "license": "CC-BY-4.0",
+      "source_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005730",
+      "saved_at": "2026-10-12T00:39:34.542404+00:00",
+      "source_evidence": {
+        "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005730",
+        "license_evidence_sha256": "b51b30d24ab0e99bb4da24f0fceeb10ac4ede79f2315829fa3cdc85af720dab5"
+      },
+      "status": "current"
+    },
+    "scientific-software-papers": {
+      "path": "vendor/articles/scientific-software-papers.md",
+      "kind": "fulltext",
+      "sha256": "f047835f957026032ac63fcb80d342ed7f7d4528d425a9e22113129ccc41cb1e",
+      "source_sha256": "e748900cd0718de25e177d150f64da38b904cf77b67475fed8bf28a5a3149a5a",
+      "config_sha256": "512d7ceb5ab451dcf582dea643805552a7e31b1254ca455240dd03f32a338ca4",
+      "converter_version": 1,
+      "license": "CC-BY-4.0",
+      "source_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008390",
+      "saved_at": "2026-10-12T00:39:38.205735+00:00",
+      "source_evidence": {
+        "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008390",
+        "license_evidence_sha256": "a5001087768614a75ffbd5ae224e36f68a74d5a7a3741ff8584edd0c5a1785c7"
+      },
+      "status": "current"
+    },
+    "organizing-large-documents": {
+      "path": "vendor/articles/organizing-large-documents.md",
+      "kind": "fulltext",
+      "sha256": "bcffb93b5ed0a107ddaa3a45ca57aefd6be19323901830ba4cb0d460e75dae76",
+      "source_sha256": "18f9ceb11876c34b4726e30a01ec32e1085dc9abcf4fee7fe9fe0831fbbc2f9a",
+      "config_sha256": "cd762dff5d67bdb6ec31854871a56b00e8413972df907bf070342cbcb08df8a9",
+      "converter_version": 1,
+      "license": "CC-BY-4.0",
+      "source_url": "https://developers.google.com/tech-writing/two/large-docs",
+      "saved_at": "2026-10-12T00:39:38.826753+00:00",
+      "source_evidence": {
+        "url": "https://developers.google.com/tech-writing/two/large-docs",
+        "license_evidence_sha256": "694f8f0f9dc0903d7571b05063f1060d784da6cfcb2f8ba678e43e608f5ab347"
+      },
+      "status": "current"
+    },
+    "documenting-architecture-decisions": {
+      "path": "vendor/articles/documenting-architecture-decisions.md",
+      "kind": "fulltext",
+      "sha256": "7d6e9d7a5f6a87c8a65df25aab72ef3231fdb0855af05dd278d720b6e80522bc",
+      "source_sha256": "ae70207d6cdf5a827ee2ec707de00668ac009d190a283b0fb84772a3b0c6c041",
+      "config_sha256": "8c9f1ec58c52b7137719cf01f48f6d7fd1ac6f21c56eac553b2fb861dc586012",
+      "converter_version": 1,
+      "license": "LicenseRef-Public-Domain",
+      "source_url": "https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions",
+      "saved_at": "2026-10-12T00:39:39.143775+00:00",
+      "source_evidence": {
+        "url": "https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions",
+        "license_evidence_sha256": "01bdb22a561924b5eb072b501b530d14157d4a674561dac25cfff3197eb04faf"
+      },
+      "status": "current"
+    },
+    "epo-dependent-claims": {
+      "path": "vendor/articles/epo-dependent-claims.md",
+      "kind": "summary",
+      "sha256": "d11cdc30294a0c28b7e0c388f6621f044cdcf4c31b77c87ef28195ff6a62edda",
+      "source_sha256": null,
+      "config_sha256": "90081ee06250495d6754a07fa9a1b6a44757d5a6a5baf4c03e3a970e7ea0e0d6",
+      "converter_version": 1,
+      "license": "未确认适用于本页全文的开放转载许可；仅存编辑摘要",
+      "source_url": "https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_3_4.html",
+      "saved_at": "2026-10-12T00:39:39.144116+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
+    },
+    "uspto-antecedent-basis": {
+      "path": "vendor/articles/uspto-antecedent-basis.md",
+      "kind": "summary",
+      "sha256": "952b9a7314d7ec1f29ab2d805c1882af1b81a544c9436a377db466f5f34879c8",
+      "source_sha256": null,
+      "config_sha256": "b9c3a993a730f8dba4d6c94ff1bc2cc0e8917f625ad1fa1d301d17f990b3ac50",
+      "converter_version": 1,
+      "license": "美国政府文字在美国境内通常属公有领域；USPTO 保留境外版权，未确认全球全文转载许可",
+      "source_url": "https://www.uspto.gov/web/offices/pac/mpep/s2173.html",
+      "saved_at": "2026-10-12T00:39:39.144436+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
+    },
+    "fiction-writing-basics": {
+      "path": "vendor/articles/fiction-writing-basics.md",
+      "kind": "summary",
+      "sha256": "c5c76c669216339d0d40409701237c20332e695d90c48d1347ea3293394a7ce3",
+      "source_sha256": null,
+      "config_sha256": "0e45c38e098b6c7f4d5ed339439b9e370ba3940cdb160647006196b09762f9f0",
+      "converter_version": 1,
+      "license": "Purdue OWL 标明 All Rights Reserved；仅存编辑摘要",
+      "source_url": "https://owl.purdue.edu/owl/subject_specific_writing/creative_writing/writers/fiction_writing_basics/index.html",
+      "saved_at": "2026-10-12T00:39:39.144783+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
+    },
+    "ping-pong-dialogue": {
+      "path": "vendor/articles/ping-pong-dialogue.md",
+      "kind": "summary",
+      "sha256": "10d443282ee1931ff09d690c51edce672541e1b461375da6d334b9810a20cd5c",
+      "source_sha256": null,
+      "config_sha256": "cd2dbc5159533c21e482329337d55102c3e83cf766e71c554f14062c7f844b1d",
+      "converter_version": 1,
+      "license": "未确认适用于本页全文的开放转载许可；仅存编辑摘要",
+      "source_url": "https://emmadarwin.substack.com/p/ping-pong-dialogue",
+      "saved_at": "2026-10-12T00:39:39.145084+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
+    },
+    "poetic-image-exercises": {
+      "path": "vendor/articles/poetic-image-exercises.md",
+      "kind": "summary",
+      "sha256": "4c9f9fb17a8a5d704ddd98c891ad75c9a12209d6379f29e4576793c0d41066bb",
+      "source_sha256": null,
+      "config_sha256": "9a12b0a4d19e4b518ac6bd55a99321717455df64f8279edd3bc189f7ceaf5b9f",
+      "converter_version": 1,
+      "license": "Purdue OWL 标明 All Rights Reserved；仅存编辑摘要",
+      "source_url": "https://owl.purdue.edu/owl/subject_specific_writing/writing_in_literature/image_in_poetry/exercises.html",
+      "saved_at": "2026-10-12T00:39:39.145383+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
+    },
+    "flying-revisions-flag": {
+      "path": "vendor/articles/flying-revisions-flag.md",
+      "kind": "summary",
+      "sha256": "5382937f38cb50c7115d17a99968dcea52555c0cbee1e4875332a0ae9194a5fc",
+      "source_sha256": null,
+      "config_sha256": "a91b9a625a24673bd62b26f1b424088ed2c892c023bb6bab5d136061790e0d0c",
+      "converter_version": 1,
+      "license": "未确认适用于本页全文的开放转载许可；仅存编辑摘要",
+      "source_url": "https://poets.org/text/flying-revisions-flag",
+      "saved_at": "2026-10-12T00:39:39.145702+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
+    },
+    "writing-screen-dialogue": {
+      "path": "vendor/articles/writing-screen-dialogue.md",
+      "kind": "summary",
+      "sha256": "99d7d0ab13f5078ce4b9e2850dae28f72e9980a5d028e3f7ce8ce02fb4f94b59",
+      "source_sha256": null,
+      "config_sha256": "8372c273fe0ef2db3bf710f7af8fb37954525457b2b17f2ee229fc4a4ce54c1d",
+      "converter_version": 1,
+      "license": "John August 网站标明 All Rights Reserved；仅存编辑摘要",
+      "source_url": "https://johnaugust.com/2007/how-to-write-dialogue",
+      "saved_at": "2026-10-12T00:39:39.145999+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
+    },
+    "writing-fight-scenes": {
+      "path": "vendor/articles/writing-fight-scenes.md",
+      "kind": "summary",
+      "sha256": "d0c3bd0872e4564ca3260c9645a27cd4468a0f1fa4612fda3009ca7aa850f589",
+      "source_sha256": null,
+      "config_sha256": "eae5de4ec108891d4ce2d7ec42cffd94583c97d2eff2686bdbd6881652a28f3a",
+      "converter_version": 1,
+      "license": "John August 网站标明 All Rights Reserved；仅存编辑摘要",
+      "source_url": "https://johnaugust.com/2011/writing-fight-scenes",
+      "saved_at": "2026-10-12T00:39:39.146299+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
+    },
+    "animation-staging": {
+      "path": "vendor/articles/animation-staging.md",
+      "kind": "summary",
+      "sha256": "ac18ec30de1779f78a3e600e7d92bda476eee63c7321f646981e5d9a40b51cbf",
+      "source_sha256": null,
+      "config_sha256": "05b26d1d58c6f8459f448dd02da6836ee96831ef313ea59e29d10c823449a11c",
+      "converter_version": 1,
+      "license": "Animation Mentor 网站标明 All Rights Reserved；仅存编辑摘要",
+      "source_url": "https://www.animationmentor.com/blog/staging-the-12-basic-principles-of-animation/",
+      "saved_at": "2026-10-12T00:39:39.146591+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
+    },
+    "animation-anticipation": {
+      "path": "vendor/articles/animation-anticipation.md",
+      "kind": "summary",
+      "sha256": "b49a6b7e1960ecbd1a3d2277746c89764697b63b08ae319dfc7fe4836a32a109",
+      "source_sha256": null,
+      "config_sha256": "758caf9ced1082d6b738356ad5d42380254f5d912ed29888eeb27c2ff0f00bd9",
+      "converter_version": 1,
+      "license": "Animation Mentor 网站标明 All Rights Reserved；仅存编辑摘要",
+      "source_url": "https://www.animationmentor.com/blog/anticipation-the-12-basic-principles-of-animation/",
+      "saved_at": "2026-10-12T00:39:39.146927+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
+    },
+    "effective-presentation-slides": {
+      "path": "vendor/articles/effective-presentation-slides.md",
+      "kind": "fulltext",
+      "sha256": "222e376e3a994de4254e08ef30ee038e92723f0a38dd677dcb26870829b050df",
+      "source_sha256": "cf22f95e3c6923b9c6a0ce6b0ee027fa579df61e7816eb737a345229fd74eab7",
+      "config_sha256": "126e471f861a89b8910d8f9f99c84bbb2a48dc105ed0062e775847ce91dacdc6",
+      "converter_version": 1,
+      "license": "CC-BY-4.0",
+      "source_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554",
+      "saved_at": "2026-10-12T00:39:43.705158+00:00",
+      "source_evidence": {
+        "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554",
+        "license_evidence_sha256": "94662fcb2af5a4732eb6bbddf66d77c56d4f15178d3ca9b123b3a575e9e5f3c8"
+      },
+      "status": "current"
     }
   },
   "unregistered": []

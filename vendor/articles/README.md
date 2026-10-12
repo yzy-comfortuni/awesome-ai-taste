@@ -13,6 +13,21 @@
 | How to write a scene | 摘要 Markdown（非全文） | summary-only | [how-to-write-a-scene.md](how-to-write-a-scene.md) |
 | ダッシュボードデザインの実践ガイドブック — 官方替代文本 | 正文 Markdown | current | [dashboard-design-guidebook.md](dashboard-design-guidebook.md) |
 | Tutorial: Creating an Assertion-Evidence Presentation | 摘要 Markdown（非全文） | summary-only | [assertion-evidence-tutorial.md](assertion-evidence-tutorial.md) |
+| Ten Simple Rules for Writing a Response to Reviewers | 正文 Markdown | current | [response-to-reviewers.md](response-to-reviewers.md) |
+| Ten Simple Rules for Writing a Paper about Scientific Software | 正文 Markdown | current | [scientific-software-papers.md](scientific-software-papers.md) |
+| Organizing Large Documents | 正文 Markdown | current | [organizing-large-documents.md](organizing-large-documents.md) |
+| Documenting Architecture Decisions | 正文 Markdown | current | [documenting-architecture-decisions.md](documenting-architecture-decisions.md) |
+| EPO Guidelines F-IV, 3.4 — Independent and Dependent Claims | 摘要 Markdown（非全文） | summary-only | [epo-dependent-claims.md](epo-dependent-claims.md) |
+| MPEP 2173.05(e) — Lack of Antecedent Basis | 摘要 Markdown（非全文） | summary-only | [uspto-antecedent-basis.md](uspto-antecedent-basis.md) |
+| Fiction Writing Basics | 摘要 Markdown（非全文） | summary-only | [fiction-writing-basics.md](fiction-writing-basics.md) |
+| Ping-Pong Dialogue | 摘要 Markdown（非全文） | summary-only | [ping-pong-dialogue.md](ping-pong-dialogue.md) |
+| Image in Poetry — Exercises | 摘要 Markdown（非全文） | summary-only | [poetic-image-exercises.md](poetic-image-exercises.md) |
+| Flying Revision’s Flag | 摘要 Markdown（非全文） | summary-only | [flying-revisions-flag.md](flying-revisions-flag.md) |
+| How to Write Dialogue | 摘要 Markdown（非全文） | summary-only | [writing-screen-dialogue.md](writing-screen-dialogue.md) |
+| Writing Fight Scenes | 摘要 Markdown（非全文） | summary-only | [writing-fight-scenes.md](writing-fight-scenes.md) |
+| Staging — The 12 Basic Principles of Animation | 摘要 Markdown（非全文） | summary-only | [animation-staging.md](animation-staging.md) |
+| Anticipation — The 12 Basic Principles of Animation | 摘要 Markdown（非全文） | summary-only | [animation-anticipation.md](animation-anticipation.md) |
+| Ten Simple Rules for Effective Presentation Slides | 正文 Markdown | current | [effective-presentation-slides.md](effective-presentation-slides.md) |
 
 ## 更新方式
 
