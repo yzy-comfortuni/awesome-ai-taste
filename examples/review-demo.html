@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>规则试用：表单与排行</title>
+<style>
+:root{color-scheme:light;--ink:#17202b;--muted:#475569;--line:#b8c2cc;--error:#a11919}
+*{box-sizing:border-box}body{max-width:66rem;margin:auto;padding:24px;font:18px/1.65 system-ui,sans-serif;color:var(--ink);background:white}
+h1{font-size:clamp(1.65rem,5vw,2.4rem);line-height:1.2}h2{font-size:1.4rem}section{margin-block:2rem;padding-block:1rem;border-top:1px solid var(--line)}
+p{max-width:65ch}a{color:#124b83}label{display:block;margin-top:1rem}input,button{font:inherit;min-height:44px;max-width:100%}input[type=text]{width:100%;padding:8px;border:1px solid #64748b;border-radius:4px}button{margin-top:12px;padding:8px 18px;color:var(--ink);background:#f1f5f9;border:1px solid #64748b;border-radius:4px;cursor:pointer}
+:focus-visible{outline:3px solid #124b83;outline-offset:3px}.error{color:var(--error);margin:0}.error:empty{display:none}.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));gap:28px}.plot{position:relative;height:150px;margin-block:16px;border-left:2px solid var(--ink)}.bar{position:absolute;left:0;height:36px;white-space:nowrap;background:#dce7ee;border:1px solid #334155;padding-left:8px;display:flex;align-items:center;font-size:16px}.bar.b{background:#f1ede3;border-style:dashed}input[type=range]{width:100%}code{overflow-wrap:anywhere}table{border-collapse:collapse;max-width:100%}td,th{padding:8px;text-align:left;border-bottom:1px solid var(--line)}.note{color:var(--muted)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<h1>先让错误能被看见</h1>
+<p>这是原创离线练习，不提交预约，不发送或保存输入。排行数据是合成值，演示期间的值不是新增观测。</p>
+<p><a href="README.md">练习说明</a> · <a href="../ERRATA.md">勘误</a></p>
+<section aria-labelledby="empty-title"><h2 id="empty-title">空状态：给出真实出口</h2><p>还没有选择工具。</p><a href="#available-tools">查看练习工具</a></section>
+<section id="available-tools"><h2>练习工具清单</h2><p>电钻、梯子。名称仅供练习，不代表真实库存。</p><a href="#request">填写练习表单</a></section>
+<section id="request" aria-labelledby="form-title"><h2 id="form-title">字段错误与首错焦点</h2>
+<form id="borrow" novalidate>
+<label for="tool">工具名称</label><input id="tool" type="text" autocomplete="off" aria-describedby="tool-error"><p id="tool-error" class="error"></p>
+<label for="days">借用天数（1–7 的整数）</label><input id="days" type="text" inputmode="numeric" aria-describedby="days-error"><p id="days-error" class="error"></p>
+<button type="submit">检查输入</button><p id="result" role="status" aria-live="polite"></p>
+</form></section>
+<section aria-labelledby="rank-title"><h2 id="rank-title">排名位置：离散跳行与连续转场</h2>
+<p>A 从 100 变为 80，B 从 80 变为 100；行距 50 px。位置在端点名次间过渡，转场中的纵坐标不代表精确排名。拖动到交叉前后比较。</p>
+<label for="frame">帧 <output id="frame-label" for="frame">0</output> / 20</label><input id="frame" type="range" min="0" max="20" value="0" step="1">
+<div class="two"><div><h3>原片段的离散位置</h3><div class="plot" id="before"></div></div><div><h3>修订示例的位置插值</h3><div class="plot" id="after"></div></div></div>
+<p id="values" role="status"></p><p class="note">没有自动播放；无须通过运动才能读到结果。这不是 Remotion 成片。</p></section>
+<section><h2>字号与对比度不能混用单位</h2><table><thead><tr><th>最终显示字号</th><th>本例文字最低对比度</th></tr></thead><tbody><tr><td>18 CSS px 普通</td><td>4.5:1</td></tr><tr><td>24 CSS px 普通</td><td>3:1</td></tr><tr><td>14 pt 粗体</td><td>3:1</td></tr></tbody></table><p>这里只演示常规文字门槛，不是整页无障碍合规审计。</p></section>
+<script src="rank-transition.js"></script>
+<script>
+'use strict';
+const form=document.getElementById('borrow');
+form.addEventListener('submit',event=>{
+ event.preventDefault();
+ const tool=document.getElementById('tool'),days=document.getElementById('days');
+ const raw=days.value.trim();
+ const errors=[!tool.value.trim()?'请填写工具名称。':'',!/^\d+$/.test(raw)||Number(raw)<1||Number(raw)>7?'请输入 1–7 的整数。':''];
+ let first=null;
+ [tool,days].forEach((field,i)=>{
+  document.getElementById(field.id+'-error').textContent=errors[i];
+  if(errors[i]){field.setAttribute('aria-invalid','true');if(!first)first=field;}
+  else field.removeAttribute('aria-invalid');
+ });
+ document.getElementById('result').textContent=first?'请修正标出的字段。':'输入检查通过；这是练习，没有提交预约。';
+ if(first)first.focus();
+});
+const data=[{id:'A',from:100,to:80},{id:'B',from:80,to:100}];
+for(const target of ['before','after'])for(const d of data){const row=document.createElement('div');row.className='bar '+d.id.toLowerCase();row.id=target+'-'+d.id;document.getElementById(target).appendChild(row);}
+function draw(){
+ const f=Number(document.getElementById('frame').value);document.getElementById('frame-label').textContent=String(f);
+ for(const [target,fn]of [['before',TasteRank.discreteFrame],['after',TasteRank.rankFrame]]){
+  for(const d of fn(data,f)){const row=document.getElementById(target+'-'+d.id);row.style.transform='translateY('+d.y+'px)';row.style.width=(d.value*2)+'px';row.textContent=d.id+'：'+d.value.toFixed(1);}
+ }
+ document.getElementById('values').textContent=f===0||f===20?'合成观测端点。':'演示插值，不是观测。';
+}
+document.getElementById('frame').addEventListener('input',draw);draw();
+</script>
+</html>
