@@ -419,6 +419,36 @@
         "References"
       ],
       "min_chars": 9000
+    },
+    {
+      "id": "graphical-abstracts-rules",
+      "title": "Ten simple rules for designing graphical abstracts",
+      "author": "Helena Klara Jambor; Martin Bornhäuser",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011789",
+      "catalog_urls": [
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011789"
+      ],
+      "kind": "fulltext",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011789",
+      "license_marker": "creativecommons.org/licenses/by/4.0",
+      "reviewed_on": "2026-10-13",
+      "markers": [
+        "Introduction",
+        "Rule 1:",
+        "Rule 2:",
+        "Rule 3:",
+        "Rule 4:",
+        "Rule 5:",
+        "Rule 6:",
+        "Rule 7:",
+        "Rule 8:",
+        "Rule 9:",
+        "Rule 10:",
+        "References"
+      ],
+      "min_chars": 12000,
+      "scope_note": "© 2024 Jambor、Bornhäuser。PLOS Computational Biology 20(2): e1011789，DOI: 10.1371/journal.pcbi.1011789。依据 CC BY 4.0 转换本篇英文正文、图注和参考文献；图像作为外链保留，不是离线媒体包。Markdown 格式转换由 awesome-ai-taste 完成，不代表原作者背书。许可：https://creativecommons.org/licenses/by/4.0/ 。"
     }
   ]
 }

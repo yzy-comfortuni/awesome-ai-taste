@@ -124,6 +124,10 @@
 
   **规则：** 每条主要批评都指向具体图表、段落或结果，写清问题所在，不只说“论证不充分”。[出处](https://github.com/jtleek/reviews/blob/master/README.md)
 
+- [Ten Simple Rules for Designing Graphical Abstracts](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011789) — 以科研图形摘要为对象，说明图符、阅读方向和箭头语义，附对照图；主要用于论文的视觉概览，不能替代正文摘要与结果证据。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011789)
+
+  **规则：** 同一张图形摘要若用箭头分别表示处理流程和指标上升，应把两种箭头画成明显不同的样式，并标明各自含义。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011789)
+
 ## 小说写作
 
 - [Steering the Craft](https://www.ursulakleguin.com/steering-the-craft) — Le Guin 的英语叙事写作练习，训练句子节奏、视角和叙述距离；适合小说与叙事散文，不套固定情节公式。[第一章节选](https://lithub.com/a-writing-lesson-from-ursula-k-leguin/) <!-- article-copy --> · [Markdown 摘要](vendor/articles/steering-the-craft.md)<!-- /article-copy -->

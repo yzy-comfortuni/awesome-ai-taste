@@ -56,6 +56,13 @@
     {"url":"https://github.com/zarazhangrui/frontend-slides","task":"检查手机可读性","io":"用途舞台字号→拆页或重流方案","environment":"须目标屏幕浏览器验收","example":"examples/motion.md#d1","note":"28px 在 1920→390 等比缩放后仅约 5.69px。","errata":"ERRATA.md#slides"},
     {"url":"https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-slide-deck","task":"制作自足阅读页","io":"比较事实→页内五问答案","environment":"生图后端与精确文字另验","example":"examples/motion.md#d2"},
     {"url":"https://www.assertion-evidence.com/","task":"匹配结论与证据","io":"合成对照→标题图形及可见限定","environment":"现场讲述需另排练","example":"examples/motion.md#d3","note":"关键限制不能藏进备注。","errata":"ERRATA.md#slides"},
-    {"url":"https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554","task":"共享结构分步揭示","io":"一个图结构→分步页与最终全图","environment":"需渲染和讲述；不固定每页时长","example":"examples/motion.md#d4"}
+    {"url":"https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554","task":"共享结构分步揭示","io":"一个图结构→分步页与最终全图","environment":"需渲染和讲述；不固定每页时长","example":"examples/motion.md#d4"},
+    {
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011789",
+      "task": "检查科研图形摘要的箭头语义",
+      "io": "混用流程与指标变化箭头→分别设计并标义",
+      "environment": "选读无依赖；图像渲染与读者辨识另测",
+      "example": "examples/professional.md#a6"
+    }
   ]
 }
