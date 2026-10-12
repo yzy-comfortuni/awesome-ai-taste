@@ -126,6 +126,299 @@
       "reviewed_on": "2026-10-10",
       "scope_note": "保存的是教程的中文编辑摘要，不是网页或嵌入视频的全文副本。模板可下载不等于教程文字可任意转载。",
       "summary": "## 中文摘要\n\n教程建议围绕要传达的判断构建科研演讲，用可解释的视觉证据支持这些判断。密集的要点列表会与口头讲解争夺注意力，也会挤占图形空间。制作幻灯片前先写出主要信息，再安排各页的证据。\n\n## 可采用的规则\n\n每页用一个完整判断句作标题；把支撑它的图形放在主体区，次要细节放进备注。讲解时解释证据，而不是照读列表。\n\n这套方法偏向有人讲解的技术演示，不能直接等同于自足的阅读型报告。"
+    },
+    {
+      "id": "response-to-reviewers",
+      "title": "Ten Simple Rules for Writing a Response to Reviewers",
+      "author": "William Stafford Noble",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005730",
+      "catalog_urls": [
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005730"
+      ],
+      "kind": "fulltext",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005730",
+      "reviewed_on": "2026-10-12",
+      "scope_note": "© 2017 William Stafford Noble。PLOS Computational Biology 13(10): e1005730，DOI: 10.1371/journal.pcbi.1005730。依据 CC BY 4.0 转换本篇英文全文，包含十条规则、致谢和参考文献；不含网站导航、广告或评论。格式转换由 awesome-ai-taste 完成，不代表作者背书。许可：https://creativecommons.org/licenses/by/4.0/ 。",
+      "license_marker": "creativecommons.org/licenses/by/4.0",
+      "markers": [
+        "You recently submitted your first manuscript",
+        "Rule 1:",
+        "Rule 2:",
+        "Rule 3:",
+        "Rule 4:",
+        "Rule 5:",
+        "Rule 6:",
+        "Rule 7:",
+        "Rule 8:",
+        "Rule 9:",
+        "Rule 10:",
+        "Acknowledgments",
+        "Reference"
+      ],
+      "min_chars": 6000
+    },
+    {
+      "id": "scientific-software-papers",
+      "title": "Ten Simple Rules for Writing a Paper about Scientific Software",
+      "author": "Joseph D. Romano; Jason H. Moore",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008390",
+      "catalog_urls": [
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008390"
+      ],
+      "kind": "fulltext",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008390",
+      "reviewed_on": "2026-10-12",
+      "scope_note": "© 2020 Romano, Moore。PLOS Computational Biology 16(11): e1008390，DOI: 10.1371/journal.pcbi.1008390。依据 CC BY 4.0 转换本篇英文全文，保留摘要、作者摘要、十条规则、结论及参考文献。格式转换由 awesome-ai-taste 完成，不代表作者背书；文中软件和链接目标不属于本副本。许可：https://creativecommons.org/licenses/by/4.0/ 。",
+      "license_marker": "creativecommons.org/licenses/by/4.0",
+      "markers": [
+        "Abstract",
+        "Author summary",
+        "Rule 1:",
+        "Rule 2:",
+        "Rule 3:",
+        "Rule 4:",
+        "Rule 5:",
+        "Rule 6:",
+        "Rule 7:",
+        "Rule 8:",
+        "Rule 9:",
+        "Rule 10:",
+        "Conclusion",
+        "References"
+      ],
+      "min_chars": 10000
+    },
+    {
+      "id": "organizing-large-documents",
+      "title": "Organizing Large Documents",
+      "author": "Google for Developers",
+      "url": "https://developers.google.com/tech-writing/two/large-docs",
+      "catalog_urls": [
+        "https://developers.google.com/tech-writing/two/large-docs"
+      ],
+      "kind": "fulltext",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://developers.google.com/tech-writing/two/large-docs",
+      "reviewed_on": "2026-10-12",
+      "scope_note": "范围仅为 Technical Writing Two 的 Organizing large documents 单页，含练习和参考答案，不抓取整套课程。正文采用 CC BY 4.0；代码示例沿用 Apache 2.0，另有标明的内容除外。awesome-ai-taste 只转换 Markdown 格式，保留英文和原链接，不执行示例命令。许可：https://creativecommons.org/licenses/by/4.0/ 。",
+      "license_marker": "creativecommons.org/licenses/by/4.0",
+      "markers": [
+        "When to write large documents",
+        "Outline exercise",
+        "Introduce a document",
+        "Heading exercise",
+        "Disclose information progressively"
+      ],
+      "min_chars": 6000
+    },
+    {
+      "id": "documenting-architecture-decisions",
+      "title": "Documenting Architecture Decisions",
+      "author": "Michael Nygard",
+      "url": "https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions",
+      "catalog_urls": [
+        "https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions"
+      ],
+      "kind": "fulltext",
+      "license": "LicenseRef-Public-Domain",
+      "license_evidence_url": "https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions",
+      "reviewed_on": "2026-10-12",
+      "scope_note": "Michael Nygard，2011-11-15。Cognitect 在本篇文章结尾明确声明，在法律允许的范围内放弃本文的版权及相关权利；此处记录为 LicenseRef-Public-Domain，不冒称 CC BY，也不将放弃声明推广到全站。保存本篇英文正文、延伸阅读链接和原声明；由 awesome-ai-taste 转换 Markdown 格式，不代表作者背书。",
+      "license_marker": "has waived all copyright",
+      "markers": [
+        "Architecture for agile projects",
+        "Context",
+        "Decision",
+        "Status",
+        "Consequences",
+        "Experience Report",
+        "More Reading",
+        "has waived all copyright"
+      ],
+      "min_chars": 4000
+    },
+    {
+      "id": "epo-dependent-claims",
+      "title": "EPO Guidelines F-IV, 3.4 — Independent and Dependent Claims",
+      "author": "European Patent Office",
+      "url": "https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_3_4.html",
+      "catalog_urls": [
+        "https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_3_4.html"
+      ],
+      "kind": "summary",
+      "license": "未确认适用于本页全文的开放转载许可；仅存编辑摘要",
+      "license_evidence_url": "https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_3_4.html",
+      "reviewed_on": "2026-10-12",
+      "scope_note": "仅摘要 2026 年版 Guidelines for Examination in the EPO 的 F-IV, 3.4；法域为 EPC。2026-10-12 核对官方正文。未确认适用于本页全文的开放转载许可，不保存或重新授权原文全文。",
+      "summary": "## 中文摘要\n\n该节区分独立权利要求与从属权利要求：独立项说明发明的必要特征，从属项在所引用项的全部特征之上增加具体限定。多层引用不能只检查最近增加的文字，还要读出前面各层已经带入的内容。指南也讨论多个引用关系及技术特征的进一步说明，并非要求所有权利要求都采用一种固定句式。\n\n## 可采用的规则\n\n把从属权利要求的引用链展开，确认它保留被引用权利要求的全部特征，再加入进一步限定。\n\n欧洲专利局 2026 年审查指南中的独立与从属权利要求；适用 EPC 审查，不构成其他法域的法律意见或授权保证。"
+    },
+    {
+      "id": "uspto-antecedent-basis",
+      "title": "MPEP 2173.05(e) — Lack of Antecedent Basis",
+      "author": "United States Patent and Trademark Office",
+      "url": "https://www.uspto.gov/web/offices/pac/mpep/s2173.html",
+      "catalog_urls": [
+        "https://www.uspto.gov/web/offices/pac/mpep/s2173.html"
+      ],
+      "kind": "summary",
+      "license": "美国政府文字在美国境内通常属公有领域；USPTO 保留境外版权，未确认全球全文转载许可",
+      "license_evidence_url": "https://www.uspto.gov/terms-use-uspto-websites",
+      "reviewed_on": "2026-10-12",
+      "scope_note": "只摘要 MPEP 2173.05(e) [R-01.2024]，不将整章当作单页写作手册复制。2026-10-12 核对美国官方文本；用于起草检查，不代替美国专利法律意见。USPTO 网站使用条款区分美国境内与境外版权，故本仓库仅保存编辑摘要。",
+      "summary": "## 中文摘要\n\n该节用部件指代说明何时权利要求可能不明确：术语没有前文依据，或前文出现多个同名部件而后文无法区分，都会造成阅读障碍。但判断并非机械寻找先行词；如果本领域技术人员仍能合理确定含义，缺少显式先行词不必然导致不明确。\n\n## 可采用的规则\n\n逐个核对“该／所述”的指代；前文有两个同名部件时，把后续指称写到能唯一确定对象。\n\n美国 MPEP 2173.05(e) 的术语指代审查，节内标为 R-01.2024；缺少显式先行词不当然等于不清楚。"
+    },
+    {
+      "id": "fiction-writing-basics",
+      "title": "Fiction Writing Basics",
+      "author": "Purdue Online Writing Lab",
+      "url": "https://owl.purdue.edu/owl/subject_specific_writing/creative_writing/writers/fiction_writing_basics/index.html",
+      "catalog_urls": [
+        "https://owl.purdue.edu/owl/subject_specific_writing/creative_writing/writers/fiction_writing_basics/index.html"
+      ],
+      "kind": "summary",
+      "license": "Purdue OWL 标明 All Rights Reserved；仅存编辑摘要",
+      "license_evidence_url": "https://owl.purdue.edu/owl/subject_specific_writing/creative_writing/writers/fiction_writing_basics/index.html",
+      "reviewed_on": "2026-10-12",
+      "scope_note": "仅保存本仓库编写的中文摘要，非原文全文或翻译；全文转载许可尚未取得。",
+      "summary": "## 中文摘要\n\n人物不只是作者列出的一组形容词。读者还会从人物做了什么、说了什么，以及其他人的反应中形成判断。讲义同时区分事件先后与情节因果，提醒作者让事件之间有可理解的联系。直接概述有时有效，不能把“展示”机械推广到每一句话。\n\n## 可采用的规则\n\n把人物标签落实为场景里的选择、行动或对白，让读者据此判断性格；必要的概述仍可保留。\n\n小说入门讲义，从人物行动、对白和因果关系组织故事；以英语叙事为主，保留概述与实验性写法的空间。"
+    },
+    {
+      "id": "ping-pong-dialogue",
+      "title": "Ping-Pong Dialogue",
+      "author": "Emma Darwin",
+      "url": "https://emmadarwin.substack.com/p/ping-pong-dialogue",
+      "catalog_urls": [
+        "https://emmadarwin.substack.com/p/ping-pong-dialogue"
+      ],
+      "kind": "summary",
+      "license": "未确认适用于本页全文的开放转载许可；仅存编辑摘要",
+      "license_evidence_url": "https://emmadarwin.substack.com/p/ping-pong-dialogue",
+      "reviewed_on": "2026-10-12",
+      "scope_note": "原作者现行 Substack 文章入口；只保存中文编辑摘要，不复制小说示例。未确认全文转载许可，不将旧站迁移后的同一文章算作多个资源。",
+      "summary": "## 中文摘要\n\n整段对白只有交替发言，容易像没有场景的乒乓往返。作者用同一段交谈的改写展示：可以概括不重要的问候，让关键话语与身体反应、注意力和内心活动共同推进。这不是要求添加装饰性手势，也不表示简短对话天然有问题。\n\n## 可采用的规则\n\n对话像轮流报台词时，把无关寒暄压成叙述，把有作用的动作、目光或未说出的想法放回场景。\n\n用改写示例把轮流报台词的对白放回小说场景；主要面向英语叙事，不要求每句台词都配动作。"
+    },
+    {
+      "id": "poetic-image-exercises",
+      "title": "Image in Poetry — Exercises",
+      "author": "Purdue Online Writing Lab",
+      "url": "https://owl.purdue.edu/owl/subject_specific_writing/writing_in_literature/image_in_poetry/exercises.html",
+      "catalog_urls": [
+        "https://owl.purdue.edu/owl/subject_specific_writing/writing_in_literature/image_in_poetry/exercises.html"
+      ],
+      "kind": "summary",
+      "license": "Purdue OWL 标明 All Rights Reserved；仅存编辑摘要",
+      "license_evidence_url": "https://owl.purdue.edu/owl/subject_specific_writing/writing_in_literature/image_in_poetry/exercises.html",
+      "reviewed_on": "2026-10-12",
+      "scope_note": "只摘要 Image in Poetry 的 Exercises 单页，不复制其中的诗作、范文或整套课程；未取得全文转载许可。",
+      "summary": "## 中文摘要\n\n“意象篮子”练习要求观察身边的物体，不只列外形，还探索观察者为什么注意它、它引出怎样的思想或感受。其他练习继续尝试意象之间的联系和不同观察角度。重点是让细节参与诗的意义，不是规定诗中不得出现抽象词。\n\n## 可采用的规则\n\n从一个物体的具体观察出发，让细节带出观察者的想法或情绪，检查写下的是意象而不只是物品说明。\n\n从具体观察练习诗歌意象，让物象与观察者的情绪发生联系；以英语诗歌教学为主，不代替中文格律规范。"
+    },
+    {
+      "id": "flying-revisions-flag",
+      "title": "Flying Revision’s Flag",
+      "author": "Donald Hall; interviewed by Martin Lammon",
+      "url": "https://poets.org/text/flying-revisions-flag",
+      "catalog_urls": [
+        "https://poets.org/text/flying-revisions-flag"
+      ],
+      "kind": "summary",
+      "license": "未确认适用于本页全文的开放转载许可；仅存编辑摘要",
+      "license_evidence_url": "https://poets.org/text/flying-revisions-flag",
+      "reviewed_on": "2026-10-12",
+      "scope_note": "保存访谈的中文编辑摘要，不复制受保护的诗作或访谈全文。原文由 Martin Lammon 访谈 Donald Hall；未取得适用于全文的转载许可。",
+      "summary": "## 中文摘要\n\n这篇访谈将修改视为重新发现作品，而非只修饰已经确定的意思。Hall 谈到重新排列段节、尝试不同节律形式，以及改变材料安排后出现的新内容；也强调判断可能需要与作品拉开距离。这些是他的实践经验，不能换算成每位作者必须遵循的日程或稿数。\n\n## 可采用的规则\n\n修改卡住时，试把同一首诗改成另一种分节或节律安排，再比较新形式带出的内容，不只替换同义词。\n\n诗人 Donald Hall 谈修改如何改变诗的结构、声音和内容；是英语诗人的创作经验，不是固定修改次数或形式要求。"
+    },
+    {
+      "id": "writing-screen-dialogue",
+      "title": "How to Write Dialogue",
+      "author": "John August",
+      "url": "https://johnaugust.com/2007/how-to-write-dialogue",
+      "catalog_urls": [
+        "https://johnaugust.com/2007/how-to-write-dialogue"
+      ],
+      "kind": "summary",
+      "license": "John August 网站标明 All Rights Reserved；仅存编辑摘要",
+      "license_evidence_url": "https://johnaugust.com/2007/how-to-write-dialogue",
+      "reviewed_on": "2026-10-12",
+      "scope_note": "仅保存本仓库编写的中文摘要，非原文全文或翻译；全文转载许可尚未取得。",
+      "summary": "## 中文摘要\n\n作者把对白看成角色为了某种反应而采取的行动。需要交代背景时，也应知道角色为什么此刻说出这些话。文中的对照示例还展示了角色真正听见并回应对方的重要性：交谈不是将两段说明文字轮流念出来。\n\n## 可采用的规则\n\n写解释背景的台词前，先明确说话人想让对方怎样反应，再按这个目的安排信息，而不是直接向观众报事实。\n\n影视对白的动机和回应方式，附同一信息的台词对照；主要面向英语剧本，不以自然闲聊代替戏剧目的。"
+    },
+    {
+      "id": "writing-fight-scenes",
+      "title": "Writing Fight Scenes",
+      "author": "John August",
+      "url": "https://johnaugust.com/2011/writing-fight-scenes",
+      "catalog_urls": [
+        "https://johnaugust.com/2011/writing-fight-scenes"
+      ],
+      "kind": "summary",
+      "license": "John August 网站标明 All Rights Reserved；仅存编辑摘要",
+      "license_evidence_url": "https://johnaugust.com/2011/writing-fight-scenes",
+      "reviewed_on": "2026-10-12",
+      "scope_note": "只保存电影动作场面写作的中文摘要，不复制原剧本片段、图片或全文；不是现实搏斗指导。",
+      "summary": "## 中文摘要\n\n只写“二人打斗”会丢掉场景特点，逐拳记录又会淹没戏剧进展。作者结合自己的剧本片段，讨论动作如何利用环境、体现角色差别并改变局势。应写出这场打斗为什么值得看，以及其中不可替换的转折，而非只增加动作术语。\n\n## 可采用的规则\n\n挑出由人物、场地和利害关系决定的关键动作，让打斗属于这场戏，不逐拳记录流水账。\n\n通过剧本片段讨论动作场面的取舍，让人物、场地和利害关系进入动作；不把剧本写成逐招编排表。"
+    },
+    {
+      "id": "animation-staging",
+      "title": "Staging — The 12 Basic Principles of Animation",
+      "author": "John Nguyen / Animation Mentor",
+      "url": "https://www.animationmentor.com/blog/staging-the-12-basic-principles-of-animation/",
+      "catalog_urls": [
+        "https://www.animationmentor.com/blog/staging-the-12-basic-principles-of-animation/"
+      ],
+      "kind": "summary",
+      "license": "Animation Mentor 网站标明 All Rights Reserved；仅存编辑摘要",
+      "license_evidence_url": "https://www.animationmentor.com/blog/staging-the-12-basic-principles-of-animation/",
+      "reviewed_on": "2026-10-12",
+      "scope_note": "只摘要 John Nguyen 的 Staging 单篇，未复制电影画面、插图或视频。与预备动作条目分别讨论镜头空间和动作时序，不重复登记整个十二原则系列。",
+      "summary": "## 中文摘要\n\n场面调度需要让观众知道此刻该看谁、人物在哪里、动作之间有什么关系。文章用人物站位与切换镜头的例子说明，保持画面方向可以减少空间混乱。这里的规则用于常规叙事连续性；有意打破方向的创作仍需根据具体效果判断。\n\n## 可采用的规则\n\n连续对话镜头中保持人物的画面左右关系，切到近景也不无故对调，让观众能跟住空间关系。\n\n叙事动画的注意力安排与镜头空间关系，附场面调度示例；用于分镜检查，不是不可打破的摄影定律。"
+    },
+    {
+      "id": "animation-anticipation",
+      "title": "Anticipation — The 12 Basic Principles of Animation",
+      "author": "Chris Hurtt / Animation Mentor",
+      "url": "https://www.animationmentor.com/blog/anticipation-the-12-basic-principles-of-animation/",
+      "catalog_urls": [
+        "https://www.animationmentor.com/blog/anticipation-the-12-basic-principles-of-animation/"
+      ],
+      "kind": "summary",
+      "license": "Animation Mentor 网站标明 All Rights Reserved；仅存编辑摘要",
+      "license_evidence_url": "https://www.animationmentor.com/blog/anticipation-the-12-basic-principles-of-animation/",
+      "reviewed_on": "2026-10-12",
+      "scope_note": "只摘要 Chris Hurtt 的 Anticipation 单篇；没有复制 Richard Williams 插图、电影片段或嵌入视频。动作方法不自动转化为所有 UI 交互的时长要求。",
+      "summary": "## 中文摘要\n\n预备动作既提示观众将发生什么，也能表现身体为主动作蓄力。作者强调其幅度、速度和时长要与后续动作相称，不能为追求快而删掉必要准备。他还建议倒放步行片段，从抬脚前的压缩是否能读作落地后的缓冲，发现被自己看习惯的僵硬。\n\n## 可采用的规则\n\n让预备动作的幅度和时长配合紧随其后的主动作；跳跃前的下蹲不能与跳跃力度脱节。\n\n角色动画的预备动作与力度检查，附跳跃、步行和表情示例；预备动作不只限于先向反方向移动。"
+    },
+    {
+      "id": "effective-presentation-slides",
+      "title": "Ten Simple Rules for Effective Presentation Slides",
+      "author": "Kristen M. Naegle",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554",
+      "catalog_urls": [
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554"
+      ],
+      "kind": "fulltext",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554",
+      "reviewed_on": "2026-10-12",
+      "scope_note": "© 2021 Kristen M. Naegle。PLOS Computational Biology 17(12): e1009554，DOI: 10.1371/journal.pcbi.1009554。依据 CC BY 4.0 转换本篇英文全文，含十条规则、图注、结论、致谢及参考文献。图片和视频保留原链接，不是离线媒体包。格式转换由 awesome-ai-taste 完成，不代表作者背书。许可：https://creativecommons.org/licenses/by/4.0/ 。",
+      "license_marker": "creativecommons.org/licenses/by/4.0",
+      "markers": [
+        "Rule 1:",
+        "Rule 2:",
+        "Rule 3:",
+        "Rule 4:",
+        "Rule 5:",
+        "Rule 6:",
+        "Rule 7:",
+        "Rule 8:",
+        "Rule 9:",
+        "Rule 10:",
+        "Conclusions",
+        "Acknowledgments",
+        "References"
+      ],
+      "min_chars": 9000
     }
   ]
 }
