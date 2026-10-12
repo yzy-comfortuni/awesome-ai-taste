@@ -66,5 +66,32 @@
   },
   "penglonghuang/chinese-novelist-skill": {
     "paths": ["README.md", "references/guides/dialogue-writing.md"]
+  },
+  "handsomestwei/patent-disclosure-skill": {
+    "paths": [
+      "skills/patent-application/SKILL.md",
+      "skills/patent-application/prompts/claim_strategy.md",
+      "skills/patent-application/prompts/consistency.md"
+    ],
+    "fetch": "git-tree"
+  },
+  "cycloneha/cn-patent-disclosure-writing-skill": {
+    "paths": [
+      "skills/cn-patent-disclosure-docx/references/03-technical-solution.md",
+      "skills/cn-patent-disclosure-docx/references/04-embodiments-effects-protection.md"
+    ],
+    "fetch": "git-tree"
+  },
+  "adithya-s-k/manim_skill": {
+    "paths": ["skills/manim-composer"],
+    "fetch": "git-tree"
+  },
+  "iart-ai/motion-design-skills": {
+    "paths": ["skills/motion-art-direction"],
+    "fetch": "git-tree"
+  },
+  "iart-ai/data-animation-skills": {
+    "paths": ["skills/chart-animation"],
+    "fetch": "git-tree"
   }
 }
