@@ -106,11 +106,3 @@ Thanks to Philipe Kruchten for discussing the [importance of architecture decisi
 
 [![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)   
  To the extent possible under law, [Cognitect, a Nu Holdings, Ltd. company.](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) has waived all copyright and related or neighboring rights to "Documenting Architecture Decisions". This work is published from:  United States.
-
-random
-
-recent
-
-[My Clojure Workflow, Reloaded—](https://cognitect.com/blog/2013/06/04/clojure-workflow-reloaded) [Secret Service and Personalized Cracking—](https://cognitect.com/blog/2005/4/4/secret-service-and-personalized-cracking) [A Major Datomic Update—](https://cognitect.com/blog/2016/11/28/a-major-datomic-update) [Relevance Agile Bibliography—](https://cognitect.com/blog/2009/7/7/relevance-agile-bibliography) [Where to Find Cognitects- February Edition—](https://cognitect.com/blog/2014/01/31/where-to-find-cognitects-february-edition)
-
-[—Sponsoring Open Source Developers](https://cognitect.com/blog/2020/12/15/sponsoring-open-source-developers) [—Cognitect dev-tools](https://cognitect.com/blog/2020/08/20/Cognitect-dev-tools) [—Cognitect Joins Nubank](https://cognitect.com/blog/2020/07/23/Cognitect-Joins-Nubank) [—Cognitect and PICI](https://cognitect.com/blog/2020/06/30/cognitect-and-pici) [—Supporting Open Source Developers](https://cognitect.com/blog/supporting-open-source-developers)

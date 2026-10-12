@@ -71,9 +71,62 @@ Review and update the following high-level outline of an introduction to a long 
 - Add any missing topics you feel should be in an introduction.
 - Remove any topics you feel are irrelevant for an introduction.
 
+```
+## The history of the project
+
+Describes the history of the development of the project.
+
+## Prerequisites
+
+Lists concepts the reader should be familiar with prior to starting, as well as
+any software or hardware requirements.
+
+## The design of the system
+
+Describes how the system works.
+
+## Audience
+
+Describes who the tutorial is aimed at.
+
+## Setting up the tutorial
+
+Explains how to configure your environment to follow the tutorial.
+
+## Troubleshooting
+
+Explains how to diagnose and solve potential problems that might occur when
+working through the tutorial.
+
+## Useful terminology
+
+Lists definitions of terms that the reader needs to know to follow the
+tutorial.
+```
+
 #### Click the icon to see a possible answer.
 
-The following is one possible solution:
+The following is one possible solution: 
+
+```
+## Audience
+
+Describes who the tutorial is aimed at.
+
+## Prerequisites
+
+Lists concepts the reader should be familiar with prior to starting, as well as
+any software or hardware requirements.
+
+## Setting up the tutorial
+
+Explains how to configure your environment to follow the tutorial.
+
+## Useful terminology
+
+Lists definitions of terms that the reader needs to know to follow the
+tutorial.
+```
 
 ---
 
@@ -89,15 +142,45 @@ Remember that you want to keep your documentation easy to maintain, so don't try
 
 The following paragraph demonstrates the ideas from the preceding list as an overview for a hypothetical document publishing platform called Froobus:
 
+```
+This document explains how to publish Markdown files using the Froobus system.
+Froobus is a publishing system that runs on a Linux server and converts
+Markdown files into HTML pages. This document is intended for people who are
+familiar with Markdown syntax. To learn about the syntax, see the Markdown
+reference. You also need to be comfortable running simple commands in a
+Linux terminal. This document doesn't include information about installing or
+configuring a Froobus publishing system. For information on installing Froobus,
+see Getting started.
+```
+
 After you've completed the first draft, check your entire document against the expectations you set in your overview. Does your introduction provide an accurate overview of the topics you cover? You might find it useful to think of this review as a form of documentation quality assurance (QA).
 
 ### Introduction exercise
 
 For this exercise, review and revise the following introduction for a best practices guide for a hypothetical programming language called F@. Remove any information you feel is irrelevant in this context and add any information you feel is missing.
 
+```
+This guide lists best practices for working with the F@ programming language.
+F@ was developed in 2011 as an open source community project. This guide
+supplements the F@ style guide. In addition to the best practices in this guide,
+make sure you also install the F@ command-line linter and run it on your code.
+The programming language is widely adopted in the health industry. If you have
+suggestions for additions to the list of best practices, file an issue in the
+F@ documentation repository.
+```
+
 #### Click the icon to see a possible answer.
 
-The following is one possible solution:
+The following is one possible solution: 
+
+```
+This guide lists best practices for working with the F@ programming language.
+Before you review this guide, complete the introductory tutorial for new F@
+developers. This guide supplements the F@ style guide. In addition to the best
+practices in this guide, make sure you also install the F@ command-line linter
+and run it on your code. If you have suggestions for additions to the list of
+best practices, file an issue in the F@ documentation repository.
+```
 
 ---
 
@@ -129,7 +212,21 @@ Unless your readers are already very experienced with the terminology and concep
 
 Most readers appreciate at least a brief introduction under each heading to provide some context. Avoid placing a level three heading immediately after a level two heading, as in the following example:
 
+```
+## Creating the site
+### Running the carambola command
+```
+
 In this example, a brief introduction can help orient the reader:
+
+```
+## Creating the site
+
+To create the site, you run the `carambola` command-line tool. The command
+displays a series of prompts to help you configure the site.
+
+### Running the carambola command
+```
 
 ### Heading exercise
 
@@ -137,9 +234,85 @@ Helping readers navigate through your documentation helps them find the informat
 
 For this exercise, improve the following outline. You can rearrange, add, and delete topics and create secondary entries too.
 
+```
+About this tutorial
+Advanced topics
+Build the asset navigation tree
+Define resource paths
+Defining and building projects
+Launch the development environment
+Defining and building resources
+What's next
+Define image resources
+Audience
+See also
+Build an image resource
+Define an image project
+Build an image project
+Setting up the tutorial
+Select the tutorial asset root
+About this guide
+```
+
 #### Click the icon to see a possible answer.
 
-The following is one possible solution:
+The following is one possible solution: 
+
+```
+## About this tutorial
+
+### Audience
+
+### About this guide
+
+### Advanced topics
+
+## Setting up the tutorial
+
+### Select the tutorial asset root
+
+### Launch the development environment
+
+### Build the asset navigation tree
+
+### Define resource paths
+
+## Defining and building resources
+
+### Define image resources
+
+### Build an image resource
+
+## Defining and building projects
+
+### Define an image project
+
+### Build an image project
+
+## Defining and building databases
+
+### Define a database
+
+### Build a database
+
+## Pushing, publishing, and viewing a database
+
+### Push a database
+
+### Publish a database
+
+### View a database
+
+## Configuring display rules for point data
+
+### Define, configure, and build vector data
+
+## See also
+
+### Sample data files
+
+## What's next
+```
 
 ---
 

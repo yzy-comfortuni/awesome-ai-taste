@@ -163,29 +163,29 @@
     "organizing-large-documents": {
       "path": "vendor/articles/organizing-large-documents.md",
       "kind": "fulltext",
-      "sha256": "bcffb93b5ed0a107ddaa3a45ca57aefd6be19323901830ba4cb0d460e75dae76",
-      "source_sha256": "18f9ceb11876c34b4726e30a01ec32e1085dc9abcf4fee7fe9fe0831fbbc2f9a",
+      "sha256": "16c2a03b5b0b2c0da3787c923ab62a32e667f9bad2763cd4e4ef7093316b157a",
+      "source_sha256": "f0bfe09683f7aa2db7b7fcdb178a7ec475541afc5e6da49d3379ec0af5efca0c",
       "config_sha256": "cd762dff5d67bdb6ec31854871a56b00e8413972df907bf070342cbcb08df8a9",
       "converter_version": 1,
       "license": "CC-BY-4.0",
       "source_url": "https://developers.google.com/tech-writing/two/large-docs",
-      "saved_at": "2026-10-12T00:39:38.826753+00:00",
+      "saved_at": "2026-10-12T00:49:18.284901+00:00",
       "source_evidence": {
         "url": "https://developers.google.com/tech-writing/two/large-docs",
-        "license_evidence_sha256": "694f8f0f9dc0903d7571b05063f1060d784da6cfcb2f8ba678e43e608f5ab347"
+        "license_evidence_sha256": "5f9a48e21a13f152e884213c87563889b4b52b014d426dfee261c64c4f9999c1"
       },
       "status": "current"
     },
     "documenting-architecture-decisions": {
       "path": "vendor/articles/documenting-architecture-decisions.md",
       "kind": "fulltext",
-      "sha256": "7d6e9d7a5f6a87c8a65df25aab72ef3231fdb0855af05dd278d720b6e80522bc",
-      "source_sha256": "ae70207d6cdf5a827ee2ec707de00668ac009d190a283b0fb84772a3b0c6c041",
+      "sha256": "a4c6f4c884af695e04e9321d891ba1a1d8a92f9505f8e277efa369d458258d49",
+      "source_sha256": "b614bce336932ee580ed2d2d3630e45e4c009d715a5dae35a41eb4d8bf4d278a",
       "config_sha256": "8c9f1ec58c52b7137719cf01f48f6d7fd1ac6f21c56eac553b2fb861dc586012",
       "converter_version": 1,
       "license": "LicenseRef-Public-Domain",
       "source_url": "https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions",
-      "saved_at": "2026-10-12T00:39:39.143775+00:00",
+      "saved_at": "2026-10-12T00:49:18.781754+00:00",
       "source_evidence": {
         "url": "https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions",
         "license_evidence_sha256": "01bdb22a561924b5eb072b501b530d14157d4a674561dac25cfff3197eb04faf"
