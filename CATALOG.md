@@ -94,6 +94,14 @@
 
   **规则：** 逐个核对“该／所述”的指代；前文有两个同名部件时，把后续指称写到能唯一确定对象。[出处](https://www.uspto.gov/web/offices/pac/mpep/s2173.html)
 
+- [中国专利.skill — 申请文件对照](https://github.com/handsomestWei/patent-disclosure-skill) — 中国发明／实用新型申请稿的权利要求、说明书与附图对照；仅选读起草检查，不代替专业审查。[正文](https://github.com/handsomestWei/patent-disclosure-skill/blob/main/skills/patent-application/prompts/consistency.md) · [专利法（2020 修正）](https://www.cnipa.gov.cn/art/2020/11/23/art_97_155167.html) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/handsomestWei/patent-disclosure-skill?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/handsomestWei/patent-disclosure-skill/stargazers) · [副本](vendor/handsomestwei/patent-disclosure-skill)<!-- /source-meta -->
+
+  **规则：** 给每项权利要求列出对应的说明书内容、实施方式和必要附图；对不上时先修文稿，不把脚本通过当作充分公开。[出处](https://github.com/handsomestWei/patent-disclosure-skill/blob/main/skills/patent-application/prompts/consistency.md)
+
+- [CN Patent Disclosure — 技术方案展开](https://github.com/cycloneha/cn-patent-disclosure-writing-skill) — 中文技术交底书的步骤、公式与实施例表达；用于中国发明专利起草，须按现行指南复核，不保证授权。[正文](https://github.com/cycloneha/cn-patent-disclosure-writing-skill/blob/main/skills/cn-patent-disclosure-docx/references/03-technical-solution.md) · [2026 施行修订说明](https://www.cnipa.gov.cn/art/2025/11/13/art_66_202561.html) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/cycloneha/cn-patent-disclosure-writing-skill?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/cycloneha/cn-patent-disclosure-writing-skill/stargazers) · [副本](vendor/cycloneha/cn-patent-disclosure-writing-skill)<!-- /source-meta -->
+
+  **规则：** 写完每个核心步骤，说明产出的中间量是什么意思、如何进入下一步，不只列公式和定义。[出处](https://github.com/cycloneha/cn-patent-disclosure-writing-skill/blob/main/skills/cn-patent-disclosure-docx/references/03-technical-solution.md)
+
 ## 学术论文
 
 - [Ten Simple Rules for Structuring Papers](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619) — 围绕中心贡献，用“背景—内容—结论”组织科学论文；适合研究论文的结构修改，仍须遵守学科和期刊规范。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619) <!-- article-copy --> · [Markdown 正文](vendor/articles/ten-simple-rules-structuring-papers.md)<!-- /article-copy -->
@@ -209,6 +217,18 @@
 - [Anticipation — The 12 Basic Principles of Animation](https://www.animationmentor.com/blog/anticipation-the-12-basic-principles-of-animation/) — 角色动画的预备动作与力度检查，附跳跃、步行和表情示例；预备动作不只限于先向反方向移动。[正文](https://www.animationmentor.com/blog/anticipation-the-12-basic-principles-of-animation/) <!-- article-copy --> · [Markdown 摘要](vendor/articles/animation-anticipation.md)<!-- /article-copy -->
 
   **规则：** 让预备动作的幅度和时长配合紧随其后的主动作；跳跃前的下蹲不能与跳跃力度脱节。[出处](https://www.animationmentor.com/blog/anticipation-the-12-basic-principles-of-animation/)
+
+- [Manim Composer](https://github.com/adithya-s-k/manim_skill) — 数学与科学解说动画的分镜、视觉连续性与节奏；选读规划方法，ManimCE 与 ManimGL 示例须分别核对。[正文](https://github.com/adithya-s-k/manim_skill/blob/main/skills/manim-composer/references/visual-techniques.md) · [分镜示例](https://github.com/adithya-s-k/manim_skill/blob/main/skills/manim-composer/references/scene-examples.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/adithya-s-k/manim_skill?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/adithya-s-k/manim_skill/stargazers) · [副本](vendor/adithya-s-k/manim_skill)<!-- /source-meta -->
+
+  **规则：** 演示公式变形时，尽量让对应符号连续变换到下一式，而不是整式淡出后换一张，保留两步的视觉关系。[出处](https://github.com/adithya-s-k/manim_skill/blob/main/skills/manim-composer/references/visual-techniques.md)
+
+- [Motion Design Skills — 动效主次](https://github.com/iart-ai/motion-design-skills) — 品牌动画与解说片的动效层级，附逐镜头示例；仅选读艺术指导，预设时长和风格不是通则。[正文](https://github.com/iart-ai/motion-design-skills/blob/main/skills/motion-art-direction/SKILL.md) · [镜头示例](https://github.com/iart-ai/motion-design-skills/blob/main/skills/motion-art-direction/references/direction-playbook.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/iart-ai/motion-design-skills?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/iart-ai/motion-design-skills/stargazers) · [副本](vendor/iart-ai/motion-design-skills)<!-- /source-meta -->
+
+  **规则：** 同一镜头先指定主要运动对象，让辅助动作更小、背景更弱，避免多个元素同时争夺注意力。[出处](https://github.com/iart-ai/motion-design-skills/blob/main/skills/motion-art-direction/SKILL.md)
+
+- [Data Animation Skills — 动态图表](https://github.com/iart-ai/data-animation-skills) — Remotion 动态排行与数值动画的读数节奏、标签和逐帧检查；时长按数据密度调整，平滑插值不等于新增观测。[正文](https://github.com/iart-ai/data-animation-skills/blob/main/skills/chart-animation/SKILL.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/iart-ai/data-animation-skills?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/iart-ai/data-animation-skills/stargazers) · [副本](vendor/iart-ai/data-animation-skills)<!-- /source-meta -->
+
+  **规则：** 数据开始变化前，先停留让观众读清坐标与单位；结尾定格最终状态，不让结果一闪而过。[出处](https://github.com/iart-ai/data-animation-skills/blob/main/skills/chart-animation/SKILL.md)
 
 ## 演示文稿
 
