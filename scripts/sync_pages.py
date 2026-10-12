@@ -247,9 +247,15 @@ def content_for(cfg):
             raise ArchiveError('official text content/encoding markers changed')
         body = clean(body)
         return body, digest(body), {'url': text_url, 'text_encoding': cfg.get('text_encoding'), 'license_evidence_sha256': digest(evidence)}
-    node = extract(html, cfg['markers'])
+    markers = list(cfg['markers'])
+    if cfg['url'] == 'https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554':
+        # The words 'conclusions', 'acknowledgments' and 'references' also occur
+        # inside Rule 8. Require the actual closing text and final reference.
+        markers += ['I would like to thank the countless presenters',
+                    'Annu Rev Biomed Data Sci.']
+    node = extract(html, markers)
     body = check_reviewed_body(node, clean(md(node, cfg['url'])), cfg)
-    if len(body) < cfg['min_chars'] or not all(m.casefold() in body.casefold() for m in cfg['markers']):
+    if len(body) < cfg['min_chars'] or not all(m.casefold() in body.casefold() for m in markers):
         raise ArchiveError('empty/truncated Markdown article')
     return body, digest(body), {'url': cfg['url'], 'license_evidence_sha256': digest(evidence)}
 
