@@ -128,6 +128,10 @@
 
   **规则：** 同一张图形摘要若用箭头分别表示处理流程和指标上升，应把两种箭头画成明显不同的样式，并标明各自含义。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011789)
 
+- [Ten Simple Rules for Typographically Appealing Scientific Texts](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008458) — 科研文本的字体、公式和表格排版指南，附正反例；主要面向美式英语，须服从目标期刊规范。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008458) <!-- article-copy --> · [Markdown 正文](vendor/articles/scientific-text-typography.md)<!-- /article-copy -->
+
+  **规则：** 科研结果表的文字列左对齐，数值列右对齐并使用等宽数字，让不同位数的结果便于比较。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008458)
+
 ## 小说写作
 
 - [Steering the Craft](https://www.ursulakleguin.com/steering-the-craft) — Le Guin 的英语叙事写作练习，训练句子节奏、视角和叙述距离；适合小说与叙事散文，不套固定情节公式。[第一章节选](https://lithub.com/a-writing-lesson-from-ursula-k-leguin/) <!-- article-copy --> · [Markdown 摘要](vendor/articles/steering-the-craft.md)<!-- /article-copy -->
