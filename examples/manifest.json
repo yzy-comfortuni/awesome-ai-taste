@@ -63,6 +63,14 @@
       "io": "混用流程与指标变化箭头→分别设计并标义",
       "environment": "选读无依赖；图像渲染与读者辨识另测",
       "example": "examples/professional.md#a6"
+    },
+    {
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008458",
+      "task": "校准科研结果表",
+      "io": "文本与数值混排表→按列对齐并保留原始数值",
+      "environment": "Markdown 可表达对齐；等宽数字与最终版面须在排版软件检查",
+      "example": "examples/scientific-text-typography.md#table-alignment",
+      "note": "主要面向美式英语；不改变数值、精度或缺失状态，期刊规范优先。"
     }
   ]
 }
