@@ -103,7 +103,9 @@ const canonicalSkillPath = skill ? skill.pathSlug : pathSlug;
 const skillHref = (entry: Skill) => `/skills/${entry.pathSlug}`;
 const breadcrumbItems = [
   { label: "Explore", href: "/" },
-  { label: "Skills", href: "/skills" },
+  showOwnerProfile
+    ? { label: "Authors", href: "/authors" }
+    : { label: "Skills", href: "/skills" },
   ...segments.map((segment: string, index: number) => {
     const currentPath = segments.slice(0, index + 1).join("/");
     const matchedSkill = getSkillByPath(currentPath);
@@ -111,9 +113,11 @@ const breadcrumbItems = [
 
     return {
       label:
-        isLast && skill
-          ? skill.name
-          : (matchedSkill?.label ?? titleize(segment)),
+        isLast && showOwnerProfile
+          ? groupTitle
+          : isLast && skill
+            ? skill.name
+            : (matchedSkill?.label ?? titleize(segment)),
       href: isLast ? undefined : `/skills/${currentPath}`,
     };
   }),

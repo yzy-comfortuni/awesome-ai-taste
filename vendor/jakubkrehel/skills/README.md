@@ -21,6 +21,7 @@ These skills cover topics that I write about on [my personal website](https://ja
 - [**explain-interface**](skills/explain-interface/SKILL.md): Explains how a website, a visual effect or an animation was built, from a **live URL** or a **screenshot**. User-invoked.
 - [**break**](skills/break/SKILL.md): Renders a component you choose under **every scenario** that can reach it on a temporary page and stress tests it. User-invoked.
 - [**build-design**](skills/build-design/SKILL.md): Builds UI from a Figma file or a design image so it matches the design, using your project's existing tokens and components.
+- [**technical-drawing**](skills/technical-drawing/SKILL.md): Creates precise static technical drawings of physical objects, with coherent views and fine linework. Delivers a blank-page viewer with zoom, editable colors and SVG, PNG and PDF downloads.
 - [**state-machine**](skills/state-machine/SKILL.md): Renders every state of a component you choose on a throwaway page, with mock data and a switcher, so you can work on each state. User-invoked.
 - [**variant**](skills/variant/SKILL.md): Builds multiple **variants** of a component you're working on and helps you iterate and pick one. User-invoked.
 

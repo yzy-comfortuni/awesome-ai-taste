@@ -1,12 +1,14 @@
 <div align="center">
 
+**简体中文** | [English](README.en.md)
+
 <img src="assets/showcase/hero.png" alt="huashu-art-motion电影画廊：35种艺术风格，9种解说语法" width="100%" />
 
 # huashu-art-motion · 艺术动画
 
 让你的coding agent，把艺术风格写成会动的画。
 
-35种艺术风格 · 9种解说语法 · 8种参数化片段 · 口播整片参考代码
+36种艺术风格 · 9种解说语法 · 8种参数化片段 · 口播整片参考代码
 
 ```sh
 npx skills add alchaincyf/huashu-art-motion
@@ -91,7 +93,7 @@ Claude Code 的像素吉祥物 Clawd 从保安电脑的终端里蹦出来，打�
 | 你说 | 它做 |
 |---|---|
 | 「复刻这个动画」「拆一下这段」 | 先跑拆解脚本量出转场、节拍网格、每段运动热图，再按机制用代码复刻 |
-| 「做个梵高／莫奈／包豪斯那种的动画」 | 先设计一帧，再让它动起来；35张风格配方卡当起点 |
+| 「做个梵高／莫奈／包豪斯那种的动画」 | 先设计一帧，再让它动起来；36张风格配方卡当起点 |
 | 「用我的口播做一段艺术动画」 | 镜头表 → 定风格 → 世界画布加镜头 → 输出一条画面轨 |
 | 「做一个人穿过一幅幅名画的片子」 | 长卷骨架：每个世界一个段文件，主角一路往右走，跨边界换画风，镜头只进不退 |
 | 「做解说视频的动画段」 | 按口播选语法，喂一份 JSON，出一段时长精确到帧的片段（横竖屏、可透明底） |
@@ -106,7 +108,7 @@ Claude Code 的像素吉祥物 Clawd 从保安电脑的终端里蹦出来，打�
 
 | | 数量 |
 |---|---|
-| 艺术风格配方卡（参数、母题动作、签名转场、当前短板） | 35张，`references/风格配方/` |
+| 艺术风格配方卡（参数、母题动作、签名转场、当前短板） | 36张，`references/风格配方/` |
 | 对应的场景代码 | 35个，`scripts/engine/scenes/` |
 | 解说动画语法卡 | 9份；其中8种附示范片、参数化片段与示例spec |
 | 口播整片参考代码 | 混合风格、白板、Vox、讲解员；需自备部分素材，详见目录README |
@@ -118,7 +120,7 @@ Claude Code 的像素吉祥物 Clawd 从保安电脑的终端里蹦出来，打�
 ```
 huashu-art-motion/
 ├── SKILL.md                 # 先判断任务，再按表读对应文档
-├── references/              # 01–12方法文档、35张风格配方卡、9张语法卡、正面经验
+├── references/              # 01–12方法文档、36张风格配方卡、9张语法卡、正面经验
 ├── assets/                  # 总览图（README 用）
 └── scripts/
     ├── engine/              # 可整个复制走的动画工程：引擎、转场、库、场景、示范片、片段
@@ -200,7 +202,7 @@ MIT License © [花叔 Huashu](https://github.com/alchaincyf)
 
 ## English
 
-**huashu-art-motion** is an agent skill for making animation with code, where the paintings actually move. It ships 35 art-style recipes (cave painting, Egyptian murals, Van Gogh, Klimt, Bauhaus, Kirby comics, 8-bit, vaporwave, Shinkai and more), each with a working Canvas scene, a style "renderer" and a signature transition; 8 explainer-video grammars (Kurzgesagt, Vox, whiteboard, storytime, kinetic type, 3Blue1Brown, keynote UI, finance charts) with demo films and parameterized clips you drive with a JSON spec, frame-accurate and in landscape, portrait or alpha; a long-scroll skeleton where a character walks left to right through one painting after another (3 sample worlds included); plus a breakdown script that maps a reference animation into cuts, beat grid and motion heatmaps, and a QA script that measures stability, cost per frame, motion and smoothness.
+**huashu-art-motion** is an agent skill for making animation with code, where the paintings actually move. It ships 36 art-style recipes (cave painting, Egyptian murals, Van Gogh, Klimt, Bauhaus, Kirby comics, 8-bit, vaporwave, Shinkai and more), with 35 Canvas scenes plus a standalone SVG Rick & Morty-style example; 8 explainer-video grammars (Kurzgesagt, Vox, whiteboard, storytime, kinetic type, 3Blue1Brown, keynote UI, finance charts) with demo films and parameterized clips you drive with a JSON spec, frame-accurate and in landscape, portrait or alpha; a long-scroll skeleton where a character walks left to right through one painting after another (3 sample worlds included); plus a breakdown script that maps a reference animation into cuts, beat grid and motion heatmaps, and a QA script that measures stability, cost per frame, motion and smoothness.
 
 It started as a code-only recreation of Tak's ([@cherry_mx_reds](https://x.com/cherry_mx_reds/status/2106095190285144331)) 15-second *Art History Speedrun*. The scene layouts and the girl-and-cat premise follow his original; every frame here is redrawn in code, and no frames, screenshots or audio from the original are included.
 
@@ -220,3 +222,7 @@ Install: `npx skills add alchaincyf/huashu-art-motion`. Requires uv, ffmpeg and 
 ## 感谢反馈
 
 感谢[@ismilewolf-eng](https://github.com/ismilewolf-eng)（[PR#1](https://github.com/alchaincyf/huashu-art-motion/pull/1)）、[@noahark](https://github.com/noahark)（[PR#2](https://github.com/alchaincyf/huashu-art-motion/pull/2)）提供Windows并发加载故障的修复建议与验证，[@nctt777-hue](https://github.com/nctt777-hue)（[Issue#3](https://github.com/alchaincyf/huashu-art-motion/issues/3)）提供详细的复现、对照实验与复测，以及[@GFXfly](https://github.com/GFXfly)补充macOS排查反馈。这些反馈帮助我们修复了渲染与QA本地服务的并发加载问题。
+
+## 第36种：Rick & Morty风格
+
+新增[风格配方](references/风格配方/37_rick_morty.md)与[可复制示例](scripts/engine/reference_films/rick_morty/index.html)：离线预览、拖时间、可控目光/眨眼/端杯/猫跳动和逐帧视频导出。内部ID是37_rick_morty（36_picasso_blue已占用）。这是独立SVG管线；上方35格历史总览和Canvas gallery不包含本例。下载后打开示例HTML即可预览，导出命令见配方。

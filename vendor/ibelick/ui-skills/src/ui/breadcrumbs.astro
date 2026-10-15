@@ -19,9 +19,7 @@ const finalItems =
 ---
 
 <nav aria-label="Breadcrumb">
-  <ol
-    class="type-body-md flex flex-wrap items-center gap-1 font-[450]"
-  >
+  <ol class="type-body-md flex flex-wrap items-center gap-1 font-[450]">
     {
       finalItems.map((item, index) => {
         const isLast = index === finalItems.length - 1;
@@ -32,12 +30,16 @@ const finalItems =
               {item.href && !isLast ? (
                 <a
                   href={item.href}
-                  class="text-content-secondary transition-colors hover:text-content-primary"
+                  class="text-content-secondary hover:text-content-primary transition-colors"
                 >
                   {item.label}
                 </a>
               ) : (
-                <span class={isLast ? "text-content-muted" : "text-content-secondary"}>
+                <span
+                  class={
+                    isLast ? "text-content-muted" : "text-content-secondary"
+                  }
+                >
                   {item.label}
                 </span>
               )}

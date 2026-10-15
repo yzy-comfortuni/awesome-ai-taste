@@ -29,6 +29,7 @@
 | Anticipation — The 12 Basic Principles of Animation | 摘要 Markdown（非全文） | summary-only | [animation-anticipation.md](animation-anticipation.md) |
 | Ten Simple Rules for Effective Presentation Slides | 正文 Markdown | current | [effective-presentation-slides.md](effective-presentation-slides.md) |
 | Ten simple rules for designing graphical abstracts | 正文 Markdown | current | [graphical-abstracts-rules.md](graphical-abstracts-rules.md) |
+| Ten simple rules for typographically appealing scientific texts | 正文 Markdown | current | [scientific-text-typography.md](scientific-text-typography.md) |
 
 ## 更新方式
 

@@ -1,8 +1,21 @@
 #!/usr/bin/env bash
 
-# Local skill registry
+# Local skill registry. Each skill is listed by its install name (the `name:` in its SKILL.md,
+# the value `npx skills add --skill` takes) and by its folder name.
 declare -A SKILLS=(
+  [design-taste-frontend]="skills/taste-skill/SKILL.md"
+  [design-taste-frontend-v2-experimental]="skills/taste-skill-v2-experimental/SKILL.md"
+  [design-taste-frontend-v1]="skills/taste-skill-v1/SKILL.md"
+  [image-to-code]="skills/image-to-code-skill/SKILL.md"
+  [redesign-existing-projects]="skills/redesign-skill/SKILL.md"
+  [high-end-visual-design]="skills/soft-skill/SKILL.md"
+  [full-output-enforcement]="skills/output-skill/SKILL.md"
+  [minimalist-ui]="skills/minimalist-skill/SKILL.md"
+  [industrial-brutalist-ui]="skills/brutalist-skill/SKILL.md"
+  [stitch-design-taste]="skills/stitch-skill/SKILL.md"
+  [gpt-tasteskill]="skills/gpt-tasteskill/SKILL.md"
   [taste-skill]="skills/taste-skill/SKILL.md"
+  [taste-skill-v2-experimental]="skills/taste-skill-v2-experimental/SKILL.md"
   [taste-skill-v1]="skills/taste-skill-v1/SKILL.md"
   [gpt-taste]="skills/gpt-tasteskill/SKILL.md"
   [image-to-code-skill]="skills/image-to-code-skill/SKILL.md"

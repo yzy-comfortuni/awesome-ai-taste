@@ -3,17 +3,17 @@
   "description": "Taste skill library for Claude Code — frontend design, image-to-code, and aesthetic skills",
   "owner": {
     "name": "leonxlnx",
-    "email": ""
+    "email": "hello@tasteskill.dev"
   },
   "plugins": [
     {
       "name": "taste-skill",
-      "description": "Frontend design taste skills including brutalist, minimalist, soft, redesign, stitch, and more",
-      "version": "1.0.0",
+      "description": "tasteskill v2: art direction for coding agents, with a library of researched directions, real pictures from open collections and a real-browser inspector. Also image-generation, redesign and style skills.",
+      "version": "2.0.0",
       "source": "./",
       "author": {
         "name": "leonxlnx",
-        "email": ""
+        "email": "hello@tasteskill.dev"
       }
     }
   ]

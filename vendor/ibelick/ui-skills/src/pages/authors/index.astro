@@ -1,0 +1,87 @@
+---
+export const prerender = true;
+
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../ui/breadcrumbs.astro";
+import SkillCard from "../../ui/skill-card.astro";
+import { registry } from "../../data/registry";
+
+const authorsByKey = new Map<
+  string,
+  { key: string; label: string; count: number }
+>();
+
+for (const skill of registry) {
+  const author = authorsByKey.get(skill.sourceKey);
+  if (author) {
+    author.count += 1;
+  } else {
+    authorsByKey.set(skill.sourceKey, {
+      key: skill.sourceKey,
+      label: skill.sourceLabel,
+      count: 1,
+    });
+  }
+}
+
+const authors = [...authorsByKey.values()].sort((a, b) =>
+  a.label.localeCompare(b.label),
+);
+const description =
+  "Explore skill authors for design engineering and frontend development.";
+const breadcrumbItems = [{ label: "Explore", href: "/" }, { label: "Authors" }];
+const siteOrigin = Astro.site ?? new URL("https://www.ui-skills.com");
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Authors",
+  description,
+  url: new URL("/authors", siteOrigin).toString(),
+  hasPart: {
+    "@type": "ItemList",
+    itemListElement: authors.map((author, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: author.label,
+      url: new URL(`/skills/${author.key}`, siteOrigin).toString(),
+    })),
+  },
+};
+---
+
+<Layout
+  title="Authors | UI Skills"
+  description={description}
+  structuredData={structuredData}
+>
+  <div class="relative flex min-h-dvh flex-col items-center justify-start">
+    <div class="container-3xl relative mt-20 pb-10">
+      <div class="mx-auto flex w-full flex-col gap-10">
+        <Breadcrumbs items={breadcrumbItems} />
+
+        <div class="flex flex-col gap-3">
+          <h1 class="type-h1 text-content-primary">Authors</h1>
+          <p class="type-body-md text-content-secondary">
+            Discover the authors behind your next favorite skill.
+          </p>
+        </div>
+
+        <ul class="flex flex-col">
+          {
+            authors.map((author) => (
+              <li>
+                <SkillCard
+                  href={`/skills/${author.key}`}
+                  slug={author.label}
+                  description={`${author.count} ${author.count === 1 ? "skill" : "skills"}`}
+                  avatarUrl={`https://github.com/${author.key}.png?size=80`}
+                  variant="list"
+                />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>

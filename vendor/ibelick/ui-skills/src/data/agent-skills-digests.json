@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-12T16:23:28.093Z",
-  "skillCount": 395,
+  "generatedAt": "2026-10-13T09:19:30.000Z",
+  "skillCount": 396,
   "digests": {
     "ibelick/ui-skills-root": "sha256:d4e1033f910467164a9cd3931277c1b309cb87c6d23cb5f184a65bfdf92b1c9c",
     "ibelick/baseline-ui": "sha256:fea3322f36d58fdafafce2aef56e4556dd2ac7b20876b7dff7d8be7f25fa597f",
@@ -396,6 +396,7 @@
     "egonex-ai/understand-knowledge": "sha256:e2b225a82d0fc59a83b8391afe17d1ff7f84acb831d2cf716f0ab583ba09c010",
     "egonex-ai/understand-onboard": "sha256:e5be45248859ca8255546a18a340bc1556984162f5b1a3f77da1e66136a557b3",
     "tt-a1i/archify": "sha256:cf348309c5350c285714151a409d7451669fe00f4537824c38038a6e18767b6d",
-    "tt-a1i/archify-review": "sha256:811eb78d69360b741475053a08a0060e60126af2405ffa24afdc0498f17b6cb8"
+    "tt-a1i/archify-review": "sha256:811eb78d69360b741475053a08a0060e60126af2405ffa24afdc0498f17b6cb8",
+    "ibelick/component-canvas": "sha256:ef2d4b55a2ab83b5e00f0e7f13d7e5efd84a2743dac701d1854fafd9d09418ea"
   }
 }
