@@ -449,6 +449,38 @@
       ],
       "min_chars": 12000,
       "scope_note": "© 2024 Jambor、Bornhäuser。PLOS Computational Biology 20(2): e1011789，DOI: 10.1371/journal.pcbi.1011789。依据 CC BY 4.0 转换本篇英文正文、图注和参考文献；图像作为外链保留，不是离线媒体包。Markdown 格式转换由 awesome-ai-taste 完成，不代表原作者背书。许可：https://creativecommons.org/licenses/by/4.0/ 。"
+    },
+    {
+      "id": "scientific-text-typography",
+      "title": "Ten simple rules for typographically appealing scientific texts",
+      "author": "Lars Ole Schwen",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008458",
+      "catalog_urls": [
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008458"
+      ],
+      "kind": "fulltext",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008458",
+      "license_marker": "creativecommons.org/licenses/by/4.0",
+      "reviewed_on": "2026-10-15",
+      "markers": [
+        "Introduction",
+        "Rule 1:",
+        "Rule 2:",
+        "Rule 3:",
+        "Rule 4:",
+        "Rule 5:",
+        "Rule 6:",
+        "Rule 7:",
+        "Rule 8:",
+        "Rule 9:",
+        "Rule 10:",
+        "Acknowledgments",
+        "References",
+        "Table formatting includes proper column alignment"
+      ],
+      "min_chars": 20000,
+      "scope_note": "© 2020 Lars Ole Schwen。PLOS Computational Biology 16(12): e1008458，DOI: 10.1371/journal.pcbi.1008458。依据 CC BY 4.0 转换本篇英文全文，保留十条规则、图注、致谢与参考文献；图片仅保留原链接，不是离线媒体包，不复制字体或运行示例。Markdown 格式转换由 awesome-ai-taste 完成，不代表作者背书。建议主要面向美式英语，排版须服从目标期刊规范，不能用格式掩盖证据不足。许可：https://creativecommons.org/licenses/by/4.0/ 。"
     }
   ]
 }
