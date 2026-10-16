@@ -168,6 +168,10 @@
 
   **规则：** 修改卡住时，试把同一首诗改成另一种分节或节律安排，再比较新形式带出的内容，不只替换同义词。[出处](https://poets.org/text/flying-revisions-flag)
 
+- [More than the Birds, Bees, and Trees: A Closer Look at Writing Haibun](https://poets.org/text/more-birds-bees-and-trees-closer-look-writing-haibun) — Aimee Nezhukumatathil 的英语俳文写作讲义，说明散文与俳句如何相互照应；允许结构实验，不把五七五当跨语言通则。[正文](https://poets.org/text/more-birds-bees-and-trees-closer-look-writing-haibun) <!-- article-copy --> · [Markdown 摘要](vendor/articles/writing-haibun.md)<!-- /article-copy -->
+
+  **规则：** 将散文与俳句合读，检查短诗的意象是否因前文交代的经历而获得更具体的意味。[出处](https://poets.org/text/more-birds-bees-and-trees-closer-look-writing-haibun)
+
 ## 剧本写作
 
 - [How to Write a Scene](https://johnaugust.com/2007/write-scene) — John August 的英语影视剧本指南，帮助判断一场戏是否必要，以及如何安排人物、地点和开场。[正文](https://johnaugust.com/2007/write-scene) <!-- article-copy --> · [Markdown 摘要](vendor/articles/how-to-write-a-scene.md)<!-- /article-copy -->
