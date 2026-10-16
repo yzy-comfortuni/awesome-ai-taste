@@ -71,6 +71,13 @@
       "environment": "Markdown 可表达对齐；等宽数字与最终版面须在排版软件检查",
       "example": "examples/scientific-text-typography.md#table-alignment",
       "note": "主要面向美式英语；不改变数值、精度或缺失状态，期刊规范优先。"
+    },
+    {
+      "url": "https://poets.org/text/more-birds-bees-and-trees-closer-look-writing-haibun",
+      "task": "检查散文与俳句的照应",
+      "io": "散文与短诗→合读后有语境的意象",
+      "environment": "英语俳文选读；中文练习不作格律或读者测评",
+      "example": "examples/haibun.md#paired-reading"
     }
   ]
 }
