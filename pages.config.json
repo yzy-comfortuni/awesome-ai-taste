@@ -481,6 +481,21 @@
       ],
       "min_chars": 20000,
       "scope_note": "© 2020 Lars Ole Schwen。PLOS Computational Biology 16(12): e1008458，DOI: 10.1371/journal.pcbi.1008458。依据 CC BY 4.0 转换本篇英文全文，保留十条规则、图注、致谢与参考文献；图片仅保留原链接，不是离线媒体包，不复制字体或运行示例。Markdown 格式转换由 awesome-ai-taste 完成，不代表作者背书。建议主要面向美式英语，排版须服从目标期刊规范，不能用格式掩盖证据不足。许可：https://creativecommons.org/licenses/by/4.0/ 。"
+    },
+    {
+      "id": "writing-haibun",
+      "title": "More than the Birds, Bees, and Trees: A Closer Look at Writing Haibun",
+      "author": "Aimee Nezhukumatathil",
+      "url": "https://poets.org/text/more-birds-bees-and-trees-closer-look-writing-haibun",
+      "catalog_urls": [
+        "https://poets.org/text/more-birds-bees-and-trees-closer-look-writing-haibun"
+      ],
+      "kind": "summary",
+      "license": "未确认适用于本篇全文的转载许可；仅存编辑摘要",
+      "license_evidence_url": "https://poets.org/text/more-birds-bees-and-trees-closer-look-writing-haibun",
+      "reviewed_on": "2026-10-16",
+      "scope_note": "仅摘要本篇英语俳文写作讲义，不抓取整站，不复制文章中的诗作、译文或图片。中文编辑摘要由 awesome-ai-taste 编写；全文 Markdown 仍有许可缺口。作者归属可由 Academy of American Poets 的 Haiku 词条中对本篇的署名引用核对。",
+      "summary": "## 中文编辑摘要\n\n俳文把散文与俳句放在一起：散文交代经历，短诗凝住一个瞬间，两部分互相照应。作者强调景物应当带出感受，而不只是行程和物品清单；文中用例子说明，同一意象在读过前面的散文后会获得更具体的意味。\n\n## 可采用的规则\n\n将散文与俳句合读，检查短诗的意象是否因前文交代的经历而获得更具体的意味。\n\n## 适用边界\n\n这是作者面向英语俳文的创作讲义，不是 AI 原生技能。她允许调整散文与俳句的次序、数量，不要求英语短诗机械凑成五七五；这些建议不能直接充当中文或日语格律规范。"
     }
   ]
 }
