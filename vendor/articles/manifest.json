@@ -369,6 +369,19 @@
         "license_evidence_sha256": "94ac24a1057b414f42f2020285a9e605f6991843b950beec5663a6f9a411ecfc"
       },
       "status": "current"
+    },
+    "writing-haibun": {
+      "path": "vendor/articles/writing-haibun.md",
+      "kind": "summary",
+      "sha256": "28733c3da4dcf9601f923881221cbac99980cf7a7d4d5b4185aadc4abbea560c",
+      "source_sha256": null,
+      "config_sha256": "d2e6726e7d1b026ce9bd6a9c5478f755d390500006cc986d55903b2c8bc19615",
+      "converter_version": 1,
+      "license": "未确认适用于本篇全文的转载许可；仅存编辑摘要",
+      "source_url": "https://poets.org/text/more-birds-bees-and-trees-closer-look-writing-haibun",
+      "saved_at": "2026-10-16T10:27:06.501386+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
     }
   },
   "unregistered": []
