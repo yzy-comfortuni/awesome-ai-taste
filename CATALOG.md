@@ -1,8 +1,8 @@
 # 资源目录
 
-[返回首页](README.md)。按任务查阅；每项包含用途、具体规则和原文出处。先读[使用边界](USAGE.md)与[已知勘误](ERRATA.md)；逐项输入输出和环境见首页分类页，[练习集中在这里](examples/README.md)。
+[返回首页](README.md)。按任务查阅；每项包含用途、具体规则和原文出处。[使用说明](USAGE.md)、[示例](examples/README.md)和[勘误](ERRATA.md)按需查阅。
 
-[界面设计](#界面设计) · [文字表达](#文字表达) · [专利写作](#专利写作) · [学术论文](#学术论文) · [小说写作](#小说写作) · [诗歌写作](#诗歌写作) · [剧本写作](#剧本写作) · [图表与图解](#图表与图解) · [动画与视频](#动画与视频) · [演示文稿](#演示文稿)
+[界面设计](#界面设计) · [文字表达](#文字表达) · [软件工程文档](#软件工程文档) · [专利写作](#专利写作) · [学术论文](#学术论文) · [小说写作](#小说写作) · [诗歌写作](#诗歌写作) · [剧本写作](#剧本写作) · [图表与图解](#图表与图解) · [动画与视频](#动画与视频) · [演示文稿](#演示文稿)
 
 ## 界面设计
 
@@ -26,7 +26,7 @@
 
   **规则：** 表单报错就贴着对应字段显示，提交失败后把焦点移到第一个错误处。[出处](https://github.com/vercel-labs/web-interface-guidelines/blob/main/README.md)
 
-- [Interfaces](https://github.com/jakubkrehel/skills) — Jakub Krehel 的界面修整规则，处理圆角嵌套、光学对齐、字体层级与文本换行。[界面](https://github.com/jakubkrehel/skills/blob/main/skills/better-ui/SKILL.md) · [排版](https://github.com/jakubkrehel/skills/blob/main/skills/better-typography/SKILL.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/jakubkrehel/skills?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/jakubkrehel/skills/stargazers) · [副本](vendor/jakubkrehel/skills)<!-- /source-meta -->
+- [Interfaces](https://github.com/jakubkrehel/skills) — Jakub Krehel 的界面修整规则，处理理圆角嵌套、光学对齐、字体层级与文本换行。[界面](https://github.com/jakubkrehel/skills/blob/main/skills/better-ui/SKILL.md) · [排版](https://github.com/jakubkrehel/skills/blob/main/skills/better-typography/SKILL.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/jakubkrehel/skills?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/jakubkrehel/skills/stargazers) · [副本](vendor/jakubkrehel/skills)<!-- /source-meta -->
 
   **规则：** 圆角容器等距嵌套且内边距不超过 24 px 时，按“外圆角＝内圆角＋内边距＋边框宽度”对齐曲线。[出处](https://github.com/jakubkrehel/skills/blob/main/skills/better-ui/SKILL.md)
 
@@ -68,10 +68,6 @@
 
   **规则：** 在长文档开头交代读者需要的前提、本文覆盖什么及不覆盖什么，再对照成稿检查是否兑现。[出处](https://developers.google.com/tech-writing/two/large-docs)
 
-- [Documenting Architecture Decisions](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) — 用简短记录说明架构选择的背景、决定、状态和后果；适合技术决策记录，不代替完整设计文档或验证报告。[正文](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) <!-- article-copy --> · [Markdown 正文](vendor/articles/documenting-architecture-decisions.md)<!-- /article-copy -->
-
-  **规则：** 在决策记录的后果部分同时写收益、代价和新增约束，不只列支持所选方案的理由。[出处](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)
-
 - [README Checklist](https://github.com/ddbeck/readme-checklist) — Daniel D. Beck 的 README 检查表，帮助读者判断用途并完成首次使用；不是固定栏目模板，进阶文档不必挤进首页。[正文](https://github.com/ddbeck/readme-checklist/blob/main/checklist.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/ddbeck/readme-checklist?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/ddbeck/readme-checklist/stargazers) · [副本](vendor/ddbeck/readme-checklist)<!-- /source-meta -->
 
   **规则：** README 的上手说明写到读者能完成第一次使用就停，进阶用法移到专门文档。[出处](https://github.com/ddbeck/readme-checklist/blob/main/checklist.md)
@@ -79,6 +75,36 @@
 - [Diátaxis](https://github.com/evildmp/diataxis-documentation-framework) — 按读者任务区分教程、操作指南、参考与解释；这里选读操作指南章节，适合技术产品文档，不是统一文风模板。[正文](https://github.com/evildmp/diataxis-documentation-framework/blob/main/source/how-to-guides.rst) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/evildmp/diataxis-documentation-framework?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/evildmp/diataxis-documentation-framework/stargazers) · [副本](vendor/evildmp/diataxis-documentation-framework)<!-- /source-meta -->
 
   **规则：** 面向熟练用户的操作指南只保留完成目标所需的动作；原理说明和完整参数另页链接，不夹进步骤。[出处](https://github.com/evildmp/diataxis-documentation-framework/blob/main/source/how-to-guides.rst)
+
+## 软件工程文档
+
+- [arc42 — 架构说明](https://github.com/arc42/arc42-template) — 架构文档的边界、运行、部署和质量要求，选读官方中文章节；按项目需要取舍，不把十二章当填空配额。[上下文](https://github.com/arc42/arc42-template/blob/main/ZH/adoc/03_context_and_scope.adoc) · [运行](https://github.com/arc42/arc42-template/blob/main/ZH/adoc/06_runtime_view.adoc) · [部署](https://github.com/arc42/arc42-template/blob/main/ZH/adoc/07_deployment_view.adoc) · [质量](https://github.com/arc42/arc42-template/blob/main/ZH/adoc/10_quality_requirements.adoc) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/arc42/arc42-template?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/arc42/arc42-template/stargazers) · [副本](vendor/arc42/arc42-template)<!-- /source-meta -->
+
+  **规则：** 把质量要求写成具体场景，交代发生条件、触发事件和可衡量的响应，不只写“高性能、易扩展”。[出处](https://github.com/arc42/arc42-template/blob/main/ZH/adoc/10_quality_requirements.adoc)
+
+- [ARCHITECTURE.md — 代码导览](https://github.com/matklad/matklad.github.io) — matklad 给开源项目维护者的架构短文，说明代码地图、依赖边界与不变量；面向接手代码，不代替完整设计说明。[正文](https://github.com/matklad/matklad.github.io/blob/master/content/posts/2021-02-06-ARCHITECTURE.md.dj) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/matklad/matklad.github.io?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/matklad/matklad.github.io/stargazers) · [副本](vendor/matklad/matklad.github.io)<!-- /source-meta -->
+
+  **规则：** 把不能违反的依赖关系写明，例如模型层不依赖视图层，不让接手者从代码里猜这些边界。[出处](https://github.com/matklad/matklad.github.io/blob/master/content/posts/2021-02-06-ARCHITECTURE.md.dj)
+
+- [C4 — 架构图检查](https://github.com/simonbrowndotje/c4model) — Simon Brown 的架构图阅读检查表，检查范围、元素类型和关系；不限定绘图工具，也不验证架构本身正确。[正文](https://github.com/simonbrowndotje/c4model/blob/master/diagrams/12-checklist.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/simonbrowndotje/c4model?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/simonbrowndotje/c4model/stargazers) · [副本](vendor/simonbrowndotje/c4model)<!-- /source-meta -->
+
+  **规则：** 检查每个框能否读出名称、类型和职责，区分系统、容器与组件，不只放技术名或图标。[出处](https://github.com/simonbrowndotje/c4model/blob/master/diagrams/12-checklist.md)
+
+- [Rust RFC — 技术提案](https://github.com/rust-lang/rfcs) — Rust 官方提案模板，用使用示例连接详细设计、替代方案和未决问题；可借鉴写法，不照搬社区审批流程。[正文](https://github.com/rust-lang/rfcs/blob/main/0000-template.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/rust-lang/rfcs?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/rust-lang/rfcs/stargazers) · [副本](vendor/rust-lang/rfcs)<!-- /source-meta -->
+
+  **规则：** 用同一组例子先说明使用者会看到什么，再在详细设计中解释这些例子如何实现及其边界情况。[出处](https://github.com/rust-lang/rfcs/blob/main/0000-template.md)
+
+- [Documenting Architecture Decisions](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) — 用简短记录说明架构选择的背景、决定、状态和后果；适合技术决策记录，不代替完整设计文档或验证报告。[正文](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) <!-- article-copy --> · [Markdown 正文](vendor/articles/documenting-architecture-decisions.md)<!-- /article-copy -->
+
+  **规则：** 在决策记录的后果部分同时写收益、代价和新增约束，不只列支持所选方案的理由。[出处](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)
+
+- [Kubernetes KEP — 发布与回滚设计](https://github.com/kubernetes/enhancements) — 选读功能启停、升级兼容和回滚问题，补足变更设计中的运行后果；主要面向 Kubernetes，不要求其他项目照填全部流程。[正文](https://github.com/kubernetes/enhancements/blob/master/keps/NNNN-kep-template/README.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/kubernetes/enhancements?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/kubernetes/enhancements/stargazers) · [副本](vendor/kubernetes/enhancements)<!-- /source-meta -->
+
+  **规则：** 回滚设计写清关闭功能后已有工作负载和带新增字段的数据会怎样处理，不只写“关闭开关”。[出处](https://github.com/kubernetes/enhancements/blob/master/keps/NNNN-kep-template/README.md)
+
+- [Run Book Template — 运维手册](https://github.com/SkeltonThatcher/run-book-template) — Skelton Thatcher 的运维文档提问模板，覆盖依赖、恢复与故障处理；仅借鉴文档结构，旧技术和安全示例不作实施建议。[正文](https://github.com/SkeltonThatcher/run-book-template/blob/master/run-book-template.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/SkeltonThatcher/run-book-template?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/SkeltonThatcher/run-book-template/stargazers) · [副本](vendor/skeltonthatcher/run-book-template)<!-- /source-meta -->
+
+  **规则：** 恢复步骤同时写明是否需要先停用服务、哪些业务会受影响，不只给出恢复命令。[出处](https://github.com/SkeltonThatcher/run-book-template/blob/master/run-book-template.md)
 
 ## 专利写作
 
