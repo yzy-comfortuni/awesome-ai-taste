@@ -1,7 +1,7 @@
 """Validate first-party trial notes and render them beside selected source rules.
 
 No downloads, source execution, or semantic-quality claims. CATALOG.md alone
-selects resources; the registry must cover that exact set, not add new sources.
+selects resources; examples are optional and cannot add new sources.
 """
 from __future__ import annotations
 import json
@@ -73,15 +73,14 @@ def load(root: Path, catalog: str) -> dict[str, dict[str, str]]:
         if 'errata' in item:
             item['errata_link'] = reference(root, item['errata'])
         result[item['url']] = item
-    if set(result) != set(urls):
-        missing, extra = set(urls) - set(result), set(result) - set(urls)
-        raise ValueError(f'practice coverage mismatch: {len(missing)} missing, {len(extra)} extra')
+    extra = set(result) - set(urls)
+    if extra:
+        raise ValueError(f'practice coverage mismatch: {len(extra)} uncurated resources')
     return result
 
 
 def render(item: dict[str, str]) -> str:
-    lines = [f'  **试用：** [{item["task"]}]({item["example_link"]})；'
-             f'{item["io"]}。环境：{item["environment"]}。']
+    lines = [f'  [示例]({item["example_link"]})']
     if 'note' in item:
         suffix = f' [本仓库勘误]({item["errata_link"]})' if 'errata_link' in item else ''
         lines += ['', '  **注意：** ' + item['note'] + suffix]
