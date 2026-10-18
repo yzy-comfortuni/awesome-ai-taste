@@ -93,5 +93,64 @@
   "iart-ai/data-animation-skills": {
     "paths": ["skills/chart-animation"],
     "fetch": "git-tree"
+  },
+  "arc42/arc42-template": {
+    "paths": [
+      "ZH/adoc/03_context_and_scope.adoc",
+      "ZH/adoc/06_runtime_view.adoc",
+      "ZH/adoc/07_deployment_view.adoc",
+      "ZH/adoc/10_quality_requirements.adoc"
+    ],
+    "fetch": "git-tree",
+    "license": {
+      "path": "LICENSE.txt",
+      "sha": "5bd1ac34be235fad4275a14e24fc88c2c7cde259",
+      "spdx": "CC-BY-SA-4.0"
+    }
+  },
+  "matklad/matklad.github.io": {
+    "paths": ["content/posts/2021-02-06-ARCHITECTURE.md.dj"],
+    "fetch": "git-tree",
+    "license": {
+      "path": "LICENSE-MIT",
+      "sha": "31aa79387f27e730e33d871925e152e35e428031",
+      "spdx": "MIT"
+    }
+  },
+  "simonbrowndotje/c4model": {
+    "paths": ["diagrams/12-checklist.md", "_includes/nav_footer_custom.html"],
+    "fetch": "git-tree",
+    "license": {
+      "path": "_includes/nav_footer_custom.html",
+      "sha": "41e92216ca746301d558b0a1f88f13a3548302f8",
+      "spdx": "CC-BY-4.0"
+    }
+  },
+  "rust-lang/rfcs": {
+    "paths": ["0000-template.md"],
+    "fetch": "git-tree",
+    "license": {
+      "path": "LICENSE-MIT",
+      "sha": "31aa79387f27e730e33d871925e152e35e428031",
+      "spdx": "MIT"
+    }
+  },
+  "kubernetes/enhancements": {
+    "paths": ["keps/NNNN-kep-template/README.md"],
+    "fetch": "git-tree",
+    "license": {
+      "path": "LICENSE",
+      "sha": "8dada3edaf50dbc082c9a125058f25def75e625a",
+      "spdx": "Apache-2.0"
+    }
+  },
+  "skeltonthatcher/run-book-template": {
+    "paths": ["run-book-template.md"],
+    "fetch": "git-tree",
+    "license": {
+      "path": "run-book-template.md",
+      "sha": "c61a7ba253657ddd85816972cec1c87aec15d494",
+      "spdx": "CC-BY-SA-4.0"
+    }
   }
 }
