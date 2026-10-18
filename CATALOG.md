@@ -26,7 +26,7 @@
 
   **规则：** 表单报错就贴着对应字段显示，提交失败后把焦点移到第一个错误处。[出处](https://github.com/vercel-labs/web-interface-guidelines/blob/main/README.md)
 
-- [Interfaces](https://github.com/jakubkrehel/skills) — Jakub Krehel 的界面修整规则，处理理圆角嵌套、光学对齐、字体层级与文本换行。[界面](https://github.com/jakubkrehel/skills/blob/main/skills/better-ui/SKILL.md) · [排版](https://github.com/jakubkrehel/skills/blob/main/skills/better-typography/SKILL.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/jakubkrehel/skills?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/jakubkrehel/skills/stargazers) · [副本](vendor/jakubkrehel/skills)<!-- /source-meta -->
+- [Interfaces](https://github.com/jakubkrehel/skills) — Jakub Krehel 的界面修整规则，处理圆角嵌套、光学对齐、字体层级与文本换行。[界面](https://github.com/jakubkrehel/skills/blob/main/skills/better-ui/SKILL.md) · [排版](https://github.com/jakubkrehel/skills/blob/main/skills/better-typography/SKILL.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/jakubkrehel/skills?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/jakubkrehel/skills/stargazers) · [副本](vendor/jakubkrehel/skills)<!-- /source-meta -->
 
   **规则：** 圆角容器等距嵌套且内边距不超过 24 px 时，按“外圆角＝内圆角＋内边距＋边框宽度”对齐曲线。[出处](https://github.com/jakubkrehel/skills/blob/main/skills/better-ui/SKILL.md)
 
