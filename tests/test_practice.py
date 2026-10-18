@@ -1,6 +1,7 @@
 """Trial navigation and factual fixture regressions; no network or model calls."""
 import copy
 import json
+import re
 from pathlib import Path
 import tempfile
 import unittest
@@ -33,10 +34,14 @@ class PracticeTests(unittest.TestCase):
     def test_no_registry_keeps_legacy_fixture(self):
         self.assertEqual(practice.load(self.root, CATALOG), {})
 
-    def test_missing_entry_is_error(self):
+    def test_resource_without_example_is_allowed(self):
         self.save([])
-        with self.assertRaisesRegex(ValueError, 'coverage'):
-            practice.load(self.root, CATALOG)
+        self.assertEqual(practice.load(self.root, CATALOG), {})
+
+    def test_partial_registry_keeps_existing_examples(self):
+        self.save([self.row])
+        catalog = CATALOG + f'- [Second]({URL}2) — demo\n'
+        self.assertEqual(set(practice.load(self.root, catalog)), {URL})
 
     def test_extra_entry_is_error(self):
         self.save([self.row, {**self.row, 'url': URL + '2'}])
@@ -99,7 +104,9 @@ class PracticeTests(unittest.TestCase):
         self.save([{**self.row, 'note': '不要补事实。'}])
         rendered = task_views.render(self.root)['vendor/tasks/Writing.md']
         self.assertIn(rule, rendered)
-        self.assertIn('**试用：**', rendered)
+        self.assertIn('[示例]', rendered)
+        self.assertNotIn('**试用：**', rendered)
+        self.assertNotIn('环境：', rendered)
         self.assertIn('../../examples/sample.md#trial', rendered)
         self.assertIn('**注意：** 不要补事实。', rendered)
         self.assertEqual((self.root / 'CATALOG.md').read_text(encoding='utf-8'), catalog)
@@ -113,7 +120,7 @@ class PracticeTests(unittest.TestCase):
             'https://github.com/example/project/blob/main/source/guide.rst', records)
         self.assertEqual(link, '../example/project/source/guide.rst')
 
-    def test_missing_trial_stops_before_replacing_generated_pages(self):
+    def test_broken_registered_example_preserves_generated_pages(self):
         (self.root / 'README.md').write_text('# Home\n', encoding='utf-8')
         (self.root / 'CATALOG.md').write_text(CATALOG +
             '\n  **规则：** 保留限定。[出处](https://example.org/source)\n', encoding='utf-8')
@@ -122,11 +129,24 @@ class PracticeTests(unittest.TestCase):
         saved = directory / 'Writing.md'
         saved.write_text(task_views.MARKER + '\nKeep the old output.\n', encoding='utf-8')
         before = saved.read_bytes()
-        self.save([])
-        with self.assertRaisesRegex(ValueError, 'coverage'):
+        self.save([{**self.row, 'example': 'examples/missing.md#trial'}])
+        with self.assertRaisesRegex(ValueError, 'missing'):
             task_views.run(self.root, 'sync')
         self.assertEqual(saved.read_bytes(), before)
         self.assertEqual(list(directory.iterdir()), [saved])
+
+    def test_native_asciidoc_and_djot_links_are_not_converted(self):
+        records = {'example/project': {'branch': 'main', 'copied_sha': 'a' * 40}}
+        for suffix in ('.adoc', '.dj'):
+            with self.subTest(suffix=suffix):
+                relative = 'source/guide' + suffix
+                path = self.root / 'vendor/example/project' / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text('Original native text.\n', encoding='utf-8')
+                target = task_views.snapshot_link(self.root,
+                    'https://github.com/example/project/blob/main/' + relative, records)
+                self.assertEqual(target, '../example/project/' + relative)
+                self.assertEqual(path.read_text(encoding='utf-8'), 'Original native text.\n')
 
     def test_load_is_read_only(self):
         self.save([self.row])
@@ -148,7 +168,7 @@ class PublishedPracticeTests(unittest.TestCase):
     @unittest.skipUnless((ROOT / 'CATALOG.md').exists(), 'local fixture checkout lacks original catalog')
     def test_registry_matches_canonical_catalog(self):
         text = (ROOT / 'CATALOG.md').read_text(encoding='utf-8')
-        self.assertEqual(len(practice.load(ROOT, text)), len(practice.ENTRY.findall(text)))
+        self.assertLessEqual(set(practice.load(ROOT, text)), set(practice.ENTRY.findall(text)))
 
     @unittest.skipUnless((ROOT / 'CATALOG.md').exists(), 'local fixture checkout lacks original catalog')
     def test_known_entry_links_and_counts(self):
@@ -156,9 +176,13 @@ class PublishedPracticeTests(unittest.TestCase):
         self.assertNotIn('#mermaid-invariants', text)
         self.assertIn('默认单文件 HTML 与手写 SVG', text)
         self.assertIn('[第一章节选](https://lithub.com/a-writing-lesson-from-ursula-k-leguin/)', text)
-        self.assertEqual(len(practice.ENTRY.findall(text)), len(json.loads((ROOT / 'examples/manifest.json').read_text(encoding='utf-8'))['entries']))
+        registered = json.loads((ROOT / 'examples/manifest.json').read_text(encoding='utf-8'))['entries']
+        self.assertLessEqual({row['url'] for row in registered}, set(practice.ENTRY.findall(text)))
         home = (ROOT / 'README.md').read_text(encoding='utf-8')
         self.assertLessEqual(len(home.encode('utf-8')), 1200)
+        self.assertEqual(practice.ENTRY.findall(home), [])
+        self.assertEqual(int(re.search(r'<!-- catalog-count: (\d+) -->', home)[1]),
+                         len(practice.ENTRY.findall(text)))
         self.assertIn('examples/README.md', home)
 
 
