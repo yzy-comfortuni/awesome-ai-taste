@@ -1,27 +1,25 @@
-# 带一份输入，用一条规则
+# 规则应用示例
 
-这一轮的 56 个小练习对应体验报告中的全部资源，不新增资源。案例根据 [issues #1–#6](https://github.com/yzy-comfortuni/awesome-ai-taste/issues/7) 的问题重新编写，含输入、参考输出和反例边界；不是体验者原始附件、历史运行日志或新的真实业务数据，也不是文学评分标准。
+需要对照改稿时再读这里；使用清单不必先做练习。示例包含虚构或合成输入、参考输出和反例，不能当作真实业务、研究结果或统一审美标准。早期案例源于[体验反馈](https://github.com/yzy-comfortuni/awesome-ai-taste/issues/7)，不是体验者原始附件。
 
-[专利与论文（10）](professional.md) · [小说、诗歌、剧本（11）](creative.md) · [界面（8）](ui.md) · [文字（10）](writing.md) · [图表（7）](charts.md) · [动画与演示（10）](motion.md)
+[专利与论文](professional.md) · [小说、诗歌、剧本](creative.md) · [界面](ui.md) · [文字](writing.md) · [图表](charts.md) · [动画与演示](motion.md)
 
-先看对应分类页的用途、输入输出和环境，再打开一个练习。只需改一段文字时，不安装整套上游工具。已获许可的原文仍放在原副本位置；这里不重新复制原作者示例。
+分类页的“示例”链接直接到对应段落。原作者的正文与示例仍在各自副本中，这里是本仓库编写的补充材料。
 
-## 可运行的回归
+## 复查具体问题
 
 ```bash
-# 纯函数排行复现，需要 Node.js；不联网
+# 重新计算排行跳变与位置转场；需要 Node.js，不联网
 node examples/rank-transition.js
 
-# 包括练习覆盖、事实夹具、条件反例、对比度和排行检查
+# 检查现有示例链接、事实反例、对比度及排行逻辑
 python3 -m unittest discover -s tests -v
 
-# 生成分类页并检查它们与目录、练习入口一致
+# 从目录生成分类页，并检查生成结果
 python3 scripts/task_views.py --sync
 python3 scripts/task_views.py --verify
 ```
 
-[交互练习页面](review-demo.html)演示首错焦点、允许缩放与两种排行位置，可在允许的本地浏览器环境打开；它不是截图或已通过的浏览器验收报告。本轮浏览器导航被 `ERR_BLOCKED_BY_ADMINISTRATOR` 拦截，未换通道重试。
+[交互示例](review-demo.html)包含表单首错焦点、允许缩放和排行转场。它是待在具体浏览器中检查的页面，不是浏览器验收报告。[事实反例](fact-cases.json)用于发现部分信息遗漏；字符串断言不能证明语义等价，READY 的逆命题另用真假表说明。
 
-[事实夹具](fact-cases.json)保留可接受改稿和故意的错误输出。字符串断言只会发现部分遗漏；READY 逆命题用显式真假表展示，未实现自然语言语义判定器。源码测试、浏览器检查、上游完整运行与真人体验分别记录，不能互相替代。
-
-`manifest.json` 仅维护这些练习的用途、入口与环境，不是另一份收录目录。收录与规则仍以根目录 `CATALOG.md` 为准。
+`manifest.json` 只登记已经提供的示例与必要提醒，不要求覆盖每项收录。存在的登记仍须通过文件、锚点和重复检查；没有示例不代表资源不可用。完整收录以 [CATALOG.md](../CATALOG.md) 为准。
