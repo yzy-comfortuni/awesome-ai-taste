@@ -93,7 +93,7 @@ def snapshot_link(root: Path, url: str, records: dict) -> str | None:
         if not rest.startswith(ref + '/'):
             continue
         tail = rest[len(ref) + 1:]
-        if Path(tail).suffix.lower() not in {'.md', '.markdown', '.rst'}:
+        if Path(tail).suffix.lower() not in {'.md', '.markdown', '.rst', '.adoc', '.dj'}:
             return None
         path = safe(root, f'vendor/{key}/{tail}')
         if path.is_file():
