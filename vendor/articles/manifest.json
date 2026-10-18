@@ -382,6 +382,19 @@
       "saved_at": "2026-10-16T10:27:06.501386+00:00",
       "source_evidence": null,
       "status": "summary-only"
+    },
+    "short-story-engines": {
+      "path": "vendor/articles/short-story-engines.md",
+      "kind": "summary",
+      "sha256": "45d1b513522a8b25508ce19b2a92868ef2f63bede3b48facedbdcfd94ce3faa0",
+      "source_sha256": null,
+      "config_sha256": "837d8c0bb238c0b0f2af0d0a834c86e37bbbd8e7f3d28800d5b6af9851f3fc02",
+      "converter_version": 1,
+      "license": "未确认适用于本篇全文的转载许可；仅存编辑摘要",
+      "source_url": "https://lithub.com/on-the-many-different-engines-that-power-a-short-story/",
+      "saved_at": "2026-10-18T01:37:36.664145+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
     }
   },
   "unregistered": []
