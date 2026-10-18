@@ -78,6 +78,13 @@
       "io": "散文与短诗→合读后有语境的意象",
       "environment": "英语俳文选读；中文练习不作格律或读者测评",
       "example": "examples/haibun.md#paired-reading"
+    },
+    {
+      "url": "https://lithub.com/on-the-many-different-engines-that-power-a-short-story/",
+      "task": "用词语联想续写短篇",
+      "io": "首句与联想词→试写段落和解除限制后的修改稿",
+      "environment": "英语文本练习，无需安装；不以词表命中率评价成稿",
+      "example": "examples/short-story-engines.md#language-associations"
     }
   ]
 }
