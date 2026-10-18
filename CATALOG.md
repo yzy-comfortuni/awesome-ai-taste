@@ -18,7 +18,7 @@
 
   **规则：** 检查页面换成无关产品后是否仍能原样成立；若能，重新考虑构图和视觉语言与产品的关系。[出处](https://github.com/pbakaus/impeccable/blob/main/skill/reference/critique.md)
 
-- [Taste Skill](https://github.com/Leonxlnx/taste-skill) — 落地页与作品集的设计技能，调整布局变化、动效强度与信息密度。[正文](https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/Leonxlnx/taste-skill?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/Leonxlnx/taste-skill/stargazers) · [副本](vendor/leonxlnx/taste-skill)<!-- /source-meta -->
+- [Taste Skill](https://github.com/Leonxlnx/taste-skill) — 落地页与作品集的设计技能，调整布局变化、动效强度和信息密度。[正文](https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/Leonxlnx/taste-skill?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/Leonxlnx/taste-skill/stargazers) · [副本](vendor/leonxlnx/taste-skill)<!-- /source-meta -->
 
   **规则：** 设计落地页时，先按受众分别确定布局变化、动效强度与信息密度，不直接套默认风格。[出处](https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md)
 
