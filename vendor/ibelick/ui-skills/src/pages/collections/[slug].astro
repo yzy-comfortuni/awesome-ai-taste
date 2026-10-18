@@ -129,19 +129,44 @@ const breadcrumbStructuredData = {
                 </ul>
               </section>
 
+              {collection.workflow?.length ? (
+                <section
+                  class="flex flex-col gap-5"
+                  aria-labelledby="workflow-title"
+                >
+                  <h2
+                    id="workflow-title"
+                    class="type-body-md font-[450] text-content-secondary text-balance"
+                  >
+                    Suggested workflow
+                  </h2>
+                  <ol class="flex list-decimal flex-col gap-5 pl-5">
+                    {collection.workflow.map((step) => (
+                      <li class="type-body-md text-content-secondary pl-1">
+                        <h3 class="text-content-primary font-[450]">
+                          {step.title}
+                        </h3>
+                        <p class="mt-1 text-pretty">{step.description}</p>
+                      </li>
+                    ))}
+                  </ol>
+                </section>
+              ) : null}
+
               <section class="flex flex-col gap-5">
                 <h2 class="type-body-md font-[450] text-content-secondary text-balance">
                   Skills in this collection
                 </h2>
                 <div class="flex flex-col">
-                  {collectionSkills.map(({ skill }) => (
+                  {collectionSkills.map(({ skill, role }) => (
                     <SkillCard
                       href={`/skills/${skill.pathSlug}`}
                       slug={skill.label}
-                      description={skill.description}
+                      description={role || skill.description}
                       ownerLabel={skill.sourceLabel ?? skill.label}
                       avatarUrl={`https://github.com/${skill.sourceKey ?? "ibelick"}.png?size=160`}
                       variant="list"
+                      wrapDescription
                     />
                   ))}
                 </div>

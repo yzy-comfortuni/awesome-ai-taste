@@ -3,6 +3,20 @@
   "compatibility_date": "2026-01-07",
   "compatibility_flags": ["nodejs_compat"],
   "keep_vars": true,
+  // Deployed default. Local development overrides this through ignored .dev.vars.
+  "vars": {
+    "BETTER_AUTH_URL": "https://www.ui-skills.com",
+    "PUBLIC_JOBS_API_URL": "https://jobs-api.ui-skills.com",
+    "PUBLIC_TURNSTILE_SITE_KEY": "0x4AAAAAAE6K_pFxFU6zrpjP",
+  },
+  "d1_databases": [
+    {
+      "binding": "AUTH_DB",
+      "database_name": "ui-skills-auth",
+      "database_id": "098de42a-cd18-4e6e-a810-87de88cd6f5f",
+      "migrations_dir": "migrations",
+    },
+  ],
   "routes": [
     {
       "pattern": "*.ui-skills.com/*",
@@ -15,6 +29,15 @@
     "not_found_handling": "404-page",
     "html_handling": "drop-trailing-slash",
     "run_worker_first": [
+      "/api/auth",
+      "/api/auth/*",
+      "/login",
+      "/account",
+      "/account/*",
+      "/library",
+      "/library/*",
+      "/api/library",
+      "/api/library/*",
       "/mcp",
       "/mcp/rpc",
       "/oauth/*",

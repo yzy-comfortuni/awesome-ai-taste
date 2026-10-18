@@ -1,14 +1,10 @@
 # Themes and runtime picker
 
-Use this only when the user asks for switchable themes or fonts, or names a palette. Otherwise, commit to one palette.
-
-A theme is one fixed palette, not a light/dark pair. The picker is the reader's light/dark control. Do not wrap theme values in `prefers-color-scheme`.
+Only when the user asks for switchable themes or fonts, or names a palette. A theme is one fixed palette, not a light/dark pair: the picker is the reader's light/dark control, so theme values never go in `prefers-color-scheme`.
 
 ## Palettes
 
-Columns map to tokens. `-dim` variants are the same hex at about 12% alpha (`#rrggbb1f`). Use `rgba(255,255,255,.08)` for `--border` on dark themes and `rgba(0,0,0,.08)` on light themes.
-
-Text tokens (`--text --text-dim --accent --ok --warn --risk --info`) reach 4.5:1 on both `--bg` and `--surface`. Where a palette's own value failed, it is lifted toward the text color. `--node-a/b/c` are the canonical palette values: use them for fills, strokes, and chip markers, not for text. Set `--border-bright` to the `--text-dim` value, so diagram outlines and control borders reach 3:1.
+Columns map to tokens; text tokens already reach 4.5:1. `-dim` variants are the same hex at about 12% alpha (`#rrggbb1f`). `--border` is `rgba(255,255,255,.08)` on dark themes and `rgba(0,0,0,.08)` on light ones; `--border-bright` takes the `--text-dim` value. `--node-a/b/c` are for fills, strokes, and chip markers, not text.
 
 | id | mode | --bg | --surface | --text | --text-dim | --accent | --node-a | --node-b | --node-c | --ok | --warn | --risk | --info |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -24,18 +20,16 @@ Text tokens (`--text --text-dim --accent --ok --warn --risk --info`) reach 4.5:1
 | catppuccin-latte | light | #eff1f5 | #ccd0da | #4c4f69 | #54565f | #7230c9 | #1e66f5 | #40a02b | #ea76cb | #29661c | #983c07 | #b30d30 | #1851c2 |
 | gruvbox-light | light | #fbf1c7 | #ebdbb2 | #3c3836 | #6b5f56 | #ad3903 | #076678 | #79740e | #8f3f71 | #67630c | #ad3903 | #9d0006 | #076678 |
 
-Font pairs (id → body / mono): `dm` DM Sans / Fira Code · `instrument` Instrument Sans / JetBrains Mono · `plex` IBM Plex Sans / IBM Plex Mono · `bricolage` Bricolage Grotesque / JetBrains Mono · `jakarta` Plus Jakarta Sans / Azeret Mono. Load all of them in one Google Fonts link, at every weight the page uses. A display serif for headings goes in its own `--font-display` and does not change with the picker.
+Font pairs (id → body / mono): `dm` DM Sans / Fira Code · `instrument` Instrument Sans / JetBrains Mono · `plex` IBM Plex Sans / IBM Plex Mono · `bricolage` Bricolage Grotesque / JetBrains Mono · `jakarta` Plus Jakarta Sans / Azeret Mono. Load all in one Google Fonts link. A display face for headings stays in `--font-display` and does not change with the picker.
 
 ## Picker contract
 
-- Put one fixed bar at the top right: theme dots (fill `--surface`, ring `--accent`), a divider, then `Aa` font chips, each set in its own family. Every control uses `aria-pressed`.
-- Build the dots and chips from the `THEMES` / `FONT_PAIRS` data. Never hand-write them, so a control cannot drift from the value it sets.
-- Put the default theme and font in `:root` as plain CSS. Then the page renders correctly without JS, and you do not need to apply anything on load.
-- `applyTheme(id)` sets every column above, including the status colors and `--border-bright`, with `root.style.setProperty`. `applyFont(id)` sets `--font-body` and `--font-mono`. Both are `async`, update `aria-pressed`, and then redraw anything that baked colors or measured text, such as a canvas chart.
-- Rules must read fonts only through `var(--font-body)` and `var(--font-mono)`.
-- Draw the active ring in `var(--text)`, not white, because white disappears on light themes. Give every control a focus ring. Hide the bar in print.
-- Declare `DEFAULT_THEME`, `DEFAULT_FONT`, and the active state before any script that reads them. `let` and `const` are not hoisted.
+- One fixed bar at the top right: theme dots (fill `--surface`, ring `--accent`), a divider, then `Aa` font chips, each in its own family. Every control uses `aria-pressed`; the active ring is `var(--text)`, not white. Hide the bar in print.
+- Build the dots and chips from the `THEMES` / `FONT_PAIRS` data, never by hand.
+- The default theme and font sit in `:root` as plain CSS, so the page renders without JS.
+- `applyTheme(id)` sets every column above with `root.style.setProperty`; `applyFont(id)` sets `--font-body` and `--font-mono`. Both update `aria-pressed`, then redraw anything that baked colors or measured text, such as a canvas chart.
+- Rules read fonts only through `var(--font-body)` and `var(--font-mono)`.
 
 ## Project defaults
 
-`visual-explainer.config.md` (harness-neutral) can set `theme:` and `font:` to the ids above. In Claude Code, `.claude/visual-explainer.local.md` overrides it only for personal preferences. Both only seed the defaults. The reader can still switch, and an unknown value falls back to the page's own choice.
+`visual-explainer.config.md` can set `theme:` and `font:` to the ids above; in Claude Code, `.claude/visual-explainer.local.md` overrides it for personal preferences. Both only seed the defaults; an unknown value falls back to the page's own choice.

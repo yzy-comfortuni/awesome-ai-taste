@@ -1,0 +1,16 @@
+---
+import { env } from "cloudflare:workers";
+import { getAuth, getPageSession } from "../../lib/auth";
+
+export const prerender = false;
+
+const auth = getAuth(env);
+if (!auth) return Astro.redirect("/login");
+const session = await getPageSession(
+  auth,
+  Astro.request.headers,
+  Astro.response.headers,
+);
+if (!session) return Astro.redirect("/login");
+return Astro.redirect("/library");
+---

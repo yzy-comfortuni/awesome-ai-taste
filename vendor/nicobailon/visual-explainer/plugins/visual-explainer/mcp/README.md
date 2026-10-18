@@ -46,9 +46,8 @@ Then point the host at the server entry:
 
 - `visual_explainer_prepare`: returns a recommended visual explanation flow. It does not write files.
 - `visual_explainer_render_html`: validates a complete HTML document and writes it to the configured output directory (default `~/.agent/diagrams/`).
-- `visual_explainer_render_quick`: validates a quick-mode JSON spec and writes rendered HTML to the configured output directory (default `~/.agent/diagrams/`).
 
-Render tools default to `open: false`. Set `open: true` only when you want the server to request a browser or Glimpse window.
+Render defaults to `open: false`. Set `open: true` only when you want the server to request a browser or Glimpse window.
 
 ## Exposed prompts
 
@@ -61,15 +60,16 @@ The server exposes the bundled command templates as MCP prompts:
 - `diff-review`
 - `plan-review`
 - `project-recap`
+- `compare`
 - `fact-check`
 
 Pass `request` to fill the template's `$@` argument.
 
 ## Exposed resources
 
-The server exposes read-only resources for the canonical skill, command templates, and quick-mode contract:
+The server exposes read-only resources for the canonical skill, its references, the kit stylesheet, and command templates:
 
 - `visual-explainer://skill/SKILL.md`
+- `visual-explainer://references/*.md`
+- `visual-explainer://kit/kit.css`
 - `visual-explainer://commands/*.md`
-- `visual-explainer://quick/README.md`
-- `visual-explainer://quick/schema.json`

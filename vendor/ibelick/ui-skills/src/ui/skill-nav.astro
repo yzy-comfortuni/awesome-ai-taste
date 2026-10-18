@@ -1,17 +1,20 @@
 ---
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import { SkillFavorite } from "./skill-favorite";
 
 type Props = {
   previousHref?: string;
   nextHref?: string;
+  skillPath?: string;
 };
 
-const { previousHref, nextHref } = Astro.props as Props;
+const { previousHref, nextHref, skillPath } = Astro.props as Props;
 ---
 
 <div
   class="flex items-center gap-1"
 >
+  {skillPath ? <SkillFavorite client:idle skillPath={skillPath} /> : null}
   {
     previousHref ? (
       <a

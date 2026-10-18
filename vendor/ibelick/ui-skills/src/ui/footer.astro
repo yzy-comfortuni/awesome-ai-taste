@@ -1,23 +1,58 @@
 ---
-import { topics } from "../data/topics";
+import { topicBySlug } from "../data/topics";
+import type { TopicSlug } from "../data/registry";
 import { agents } from "../data/agents";
 import { playbook } from "../data/playbook";
 import { collections } from "../data/collections";
+import { skills } from "../data/skills";
 
 const currentYear = new Date().getFullYear();
-const coreTopics = topics.filter((topic) => topic.isDesignCore);
-const featuredTopics = coreTopics.slice(0, 6);
+const footerTopicSlugs: TopicSlug[] = [
+  "accessibility",
+  "motion",
+  "systems",
+  "visual",
+  "interaction",
+  "performance",
+];
+const featuredTopics = footerTopicSlugs
+  .map((slug) => topicBySlug.get(slug))
+  .filter((topic): topic is NonNullable<typeof topic> => Boolean(topic));
 const featuredAgentIds = [
   "claude-code",
   "cursor",
   "openclaw",
   "codex",
   "github-copilot",
+  "opencode",
 ];
 const featuredAgents = featuredAgentIds
   .map((id) => agents.find((agent) => agent.id === id))
   .filter((agent): agent is NonNullable<typeof agent> => Boolean(agent));
-const featuredPlaybook = playbook.slice(0, 6);
+const footerPlaybookEntries = [
+  { slug: "reserve-space-with-aspect-ratio", label: "Prevent layout shifts" },
+  { slug: "use-text-balance", label: "Balance headings" },
+  { slug: "use-tabular-nums-for-data", label: "Tabular numbers" },
+  { slug: "use-large-touch-targets", label: "Large touch targets" },
+  { slug: "show-visible-focus-rings", label: "Visible focus rings" },
+  { slug: "label-every-form-field", label: "Label form fields" },
+];
+const playbookSlugs = new Set(playbook.map((entry) => entry.slug));
+const featuredPlaybook = footerPlaybookEntries.filter((entry) =>
+  playbookSlugs.has(entry.slug),
+);
+const footerSkillPaths = [
+  "ibelick/ui-skills-root",
+  "ibelick/improve-ui",
+  "ibelick/component-canvas",
+  "wheresryan22/anatomy",
+  "0xdesign/design-lab",
+  "emilkowalski/improve-animations",
+];
+const skillByPath = new Map(skills.map((skill) => [skill.pathSlug, skill]));
+const featuredSkills = footerSkillPaths
+  .map((path) => skillByPath.get(path))
+  .filter((skill): skill is NonNullable<typeof skill> => Boolean(skill));
 const footerCollectionSlugs = [
   "mobile-app-design",
   "website-layout",
@@ -25,8 +60,6 @@ const footerCollectionSlugs = [
   "design-principles",
   "landing-page-design",
   "button-design",
-  "form-design",
-  "videos",
 ];
 const collectionBySlug = new Map(
   collections.map((collection) => [collection.slug, collection]),
@@ -45,35 +78,62 @@ type FooterLink = {
 type FooterSection = {
   title: string;
   links: FooterLink[];
+  more?: FooterLink;
 };
 
-const footerSections: FooterSection[] = [
+const navSections: FooterSection[] = [
   {
-    title: "Browse",
+    title: "Discover",
     links: [
-      { label: "Home", href: "/" },
       { label: "Skills", href: "/skills" },
-      { label: "Authors", href: "/authors" },
-      { label: "Icon", href: "/icons" },
-      { label: "Components", href: "/components" },
+      { label: "New skills", href: "/skills/new" },
+      { label: "Topics", href: "/skills/topics" },
       { label: "Collections", href: "/collections" },
+      { label: "Authors", href: "/authors" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { label: "Components", href: "/components" },
+      { label: "Icons", href: "/icons" },
       { label: "Design.md", href: "/design-md" },
+      { label: "Playbook", href: "/playbook" },
+    ],
+  },
+  {
+    title: "Community",
+    links: [
       { label: "Agents", href: "/agents" },
       { label: "Jobs", href: "/jobs" },
-      { label: "MCP", href: "/mcp/docs" },
+      { label: "Post a job", href: "/jobs/post" },
+      {
+        label: "GitHub",
+        href: "https://github.com/ibelick/ui-skills",
+        external: true,
+      },
+      { label: "X", href: "https://x.com/ibelick", external: true },
+    ],
+  },
+  {
+    title: "Developers",
+    links: [
       { label: "CLI", href: "/cli" },
+      { label: "MCP", href: "/mcp/docs" },
       { label: "Registry", href: "/skills/registry.txt" },
       { label: "llms.txt", href: "/llms.txt" },
     ],
   },
+];
+
+const discoverySections: FooterSection[] = [
   {
     title: "Topics",
-    links: [
-      ...featuredTopics.map((topic) => ({
-        label: topic.label,
-        href: `/skills/${topic.slug}`,
-      })),
-    ],
+    links: featuredTopics.map((topic) => ({
+      label: topic.label,
+      href: `/skills/${topic.slug}`,
+    })),
+    more: { label: "All topics", href: "/skills/topics" },
   },
   {
     title: "Collections",
@@ -81,99 +141,98 @@ const footerSections: FooterSection[] = [
       label: collection.title,
       href: `/collections/${collection.slug}`,
     })),
+    more: { label: "All collections", href: "/collections" },
   },
   {
     title: "Agents",
-    links: [
-      ...featuredAgents.map((agent) => ({
-        label: agent.name,
-        href: `/agents/${agent.id}`,
-      })),
-      { label: "More agents", href: "/agents" },
-    ],
+    links: featuredAgents.map((agent) => ({
+      label: agent.name,
+      href: `/agents/${agent.id}`,
+    })),
+    more: { label: "All agents", href: "/agents" },
   },
   {
-    title: "Best skills",
-    links: [
-      {
-        label: "UI Skills Root",
-        href: "/skills/ibelick/ui-skills-root",
-      },
-      {
-        label: "Improve UI",
-        href: "/skills/ibelick/improve-ui",
-      },
-      {
-        label: "Create Design MD",
-        href: "/skills/ibelick/create-design-md",
-      },
-      {
-        label: "UI/UX Pro Max",
-        href: "/skills/nextlevelbuilder/ui-ux-pro-max",
-      },
-      { label: "Design Lab", href: "/skills/0xdesign/design-lab" },
-      {
-        label: "Improve Animations",
-        href: "/skills/emilkowalski/improve-animations",
-      },
-      {
-        label: "Make Interfaces Feel Better",
-        href: "/skills/jakubkrehel/make-interfaces-feel-better",
-      },
-    ],
+    title: "Popular skills",
+    links: featuredSkills.map((skill) => ({
+      label: skill.label,
+      href: `/skills/${skill.pathSlug}`,
+    })),
+    more: { label: "All skills", href: "/skills" },
   },
   {
-    title: "Learn",
-    links: [
-      ...featuredPlaybook.map((entry) => ({
-        label: entry.title,
-        href: `/playbook/${entry.slug}`,
-      })),
-      { label: "More playbook", href: "/playbook" },
-    ],
+    title: "Playbook",
+    links: featuredPlaybook.map((entry) => ({
+      label: entry.label,
+      href: `/playbook/${entry.slug}`,
+    })),
+    more: { label: "All guides", href: "/playbook" },
   },
 ];
+
+const linkClass =
+  "text-content-secondary hover:text-content-primary transition-colors duration-150";
 ---
 
-<footer class="border-line-default mt-32 border-t">
-  <div class="pt-20 pb-5">
-    <div class="container-7xl">
-      <div class="type-body-md grid gap-10 md:grid-cols-2 lg:grid-cols-6">
-        {
-          footerSections.map((section) => (
-            <div>
-              <h3 class="type-body-md text-content-secondary leading-snug font-[450]">
-                {section.title}
-              </h3>
-              <ul class="mt-3 space-y-2 leading-snug">
-                {section.links.map((link) => (
-                  <li>
-                    <a
-                      href={link.href}
-                      target={link.external ? "_blank" : undefined}
-                      rel={link.external ? "noopener noreferrer" : undefined}
-                      title={link.label}
-                      aria-label={link.label}
-                      class="type-body-md text-content-secondary hover:text-content-primary block max-w-full truncate font-normal"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))
-        }
-      </div>
-
-      <div
-        class="type-body-md border-line-default text-content-secondary mt-16 flex w-full justify-center border-t pt-16 leading-snug"
-      >
-        <p class="text-center">
-          ©{currentYear}
-          {" "}UI Skills
+<footer id="site-footer" class="border-line-default mt-32 border-t">
+  <div class="container-7xl type-body-md pt-12 pb-8">
+    <div
+      class="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3 lg:grid-cols-5"
+    >
+      <div class="col-span-2 sm:col-span-3 lg:col-span-1">
+        <a
+          href="/"
+          class="text-content-primary inline-flex items-center gap-2 font-[450]"
+        >
+          <img
+            src="/uiskills-logo-light.webp"
+            alt=""
+            aria-hidden="true"
+            class="h-4 w-4"
+            width="16"
+            height="16"
+          />
+          <span>UI Skills</span>
+        </a>
+        <p class="text-content-secondary mt-3 max-w-60 text-pretty">
+          Curated skills, guides, and resources for building better interfaces
+          with agents.
         </p>
       </div>
+      {
+        [...navSections, ...discoverySections].map((section) => (
+          <div class="min-w-0">
+            <h3 class="text-content-primary font-[450]">{section.title}</h3>
+            <ul class="mt-3 space-y-2">
+              {section.links.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
+                    title={link.label}
+                    class={`${linkClass} block truncate`}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+              {section.more && (
+                <li>
+                  <a href={section.more.href} class={linkClass}>
+                    {section.more.label}
+                  </a>
+                </li>
+              )}
+            </ul>
+          </div>
+        ))
+      }
     </div>
+
+    <p
+      class="border-line-default text-content-secondary mt-16 border-t pt-6 text-center"
+    >
+      ©{currentYear} UI Skills
+    </p>
   </div>
 </footer>

@@ -4,6 +4,7 @@ export const prerender = true;
 import Layout from "../layouts/Layout.astro";
 import { playbook } from "../data/playbook";
 import { skills } from "../data/skills";
+import { registry } from "../data/registry";
 import { FEATURED_PATH_SLUGS as FEATURED_SKILL_PATH_SLUGS } from "../data/featured-skills";
 import { designMd } from "../data/design-md";
 import { SHOW_DESIGN_MD } from "../config/features";
@@ -14,6 +15,7 @@ import CtaSection from "../ui/cta-section.astro";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
 const MAX_SKILLS = 20;
+const latestSkills = registry.slice(-4).reverse();
 
 const FEATURED_PATH_SLUGS = FEATURED_SKILL_PATH_SLUGS;
 
@@ -88,6 +90,28 @@ const featuredPlaybook = playbook
                 ))
               }
             </div>
+          </div>
+        </section>
+
+        <section class="flex min-w-0 flex-col gap-2">
+          <a
+            href="/skills/new"
+            class="section-title type-body-md inline-flex items-center gap-0.5 self-start font-[450] text-content-secondary"
+          >
+            <span>New skills</span>
+            <ChevronRightIcon className="size-4 text-content-muted" aria-hidden="true" />
+          </a>
+          <div class="flex flex-col">
+            {latestSkills.map((skill) => (
+              <SkillCard
+                href={`/skills/${skill.pathSlug}`}
+                slug={skill.slug}
+                description={skill.description}
+                ownerLabel={skill.sourceLabel}
+                avatarUrl={`https://github.com/${skill.sourceKey}.png?size=160`}
+                variant="list"
+              />
+            ))}
           </div>
         </section>
 

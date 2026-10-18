@@ -1,2 +1,10 @@
 PUBLIC_JOBS_API_URL=http://localhost:8787
 PUBLIC_TURNSTILE_SITE_KEY=
+
+BETTER_AUTH_URL=http://localhost:4321
+# Generate a unique secret of at least 32 characters. Never commit real values.
+BETTER_AUTH_SECRET=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=

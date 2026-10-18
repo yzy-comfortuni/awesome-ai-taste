@@ -8,6 +8,7 @@ import SkillContentCard from "../../ui/skill-content-card.astro";
 import Breadcrumbs from "../../ui/breadcrumbs.astro";
 import PlaybookCard from "../../ui/playbook-card.astro";
 import SkillCard from "../../ui/skill-card.astro";
+import RelatedDirectoryLinks from "../../ui/related-directory-links.astro";
 import SkillNav from "../../ui/skill-nav.astro";
 import SkillFileList from "../../ui/skill-file-list.astro";
 import Command from "../../ui/command.astro";
@@ -62,6 +63,11 @@ const userChildren =
   !topic && segments.length === 1 ? getSkillsBySource(bucket) : [];
 
 const topicChildren = isTopicGroup ? getSkillsByTopic(topicSlug) : [];
+const supportingSkills = isTopicGroup
+  ? (topic?.supportingSkillPaths ?? [])
+      .map(getSkillByPath)
+      .filter((entry): entry is Skill => Boolean(entry))
+  : [];
 
 const compareSkillLabels = (a: Skill, b: Skill) => {
   const aIsNumeric = /^\d/.test(a.label);
@@ -454,6 +460,30 @@ const installCommand = (() => {
                 ))}
               </div>
 
+              {supportingSkills.length > 0 ? (
+                <section class="flex flex-col gap-2" aria-labelledby="supporting-skills-title">
+                  <h2 id="supporting-skills-title" class="type-body-md text-content-secondary font-[450]">
+                    Supporting skills
+                  </h2>
+                  <div class="flex flex-col">
+                    {supportingSkills.map((entry) => (
+                      <SkillCard
+                        href={skillHref(entry)}
+                        slug={entry.slug}
+                        description={entry.description}
+                        ownerLabel={entry.sourceLabel}
+                        avatarUrl={`https://github.com/${entry.sourceKey}.png?size=160`}
+                        variant="list"
+                      />
+                    ))}
+                  </div>
+                </section>
+              ) : null}
+
+              {isTopicGroup && topic?.relatedLinks?.length ? (
+                <RelatedDirectoryLinks links={topic.relatedLinks} />
+              ) : null}
+
               {relatedTopicsForTopicPage.length > 0 ? (
                 <div class="flex flex-col gap-2">
                   <h2 class="type-body-md !text-content-secondary !font-[450]">
@@ -550,6 +580,7 @@ const installCommand = (() => {
                   <SkillNav
                     previousHref={previousSkillHref}
                     nextHref={nextSkillHref}
+                    skillPath={skill.pathSlug}
                   />
                 </div>
                 <p class="type-body-md text-content-secondary mt-3">

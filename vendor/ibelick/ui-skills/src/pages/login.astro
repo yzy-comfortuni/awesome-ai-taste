@@ -1,0 +1,120 @@
+---
+import { env } from "cloudflare:workers";
+import Layout from "../layouts/Layout.astro";
+import Button from "../ui/button.astro";
+import { authProviders, getAuthConfig, safeReturnTo } from "../lib/auth-config";
+
+export const prerender = false;
+
+const config = getAuthConfig(env);
+const providers = authProviders.filter(
+  (provider) => config?.socialProviders[provider.id],
+);
+const returnTo = safeReturnTo(Astro.url.searchParams.get("returnTo"));
+const errorCode = Astro.url.searchParams.get("error");
+const errorMessage =
+  errorCode === "account_not_linked"
+    ? "Sign in with your original provider, then connect this provider from your account."
+    : errorCode
+      ? "Sign-in was not completed. Please try again."
+      : "";
+---
+
+<Layout
+  title="Sign in | UI Skills"
+  description="Sign in to your UI Skills account."
+  robots="noindex,nofollow"
+  fullScreen
+>
+  <div
+    class="flex min-h-dvh flex-col items-center justify-center gap-8 px-4 py-16"
+  >
+    <a
+      href="/"
+      class="focus-visible:outline-content-primary inline-flex items-center gap-2 rounded-md focus-visible:outline-1 focus-visible:outline-offset-2"
+      aria-label="UI Skills home"
+    >
+      <img
+        src="/uiskills-logo-light.webp"
+        alt=""
+        aria-hidden="true"
+        class="h-8 w-8"
+        width="32"
+        height="32"
+      />
+    </a>
+    <div class="flex w-full max-w-xs flex-col items-center gap-10">
+      <h1
+        class="text-content-primary text-center text-3xl font-medium tracking-tight"
+      >
+        Log in to UI Skills
+      </h1>
+      <div
+        class="flex w-full flex-col gap-3"
+        data-sign-in
+        data-return-to={returnTo}
+      >
+        {
+          providers.map((provider) => (
+            <Button
+              size="lg"
+              variant="primary"
+              className="w-full"
+              data-provider={provider.id}
+            >
+              {provider.id === "github" && (
+                <svg
+                  aria-hidden="true"
+                  class="size-4"
+                  viewBox="0 0 98 96"
+                  fill="currentColor"
+                >
+                  <path d="M41.44 69.38C28.81 67.85 19.91 58.76 19.91 46.99c0-4.78 1.72-9.95 4.59-13.4-1.24-3.16-1.05-9.86.38-12.63 3.83-.48 9 1.53 12.06 4.3 3.64-1.15 7.47-1.72 12.16-1.72s8.52.57 11.96 1.63c2.97-2.68 8.23-4.69 12.06-4.21 1.34 2.58 1.53 9.28.29 12.53 3.06 3.64 4.69 8.52 4.69 13.5 0 11.77-8.9 20.67-21.73 22.3 3.25 2.1 5.46 6.7 5.46 11.96v9.95c0 2.87 2.39 4.5 5.26 3.35C84.41 87.95 98 70.63 98 49.19 98 22.11 75.99 0 48.9 0S0 22.11 0 49.19c0 21.25 13.49 38.86 31.68 45.46 2.58.96 5.07-.77 5.07-3.35v-7.66c-1.34.57-3.06.96-4.59.96-6.32 0-10.05-3.45-12.73-9.86-1.05-2.58-2.2-4.11-4.4-4.4-1.15-.1-1.53-.57-1.53-1.15 0-1.15 1.91-2.01 3.83-2.01 2.77 0 5.17 1.72 7.66 5.26 1.91 2.77 3.92 4.02 6.32 4.02 2.39 0 3.92-.86 6.12-3.06 1.63-1.63 2.87-3.06 4.02-4.02Z" />
+                </svg>
+              )}
+              Continue with {provider.name}
+            </Button>
+          ))
+        }
+        <div class="min-h-6">
+          <p
+            class="text-content-secondary type-body-md text-center"
+            role="alert"
+            data-auth-error
+            hidden={!errorMessage}
+          >
+            {errorMessage}
+          </p>
+        </div>
+        {
+          !config && (
+            <p class="text-content-secondary type-body-md text-center">
+              Sign-in is not available yet.
+            </p>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import { authClient } from "../lib/auth-client";
+  import { bindAuthActions } from "../lib/auth-actions";
+
+  const form = document.querySelector<HTMLElement>("[data-sign-in]");
+  bindAuthActions(
+    form,
+    async (button) => {
+      const provider = button.dataset.provider;
+      if (provider !== "google" && provider !== "github") return;
+      const result = await authClient.signIn.social({
+        provider,
+        callbackURL: form?.dataset.returnTo ?? "/account",
+        errorCallbackURL: "/login",
+      });
+      if (result.error) throw new Error("Sign-in failed");
+    },
+    "Unable to start sign-in. Please try again.",
+  );
+</script>

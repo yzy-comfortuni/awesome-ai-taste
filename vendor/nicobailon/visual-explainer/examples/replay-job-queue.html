@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A timeout costs one job 2 s, not the whole queue</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b0d0c'/%3E%3Cpath d='M16 32h14M34 22h14M34 42h14' stroke='%23f2a93b' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+<!-- Example for the replay recipe (references/motion.md): the kit (plugins/visual-explainer/kit/) plus this page's showcase CSS. Render it with kit/render.mjs, or open it as is. Not shipped in the npm package. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../plugins/visual-explainer/kit/kit.css" data-ve-kit>
+<style>
+  /* showcase: a process figure. Nodes read left-aligned, eyebrow first, like a state-machine diagram. */
+  @media screen { .ve-proc .ve-svg { min-width: 960px; } }   /* 13-unit labels stay >= 12 px; print fits the page */
+  .ve-proc .ve-n text { text-anchor: start; }
+  .ve-proc .ve-n text.end { text-anchor: end; }
+  .ve-proc .ve-n.is-off .sh { stroke-dasharray: 5 4; filter: none; }
+  /* cells: a queue slot or a worker slot. The outline is always drawn; a .ve-at group fills it while a job is there. */
+  .cell { fill: none; stroke: var(--border-bright); stroke-width: 1; stroke-dasharray: 3 3; }
+  .job rect { fill: color-mix(in srgb, var(--accent) 22%, var(--surface)); stroke: var(--accent); stroke-width: 1.25; }
+  .ve-n .job text, .pool .job text { fill: var(--text); font: 600 13px var(--font-mono); text-anchor: middle; }
+  /* a machine inside a node: its states are always drawn; a ring marks the current one */
+  .inner rect { fill: none; stroke: var(--border-bright); stroke-width: 1; }
+  .ve-n .inner text { fill: var(--text-dim); font: 500 13px var(--font-mono); text-anchor: middle; }
+  .inner path { fill: none; stroke: var(--border-bright); stroke-width: 1; marker-end: url(#ve-ah); }
+  .ring { fill: var(--accent-dim); stroke: var(--accent); stroke-width: 2; }
+  /* the shared worker pool, drawn as a dashed boundary like any shared resource */
+  .pool .bound { fill: none; stroke: var(--border-bright); stroke-dasharray: 5 4; }
+  .pool text { dominant-baseline: central; }
+  .pool .ttl { fill: var(--text); font: 600 13px var(--font-mono); letter-spacing: .08em; }
+  .pool .sub { fill: var(--text-dim); font: 500 14px var(--font-mono); }
+  .pool .sub.end { text-anchor: end; }
+  .pool .slot-l { fill: var(--text-dim); font: 500 13px var(--font-mono); }
+  .ve-dots .retry { fill: var(--accent); filter: drop-shadow(0 0 4px var(--accent)); }
+</style>
+</head>
+<body>
+<!-- Shared defs: one arrowhead (context-stroke follows each edge's color), the node fill, and the waffle cells. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <marker id="ve-ah" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker>
+    <linearGradient id="ve-node" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--node-top)"/><stop offset="1" style="stop-color:var(--surface)"/></linearGradient>
+    <pattern id="ve-w-on" width="10" height="10" patternUnits="userSpaceOnUse"><rect x="1" y="1" width="8" height="8" rx="1.5" style="fill:var(--accent)"/></pattern>
+    <pattern id="ve-w-off" width="10" height="10" patternUnits="userSpaceOnUse"><rect x="1.5" y="1.5" width="7" height="7" rx="1.5" style="fill:none;stroke:var(--text-dim)"/></pattern>
+  </defs>
+</svg>
+<main>
+
+  <header>
+    <p class="eyebrow">Job queue · replay</p>
+    <h1>A timeout costs one job <span class="num">2&nbsp;s</span>, not the whole queue</h1>
+    <p class="lead">A job that times out waits a short backoff and rejoins the <b>back</b> of the queue. The other jobs keep running.</p>
+    <p class="meta">Example for the replay recipe in references/motion.md · the job service is made up</p>
+  </header>
+
+  <figure class="ve-steps ve-proc">
+    <div class="frame">
+      <svg class="ve-svg" viewBox="0 0 1040 550" role="img" aria-label="A job service as a state machine. Submit, Admit, Queue, and Run lead to a Result decision. A pass goes to Done; a fail goes to Retry, which returns the job to the back of the queue after a backoff, or to a dead letter after the third fail. A worker pool of two slots is shared by every job. Replayed: five jobs arrive, two run while three wait, J1 passes, J3 takes the free worker, J2 times out and rejoins the back of the queue, then the queue drains and all five are done.">
+        <!-- Edges first. data-s="0 …" keeps the whole machine drawn; the listed steps light the edge. -->
+        <path class="ve-e" data-s="0 1" d="M170 90H240"/>
+        <path class="ve-e" data-s="0 2" d="M410 90H480"/>
+        <path class="ve-e" data-s="0 3 5 7" d="M730 90H800"/>
+        <path class="ve-e" data-s="0 4 6 7" d="M910 150V240"/>
+        <path class="ve-e" data-s="0 6" d="M820 295H730"/>
+        <text class="ve-el" x="775" y="318">fail</text>
+        <path class="ve-e" data-s="0 6" d="M650 240V150"/>
+        <text class="ve-el r" x="690" y="199">after backoff</text>
+        <path class="ve-e" data-s="0 4 7" d="M910 350V430"/>
+        <text class="ve-el r" x="950" y="394">pass</text>
+        <path class="ve-e is-async" d="M325 150V240"/>
+        <text class="ve-el l" x="303" y="199">queue full</text>
+        <path class="ve-e is-async" d="M560 350V430"/>
+        <text class="ve-el l" x="538" y="394">3rd fail</text>
+
+        <!-- Tokens that run under the nodes: a burst, and whole routes. -->
+        <circle class="ve-tok" data-s="1" r="5" style="offset-path: path('M170 90H240')"/>
+        <circle class="ve-tok" data-s="1" r="5" style="offset-path: path('M170 90H240'); --d: 130ms"/>
+        <circle class="ve-tok" data-s="1" r="5" style="offset-path: path('M170 90H240'); --d: 260ms"/>
+        <circle class="ve-tok" data-s="1" r="5" style="offset-path: path('M170 90H240'); --d: 390ms"/>
+        <circle class="ve-tok" data-s="1" r="5" style="offset-path: path('M170 90H240'); --d: 520ms"/>
+        <circle class="ve-tok" data-s="4" r="5" style="offset-path: path('M910 150V430'); --dur: 1400ms"/>
+        <circle class="ve-tok" data-s="6" r="5" style="offset-path: path('M910 150V295H650V150'); --dur: 2200ms"/>
+        <circle class="ve-tok" data-s="7" r="5" style="offset-path: path('M730 90H910V430'); --dur: 1700ms"/>
+        <circle class="ve-tok" data-s="7" r="5" style="offset-path: path('M730 90H910V430'); --dur: 1700ms; --d: 350ms"/>
+        <circle class="ve-tok" data-s="7" r="5" style="offset-path: path('M730 90H910V430'); --dur: 1700ms; --d: 700ms"/>
+        <circle class="ve-tok" data-s="7" r="5" style="offset-path: path('M730 90H910V430'); --dur: 1700ms; --d: 1050ms"/>
+
+        <!-- Full picture: each dot is one job; 700:7000 means one in ten takes the retry loop. -->
+        <path data-flow="job" data-every="700" d="M95 90H910V480"/>
+        <path data-flow="retry" data-every="7000" d="M95 90H910V295H650V90H910V480"/>
+        <g class="ve-dots" aria-hidden="true"></g>
+
+        <g class="ve-n" data-s="0 1" transform="translate(20 30)"><rect class="sh" width="150" height="120" rx="6"/>
+          <text class="ve-kind" x="16" y="26">fact</text><text x="16" y="52">Submit</text><text class="sub" x="16" y="78">5 jobs at once</text></g>
+        <g class="ve-n" data-s="0 2" transform="translate(240 30)"><rect class="sh" width="170" height="120" rx="6"/>
+          <text class="ve-kind" x="16" y="26">decision</text><text x="16" y="52">Admit</text><text class="sub" x="16" y="78">queue ≤ 8</text>
+          <g class="ve-vals"><text class="sub" data-s="2" x="16" y="98">admitted 5</text></g></g>
+        <g class="ve-n" transform="translate(480 30)"><rect class="sh" width="250" height="120" rx="6"/>
+          <text class="ve-kind" x="16" y="26">state</text><text x="16" y="52">Queue</text>
+          <g class="ve-vals"><text class="sub end" data-s="0" x="236" y="52">0 / 8</text><text class="sub end" data-s="2" x="236" y="52">5 / 8</text><text class="sub end" data-s="3" x="236" y="52">3 / 8</text><text class="sub end" data-s="5" x="236" y="52">2 / 8</text><text class="sub end" data-s="6" x="236" y="52">3 / 8</text><text class="sub end" data-s="7" x="236" y="52">0 / 8</text></g>
+          <!-- Eight slots; the front is on the right, next to Run. Each .ve-at group is one job in one slot for the steps it lists. -->
+          <rect class="cell" x="7" y="72" width="26" height="26" rx="4"/><rect class="cell" x="37" y="72" width="26" height="26" rx="4"/><rect class="cell" x="67" y="72" width="26" height="26" rx="4"/><rect class="cell" x="97" y="72" width="26" height="26" rx="4"/>
+          <rect class="cell" x="127" y="72" width="26" height="26" rx="4"/><rect class="cell" x="157" y="72" width="26" height="26" rx="4"/><rect class="cell" x="187" y="72" width="26" height="26" rx="4"/><rect class="cell" x="217" y="72" width="26" height="26" rx="4"/>
+          <g class="ve-at job" data-s="2" style="--d: 850ms"><rect x="217" y="72" width="26" height="26" rx="4"/><text x="230" y="85">J1</text></g>
+          <g class="ve-at job" data-s="3 4"><rect x="217" y="72" width="26" height="26" rx="4"/><text x="230" y="85">J3</text></g>
+          <g class="ve-at job" data-s="5 6"><rect x="217" y="72" width="26" height="26" rx="4"/><text x="230" y="85">J4</text></g>
+          <g class="ve-at job" data-s="2" style="--d: 1000ms"><rect x="187" y="72" width="26" height="26" rx="4"/><text x="200" y="85">J2</text></g>
+          <g class="ve-at job" data-s="3 4"><rect x="187" y="72" width="26" height="26" rx="4"/><text x="200" y="85">J4</text></g>
+          <g class="ve-at job" data-s="5 6"><rect x="187" y="72" width="26" height="26" rx="4"/><text x="200" y="85">J5</text></g>
+          <g class="ve-at job" data-s="2" style="--d: 1150ms"><rect x="157" y="72" width="26" height="26" rx="4"/><text x="170" y="85">J3</text></g>
+          <g class="ve-at job" data-s="3 4"><rect x="157" y="72" width="26" height="26" rx="4"/><text x="170" y="85">J5</text></g>
+          <g class="ve-at job" data-s="6" style="--d: 2000ms"><rect x="157" y="72" width="26" height="26" rx="4"/><text x="170" y="85">J2</text></g>
+          <g class="ve-at job" data-s="2" style="--d: 1300ms"><rect x="127" y="72" width="26" height="26" rx="4"/><text x="140" y="85">J4</text></g>
+          <g class="ve-at job" data-s="2" style="--d: 1450ms"><rect x="97" y="72" width="26" height="26" rx="4"/><text x="110" y="85">J5</text></g></g>
+        <g class="ve-n" data-s="0 3 5" transform="translate(800 30)"><rect class="sh" width="220" height="120" rx="6"/>
+          <text class="ve-kind" x="16" y="26">effect</text><text x="16" y="52">Run</text><text class="sub end" x="204" y="52">timeout 30 s</text>
+          <!-- A machine inside the node: the ring marks the job's current state on the steps it lists. -->
+          <rect class="ve-at ring" data-s="3 5" x="8" y="68" width="60" height="32" rx="5"/>
+          <rect class="ve-at ring" data-s="6" x="80" y="68" width="60" height="32" rx="5"/>
+          <rect class="ve-at ring" data-s="4 7" x="152" y="68" width="60" height="32" rx="5"/>
+          <g class="inner"><rect x="10" y="70" width="56" height="28" rx="4"/><text x="38" y="84">fetch</text><path d="M66 84H81"/>
+            <rect x="82" y="70" width="56" height="28" rx="4"/><text x="110" y="84">run</text><path d="M138 84H153"/>
+            <rect x="154" y="70" width="56" height="28" rx="4"/><text x="182" y="84">upload</text></g></g>
+
+        <g class="ve-n is-off" transform="translate(240 240)"><rect class="sh" width="170" height="110" rx="6"/>
+          <text class="ve-kind" x="16" y="26">state</text><text x="16" y="52">Refused</text><text class="sub" x="16" y="78">429 · try later</text></g>
+        <g class="ve-n" data-s="0 6" transform="translate(480 240)"><rect class="sh" width="250" height="110" rx="6"/>
+          <text class="ve-kind" x="16" y="26">state</text><text x="16" y="52">Retry</text><text class="sub" x="16" y="78">backoff 2 s, then 4 s</text>
+          <g class="ve-vals"><text class="sub" data-s="6" x="16" y="96">J2 · try 2 of 3</text><text class="sub" data-s="7" x="16" y="96">empty</text></g></g>
+        <g class="ve-n" data-s="0 4" transform="translate(820 240)"><rect class="sh" width="180" height="110" rx="6"/>
+          <text class="ve-kind" x="16" y="26">decision</text><text x="16" y="52">Result</text><text class="sub" x="16" y="78">pass or fail</text>
+          <g class="ve-vals"><text class="sub" data-s="4" x="16" y="96">pass 1</text><text class="sub" data-s="6" x="16" y="96">pass 1 · fail 1</text><text class="sub" data-s="7" x="16" y="96">pass 5 · fail 1</text></g></g>
+
+        <g class="ve-n is-off" transform="translate(480 430)"><rect class="sh" width="250" height="100" rx="6"/>
+          <text class="ve-kind" x="16" y="26">state</text><text x="16" y="52">Dead letter</text><text class="sub" x="16" y="78">after 3 tries</text></g>
+        <g class="ve-n" data-s="0 7" transform="translate(820 430)"><rect class="sh" width="180" height="100" rx="6"/>
+          <text class="ve-kind" x="16" y="26">state</text><text x="16" y="52">Done</text>
+          <g class="ve-vals"><text class="sub" data-s="0" x="16" y="78">0 jobs</text><text class="sub" data-s="4" x="16" y="78">1 job</text><text class="sub" data-s="7" x="16" y="78">5 jobs</text></g></g>
+
+        <!-- The shared resource: two worker slots. A .ve-at group fills a slot while a job holds it. -->
+        <g class="pool" transform="translate(20 430)"><rect class="bound" width="390" height="100" rx="6"/>
+          <text class="ttl" x="16" y="26">WORKER POOL</text>
+          <g class="ve-vals"><text class="sub end" data-s="0" x="374" y="26">0 / 2 busy</text><text class="sub end" data-s="3" x="374" y="26">2 / 2 busy</text><text class="sub end" data-s="4" x="374" y="26">1 / 2 busy</text><text class="sub end" data-s="5" x="374" y="26">2 / 2 busy</text><text class="sub end" data-s="6" x="374" y="26">1 / 2 busy</text><text class="sub end" data-s="7" x="374" y="26">0 / 2 busy</text></g>
+          <rect class="cell" x="16" y="48" width="170" height="36" rx="5"/><text class="slot-l" x="30" y="66">W1 · idle</text>
+          <rect class="cell" x="204" y="48" width="170" height="36" rx="5"/><text class="slot-l" x="218" y="66">W2 · idle</text>
+          <g class="ve-at job" data-s="3" style="--d: 700ms"><rect x="16" y="48" width="170" height="36" rx="5"/><text x="101" y="66">W1 · J1</text></g>
+          <g class="ve-at job" data-s="5 6" style="--d: 700ms"><rect x="16" y="48" width="170" height="36" rx="5"/><text x="101" y="66">W1 · J3</text></g>
+          <g class="ve-at job" data-s="3 4 5" style="--d: 950ms"><rect x="204" y="48" width="170" height="36" rx="5"/><text x="289" y="66">W2 · J2</text></g></g>
+
+        <!-- Edge numbers sit beside their edge and fill on the steps it fires. -->
+        <g class="ve-co q" data-s="0 1" transform="translate(205 68)"><circle r="11"/><text>1</text></g>
+        <g class="ve-co q" data-s="0 2" transform="translate(445 68)"><circle r="11"/><text>2</text></g>
+        <g class="ve-co q" data-s="0 3 5 7" transform="translate(765 68)"><circle r="11"/><text>3</text></g>
+        <g class="ve-co q" data-s="0 4 6 7" transform="translate(932 195)"><circle r="11"/><text>4</text></g>
+        <g class="ve-co q" data-s="0 6" transform="translate(775 273)"><circle r="11"/><text>5</text></g>
+        <g class="ve-co q" data-s="0 6" transform="translate(672 195)"><circle r="11"/><text>6</text></g>
+        <g class="ve-co q" data-s="0 4 7" transform="translate(932 390)"><circle r="11"/><text>7</text></g>
+        <g class="ve-co q" transform="translate(347 195)"><circle r="11"/><text>8</text></g>
+        <g class="ve-co q" transform="translate(582 390)"><circle r="11"/><text>9</text></g>
+
+        <!-- Tokens that run on top: jobs sliding into their queue slots, and leaving from the front. -->
+        <circle class="ve-tok" data-s="2" r="5" style="offset-path: path('M410 90H455V115H710'); --dur: 1100ms"/>
+        <circle class="ve-tok" data-s="2" r="5" style="offset-path: path('M410 90H455V115H680'); --dur: 1100ms; --d: 150ms"/>
+        <circle class="ve-tok" data-s="2" r="5" style="offset-path: path('M410 90H455V115H650'); --dur: 1100ms; --d: 300ms"/>
+        <circle class="ve-tok" data-s="2" r="5" style="offset-path: path('M410 90H455V115H620'); --dur: 1100ms; --d: 450ms"/>
+        <circle class="ve-tok" data-s="2" r="5" style="offset-path: path('M410 90H455V115H590'); --dur: 1100ms; --d: 600ms"/>
+        <circle class="ve-tok" data-s="3" r="5" style="offset-path: path('M710 115H745V90H800')"/>
+        <circle class="ve-tok" data-s="3" r="5" style="offset-path: path('M680 115H745V90H800'); --d: 250ms"/>
+        <circle class="ve-tok" data-s="5" r="5" style="offset-path: path('M710 115H745V90H800')"/>
+      </svg>
+    </div>
+    <div class="ve-player">
+      <ol class="ve-cap">
+        <li data-n="1/8">A burst of five jobs arrives at once.</li>
+        <li data-n="2/8">Admit lets all five in, because the queue holds eight (admit.ts:14).</li>
+        <li data-n="3/8">Two jobs start and three wait, because the pool has two workers (pool.ts:8).</li>
+        <li data-n="4/8">J1 uploads and passes, so it is done (worker.ts:52).</li>
+        <li data-n="5/8">The free worker takes J3 from the front, because a slot opened (pool.ts:21).</li>
+        <li data-n="6/8">J2 runs past 30 s, so it fails, waits 2 s, and rejoins the back of the queue (retry.ts:22).</li>
+        <li data-n="7/8">The rest run in order. J2 passes on its second try.</li>
+        <li data-n="8/8">All five are done. Each dot is a job; about one in ten takes the retry loop.</li>
+      </ol>
+      <button data-go="-1" aria-label="Previous step">←</button>
+      <button data-play>Play</button>
+      <input type="range" min="0" value="0" aria-label="Step">
+      <button data-go="1" aria-label="Next step">→</button>
+    </div>
+    <figcaption><span class="fig-n">Fig. 1</span>One run of five jobs, one event per step. A timeout sends J2 to the back of the queue; it never blocks J3, J4, or J5.</figcaption>
+  </figure>
+
+  <section class="sources" aria-label="Sources">
+    <p class="ve-label caps">Sources</p>
+    <p>Illustrative: <code>src/jobs/admit.ts:14</code> · <code>src/jobs/pool.ts:8, 21</code> · <code>src/jobs/worker.ts:52</code> · <code>src/jobs/retry.ts:22</code>. The service is an example, not a real codebase.</p>
+  </section>
+
+</main>
+<script src="../plugins/visual-explainer/kit/kit.js" data-ve-kit></script>
+</body>
+</html>

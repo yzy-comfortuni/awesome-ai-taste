@@ -1,84 +1,19 @@
 #!/usr/bin/env node
 // Turns a plan source page (<ve-*> tags) into one static, self-contained HTML page.
-// It checks the plan's shape, reads cited code from disk, and inlines plan.css and plan.js.
+// It checks the plan's shape, reads cited code from disk, and inlines plan.css, kit/reply.js, and plan.js.
 // No dependencies, so it runs from a copied skill folder.
 import { readFileSync, realpathSync, renameSync, statSync, writeFileSync } from "node:fs";
 import { spawn } from "node:child_process";
 import { dirname, extname, join, relative, resolve, sep } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { addClass, esc, find, hasClass, inner, kids, parseHtml, rawText, serialize, textOf, words } from "../kit/html.mjs";
+import { expandFlow, ifAttrs } from "../kit/flow.mjs";
+import { expandAsk as askTag } from "../kit/ask.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 
-/* ── a small HTML tree: enough to find tags and attributes; untouched parts serialize byte for byte ── */
-const VOID = new Set("area base br col embed hr img input link meta source track wbr".split(" "));
-const RAW_TEXT = new Set(["script", "style", "textarea", "title"]);
-const ENTITIES = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " " };
-const decode = (s) => s.replace(/&(#x[\da-f]+|#\d+|\w+);/gi, (m, e) => (e[0] === "#" ? String.fromCodePoint(e[1].toLowerCase() === "x" ? parseInt(e.slice(2), 16) : +e.slice(1)) : ENTITIES[e.toLowerCase()] ?? m));
-const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
-const TAG = /<!--[\s\S]*?-->|<!doctype[^>]*>|<\/([a-zA-Z][\w:-]*)\s*>|<([a-zA-Z][\w:-]*)((?:\s+[^\s=\/>"']+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+))?)*)\s*(\/?)>/gi;
-
-function parseAttrs(src) {
-  const attrs = {};
-  for (const m of src.matchAll(/([^\s=\/>"']+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))?/g)) attrs[m[1].toLowerCase()] = decode(m[2] ?? m[3] ?? m[4] ?? "");
-  return attrs;
-}
-
-function parseHtml(html) {
-  const root = { name: "#root", attrs: {}, children: [] };
-  const stack = [root];
-  const top = () => stack[stack.length - 1];
-  const text = (raw) => raw && top().children.push({ text: raw });
-  let last = 0;
-  let m;
-  TAG.lastIndex = 0;
-  while ((m = TAG.exec(html))) {
-    text(html.slice(last, m.index));
-    last = TAG.lastIndex;
-    if (m[0].startsWith("<!")) { top().children.push({ text: m[0], comment: true }); continue; }
-    if (m[1]) {
-      const i = stack.findLastIndex((n) => n.name === m[1].toLowerCase());
-      if (i > 0) { stack[i].closeRaw = m[0]; stack.length = i; } else text(m[0]);
-      continue;
-    }
-    const name = m[2].toLowerCase();
-    const node = { name, attrs: parseAttrs(m[3]), openRaw: m[0], children: [], pos: m.index, selfClose: !!m[4] || VOID.has(name) };
-    top().children.push(node);
-    if (node.selfClose) continue;
-    if (RAW_TEXT.has(name)) {
-      // only "</script" followed by space, / or > ends the text; "</scripture>" inside a string does not
-      const closer = new RegExp(`</${name}(?=[\\s/>])`, "gi");
-      closer.lastIndex = last;
-      const end = closer.exec(html)?.index ?? -1;
-      const stop = end < 0 ? html.length : end;
-      node.children.push({ text: html.slice(last, stop) });
-      node.closeRaw = end < 0 ? "" : html.slice(end).match(/^<\/[^>]*>/)[0];
-      last = stop + node.closeRaw.length;
-      TAG.lastIndex = last;
-      continue;
-    }
-    stack.push(node);
-  }
-  text(html.slice(last));
-  return root;
-}
-
-const serialize = (n) => n.html ?? n.text ?? (n.openRaw ?? "") + n.children.map(serialize).join("") + (n.closeRaw ?? "");
-const inner = (n) => n.children.map(serialize).join("");
-const kids = (n) => n.children.filter((c) => c.name);
-function* walk(n) { for (const c of n.children ?? []) if (c.name) { yield c; yield* walk(c); } }
-const find = (n, pred) => [...walk(n)].filter(pred);
-const textOf = (n) => (n.text !== undefined ? (n.comment ? "" : decode(n.text)) : n.name === "script" || n.name === "style" ? "" : n.children.map(textOf).join(""));
-const rawText = (n) => n.children.map((c) => c.text ?? "").join("");
-const words = (s) => s.trim().split(/\s+/).filter(Boolean).length;
-const hasClass = (n, c) => (n.attrs?.class ?? "").split(/\s+/).includes(c);
-
 /** True when the page holds a real <ve-plan> element, not one mentioned in a comment, script, or style. */
-const hasPlan = (html) => find(parseHtml(html), (n) => n.name === "ve-plan").length > 0;
-function addClass(n, cls) {
-  const m = n.openRaw.match(/\sclass\s*=\s*(?:"([^"]*)"|'([^']*)')/i);
-  n.openRaw = m ? n.openRaw.replace(m[0], ` class="${esc(`${m[1] ?? m[2]} ${cls}`.trim())}"`) : n.openRaw.replace(/\s*(\/?)>$/, ` class="${cls}"$1>`);
-  n.attrs.class = `${n.attrs.class ?? ""} ${cls}`.trim();
-}
+export const hasPlan = (html) => find(parseHtml(html), (n) => n.name === "ve-plan").length > 0;
 
 /* ── code: read from disk inside the root, highlight, number ── */
 const SECRET_NAME = /(^|\/)\.(git|ssh|aws|gnupg|kube)(\/|$)|(^|\/)(\.env(\.[^/]*)?|\.npmrc|\.netrc|\.pypirc|\.pgpass|\.git-credentials|id_(rsa|dsa|ecdsa|ed25519)[^/]*|credentials[^/]*|secrets?(\.[^/]*)?)$|\.(pem|key|p12|pfx|tfstate|kdbx|keystore)$/i;
@@ -380,42 +315,7 @@ export function renderPlan(source, { root = process.cwd(), editor = process.env.
     return `<figure class="mock">${n.attrs.label ? `<p class="mock-label">${esc(n.attrs.label)}</p>` : ""}<div class="mock-stage"><div class="mock-host" style="width:${w}px"><template shadowrootmode="open"><style>${MOCK_CSS}</style><div class="root">${content}</div></template></div></div>${list}</figure>`;
   }
 
-  function expandAsk(n) {
-    const at = where(n);
-    const id = n.attrs.id;
-    if (!id || !/^[\w-]+$/.test(id)) errors.push(`${at}: needs id="word" (letters, digits, - or _)`);
-    else if (askIds.has(id)) errors.push(`${at}: id="${id}" is already used at ${askIds.get(id)}`);
-    askIds.set(id, at);
-    const q = n.attrs.q || "";
-    if (!q) errors.push(`${at}: needs q="the question"`);
-    else if (words(q) > 15) warnings.push(`${at}: the question is ${words(q)} words; keep it to about 15`);
-    const multi = "multi" in n.attrs;
-    const opts = kids(n).filter((k) => k.name === "ve-opt");
-    if (opts.length < 2) errors.push(`${at}: needs at least two <ve-opt>`);
-    const defaults = opts.filter((o) => "default" in o.attrs);
-    if (!multi && defaults.length !== 1) errors.push(`${at}: mark exactly one <ve-opt default>, the option you would build`);
-    const values = new Set();
-    for (const o of opts) {
-      if (!o.attrs.value) errors.push(`${where(o)}: needs value=""`);
-      else if (values.has(o.attrs.value)) errors.push(`${where(o)}: value="${o.attrs.value}" is used twice`);
-      values.add(o.attrs.value);
-      for (const no of (o.attrs.removes || "").split(/\s+/).filter(Boolean)) if (!claimNos.has(no)) errors.push(`${where(o)}: removes="${no}", but there is no claim ${no}`);
-      if (o.attrs.note && words(o.attrs.note) > 12) warnings.push(`${where(o)}: note is ${words(o.attrs.note)} words; keep it to about 12`);
-    }
-    const row = opts.every((o) => textOf(o).trim().length <= 18 && !o.attrs.note && !o.attrs.removes);
-    const body = opts.map((o) => {
-      const cost = [];
-      for (const [k, sign, word] of [["new", "+", "new"], ["changed", "~", "changed"], ["deleted", "−", "deleted"]]) {
-        const v = +(o.attrs[k] || 0);
-        if (v) cost.push(`${v > 0 ? sign : "−"}${Math.abs(v)} ${word} file${Math.abs(v) === 1 ? "" : "s"}`);
-      }
-      for (const no of (o.attrs.removes || "").split(/\s+/).filter(Boolean)) cost.push(`<span class="goes">claim ${esc(no)} goes</span>`);
-      const data = ["new", "changed", "deleted", "removes"].filter((k) => o.attrs[k]).map((k) => ` data-${k}="${esc(o.attrs[k])}"`).join("");
-      const def = "default" in o.attrs;
-      return `<label class="opt"><input type="${multi ? "checkbox" : "radio"}" name="${esc(id)}" value="${esc(o.attrs.value ?? "")}"${def ? " checked" : ""}${data}><span class="opt-body"><span class="opt-label">${inner(o).trim()}</span>${def ? '<span class="sug">Suggested</span>' : ""}${o.attrs.note ? `<small>${esc(o.attrs.note)}</small>` : ""}${cost.length ? `<span class="opt-cost">${cost.join(" · ")}</span>` : ""}</span></label>`;
-    }).join("");
-    return `<fieldset class="ask${row ? " row" : ""}" id="ask-${esc(id)}" data-ask="${esc(id)}"><legend class="ask-n">Decision <b>${n.k}</b> of ${asks.length}</legend><p class="ask-q">${esc(q)}</p><div class="ask-opts">${body}</div></fieldset>`;
-  }
+  const expandAsk = (n) => askTag(n, { errors, warnings, where, ids: askIds, k: n.k, total: asks.length, claims: claimNos });
 
   function expandFiles(n) {
     const counts = { "+": 0, "~": 0, "-": 0 };
@@ -443,63 +343,19 @@ export function renderPlan(source, { root = process.cwd(), editor = process.env.
   };
   const expandRevision = (n) => `<section class="revision" aria-label="What changed"><p class="ve-label caps">Version ${esc(n.attrs.v || "2")} · changed since your answers</p><ul>${inner(n).trim()}</ul></section>`;
 
-  /* a diagram from boxes on a grid and arrows between them; the layout is computed here, so no coordinates are written by hand */
-  const W = 140, H = 64, GX = 84, GY = 56, PAD = 16; // three columns come out near the 560×340 hero
-  const ifAttrs = (k, cls = "") => `${k.attrs["data-if"] ? ` data-if="${esc(k.attrs["data-if"])}"` : ""}${cls || k.ifOff ? ` class="${cls}${k.ifOff ? `${cls ? " " : ""}is-if-off` : ""}"` : ""}`;
-  const flags = (k, base) => [base, ...["key", "new", "gone", "hot", "async"].filter((f) => f in k.attrs).map((f) => `is-${f}`)].join(" ");
+  /* <ve-flow>, laid out by kit/flow.mjs; a box or arrow links to its claims, and each claim gets one numbered callout, on the first box that names it */
   const refOf = (k) => {
     const nos = (k.attrs.claim || "").split(/\s+/).filter(Boolean);
     for (const no of nos) if (!claimNos.has(no)) errors.push(`${where(k)}: claim="${no}", but there is no claim ${no}`);
     return nos.length ? ` data-ref="${nos.map((no) => `claim-${esc(no)}`).join(" ")}"` : "";
   };
-  function expandFlow(n) {
-    const boxes = new Map(), edges = [];
-    for (const k of kids(n)) {
-      if (k.name === "ve-node") {
-        const m = (k.attrs.at || "").match(/^(\d+(?:\.5)?)[\s,]+(\d+(?:\.5)?)$/);
-        if (!k.attrs.id || !m) errors.push(`${where(k)}: needs id="name" and at="column row", for example at="2 1"`);
-        else if (boxes.has(k.attrs.id)) errors.push(`${where(k)}: id="${k.attrs.id}" is used twice`);
-        else boxes.set(k.attrs.id, { k, x: PAD + (m[1] - 1) * (W + GX), y: PAD + (m[2] - 1) * (H + GY) });
-      } else if (k.name === "ve-edge") edges.push(k);
-      else errors.push(`${where(k)}: only <ve-node> and <ve-edge> belong in <ve-flow>`);
-    }
-    for (const e of edges) for (const end of ["from", "to"]) if (!boxes.has(e.attrs[end])) errors.push(`${where(e)}: ${end}="${e.attrs[end] ?? ""}" names no <ve-node>`);
-    if (!n.attrs.label) warnings.push(`${where(n)}: add label="…", one sentence a screen reader can read instead of the picture`);
-    if (!boxes.size) { errors.push(`${where(n)}: needs at least one <ve-node>`); return ""; }
-    const pairs = new Set(edges.map((e) => `${e.attrs.from}>${e.attrs.to}`));
-    const edgeSvg = edges.filter((e) => boxes.has(e.attrs.from) && boxes.has(e.attrs.to) && e.attrs.from !== e.attrs.to).map((e) => {
-      const a = boxes.get(e.attrs.from), b = boxes.get(e.attrs.to);
-      // two arrows between the same boxes run side by side instead of on top of each other
-      const off = pairs.has(`${e.attrs.to}>${e.attrs.from}`) ? (e.attrs.from < e.attrs.to ? -12 : 12) : 0;
-      const [ax, ay, bx, by] = [a.x + W / 2, a.y + H / 2, b.x + W / 2, b.y + H / 2];
-      const x1 = bx > ax ? a.x + W : a.x, y2 = by > ay ? b.y : b.y + H;
-      let d, mx, my, vertical = false;
-      if (ay === by) { const x2 = bx > ax ? b.x : b.x + W; d = `M${x1} ${ay + off}H${x2}`; mx = (x1 + x2) / 2; my = ay + off; }
-      else if (ax === bx) { const y1 = by > ay ? a.y + H : a.y; d = `M${ax + off} ${y1}V${y2}`; mx = ax + off; my = (y1 + y2) / 2; vertical = true; }
-      else { d = `M${x1} ${ay + off}H${bx + off}V${y2}`; mx = (x1 + bx) / 2; my = ay + off; } // out of the side, then into the top or bottom
-      const ref = refOf(e);
-      const label = e.attrs.label ? `<text class="ve-el${vertical ? " r" : ""}"${ref} x="${vertical ? mx + 8 : mx}" y="${vertical ? my + 5 : off > 0 ? my + 17 : my - 9}">${esc(e.attrs.label)}</text>` : "";
-      return `<g${ifAttrs(e)}><path class="${flags(e, "ve-e")}"${ref} d="${d}"/>${label}${"gone" in e.attrs ? `<text class="ve-x" x="${mx}" y="${my}">✕</text>` : ""}</g>`;
-    });
+  const flow = (n) => {
     const called = new Set();
-    const nodeSvg = [], callouts = [];
-    for (const { k, x, y } of boxes.values()) {
-      const db = k.attrs.shape === "db", subs = kids(k).filter((s) => s.name === "small");
-      if (k.attrs.sub) subs.unshift({ attrs: {}, children: [{ text: esc(k.attrs.sub) }] });
-      const title = k.children.filter((c) => c.name !== "small").map(textOf).join("").trim();
-      const ty = (subs.length ? 25 : 32) + (db ? 6 : 0);
-      const shape = db ? `<path class="sh" d="M0 8V56A${W / 2} 8 0 0 0 ${W} 56V8"/><ellipse class="sh lid" cx="${W / 2}" cy="8" rx="${W / 2}" ry="8"/>` : `<rect class="sh" width="${W}" height="${H}" rx="6"/>`;
-      // <small data-if="…"> lets one box show a different line under each answer
-      const subSvg = subs.map((s) => `<text${ifAttrs(s, hasClass(s, "is-if-off") ? "sub is-if-off" : "sub")} x="${W / 2}" y="${ty + 21}">${esc(textOf(s).trim())}</text>`).join("");
-      nodeSvg.push(`<g${ifAttrs(k, flags(k, "ve-n"))}${refOf(k)} transform="translate(${x} ${y})">${shape}<text x="${W / 2}" y="${ty}">${esc(title)}</text>${subSvg}</g>`);
-      // each claim gets one numbered callout, on the first box that names it
-      const fresh = (k.attrs.claim || "").split(/\s+/).filter((no) => claimNos.has(no) && !called.has(no));
-      // the callout shows and hides with its box
-      fresh.forEach((no, i) => { called.add(no); callouts.push(`<g${ifAttrs(k, "ve-co")} data-ref="claim-${esc(no)}" transform="translate(${x + i * 26} ${y})"><circle r="11"/><text>${esc(no)}</text></g>`); });
-    }
-    const width = Math.max(...[...boxes.values()].map((b) => b.x)) + W + PAD, height = Math.max(...[...boxes.values()].map((b) => b.y)) + H + PAD;
-    return `<div class="frame"><svg class="ve-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(n.attrs.label || "")}">${edgeSvg.join("")}${nodeSvg.join("")}${callouts.join("")}</svg></div>`;
-  }
+    // the callout shows and hides with its box
+    const callout = (k, x, y) => (k.attrs.claim || "").split(/\s+/).filter((no) => claimNos.has(no) && !called.has(no))
+      .map((no, i) => { called.add(no); return `<g${ifAttrs(k, "ve-co")} data-ref="claim-${esc(no)}" transform="translate(${x + i * 26} ${y})"><circle r="11"/><text>${esc(no)}</text></g>`; }).join("");
+    return expandFlow(n, { errors, warnings, where, ref: refOf, callout });
+  };
 
   const CHIP = { built: ["ok", "Built"], changed: ["warn", "Changed"], dropped: ["risk", "Dropped"] };
   function expandClaim(c) {
@@ -527,7 +383,7 @@ export function renderPlan(source, { root = process.cwd(), editor = process.env.
     return `<details class="claim" id="${esc(id)}"${data}><summary${c.no ? ` data-ref="claim-${esc(c.no)}"` : ""}><span class="c-no">${esc(num)}</span><span class="c-text">${claimHtml}</span><span class="c-meta">${chips}</span></summary><div class="c-body">${atLine}${own.map(serialize).join("")}${guess}${checkLine}${statusLine}${sub.map(serialize).join("")}</div></details>`;
   }
 
-  const EXPAND = { "ve-code": expandCode, "ve-calls": expandCalls, "ve-mock": expandMock, "ve-flow": expandFlow, "ve-ask": expandAsk, "ve-files": expandFiles, "ve-quote": expandQuote, "ve-why": expandWhy, "ve-revision": expandRevision, "ve-claim": expandClaim };
+  const EXPAND = { "ve-code": expandCode, "ve-calls": expandCalls, "ve-mock": expandMock, "ve-flow": flow, "ve-ask": expandAsk, "ve-files": expandFiles, "ve-quote": expandQuote, "ve-why": expandWhy, "ve-revision": expandRevision, "ve-claim": expandClaim };
   const PARTS = ["ve-plan", "ve-pin", "ve-opt", "ve-node", "ve-edge"];
 
   /* answers shown or hidden by data-if start in the state the defaults give. This runs before expansion,
@@ -610,7 +466,7 @@ export function renderPlan(source, { root = process.cwd(), editor = process.env.
   const keepHead = head ? kids(head).filter((k) => !(k.name === "meta" && ("charset" in k.attrs || k.attrs.name === "viewport")) && k.name !== "title").map(serialize).join("\n") : "";
   const hasIcon = head && kids(head).some((k) => k.name === "link" && /icon/.test(k.attrs.rel || ""));
   const css = readFileSync(join(here, "plan.css"), "utf8");
-  const js = readFileSync(join(here, "plan.js"), "utf8").replace(/<\/script/gi, "<\\/script");
+  const js = [join(here, "../kit/reply.js"), join(here, "plan.js")].map((f) => readFileSync(f, "utf8")).join("\n").replace(/<\/script/gi, "<\\/script");
   const lang = htmlNode?.attrs.lang || "en";
   const bodyAttrs = body.openRaw.replace(/^<body/i, "").replace(/>$/, "");
   const html = `<!doctype html>
@@ -720,4 +576,4 @@ function main() {
   if (flag("--open")) openFile(resolve(output));
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (process.argv[1] && import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href) main();

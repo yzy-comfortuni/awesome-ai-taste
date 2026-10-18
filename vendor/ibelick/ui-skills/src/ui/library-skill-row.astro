@@ -1,0 +1,45 @@
+---
+import SkillCard from "./skill-card.astro";
+import { UnsaveSkillButton } from "./unsave-skill-button";
+import type { LibrarySkillView } from "../lib/library-view";
+
+type Props = {
+  skill: LibrarySkillView;
+  label: string;
+  collectionId?: string;
+};
+
+const { skill, label, collectionId } = Astro.props as Props;
+---
+
+<div class="flex items-center gap-3">
+  <div class="min-w-0 flex-1">
+    {
+      skill.available ? (
+        <SkillCard
+          href={skill.href}
+          slug={skill.slug}
+          description={skill.description}
+          ownerLabel={skill.ownerLabel}
+          avatarUrl={skill.avatarUrl}
+          variant="list"
+        />
+      ) : (
+        <div class="border-line-default flex flex-col gap-0.5 border-b pt-3 pb-4">
+          <p class="type-body-md text-content-primary font-[450]">
+            {skill.name}
+          </p>
+          <p class="type-body-md text-content-secondary">
+            This skill is no longer in the directory.
+          </p>
+        </div>
+      )
+    }
+  </div>
+  <UnsaveSkillButton
+    client:load
+    skillPath={skill.path}
+    label={label}
+    collectionId={collectionId}
+  />
+</div>

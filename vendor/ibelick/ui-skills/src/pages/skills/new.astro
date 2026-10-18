@@ -1,0 +1,64 @@
+---
+export const prerender = true;
+
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../ui/breadcrumbs.astro";
+import SkillCard from "../../ui/skill-card.astro";
+import RelatedDirectoryLinks from "../../ui/related-directory-links.astro";
+import { registry } from "../../data/registry";
+
+const newSkills = registry.slice(-10).reverse();
+
+const description = "Discover the latest skills added to UI Skills.";
+const breadcrumbItems = [
+  { label: "Explore", href: "/" },
+  { label: "Skills", href: "/skills" },
+  { label: "New skills" },
+];
+---
+
+<Layout title="New skills | UI Skills" description={description}>
+  <div class="relative flex min-h-dvh flex-col items-center justify-start">
+    <div class="container-3xl relative mt-20 pb-10">
+      <div class="mx-auto flex w-full flex-col gap-10">
+        <Breadcrumbs items={breadcrumbItems} />
+
+        <div class="flex flex-col gap-3">
+          <h1 class="type-h1 text-content-primary">New skills</h1>
+          <p class="type-body-md text-content-secondary">{description}</p>
+        </div>
+
+        <div class="flex flex-col">
+          {
+            newSkills.map((skill) => (
+              <SkillCard
+                href={`/skills/${skill.pathSlug}`}
+                slug={skill.slug}
+                description={skill.description}
+                ownerLabel={skill.sourceLabel}
+                avatarUrl={`https://github.com/${skill.sourceKey}.png?size=160`}
+                variant="list"
+              />
+            ))
+          }
+        </div>
+        <RelatedDirectoryLinks
+          links={[
+            {
+              label: "All skills",
+              href: "/skills",
+              description:
+                "Explore the full collection of skills for design engineering and frontend development.",
+            },
+            {
+              label: "Collections",
+              href: "/collections",
+              description:
+                "Explore skills grouped by project, workflow, and design goal.",
+            },
+          ]}
+        />
+      </div>
+    </div>
+  </div>
+</Layout>

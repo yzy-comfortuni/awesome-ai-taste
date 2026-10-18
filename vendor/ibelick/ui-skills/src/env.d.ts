@@ -8,7 +8,7 @@ interface ImportMeta {
 }
 
 declare module "cloudflare:workers" {
-  export const env: {
+  export const env: import("./lib/auth-config").AuthEnv & {
     PUBLIC_JOBS_API_URL?: string;
     PUBLIC_TURNSTILE_SITE_KEY?: string;
   };

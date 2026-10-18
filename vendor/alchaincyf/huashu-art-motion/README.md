@@ -18,6 +18,10 @@ npx skills add alchaincyf/huashu-art-motion
 
 </div>
 
+## 动态
+
+- 2026-10：[Open Design](https://github.com/nexu-io/open-design)（nexu-io 出品的开源 AI 设计工作区）的 [motion-design skill](https://github.com/nexu-io/open-design/blob/main/skills/motion-design/SOURCES.md) 把 huashu-art-motion 列为设计来源之一，并在 [skills/huashu-art-motion](https://github.com/nexu-io/open-design/tree/main/skills/huashu-art-motion) 收录了一份适配版，保留了 MIT 许可和上游出处。很高兴这套艺术动画的做法被另一个开源项目用起来，谢谢 Open Design 团队。也欢迎更多项目使用、反馈和贡献。
+
 ## 动画样片
 
 ### 核心案例：花叔闯进超级玛丽
@@ -108,11 +112,12 @@ Claude Code 的像素吉祥物 Clawd 从保安电脑的终端里蹦出来，打�
 
 | | 数量 |
 |---|---|
-| 艺术风格配方卡（参数、母题动作、签名转场、当前短板） | 36张，`references/风格配方/` |
-| 对应的场景代码 | 35个，`scripts/engine/scenes/` |
+| 艺术风格配方卡（参数、母题动作、签名转场、当前短板） | 53张，`references/风格配方/`；其中 38–55 是按原作锚定重做的研究配方（含敦煌壁画） |
+| 对应的场景代码 | 53个，`scripts/engine/scenes/` |
 | 解说动画语法卡 | 9份；其中8种附示范片、参数化片段与示例spec |
 | 口播整片参考代码 | 混合风格、白板、Vox、讲解员；需自备部分素材，详见目录README |
 | 长卷穿越片示范（骨架＋3 段＋角色帧库） | 1 支，`scripts/engine/demos/long_scroll/` |
+| 版面审计与压测（出界／叠字／字太小、竖屏／超长／英文变体、示例回归） | `render.py --audit`、`scripts/clip_lint.py`、`scripts/analyze/stress_clip.py`、`regress_clips.py` |
 | 转场 | 艺术风格签名转场与解说转场，包含淡入、硬切和纸面转场 |
 | 绘画与动画库（笔刷、渲染器、后期、骨架、镜头、图表、排版……） | 17 个，`scripts/engine/lib/` |
 | 方法文档（拆解、机制、一帧先行、纯代码绘制、节奏配乐、角色、长卷……） | 核心12篇，`references/01`–`12`；另有[可选语音指南](references/capabilities.md) |
@@ -120,7 +125,7 @@ Claude Code 的像素吉祥物 Clawd 从保安电脑的终端里蹦出来，打�
 ```
 huashu-art-motion/
 ├── SKILL.md                 # 先判断任务，再按表读对应文档
-├── references/              # 01–12方法文档、36张风格配方卡、9张语法卡、正面经验
+├── references/              # 01–16方法文档、53张风格配方卡、9张语法卡、正面经验
 ├── assets/                  # 总览图（README 用）
 └── scripts/
     ├── engine/              # 可整个复制走的动画工程：引擎、转场、库、场景、示范片、片段
@@ -201,6 +206,8 @@ MIT License © [花叔 Huashu](https://github.com/alchaincyf)
 ---
 
 ## English
+
+**News (2026-10):** [Open Design](https://github.com/nexu-io/open-design), an open-source AI design workspace from nexu-io, lists huashu-art-motion as a design source in its [motion-design skill](https://github.com/nexu-io/open-design/blob/main/skills/motion-design/SOURCES.md) and includes an adapted copy at [skills/huashu-art-motion](https://github.com/nexu-io/open-design/tree/main/skills/huashu-art-motion), with the MIT license and upstream link kept. We're glad to see this approach to art animation used in another open-source project, and thank the Open Design team. More projects, feedback and contributions are welcome.
 
 **huashu-art-motion** is an agent skill for making animation with code, where the paintings actually move. It ships 36 art-style recipes (cave painting, Egyptian murals, Van Gogh, Klimt, Bauhaus, Kirby comics, 8-bit, vaporwave, Shinkai and more), with 35 Canvas scenes plus a standalone SVG Rick & Morty-style example; 8 explainer-video grammars (Kurzgesagt, Vox, whiteboard, storytime, kinetic type, 3Blue1Brown, keynote UI, finance charts) with demo films and parameterized clips you drive with a JSON spec, frame-accurate and in landscape, portrait or alpha; a long-scroll skeleton where a character walks left to right through one painting after another (3 sample worlds included); plus a breakdown script that maps a reference animation into cuts, beat grid and motion heatmaps, and a QA script that measures stability, cost per frame, motion and smoothness.
 

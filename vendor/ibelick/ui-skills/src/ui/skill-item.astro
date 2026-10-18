@@ -6,10 +6,18 @@ type Props = {
   ownerLabel?: string;
   avatarUrl?: string;
   hideTitle?: boolean;
+  wrapDescription?: boolean;
 };
 
-const { href, slug, description, ownerLabel, avatarUrl, hideTitle } =
-  Astro.props as Props;
+const {
+  href,
+  slug,
+  description,
+  ownerLabel,
+  avatarUrl,
+  hideTitle,
+  wrapDescription = false,
+} = Astro.props as Props;
 ---
 
 <a
@@ -56,7 +64,12 @@ const { href, slug, description, ownerLabel, avatarUrl, hideTitle } =
     </div>
     {
       description ? (
-        <div class="skill-description type-body-md text-content-secondary truncate">
+        <div
+          class:list={[
+            "skill-description type-body-md text-content-secondary",
+            wrapDescription ? "break-words whitespace-normal" : "truncate",
+          ]}
+        >
           {description}
         </div>
       ) : null

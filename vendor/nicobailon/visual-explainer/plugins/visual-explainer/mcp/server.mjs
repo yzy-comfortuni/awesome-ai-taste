@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 import { spawn } from "node:child_process";
 import { randomUUID } from "node:crypto";
-import { lstatSync, mkdirSync, readFileSync, realpathSync, renameSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, lstatSync, mkdirSync, readdirSync, readFileSync, realpathSync, renameSync, rmSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { dirname, join, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { McpServer } from "@modelcontextprotocol/server";
 import { serveStdio } from "@modelcontextprotocol/server/stdio";
 import * as z from "zod/v4";
-import { renderQuickSpec } from "../quick/render.mjs";
-import { renderPlanForHost } from "../plan/render.mjs";
+import { prepareRenderedHtml, readSourcePath, renderPageForHost, reportLine, reportPage } from "../kit/render.mjs";
+import { lookAt, lookLines } from "../kit/look.mjs";
 
 const serverPath = fileURLToPath(import.meta.url);
 const mcpDir = dirname(serverPath);
@@ -37,16 +37,10 @@ const prepareOutputSchema = z.object({
 });
 
 const renderInputSchema = z.object({
-  filename: z.string().min(1).describe("Basename filename. The server appends .html when no .html/.htm suffix is present."),
-  html: z.string().min(1).describe("Complete self-contained HTML document."),
-  root: z.string().min(1).optional().describe("For a plan source (<ve-plan> tags): the repository its file citations are checked against. Defaults to the server's working directory."),
-  open: z.boolean().default(false).describe("Open the written file after rendering. Defaults to false for MCP."),
-  viewer: viewerSchema.default("browser").describe("Viewer to use when open is true."),
-}).strict();
-
-const renderQuickInputSchema = z.object({
-  filename: z.string().min(1).describe("Basename filename. The server appends .html when no .html/.htm suffix is present."),
-  spec: z.unknown().describe("Compact JSON spec that follows visual-explainer quick/schema.json."),
+  filename: z.string().min(1).optional().describe("With html: basename filename; .html is appended when missing."),
+  html: z.string().min(1).optional().describe("Page source or complete HTML, when you cannot write a path."),
+  path: z.string().min(1).optional().describe("Instead of html: a <name>.src.html file in the output directory."),
+  root: z.string().min(1).optional().describe("For a plan source (<ve-plan> tags): the repository its citations are checked against. Defaults to the server's working directory."),
   open: z.boolean().default(false).describe("Open the written file after rendering. Defaults to false for MCP."),
   viewer: viewerSchema.default("browser").describe("Viewer to use when open is true."),
 }).strict();
@@ -60,7 +54,8 @@ const renderOutputSchema = z.object({
   openError: z.string().optional(),
   fallbackFrom: openTargetSchema.optional(),
   fallbackError: z.string().optional(),
-  planSource: z.string().optional(),
+  source: z.string().optional(),
+  report: z.object({ figures: z.number(), uncaptioned: z.number(), dataTags: z.number(), flows: z.number(), proseWords: z.number() }).optional(),
 });
 
 const promptArgsSchema = z.object({
@@ -68,6 +63,7 @@ const promptArgsSchema = z.object({
 }).strict();
 
 const promptFiles = [
+  "compare.md",
   "diff-review.md",
   "fact-check.md",
   "generate-slides.md",
@@ -80,8 +76,11 @@ const promptFiles = [
 
 const resourceFiles = [
   { name: "skill", uri: "visual-explainer://skill/SKILL.md", path: "SKILL.md", title: "Visual Explainer Skill", mimeType: "text/markdown" },
-  { name: "quick-readme", uri: "visual-explainer://quick/README.md", path: "quick/README.md", title: "Quick Mode README", mimeType: "text/markdown" },
-  { name: "quick-schema", uri: "visual-explainer://quick/schema.json", path: "quick/schema.json", title: "Quick Mode JSON Schema", mimeType: "application/schema+json" },
+  // every reference the skill points to, so a client with no file access can still read them
+  { name: "kit-css", uri: "visual-explainer://kit/kit.css", path: "kit/kit.css", title: "Kit stylesheet", mimeType: "text/css" },
+  ...(existsSync(join(skillDir, "references")) ? readdirSync(join(skillDir, "references")) : []).filter((file) => file.endsWith(".md")).sort().map((file) => (
+    { name: `reference-${file.slice(0, -3)}`, uri: `visual-explainer://references/${file}`, path: `references/${file}`, title: `Reference: ${file}`, mimeType: "text/markdown" }
+  )),
 ];
 
 function readSkillFile(relativePath) {
@@ -162,29 +161,6 @@ function assertHtmlDocument(html) {
   }
 }
 
-const standardFavicon = '<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 64 64\'%3E%3Crect width=\'64\' height=\'64\' rx=\'14\' fill=\'%230f172a\'/%3E%3Cpath d=\'M18 40V24l14-8 14 8v16l-14 8-14-8Z\' fill=\'none\' stroke=\'%23fbbf24\' stroke-width=\'4\' stroke-linejoin=\'round\'/%3E%3Ccircle cx=\'32\' cy=\'32\' r=\'5\' fill=\'%2338bdf8\'/%3E%3C/svg%3E">';
-
-function ensureFavicon(html) {
-  if (/<link\b[^>]*\brel=["'][^"']*(?:icon|shortcut icon)[^"']*["'][^>]*>/i.test(html)) return html;
-  if (/<\/title>/i.test(html)) return html.replace(/<\/title>/i, `</title>\n${standardFavicon}`);
-  if (/<head[^>]*>/i.test(html)) return html.replace(/<head[^>]*>/i, (head) => `${head}\n${standardFavicon}`);
-  return html.replace(/<html[^>]*>/i, (htmlTag) => `${htmlTag}\n<head>\n${standardFavicon}\n</head>`);
-}
-
-function ensureDocumentMetadata(html) {
-  let output = html;
-  if (!/<html\b[^>]*\blang\s*=/i.test(output)) output = output.replace(/<html\b/i, '<html lang="en"');
-  if (!/<head[^>]*>/i.test(output)) output = output.replace(/<html[^>]*>/i, (htmlTag) => `${htmlTag}\n<head></head>`);
-  if (!/<meta\b[^>]*\bname\s*=\s*["']viewport["'][^>]*>/i.test(output)) {
-    output = output.replace(/<head[^>]*>/i, (head) => `${head}\n<meta name="viewport" content="width=device-width, initial-scale=1.0">`);
-  }
-  return output;
-}
-
-function prepareRenderedHtml(html) {
-  return ensureDocumentMetadata(ensureFavicon(html));
-}
-
 function runOpener(command, args, openTarget) {
   return new Promise((resolve) => {
     const child = spawn(command, args, { detached: true, stdio: "ignore", windowsHide: true });
@@ -255,9 +231,9 @@ function compact(value) {
   return Object.fromEntries(Object.entries(value).filter((entry) => entry[1] !== undefined));
 }
 
-function renderToolResult(message, structuredContent) {
+function renderToolResult(message, structuredContent, images = []) {
   return {
-    content: [{ type: "text", text: message }],
+    content: [{ type: "text", text: message }, ...images],
     structuredContent: compact(structuredContent),
   };
 }
@@ -277,11 +253,10 @@ function prepareVisualExplanation(params) {
   const audience = params.audience?.trim();
   const files = params.files?.map((file) => file.trim()).filter(Boolean) ?? [];
   const recommendedFlow = [
-    "Use the visual-explainer prompt or skill resources to choose the page shape.",
-    "Gather and verify the source facts in the host model. The MCP server does not call an LLM.",
-    "For custom output, generate a complete self-contained HTML document and call visual_explainer_render_html.",
-    "For explicit quick mode, build a compact spec that follows visual-explainer://quick/schema.json and call visual_explainer_render_quick.",
-    "Keep output filenames as basenames. The MCP server writes only inside its configured output directory (default ~/.agent/diagrams/).",
+    "Choose the page shape with the visual-explainer prompts and skill resources.",
+    "Gather and verify the facts yourself; the server does not call an LLM.",
+    "Write <name>.src.html in the output directory and call visual_explainer_render_html with path (without file access: html and filename).",
+    "The server writes only inside its output directory (default ~/.agent/diagrams/).",
   ];
 
   const structuredContent = { topic, goal, audience, files, recommendedFlow };
@@ -297,12 +272,14 @@ function prepareVisualExplanation(params) {
   return renderToolResult(message, structuredContent);
 }
 
-async function writeRenderedHtml(filenameInput, htmlInput, open, viewer, planRoot) {
+async function writeRenderedHtml(filenameInput, htmlInput, open, viewer, planRoot, sourcePath) {
   assertHtmlDocument(htmlInput);
-  // MCP cannot put the reader's response into the chat, so plan pages here always copy it instead (no sendBack).
-  const page = renderPlanForHost(htmlInput, { root: planRoot, filename: outputFilename(filenameInput) });
+  // MCP cannot put the reader's reply into the chat, so plan and kit pages here always copy it instead (no sendBack).
+  const page = renderPageForHost(htmlInput, { root: planRoot, filename: outputFilename(filenameInput) });
+  // a plan page has its own summary in its note; every other page gets the report
+  const report = page ? page.report : reportPage(htmlInput);
   const filename = page?.filename ?? outputFilename(filenameInput);
-  const html = page ? page.html : prepareRenderedHtml(htmlInput);
+  const html = prepareRenderedHtml(page ? page.html : htmlInput);
   const { path: outputDir, configured } = resolveOutputDirectory();
   const outputPath = join(outputDir, filename);
 
@@ -317,14 +294,16 @@ async function writeRenderedHtml(filenameInput, htmlInput, open, viewer, planRoo
   const outputStatus = lstatSync(outputPath, { throwIfNoEntry: false });
   if (outputStatus?.isSymbolicLink()) throw new Error(`${outputPath} must not be a symlink`);
 
-  // Keep the plan source beside the page: revisions and build receipts are small edits to it, then a new render.
-  // The source goes first, so a failed write never leaves a new page beside an old source.
-  const planSource = page?.source ? join(outputDir, page.source) : undefined;
-  if (planSource) {
-    if (lstatSync(planSource, { throwIfNoEntry: false })?.isSymbolicLink()) throw new Error(`${planSource} must not be a symlink`);
-    writeRenderedFile(planSource, htmlInput);
+  // Keep the source beside the page: revisions and build receipts are small edits to it, then a new render.
+  // The source goes first, so a failed write never leaves a new page beside an old source. A source read from path stays as it is.
+  const source = sourcePath ?? (page?.source ? join(outputDir, page.source) : undefined);
+  if (source && !sourcePath) {
+    if (lstatSync(source, { throwIfNoEntry: false })?.isSymbolicLink()) throw new Error(`${source} must not be a symlink`);
+    writeRenderedFile(source, htmlInput);
   }
   writeRenderedFile(outputPath, html);
+  // a kit page is looked at in a browser, and its sheet comes back with the report, so the agent never scripts its own screenshots
+  const looked = page?.kit ? await lookAt(outputPath) : undefined;
 
   const openResult = open ? await openRenderedPage(outputPath, viewer) : { openAttempted: false, openStatus: "disabled" };
   let message = `Wrote ${outputPath}.`;
@@ -339,8 +318,11 @@ async function writeRenderedHtml(filenameInput, htmlInput, open, viewer, planRoo
     message += ` Glimpse fallback reason: ${openResult.fallbackError ?? "unknown error"}.`;
   }
   if (page) message += page.note;
+  if (report) message += `\n${reportLine(report)}`;
+  if (looked) message += `\n${lookLines(looked).join("\n")}`;
+  const images = (looked?.sheets ?? []).map((sheet) => ({ type: "image", data: readFileSync(sheet).toString("base64"), mimeType: "image/png" }));
 
-  return { message, output: compact({ path: outputPath, viewer, ...openResult, planSource }) };
+  return { message, output: compact({ path: outputPath, viewer, ...openResult, source, report }), images };
 }
 
 function registerResources(server) {
@@ -403,30 +385,18 @@ function registerTools(server) {
 
   server.registerTool("visual_explainer_render_html", {
     title: "Render Visual Explainer HTML",
-    description: "Validate and write a complete self-contained HTML document to the configured output directory (default ~/.agent/diagrams/). Does not call an LLM.",
+    description: "Render a page source (path) or HTML to the configured output directory (default ~/.agent/diagrams/). Does not call an LLM.",
     inputSchema: renderInputSchema,
     outputSchema: renderOutputSchema,
     annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
-  }, async ({ filename, html, root, open, viewer }) => {
+  }, async ({ filename, html, path, root, open, viewer }) => {
     try {
-      const result = await writeRenderedHtml(filename, html, open, viewer, root ?? process.cwd());
-      return renderToolResult(result.message, result.output);
-    } catch (error) {
-      return renderToolError(error);
-    }
-  });
-
-  server.registerTool("visual_explainer_render_quick", {
-    title: "Render Visual Explainer Quick Spec",
-    description: "Validate a quick-mode JSON spec and render it to the configured output directory (default ~/.agent/diagrams/). Does not call an LLM.",
-    inputSchema: renderQuickInputSchema,
-    outputSchema: renderOutputSchema,
-    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
-  }, async ({ filename, spec, open, viewer }) => {
-    try {
-      const html = await renderQuickSpec(spec);
-      const result = await writeRenderedHtml(filename, html, open, viewer);
-      return renderToolResult(result.message, result.output);
+      if (html !== undefined && path !== undefined) throw new Error("pass html or path, not both");
+      if (path !== undefined && filename !== undefined) throw new Error("filename is not allowed with path; the page is named after its source");
+      if (path === undefined && (html === undefined || filename === undefined)) throw new Error("pass html with filename, or path");
+      const source = path === undefined ? undefined : readSourcePath(path, () => resolveOutputDirectory().path);
+      const result = await writeRenderedHtml(source?.filename ?? filename, source?.html ?? html, open, viewer, root ?? process.cwd(), source?.source);
+      return renderToolResult(result.message, result.output, result.images);
     } catch (error) {
       return renderToolError(error);
     }

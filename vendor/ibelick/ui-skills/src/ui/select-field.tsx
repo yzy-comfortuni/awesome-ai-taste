@@ -83,7 +83,7 @@ export function SelectField({
             style={{ width: triggerWidth }}
             sideOffset={4}
           >
-            <Select.Popup className="border-line-default bg-surface-default w-full rounded-md border p-1 shadow-2xs outline-none">
+            <Select.Popup className="bg-surface-default shadow-border w-full rounded-md p-1">
               <Select.List>
                 {options.map((option) => (
                   <Select.Item

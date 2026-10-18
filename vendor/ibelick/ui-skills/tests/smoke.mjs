@@ -1,73 +1,133 @@
-import { spawn } from "node:child_process";
-import net from "node:net";
+import { randomBytes } from "node:crypto";
+import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join, resolve } from "node:path";
+import { createTestHarness } from "wrangler";
 
 const requestedPort = Number(process.env.SMOKE_PORT ?? 0);
-const port =
-  requestedPort ||
-  (await new Promise((resolve, reject) => {
-    const probe = net.createServer();
-    probe.once("error", reject);
-    probe.listen(0, "127.0.0.1", () => {
-      const address = probe.address();
-      const selectedPort =
-        typeof address === "object" && address ? address.port : 0;
-      probe.close((error) => (error ? reject(error) : resolve(selectedPort)));
-    });
-  }));
-const server = spawn(
-  "npx",
-  [
-    "wrangler",
-    "dev",
-    "--config",
-    "dist/server/wrangler.json",
-    "--local",
-    "--ip",
-    "127.0.0.1",
-    "--port",
-    `${port}`,
+const build = JSON.parse(await readFile("dist/server/wrangler.json", "utf8"));
+// A separate root prevents Wrangler from reading developer .dev.vars/.env files.
+// The harness owns ephemeral local storage; it never uses production D1.
+const root = await mkdtemp(join(tmpdir(), "ui-skills-smoke-"));
+const server = createTestHarness({
+  root,
+  workers: [
+    {
+      config: {
+        name: "ui-skills-smoke",
+        main: resolve("dist/server", build.main),
+        compatibility_date: build.compatibility_date,
+        compatibility_flags: build.compatibility_flags,
+        no_bundle: build.no_bundle,
+        rules: build.rules,
+        assets: {
+          ...build.assets,
+          directory: resolve("dist/server", build.assets.directory),
+        },
+        vars: {
+          BETTER_AUTH_URL: "http://localhost:4321",
+          BETTER_AUTH_SECRET: randomBytes(32).toString("hex"),
+          GITHUB_CLIENT_ID: "smoke-test-client-id",
+          GITHUB_CLIENT_SECRET: "smoke-test-client-secret",
+          GOOGLE_CLIENT_ID: "",
+          GOOGLE_CLIENT_SECRET: "",
+        },
+        d1_databases: [
+          {
+            binding: "AUTH_DB",
+            database_name: "ui-skills-smoke",
+            database_id: "00000000-0000-0000-0000-000000000000",
+            migrations_dir: resolve("migrations"),
+          },
+        ],
+        dev: {
+          ip: "127.0.0.1",
+          ...(requestedPort ? { port: requestedPort } : {}),
+        },
+      },
+    },
   ],
-  {
-    stdio: ["ignore", "pipe", "pipe"],
-  },
-);
-
-let output = "";
-server.stdout.on("data", (chunk) => {
-  output += chunk.toString();
-});
-server.stderr.on("data", (chunk) => {
-  output += chunk.toString();
 });
 
+let baseURL;
 const fetchLocal = (path, init = {}, timeoutMs = 15000) =>
-  fetch(`http://127.0.0.1:${port}${path}`, {
+  fetch(new URL(path, baseURL), {
     ...init,
     signal: AbortSignal.timeout(timeoutMs),
   });
 
-const waitForServer = async () => {
-  const deadline = Date.now() + 60000;
-  while (Date.now() < deadline) {
-    try {
-      const response = await fetchLocal("/");
-      if (response.ok) {
-        // Drain the body so the connection can be reused cleanly.
-        await response.arrayBuffer();
-        return;
-      }
-    } catch {
-      // The preview server is still starting.
-    }
-    await new Promise((resolve) => setTimeout(resolve, 250));
-  }
-  throw new Error(`Preview server did not start:\n${output}`);
-};
-
 let exitCode = 0;
 
 try {
-  await waitForServer();
+  ({ url: baseURL } = await server.listen());
+  await server.getWorker().applyD1Migrations("AUTH_DB");
+
+  for (const [path, status] of [
+    ["/login", 200],
+    ["/account", 302],
+    ["/library", 302],
+    ["/api/library", 401],
+    ["/api/auth/get-session", 200],
+  ]) {
+    const response = await fetchLocal(path, {
+      redirect: "manual",
+      headers: { Accept: "text/markdown" },
+    });
+    if (response.status !== status) {
+      throw new Error(
+        `${path} returned ${response.status}, expected ${status}`,
+      );
+    }
+    for (const [header, value] of [
+      ["cache-control", "private, no-store"],
+      ["cdn-cache-control", "no-store"],
+      ["cloudflare-cdn-cache-control", "no-store"],
+      ["referrer-policy", "no-referrer"],
+      ["x-robots-tag", "noindex, nofollow"],
+    ]) {
+      if (response.headers.get(header) !== value) {
+        throw new Error(`${path} has an unsafe or missing ${header}`);
+      }
+    }
+    if (
+      path === "/login" &&
+      !response.headers.get("content-type")?.startsWith("text/html")
+    ) {
+      throw new Error("Private login HTML was converted to Markdown");
+    }
+    if (path === "/login") {
+      const html = await response.text();
+      if (
+        !html.includes("Continue with GitHub") ||
+        html.includes("Continue with Google")
+      ) {
+        throw new Error(
+          "Login did not use the isolated GitHub-only test configuration",
+        );
+      }
+    }
+    if (path === "/account" && response.headers.get("location") !== "/login") {
+      throw new Error("Anonymous account request did not redirect to login");
+    }
+    if (path === "/library") {
+      const location = response.headers.get("location") ?? "";
+      if (!location.startsWith("/login?returnTo=")) {
+        throw new Error(
+          "Anonymous library request did not redirect to login",
+        );
+      }
+    }
+    if (path === "/api/library") {
+      const body = await response.json();
+      if (body?.error !== "Sign in to use your library.") {
+        throw new Error("Anonymous library API did not require sign-in");
+      }
+    }
+    if (path === "/api/auth/get-session" && (await response.json()) !== null) {
+      throw new Error("Anonymous request received a session");
+    }
+    if (!response.bodyUsed) await response.arrayBuffer();
+  }
 
   const homepage = await fetchLocal("/");
   if (homepage.status !== 200) {
@@ -358,9 +418,11 @@ try {
   exitCode = 1;
   console.error(error instanceof Error ? error.message : error);
 } finally {
-  // Wrangler/workerd can ignore SIGTERM and keep stdio pipes open, which
-  // prevents Node from exiting after the checks finish.
-  server.kill("SIGKILL");
+  try {
+    await server.close();
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
 }
 
 process.exit(exitCode);

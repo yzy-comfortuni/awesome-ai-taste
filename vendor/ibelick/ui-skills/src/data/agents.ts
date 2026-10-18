@@ -222,6 +222,118 @@ export const agents: Agent[] = [
     websiteUrl: "https://zed.dev",
     skills: { path: ".agents/skills/", docsUrl: "https://zed.dev/docs/ai/skills" },
   },
+  {
+    id: "augment",
+    name: "Augment",
+    description:
+      "Augment Code's coding agent, available through Auggie CLI and editor integrations. Auggie supports Agent Skills for reusable project guidance, code reviews, and development workflows.",
+    topics: ["CLI", "Codebase context", "Editor"],
+    sourceUrl: "https://www.ui-skills.com/?source=ui-skills.com",
+    faviconUrl: favicon("augmentcode.com"),
+    websiteUrl: "https://www.augmentcode.com/",
+    skills: {
+      path: ".augment/skills/",
+      docsUrl: "https://docs.augmentcode.com/cli/skills",
+    },
+  },
+  {
+    id: "junie",
+    name: "Junie",
+    description:
+      "JetBrains' coding agent for terminal and IDE workflows. Junie CLI loads project and personal skills to apply reusable instructions, team conventions, and task-specific procedures.",
+    topics: ["JetBrains", "CLI", "Project context"],
+    sourceUrl: "https://www.ui-skills.com/?source=ui-skills.com",
+    faviconUrl: favicon("jetbrains.com"),
+    websiteUrl: "https://junie.jetbrains.com/",
+    skills: {
+      path: ".junie/skills/",
+      docsUrl: "https://junie.jetbrains.com/docs/agent-skills.html",
+    },
+  },
+  {
+    id: "warp",
+    name: "Warp",
+    description:
+      "An agentic development environment with terminal, CLI, and cloud agents. Warp discovers reusable skills for coding tasks, reviews, and team workflows from project and global skill directories.",
+    topics: ["Terminal", "CLI", "Cloud agents"],
+    sourceUrl: "https://www.ui-skills.com/?source=ui-skills.com",
+    faviconUrl: favicon("warp.dev"),
+    websiteUrl: "https://www.warp.dev/",
+    skills: {
+      path: ".agents/skills/",
+      docsUrl: "https://docs.warp.dev/agents/capabilities/skills/",
+    },
+  },
+  {
+    id: "devin-cli",
+    name: "Devin CLI",
+    description:
+      "Cognition's local coding agent for terminal workflows, with handoff to cloud Devin. Skills package reusable prompts and procedures that you or the agent can invoke during development.",
+    topics: ["Terminal", "Local development", "Cloud handoff"],
+    sourceUrl: "https://www.ui-skills.com/?source=ui-skills.com",
+    faviconUrl: favicon("devin.ai"),
+    websiteUrl: "https://docs.devin.ai/work-with-devin/devin-cli",
+    skills: {
+      path: ".devin/skills/",
+      docsUrl: "https://docs.devin.ai/cli/extensibility/skills/overview",
+    },
+  },
+  {
+    id: "mistral-vibe",
+    name: "Mistral Vibe",
+    description:
+      "Mistral's open-source command-line coding assistant. It reads and edits code, runs commands, and follows the Agent Skills specification for reusable instructions and custom slash commands.",
+    topics: ["Terminal", "Open source", "Mistral"],
+    sourceUrl: "https://www.ui-skills.com/?source=ui-skills.com",
+    faviconUrl: favicon("mistral.ai"),
+    websiteUrl: "https://github.com/mistralai/mistral-vibe",
+    skills: {
+      path: ".vibe/skills/",
+      docsUrl: "https://github.com/mistralai/mistral-vibe#skills-system",
+    },
+  },
+  {
+    id: "qwen-code",
+    name: "Qwen Code",
+    description:
+      "An open-source coding agent with terminal and editor integrations. Qwen Code discovers SKILL.md instructions for project conventions, development workflows, and specialized tasks.",
+    topics: ["Terminal", "Open source", "Editor"],
+    sourceUrl: "https://www.ui-skills.com/?source=ui-skills.com",
+    faviconUrl: favicon("qwen.ai"),
+    websiteUrl: "https://github.com/QwenLM/qwen-code",
+    skills: {
+      path: ".qwen/skills/",
+      docsUrl: "https://qwenlm.github.io/qwen-code-docs/en/users/features/skills/",
+    },
+  },
+  {
+    id: "kimi-code-cli",
+    name: "Kimi Code CLI",
+    description:
+      "Moonshot AI's open-source terminal coding agent. It reads and edits files, runs commands, and loads project or personal skills automatically or through explicit skill commands.",
+    topics: ["Terminal", "Open source", "Editor integration"],
+    sourceUrl: "https://www.ui-skills.com/?source=ui-skills.com",
+    faviconUrl: favicon("kimi.com"),
+    websiteUrl: "https://github.com/MoonshotAI/kimi-code",
+    skills: {
+      path: ".kimi-code/skills/",
+      docsUrl: "https://moonshotai.github.io/kimi-code/en/customization/skills.html",
+    },
+  },
+  {
+    id: "pi",
+    name: "Pi",
+    description:
+      "An open-source terminal coding agent that supports the Agent Skills specification. Pi discovers skill descriptions at startup and loads their full instructions when relevant, or through explicit skill commands.",
+    topics: ["Terminal", "Open source", "Extensible"],
+    sourceUrl: "https://www.ui-skills.com/?source=ui-skills.com",
+    faviconUrl: favicon("pi.dev"),
+    websiteUrl: "https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent",
+    skills: {
+      path: ".agents/skills/",
+      docsUrl: "https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/skills.md",
+    },
+  },
 ];
 
 export const agentById = new Map(agents.map((agent) => [agent.id, agent]));

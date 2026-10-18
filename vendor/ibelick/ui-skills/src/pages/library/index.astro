@@ -1,0 +1,93 @@
+---
+import { env } from "cloudflare:workers";
+import Layout from "../../layouts/Layout.astro";
+import Button from "../../ui/button.astro";
+import LibraryCollectionCard from "../../ui/library-collection-card.astro";
+import LibrarySkillRow from "../../ui/library-skill-row.astro";
+import { CreateCollectionButton } from "../../ui/create-collection-button";
+import { getAuth, getPageSession } from "../../lib/auth";
+import { safeReturnTo } from "../../lib/auth-config";
+import { createLibraryStore } from "../../lib/library-store";
+import { toLibrarySkill } from "../../lib/library-view";
+
+export const prerender = false;
+
+const auth = getAuth(env);
+if (!auth || !env.AUTH_DB) return Astro.redirect("/login");
+const session = await getPageSession(
+  auth,
+  Astro.request.headers,
+  Astro.response.headers,
+);
+if (!session) {
+  return Astro.redirect(
+    `/login?returnTo=${encodeURIComponent(safeReturnTo(Astro.url.pathname))}`,
+  );
+}
+
+const library = await createLibraryStore(env.AUTH_DB).snapshot(session.user.id);
+const savedSkills = library.savedSkillPaths.map(toLibrarySkill);
+---
+
+<Layout
+  title="Library | UI Skills"
+  description="Saved skills and collections for your UI Skills account."
+  robots="noindex,nofollow"
+  showNewsletter={false}
+>
+  <div class="container-3xl pt-20 pb-10">
+    <div class="flex flex-col gap-10">
+      <div class="flex items-center justify-between gap-4">
+        <h1 class="type-h1 text-content-primary text-balance">Library</h1>
+        <CreateCollectionButton client:idle />
+      </div>
+
+      {
+        library.collections.length > 0 ? (
+          <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
+            {library.collections.map((collection) => (
+              <LibraryCollectionCard
+                href={`/library/${collection.slug}`}
+                title={collection.title}
+                collectionId={collection.id}
+                skillPaths={collection.skillPaths}
+              />
+            ))}
+          </div>
+        ) : (
+          <p class="type-body-md text-content-secondary text-pretty">
+            Group skills for a project or a review.
+          </p>
+        )
+      }
+
+      {
+        savedSkills.length > 0 ? (
+          <div class="flex flex-col">
+            {savedSkills.map((skill) => (
+              <LibrarySkillRow
+                skill={skill}
+                label={`Remove ${skill.name} from saved skills`}
+              />
+            ))}
+          </div>
+        ) : (
+          <div class="flex flex-col items-start gap-3">
+            <p class="type-body-md text-content-secondary text-pretty">
+              Star a skill to save it here.
+            </p>
+            <Button href="/skills" variant="secondary">
+              Browse skills
+            </Button>
+          </div>
+        )
+      }
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import { clearLibraryCache } from "../../lib/library-client";
+
+  clearLibraryCache();
+</script>

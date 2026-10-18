@@ -5,6 +5,7 @@ import Layout from "../../layouts/Layout.astro";
 import Breadcrumbs from "../../ui/breadcrumbs.astro";
 import ComponentLibraryDirectory from "../../ui/component-library-directory";
 import RelatedDirectoryLinks from "../../ui/related-directory-links.astro";
+import { componentDirectoryLinks } from "../../data/directory-links";
 import {
   componentCollections,
   componentLibraries,
@@ -89,20 +90,7 @@ const structuredData = [
         />
 
         <RelatedDirectoryLinks
-          links={[
-            {
-              label: "All component libraries",
-              href: "/components",
-              description:
-                "Browse every curated component library and UI system in one directory.",
-            },
-            {
-              label: "Icon libraries",
-              href: "/icons",
-              description:
-                "Browse open-source icon libraries for product interfaces and web apps.",
-            },
-          ]}
+          links={collection.relatedLinks ?? componentDirectoryLinks}
         />
       </div>
     </div>

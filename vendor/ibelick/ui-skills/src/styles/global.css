@@ -33,7 +33,10 @@
   --color-content-inverse: #ffffff;
   --color-content-accent: #1f78ff;
   --color-line-default: #ededed;
-
+  --shadow-border:
+    0 0 0 1px color-mix(in srgb, var(--color-content-primary) 10%, transparent),
+    0 4px 8px -2px rgb(0 0 0 / 0.08),
+    0 2px 4px -2px rgb(0 0 0 / 0.04);
 }
 
 @utility type-h1 {

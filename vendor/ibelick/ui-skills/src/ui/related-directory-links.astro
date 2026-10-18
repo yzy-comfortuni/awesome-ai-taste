@@ -1,12 +1,8 @@
 ---
-type RelatedLink = {
-  label: string;
-  href: string;
-  description: string;
-};
+import type { DirectoryLink } from "../data/directory-links";
 
 type Props = {
-  links: RelatedLink[];
+  links: DirectoryLink[];
 };
 
 import Card from "./card.astro";

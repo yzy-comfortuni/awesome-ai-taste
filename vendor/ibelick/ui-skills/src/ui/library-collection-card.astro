@@ -1,0 +1,129 @@
+---
+import { FolderIcon, PlusIcon, StarIcon } from "@heroicons/react/24/outline";
+import { toLibrarySkill } from "../lib/library-view";
+import { CollectionMenu } from "./collection-menu";
+
+type Props = {
+  href: string;
+  title: string;
+  skillPaths: string[];
+  collectionId?: string;
+  icon?: "folder" | "star";
+};
+
+const {
+  href,
+  title,
+  skillPaths,
+  collectionId,
+  icon = "folder",
+} = Astro.props as Props;
+
+const seenAvatars = new Set<string>();
+const previews = skillPaths.map(toLibrarySkill).flatMap((skill) => {
+  const avatarUrl = skill.avatarUrl;
+  if (!avatarUrl || seenAvatars.has(avatarUrl) || seenAvatars.size >= 4) {
+    return [];
+  }
+  seenAvatars.add(avatarUrl);
+  return [skill];
+});
+
+const poses = [
+  {
+    rest: "-rotate-6",
+    hover:
+      "motion-safe:group-hover:-translate-x-1 motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:-rotate-8",
+  },
+  {
+    rest: "-rotate-2",
+    hover: "motion-safe:group-hover:-translate-y-1",
+  },
+  {
+    rest: "rotate-3",
+    hover:
+      "motion-safe:group-hover:translate-x-1 motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:rotate-6",
+  },
+  {
+    rest: "rotate-6",
+    hover:
+      "motion-safe:group-hover:translate-x-1.5 motion-safe:group-hover:rotate-8",
+  },
+];
+
+const fan =
+  previews.length === 1
+    ? [{ rest: "rotate-2", hover: "motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:rotate-3" }]
+    : previews.length === 2
+      ? [poses[0], poses[2]]
+      : poses.slice(0, previews.length);
+
+const layers = ["z-0", "z-10", "z-20", "z-30"];
+---
+
+<div
+  class="group border-line-default bg-surface-default hover:border-content-extra-muted relative flex h-full min-w-0 flex-col rounded-2xl border"
+>
+  <a
+    href={href}
+    class="flex min-w-0 flex-1 flex-col gap-5 p-4 outline-none"
+  >
+    <span class:list={["flex min-w-0 items-center gap-2", collectionId && "pr-8"]}>
+      {
+        icon === "star" ? (
+          <StarIcon
+            className="text-content-secondary size-4 shrink-0"
+            aria-hidden="true"
+          />
+        ) : (
+          <FolderIcon
+            className="text-content-secondary size-4 shrink-0"
+            aria-hidden="true"
+          />
+        )
+      }
+      <span class="type-body-md text-content-primary min-w-0 truncate font-[450]">
+        {title}
+      </span>
+    </span>
+    <span class="flex h-20 items-center justify-center">
+    {
+      previews.length > 0 ? (
+        <span class="flex items-center justify-center -space-x-8">
+          {previews.map((skill, index) => (
+            <span
+              class:list={[
+                "border-line-default bg-surface-default relative h-14 w-11 shrink-0 overflow-hidden rounded-md border shadow-2xs motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-out",
+                fan[index].rest,
+                fan[index].hover,
+                layers[index],
+              ]}
+            >
+              <img
+                src={skill.avatarUrl}
+                alt=""
+                width="44"
+                height="56"
+                loading="lazy"
+                class="size-full object-cover"
+              />
+            </span>
+          ))}
+        </span>
+      ) : (
+        <span class="border-line-default bg-fill-subtle text-content-muted flex h-14 w-11 rotate-2 items-center justify-center rounded-md border border-dashed motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:rotate-3">
+          <span class="sr-only">No skills yet</span>
+          <PlusIcon className="size-3.5" aria-hidden="true" />
+        </span>
+      )
+    }
+  </span>
+  </a>
+  {
+    collectionId ? (
+      <div class="absolute top-3 right-3">
+        <CollectionMenu client:load collectionId={collectionId} title={title} />
+      </div>
+    ) : null
+  }
+</div>

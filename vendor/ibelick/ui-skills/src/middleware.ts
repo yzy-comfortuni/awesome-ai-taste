@@ -3,6 +3,9 @@ import { defineMiddleware } from "astro:middleware";
 import { buildDiscoveryLinkHeader, getSiteOrigin } from "./lib/agent-discovery";
 import { getHtmlCacheControl } from "./lib/cache-headers";
 import { maybeNegotiateMarkdown } from "./lib/markdown-negotiation";
+import { isAuthPath } from "./lib/auth-config";
+import { isLibraryPath } from "./lib/library-types";
+import { setPrivateAuthHeaders } from "./lib/auth-response";
 
 const localJobsApiSource = import.meta.env.DEV ? " http://localhost:8787" : "";
 
@@ -28,7 +31,13 @@ function applyResponseHeaders(
     headers.set("Link", buildDiscoveryLinkHeader(origin));
   }
   const cacheControl = getHtmlCacheControl(pathname);
-  if (cacheControl && !headers.has("Cache-Control")) {
+  if (isAuthPath(pathname) || isLibraryPath(pathname)) {
+    setPrivateAuthHeaders(headers);
+  } else if (headers.has("Set-Cookie")) {
+    headers.set("Cache-Control", "private, no-store");
+    headers.set("CDN-Cache-Control", "no-store");
+    headers.set("Cloudflare-CDN-Cache-Control", "no-store");
+  } else if (cacheControl && !headers.has("Cache-Control")) {
     headers.set("Cache-Control", cacheControl);
   }
   return new Response(response.body, {
@@ -46,6 +55,11 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
 
   const url = new URL(context.request.url);
+
+  // OAuth callbacks must reach Better Auth unchanged. Never negotiate private HTML.
+  if (isAuthPath(url.pathname) || isLibraryPath(url.pathname)) {
+    return applyResponseHeaders(await next(), origin, url.pathname);
+  }
 
   if (url.pathname !== "/" && url.pathname.endsWith("/")) {
     url.pathname = url.pathname.replace(/\/+$/, "");

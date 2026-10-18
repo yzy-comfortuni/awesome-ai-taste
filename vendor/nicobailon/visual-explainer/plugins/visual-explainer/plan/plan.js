@@ -1,17 +1,12 @@
 /* Plan page runtime. plan/render.mjs inlines it; the page works without it as a static, printable plan.
    Kit (linked highlighting, flow dots, entrance) mirrors templates/page.html. Plan parts: decisions,
-   "seen" tracking, data-if, live diff stat, comments, keyboard, saved answers, and the response. */
+   "seen" tracking, data-if, live diff stat, comments, keyboard, saved answers, and the response.
+   The comment popover, the dialog, and sending or copying come from kit/reply.js, inlined before it. */
 (() => {
   "use strict";
-  const $ = (s, r = document) => r.querySelector(s);
-  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const R = window.veReply;
+  const { $, $$, h, toast } = R;
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const h = (tag, attrs = {}, ...kids) => {
-    const el = document.createElement(tag);
-    for (const [k, v] of Object.entries(attrs)) if (v != null && v !== false) k.startsWith("on") ? el.addEventListener(k.slice(2), v) : el.setAttribute(k, v === true ? "" : v);
-    el.append(...kids.flat().filter((k) => k != null && k !== false));
-    return el;
-  };
 
   /* ── kit: linked highlighting. Hover wins while it lasts; focus comes back after. ── */
   const linked = $$("[data-ref]");
@@ -105,7 +100,6 @@
   const claimText = (c) => $(":scope > summary .c-text", c).textContent.trim().replace(/\s+/g, " ");
   const question = (a) => $(".ask-q", a).textContent.trim();
 
-  const toast = (msg) => { const t = h("div", { class: "ve-toast", role: "status" }, msg); document.body.append(t); setTimeout(() => t.remove(), 1800); };
   const reveal = (el) => { for (let d = el.closest("details"); d; d = d.parentElement.closest("details")) d.open = true; };
   const goTo = (el) => {
     reveal(el);
@@ -214,55 +208,16 @@
   );
 
   /* comments: on a claim, or on any selected words */
-  let pop = null;
-  const closePop = () => { pop?.remove(); pop = null; };
-  function openComment({ rect, claim, quote }) {
-    closePop();
-    const ta = h("textarea", { "aria-label": "Comment", placeholder: "Comment for the agent…" });
-    const saveIt = () => {
-      const text = ta.value.trim();
-      if (text) S.comments.push({ claim: claim ? claimRef(claim) : "page", quote: quote || "", text });
-      closePop(); refresh();
-    };
-    pop = h("div", { class: "ve-pop", role: "dialog", "aria-label": "Add a comment" },
-      h("p", { class: "ref" }, claim ? `claim ${claimRef(claim)}` : "page"),
-      quote ? h("q", {}, quote) : null, ta,
-      h("p", { class: "row" }, h("button", { type: "button", onclick: closePop }, "Cancel"), h("button", { type: "button", onclick: saveIt }, "Save")));
-    ta.addEventListener("keydown", (e) => { if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) saveIt(); if (e.key === "Escape") closePop(); });
-    document.body.append(pop);
-    pop.style.left = `${Math.max(8, Math.min(rect.left + scrollX, scrollX + innerWidth - pop.offsetWidth - 8))}px`;
-    pop.style.top = `${rect.bottom + scrollY + 8}px`;
-    ta.focus({ preventScroll: true });
-  }
+  const openComment = ({ rect, claim, quote }) => R.note({ rect, ref: claim ? `claim ${claimRef(claim)}` : "page", quote, onSave: (text) => {
+    if (text) S.comments.push({ claim: claim ? claimRef(claim) : "page", quote: quote || "", text });
+    refresh();
+  } });
   for (const c of claims) {
     const btn = h("button", { type: "button", class: "c-note-btn", tabindex: "-1", "aria-label": `Comment on claim ${claimRef(c)}` }, "+ note");
     btn.addEventListener("click", (e) => { e.preventDefault(); e.stopPropagation(); openComment({ rect: $(":scope > summary", c).getBoundingClientRect(), claim: c }); });
     $(":scope > summary .c-meta", c).append(btn);
   }
-  let selBtn = null, selTimer;
-  document.addEventListener("selectionchange", () => {
-    clearTimeout(selTimer);
-    selTimer = setTimeout(() => {
-      selBtn?.remove(); selBtn = null;
-      const sel = getSelection();
-      if (!sel || sel.isCollapsed || dialog.open || pop) return;
-      const quote = sel.toString().trim().replace(/\s+/g, " ");
-      if (quote.length < 2 || quote.length > 400) return;
-      const range = sel.getRangeAt(0);
-      const inside = range.commonAncestorContainer.nodeType === 1 ? range.commonAncestorContainer : range.commonAncestorContainer.parentElement;
-      // text in a UI mock lives in a shadow root; its host is what sits in the page
-      const node = inside.getRootNode() instanceof ShadowRoot ? inside.getRootNode().host : inside;
-      if (!node.closest("main") || node.closest("textarea, input, .ve-pop")) return;
-      const rect = range.getBoundingClientRect();
-      selBtn = h("button", { type: "button", class: "ve-sel" }, "Comment");
-      selBtn.style.left = `${rect.left + scrollX}px`;
-      selBtn.style.top = `${rect.top + scrollY - 36}px`;
-      selBtn.addEventListener("pointerdown", (e) => e.preventDefault());
-      selBtn.addEventListener("click", () => { selBtn.remove(); selBtn = null; openComment({ rect, claim: claimOf(node), quote }); sel.removeAllRanges(); });
-      document.body.append(selBtn);
-    }, 180);
-  });
-  document.addEventListener("pointerdown", (e) => { if (pop && !pop.contains(e.target)) closePop(); }, true);
+  R.onSelect({ labels: ["Comment"], blocked: R.isOpen, pick: (_, { rect, node, quote }) => openComment({ rect, claim: claimOf(node), quote }) });
 
   /* the response: one markdown block the agent can apply without guessing */
   function buildResponse(verdict) {
@@ -296,18 +251,13 @@
     return `${L.join("\n").trim()}\n`;
   }
 
-  const dialog = h("dialog", { class: "ve-respond", "aria-labelledby": "ve-r-title" });
-  document.body.append(dialog);
   function openRespond(force) {
-    closePop();
     const left = asks.filter(todo);
     const wrong = Object.values(S.guesses).filter((v) => v === "wrong").length;
     const auto = asks.some(changed) || S.comments.length || wrong ? "Request changes" : "Approve";
     let verdict = force || auto;
     const md = h("pre", { class: "r-md" });
     const warn = h("p", { class: "r-warn" });
-    // only a page Pi opened in Glimpse has someone listening; anywhere else the response is copied
-    const glimpse = $("main").hasAttribute("data-send-back") && typeof window.glimpse?.send === "function";
     const update = () => {
       md.textContent = buildResponse(verdict);
       warn.textContent = verdict === "Approve" && left.length ? `▲ ${left.length} decision${left.length === 1 ? " was" : "s were"} never opened. Approving keeps the default${left.length === 1 ? "" : "s"}.` : "";
@@ -319,34 +269,25 @@
     const decisions = asks.length ? h("section", { class: "r-sec" }, h("p", { class: "ve-label caps" }, receipt ? "Decisions · settled before the build" : left.length ? `Decisions · ${left.length} to answer` : "Decisions · all opened"),
       ...asks.map((a, k) => {
         const st = stateOf(a);
-        return row(String(k + 1), question(a), `claim ${claimRef(claimOf(a))} · ${pickOf(a)}`, st, STATE_LABEL[st], () => { dialog.close(); goTo(a); markSeen(a); });
+        return row(String(k + 1), question(a), `claim ${claimRef(claimOf(a))} · ${pickOf(a)}`, st, STATE_LABEL[st], () => { R.close(); goTo(a); markSeen(a); });
       })) : null;
     const guessSec = guesses.length ? h("section", { class: "r-sec" }, h("p", { class: "ve-label caps" }, "Guesses to check"),
-      ...guesses.map((g) => { const v = own(S.guesses, g.dataset.guess); return row("▲", claimText(claimOf(g)), `claim ${g.dataset.guess}`, v ? "" : "todo", v || "not checked", () => { dialog.close(); goTo(g); }); })) : null;
+      ...guesses.map((g) => { const v = own(S.guesses, g.dataset.guess); return row("▲", claimText(claimOf(g)), `claim ${g.dataset.guess}`, v ? "" : "todo", v || "not checked", () => { R.close(); goTo(g); }); })) : null;
     const commentSec = S.comments.length ? h("section", { class: "r-sec" }, h("p", { class: "ve-label caps" }, `Comments · ${S.comments.length}`),
       ...S.comments.map((c) => h("p", { class: "r-row" }, h("span", { class: "k" }, "›"), h("span", {}, c.text, h("small", {}, `${c.claim === "page" ? "page" : `claim ${c.claim}`}${c.quote ? ` · “${c.quote}”` : ""}`)),
         h("button", { type: "button", onclick: () => { S.comments = S.comments.filter((x) => x !== c); refresh(); openRespond(verdict); } }, "Remove")))) : null;
-    const send = h("button", { type: "button", class: "primary", onclick: async () => {
-      const text = buildResponse(verdict);
-      if (glimpse) { window.glimpse.send({ type: "visual-explainer:plan-response", verdict, markdown: text }); toast("Sent to the agent"); dialog.close(); return; }
-      try { await navigator.clipboard.writeText(text); } catch { const ta = h("textarea"); ta.value = text; document.body.append(ta); ta.select(); document.execCommand("copy"); ta.remove(); }
-      toast("Copied. Paste it to the agent.");
-    } }, glimpse ? "Send to agent" : "Copy response");
+    // sent, the dialog closes; copied, it stays open so the reader can still change the verdict
+    const send = async () => { if (await R.deliver({ kind: "plan", verdict, markdown: buildResponse(verdict) }) === "sent") R.close(); };
     const reset = h("button", { type: "button", class: "danger", onclick: () => {
       if (reset.dataset.armed !== "1") { reset.dataset.armed = "1"; reset.textContent = "Clear all answers?"; setTimeout(() => { reset.dataset.armed = ""; reset.textContent = "Reset"; }, 3000); return; }
       S.seen = {}; S.guesses = {}; S.comments = [];
       for (const a of asks) write(a, defaults[a.dataset.ask]);
       for (const i of $$("fieldset.guess input")) i.checked = false;
       try { localStorage.removeItem(KEY); } catch { /* see above */ }
-      dialog.close(); refresh(); toast("Reset");
+      R.close(); refresh(); toast("Reset");
     } }, "Reset");
-    dialog.replaceChildren(h("div", { class: "r-wrap" },
-      h("header", { class: "r-head" }, h("h2", { id: "ve-r-title" }, "Your response"), h("button", { type: "button", onclick: () => dialog.close() }, "Close")),
-      h("div", { class: "r-body" }, verdicts, decisions, guessSec, commentSec, warn, h("section", { class: "r-sec" }, h("p", { class: "ve-label caps" }, glimpse ? "Sent to the agent" : "Paste this to the agent"), md)),
-      h("footer", { class: "r-foot" }, reset, h("span", { class: "sp" }), send)));
     update();
-    if (!dialog.open) dialog.showModal();
-    send.focus();
+    R.sheet({ title: "Your response", copy: "Copy response", body: [verdicts, decisions, guessSec, commentSec, warn], md, foot: reset, send });
   }
 
   const next = h("button", { type: "button", class: "next", hidden: true, onclick: nextAsk });
@@ -363,7 +304,7 @@
   }
   const visibleSummaries = () => claims.filter((c) => !c.parentElement.closest("details.claim:not([open])")).map((c) => $(":scope > summary", c));
   document.addEventListener("keydown", (e) => {
-    if (e.metaKey || e.ctrlKey || e.altKey || dialog.open || pop) return;
+    if (e.metaKey || e.ctrlKey || e.altKey || R.isOpen()) return;
     if (e.target instanceof Element && e.target.closest("textarea, input[type=text], [contenteditable]")) return;
     const here = claimOf(document.activeElement);
     const k = e.key;

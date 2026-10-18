@@ -8,6 +8,8 @@ type Props = {
   hideTitle?: boolean;
   ariaLabel?: string;
   variant?: "card" | "list";
+  /** Allow list descriptions to wrap instead of truncating. */
+  wrapDescription?: boolean;
 };
 
 import Card from "./card.astro";
@@ -21,6 +23,7 @@ const {
   avatarUrl,
   hideTitle,
   variant = "card",
+  wrapDescription = false,
 } = Astro.props as Props;
 ---
 
@@ -33,6 +36,7 @@ const {
       ownerLabel={ownerLabel}
       avatarUrl={avatarUrl}
       hideTitle={hideTitle}
+      wrapDescription={wrapDescription}
     />
   ) : (
     <a href={href} class="group block">

@@ -1,0 +1,134 @@
+---
+import { env } from "cloudflare:workers";
+import { PlusIcon } from "@heroicons/react/24/outline";
+import Layout from "../../layouts/Layout.astro";
+import Button from "../../ui/button.astro";
+import Breadcrumbs from "../../ui/breadcrumbs.astro";
+import LibrarySkillRow from "../../ui/library-skill-row.astro";
+import { DeleteCollectionButton } from "../../ui/delete-collection-button";
+import { EditCollectionButton } from "../../ui/edit-collection-button";
+import { getAuth, getPageSession } from "../../lib/auth";
+import { safeReturnTo } from "../../lib/auth-config";
+import { createLibraryStore } from "../../lib/library-store";
+import { isCollectionSlug } from "../../lib/library-types";
+import { toLibrarySkill } from "../../lib/library-view";
+
+export const prerender = false;
+
+const slug = Astro.params.slug ?? "";
+const auth = getAuth(env);
+if (!auth || !env.AUTH_DB) return Astro.redirect("/login");
+const session = await getPageSession(
+  auth,
+  Astro.request.headers,
+  Astro.response.headers,
+);
+if (!session) {
+  return Astro.redirect(
+    `/login?returnTo=${encodeURIComponent(safeReturnTo(Astro.url.pathname))}`,
+  );
+}
+
+const collection = isCollectionSlug(slug)
+  ? await createLibraryStore(env.AUTH_DB).getBySlug(session.user.id, slug)
+  : null;
+if (!collection) Astro.response.status = 404;
+
+const skills = (collection?.skillPaths ?? []).map(toLibrarySkill);
+---
+
+<Layout
+  title={collection
+    ? `${collection.title} | Library | UI Skills`
+    : "Collection not found | UI Skills"}
+  description="A private collection of UI skills."
+  robots="noindex,nofollow"
+  showNewsletter={false}
+>
+  <div class="container-3xl pt-20 pb-10">
+    <div class="flex flex-col gap-10">
+      <Breadcrumbs
+        items={[
+          { label: "Library", href: "/library" },
+          { label: collection?.title ?? "Collection" },
+        ]}
+      />
+      {
+        collection ? (
+          <>
+            <div class="flex items-center justify-between gap-4">
+              <h1 class="type-h1 text-content-primary min-w-0 text-balance">
+                {collection.title}
+              </h1>
+              <div class="flex shrink-0 items-center gap-1">
+                <EditCollectionButton
+                  client:load
+                  collectionId={collection.id}
+                  title={collection.title}
+                />
+                <DeleteCollectionButton
+                  client:load
+                  collectionId={collection.id}
+                  title={collection.title}
+                />
+              </div>
+            </div>
+
+            <div class="-mt-6">
+              {skills.length > 0 ? (
+                <div class="flex flex-col">
+                  {skills.map((skill) => (
+                    <LibrarySkillRow
+                      skill={skill}
+                      label={`Remove ${skill.name} from ${collection.title}`}
+                      collectionId={collection.id}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <a
+                  href="/skills"
+                  class="group focus-visible:outline-content-primary flex flex-col items-center gap-5 py-8 outline-none focus-visible:outline-1 focus-visible:outline-offset-4"
+                >
+                  <span class="flex items-center justify-center -space-x-10">
+                    <span class="border-line-default bg-fill-subtle h-20 w-16 -rotate-6 rounded-lg border border-dashed motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-out motion-safe:group-hover:-translate-x-1 motion-safe:group-hover:-rotate-8"></span>
+                    <span class="border-line-default bg-surface-default text-content-muted relative z-10 flex h-24 w-16 items-center justify-center rounded-lg border border-dashed motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-out motion-safe:group-hover:-translate-y-1">
+                      <PlusIcon className="size-5" aria-hidden="true" />
+                    </span>
+                    <span class="border-line-default bg-fill-subtle h-20 w-16 rotate-6 rounded-lg border border-dashed motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-out motion-safe:group-hover:translate-x-1 motion-safe:group-hover:rotate-8"></span>
+                  </span>
+                  <span class="type-body-md text-content-secondary">
+                    Add a skill
+                  </span>
+                </a>
+              )}
+            </div>
+          </>
+        ) : (
+          <div class="flex flex-col items-start gap-4">
+            <h1 class="type-h1 text-content-primary text-balance">
+              Collection not found
+            </h1>
+            <p class="type-body-md text-content-secondary text-pretty">
+              It may have been deleted, or the link is wrong.
+            </p>
+            <div class="flex items-center gap-2">
+              <Button href="/library" variant="secondary">
+                Back to library
+              </Button>
+              <Button href="/skills" variant="ghost">
+                Browse skills
+              </Button>
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import { clearLibraryCache } from "../../lib/library-client";
+
+  clearLibraryCache();
+</script>

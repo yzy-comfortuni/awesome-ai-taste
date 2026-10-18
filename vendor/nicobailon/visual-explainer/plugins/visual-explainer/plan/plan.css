@@ -271,41 +271,14 @@ svg.has-lit g[data-ref]:not(.is-lit):not(.ve-co) text, svg.has-lit text[data-ref
 .done td { padding: var(--s-2) var(--s-3); border-bottom: 1px solid var(--border); vertical-align: top; }
 .done td:first-child a { font: 600 var(--t-label) var(--font-mono); margin-right: var(--s-2); }
 
-/* response bar, dialog, comments */
-.ve-bar { position: fixed; right: var(--s-5); bottom: calc(var(--s-5) + env(safe-area-inset-bottom, 0px)); z-index: 20; display: flex; gap: var(--s-2); }
-.ve-bar button { padding: var(--s-3) var(--s-4); box-shadow: 0 8px 24px var(--lift); }
+/* response bar and dialog: the plan's own parts (the shared ones are in kit/reply.js) */
 .ve-bar .next { border-color: var(--accent); color: var(--accent); background: var(--surface); }
-.ve-bar .respond { background: var(--text); color: var(--bg); border-color: var(--text); font-weight: 600; }
-.ve-bar .respond .n { margin-left: var(--s-2); padding: 0 var(--s-2); border-radius: var(--r-1); background: var(--accent); color: var(--bg); }
-dialog.ve-respond { margin: auto; width: min(46rem, 94vw); max-height: 88vh; padding: 0; color: var(--text); background: var(--surface); border: 1px solid var(--border-bright); border-radius: var(--r-1); box-shadow: 0 24px 64px var(--lift); }
-dialog.ve-respond::backdrop { background: rgb(5 10 16 / .55); }
-.r-wrap { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; max-height: 88vh; }
-.r-head, .r-foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3); padding: var(--s-4) var(--s-5); }
-.r-head { border-bottom: 1px solid var(--border); } .r-foot { border-top: 1px solid var(--border); }
-.r-head h2 { font-size: var(--t-lead); margin-right: auto; }
-.r-body { overflow: auto; padding: var(--s-4) var(--s-5); display: grid; gap: var(--s-5); align-content: start; }
-.r-sec { display: grid; gap: var(--s-2); }
-.r-row { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr) auto; gap: var(--s-3); align-items: baseline; width: 100%; text-align: left; font: var(--t-small)/1.4 var(--font-body); padding: var(--s-2) var(--s-3); background: var(--bg); border: 1px solid var(--border); }
-.r-row .k { font: 600 var(--t-label) var(--font-mono); color: var(--text-dim); }
-.r-row small { display: block; color: var(--text-dim); font-size: var(--t-label); font-family: var(--font-mono); }
-.r-row .st { font: 600 var(--t-label) var(--font-mono); color: var(--text-dim); }
 .r-row.todo { border-color: var(--accent); } .r-row.todo .st { color: var(--accent); } .r-row.changed .st { color: var(--text); }
 .verdict { display: flex; flex-wrap: wrap; gap: var(--s-2); border: 0; padding: 0; }
 .verdict label { display: inline-flex; align-items: center; gap: var(--s-2); padding: var(--s-2) var(--s-3); border: 1px solid var(--border-bright); border-radius: var(--r-1); font: 500 var(--t-small) var(--font-mono); cursor: pointer; }
 .verdict label:has(input:checked) { border-color: var(--text); background: color-mix(in srgb, var(--text) 8%, var(--surface)); }
 .verdict input { accent-color: var(--accent); }
 .r-warn { font: 500 var(--t-small) var(--font-mono); color: var(--warn); }
-.r-md { font: var(--t-label)/1.55 var(--font-mono); white-space: pre-wrap; overflow-wrap: anywhere; background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-1); padding: var(--s-3) var(--s-4); max-height: 18rem; overflow: auto; color: var(--text-dim); }
-.r-foot .sp { flex: 1; }
-.r-foot .primary { background: var(--text); color: var(--bg); border-color: var(--text); font-weight: 600; }
-.r-foot .danger { color: var(--risk); }
-.ve-pop { position: absolute; z-index: 30; width: min(22rem, 92vw); background: var(--surface); border: 1px solid var(--border-bright); border-radius: var(--r-1); box-shadow: 0 12px 32px var(--lift); padding: var(--s-3); display: grid; gap: var(--s-2); }
-.ve-pop .ref { font: 500 var(--t-label) var(--font-mono); color: var(--text-dim); }
-.ve-pop q { font-size: var(--t-small); color: var(--text); }
-.ve-pop textarea { width: 100%; min-height: 5rem; resize: vertical; font: var(--t-small)/1.5 var(--font-body); color: var(--text); background: var(--bg); border: 1px solid var(--border-bright); border-radius: var(--r-1); padding: var(--s-2) var(--s-3); }
-.ve-pop .row { display: flex; gap: var(--s-2); justify-content: flex-end; }
-.ve-sel { position: absolute; z-index: 30; font-size: var(--t-label); padding: var(--s-1) var(--s-2); box-shadow: 0 6px 18px var(--lift); }
-.ve-toast { position: fixed; left: 50%; bottom: 5.5rem; transform: translateX(-50%); z-index: 40; background: var(--text); color: var(--bg); font: 600 var(--t-small) var(--font-mono); padding: var(--s-2) var(--s-4); border-radius: var(--r-1); }
 .ve-keys { position: fixed; right: var(--s-5); bottom: 5rem; z-index: 25; background: var(--surface); border: 1px solid var(--border-bright); border-radius: var(--r-1); padding: var(--s-3) var(--s-4); font: var(--t-label)/1.9 var(--font-mono); color: var(--text-dim); box-shadow: 0 12px 32px var(--lift); }
 .ve-keys kbd { display: inline-block; min-width: 1.6em; text-align: center; color: var(--text); border: 1px solid var(--border-bright); border-radius: var(--r-1); margin-right: var(--s-2); font: inherit; }
 
@@ -320,13 +293,12 @@ dialog.ve-respond::backdrop { background: rgb(5 10 16 / .55); }
   .c-text { flex-basis: 12rem; }
   .c-meta { margin-left: calc(2rem + var(--s-3)); }
   .call .loc, .call .note { display: none; }
-  .ve-bar { left: var(--s-4); right: var(--s-4); } .ve-bar button { flex: 1; }
 }
 
 @media print {
   :root { --bg: #fff; --surface: #fff; --border: #d6e0ea; --border-bright: #818f9e; --text: #0f1a26; --text-dim: #4d6074; --accent: #a34700; --accent-dim: rgba(163,71,0,.12); --ok: #1c7443; --warn: #776300; --risk: #b0341e; --info: #145f99; --node-top: #fff; --grid: transparent; }
   body { background: #fff; }
-  .ve-bar, .plan-meta .tools, .c-note-btn, .ve-dots, .guess input { display: none !important; }
+  .plan-meta .tools, .c-note-btn, .ve-dots, .guess input { display: none !important; }
   .plan-grid { display: block; } .plan-hero { position: static; margin-bottom: var(--s-5); }
   .claim[open] > summary { position: static; box-shadow: none; }
   .frame, .ask, .code, .calls, .mock { break-inside: avoid; }

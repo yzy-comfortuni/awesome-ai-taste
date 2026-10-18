@@ -11,6 +11,7 @@ export const GET: APIRoute = ({ site }) => {
   const body = [
     "User-agent: *",
     "Allow: /",
+    "Disallow: /library",
     "Disallow: /llms.txt",
     "Disallow: /skills/*/llms.txt",
     "Disallow: /skills/registry.txt",

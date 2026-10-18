@@ -1,3 +1,5 @@
+import type { DirectoryLink } from "./directory-links";
+
 export type ComponentCollection =
   | "production"
   | "primitives"
@@ -28,6 +30,7 @@ export const componentCollections: Array<{
   intro: string;
   seoTitle: string;
   metaDescription: string;
+  relatedLinks?: DirectoryLink[];
 }> = [
   {
     slug: "production",
@@ -67,6 +70,20 @@ export const componentCollections: Array<{
     seoTitle: "Shadcn Components",
     metaDescription:
       "Browse curated shadcn components and copy-paste UI collections for React and Tailwind CSS projects.",
+    relatedLinks: [
+      {
+        label: "All component libraries",
+        href: "/components",
+        description:
+          "Browse every curated component library and UI system in one directory.",
+      },
+      {
+        label: "shadcn/ui skills",
+        href: "/skills/shadcn-ui-development",
+        description:
+          "Find agent skills for composing, styling, and migrating shadcn/ui components.",
+      },
+    ],
   },
   {
     slug: "motion",

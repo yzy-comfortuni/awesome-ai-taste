@@ -1,10 +1,13 @@
 import type { TopicSlug } from "./registry.ts";
+import type { DirectoryLink } from "./directory-links";
 
 export type Topic = {
   slug: TopicSlug;
   label: string;
   description: string;
   isDesignCore: boolean;
+  relatedLinks?: DirectoryLink[];
+  supportingSkillPaths?: string[];
 };
 
 export const topicsBySlug = {
@@ -177,9 +180,37 @@ export const topicsBySlug = {
   },
   frameworks: {
     slug: "frameworks",
-    label: "Frameworks",
-    description: "Framework-level practices across modern frontend stacks.",
+    label: "Frontend frameworks",
+    description:
+      "Agent skills for frontend frameworks, including React, Next.js, Svelte, Nuxt, and React Router. Find guidance for components, routing, rendering performance, and framework integrations.",
     isDesignCore: false,
+  },
+  "shadcn-ui-development": {
+    slug: "shadcn-ui-development",
+    label: "shadcn/ui",
+    description:
+      "Agent skills for building with shadcn/ui: find and compose components, customize styles and themes, translate designs into code, and migrate component primitives.",
+    isDesignCore: false,
+    supportingSkillPaths: [
+      "millionco/tailwind-token-consolidation",
+      "emilkowalski/ask-sonner",
+      "ibelick/baseline-ui",
+      "prototyperai/build-primitive",
+    ],
+    relatedLinks: [
+      {
+        label: "shadcn components",
+        href: "/components/shadcn",
+        description:
+          "Find component libraries and copy-paste building blocks for shadcn/ui projects.",
+      },
+      {
+        label: "Design system guidelines",
+        href: "/collections/design-system-guidelines",
+        description:
+          "Explore skills for documenting tokens, components, and reusable interface patterns.",
+      },
+    ],
   },
 } satisfies Record<TopicSlug, Topic>;
 
@@ -201,7 +232,7 @@ export const primaryDesignTopicSlugs: TopicSlug[] = [
 export const relatedTopicSlugs: Record<TopicSlug, TopicSlug[]> = {
   accessibility: ["testing", "color", "interaction", "frontend"],
   motion: ["interaction", "performance", "visual", "remotion"],
-  systems: ["architecture", "frontend", "tooling", "craft"],
+  systems: ["architecture", "frontend", "tooling", "craft", "shadcn-ui-development"],
   visual: ["color", "typography", "craft", "taste"],
   interaction: ["motion", "visual", "accessibility", "frontend"],
   performance: ["tooling", "frontend", "testing", "motion", "debugging"],
@@ -225,4 +256,5 @@ export const relatedTopicSlugs: Record<TopicSlug, TopicSlug[]> = {
   remotion: ["video", "motion", "frontend", "visual"],
   swiftui: ["interaction", "systems", "performance", "frontend"],
   frameworks: ["frontend", "architecture", "tooling", "performance"],
+  "shadcn-ui-development": ["systems", "frontend", "visual", "accessibility"],
 };

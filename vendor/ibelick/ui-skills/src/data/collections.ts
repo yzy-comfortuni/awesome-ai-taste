@@ -12,6 +12,8 @@ export type Collection = {
   cardDescription: string;
   metaDescription: string;
   intro: string;
+  /** Ordered selection guidance, when a collection represents a workflow. */
+  workflow?: { title: string; description: string }[];
   playbook: string[];
   skills: CollectionSkill[];
   agentCapabilities: string[];
@@ -1089,6 +1091,224 @@ export const collections: Collection[] = [
       "ai-generated-ui",
       "ui-design-tips",
       "visual-hierarchy",
+      "design-engineering",
+      "web-development-best-practices",
+    ],
+  },
+  {
+    slug: "web-development-best-practices",
+    title: "Web development best practices",
+    keyword: "web development best practices",
+    seoTitle:
+      "Web development best practices: agent skills and checks | UI Skills",
+    cardDescription:
+      "Review semantic HTML, accessibility, performance, security, SEO, and browser behavior with a focused set of agent skills.",
+    metaDescription:
+      "Apply web development best practices with a practical review workflow and agent skills for semantic HTML, accessibility, performance, security, SEO, and testing.",
+    intro:
+      "Use this collection to review an existing website before shipping. Start with a quality audit, choose the skills that address its findings, and verify the changes in a real browser. These skills support a review; they do not replace security testing or guarantee compliance.",
+    workflow: [
+      {
+        title: "Establish a baseline",
+        description:
+          "Start with web-quality-audit to identify issues and record evidence. Prioritize broken user journeys and high-impact findings rather than running every skill at once.",
+      },
+      {
+        title: "Check structure and accessibility",
+        description:
+          "Use semantic-html-first for controls and document structure, then audit-and-fix for accessibility findings. Use web-design-guidelines when you also need an interface and usability review.",
+      },
+      {
+        title: "Review loading and implementation risks",
+        description:
+          "Use web-perf to investigate loading and responsiveness with browser traces, and best-practices for security, compatibility, and code-quality checks. Measure again after making changes.",
+      },
+      {
+        title: "Check search visibility and verify behavior",
+        description:
+          "Use fixing-metadata for titles, social previews, canonical URLs, and structured data. Use vitest for unit tests and playwright-cli for browser flows. For interactive runtime investigation, browser-testing-with-devtools requires Chrome DevTools MCP.",
+      },
+    ],
+    playbook: [
+      "reserve-space-with-aspect-ratio",
+      "show-visible-focus-rings",
+      "label-every-form-field",
+      "show-errors-beside-fields",
+      "keep-secondary-text-readable",
+      "use-structural-skeletons",
+    ],
+    skills: [
+      {
+        slug: "web-quality-audit",
+        pathSlug: "addyosmani/web-quality-audit",
+        role: "Start here to establish a baseline across performance, accessibility, best practices, and SEO.",
+      },
+      {
+        slug: "semantic-html-first",
+        pathSlug: "kemiljk/semantic-html-first",
+        role: "Use when controls or custom components need the right HTML semantics and accessible behavior.",
+      },
+      {
+        slug: "audit-and-fix",
+        pathSlug: "accesslint/audit-and-fix",
+        role: "Use to detect, prioritize, and fix accessibility violations in an existing interface.",
+      },
+      {
+        slug: "web-perf",
+        pathSlug: "elithrar/web-perf",
+        role: "Use browser traces and network evidence to investigate loading, interaction latency, and layout shifts.",
+      },
+      {
+        slug: "best-practices",
+        pathSlug: "addyosmani/best-practices",
+        role: "Use to review security, browser compatibility, and maintainability concerns in the implementation.",
+      },
+      {
+        slug: "fixing-metadata",
+        pathSlug: "ibelick/fixing-metadata",
+        role: "Use before publishing to check titles, descriptions, canonical URLs, social previews, and structured data.",
+      },
+      {
+        slug: "browser-testing-with-devtools",
+        pathSlug: "addyosmani/browser-testing-with-devtools",
+        role: "Use to verify key flows in a real browser and inspect runtime evidence. Requires Chrome DevTools MCP.",
+      },
+      {
+        slug: "web-design-guidelines",
+        pathSlug: "vercel-labs/web-design-guidelines",
+        role: "Use to review interface usability, accessible interactions, and responsive behavior against web interface guidelines.",
+      },
+      {
+        slug: "vitest",
+        pathSlug: "antfu/vitest",
+        role: "Use for unit tests, fixtures, mocks, and coverage in projects that use Vitest.",
+      },
+      {
+        slug: "playwright-cli",
+        pathSlug: "microsoft/playwright-cli",
+        role: "Use for repeatable browser flows, test generation, and traces with the Playwright CLI.",
+      },
+    ],
+    agentCapabilities: [
+      "Establish a quality baseline and turn findings into prioritized changes.",
+      "Review semantics, accessibility, loading performance, compatibility, and search metadata.",
+      "Verify important browser flows and compare results after changes.",
+    ],
+    relatedSlugs: ["design-engineering", "form-design", "website-layout"],
+  },
+  {
+    slug: "design-engineering",
+    title: "Design engineering",
+    keyword: "design engineering",
+    seoTitle: "Design engineering skills: from design to production | UI Skills",
+    cardDescription:
+      "Translate design intent into working interfaces, define interaction behavior, and verify production quality.",
+    metaDescription:
+      "Explore design engineering agent skills for translating design intent into code, defining interactions, testing component states, accessibility, and motion.",
+    intro:
+      "Design engineering connects interface design with frontend implementation. Use these skills when a design needs to become a working product: preserve its intent, resolve behavior missing from mockups, and verify the result. Unlike a design-system collection, this workflow focuses on delivering a particular interface rather than governing a component library.",
+    workflow: [
+      {
+        title: "Translate the design intent",
+        description:
+          "Use design-engineering to connect design decisions to production components. Use build-design to match a Figma file or design image, and figma-code-connect when design components need mappings to code. Use sync-figma-token when code tokens and Figma variables drift, and frontend-ui-engineering for responsive structure.",
+      },
+      {
+        title: "Define behavior beyond the mockup",
+        description:
+          "Use interaction-contracts to specify triggers, state changes, interruption, persistence, and recovery. Use balise-ux-writing to make labels, errors, and feedback explain that behavior clearly.",
+      },
+      {
+        title: "Inspect component states and motion",
+        description:
+          "Use component-canvas to compare existing live component variants. Use 60fps-animation to avoid layout thrashing and improve animation performance with compositor-friendly techniques.",
+      },
+      {
+        title: "Prepare the interface for real use",
+        description:
+          "Use fixing-accessibility for keyboard, focus, labels, and form issues, then harden for empty states, errors, edge cases, and localization resilience. Finish with design-review for a prioritized critique of the actual interface, not just the mockup.",
+      },
+    ],
+    playbook: [
+      "use-large-touch-targets",
+      "give-targets-breathing-room",
+      "show-visible-focus-rings",
+      "use-structural-skeletons",
+      "give-empty-states-one-action",
+      "reserve-space-with-aspect-ratio",
+    ],
+    skills: [
+      {
+        slug: "design-engineering",
+        pathSlug: "kemiljk/design-engineering",
+        role: "Start here when translating design intent into production components or aligning design and engineering decisions.",
+      },
+      {
+        slug: "frontend-ui-engineering",
+        pathSlug: "addyosmani/frontend-ui-engineering",
+        role: "Use for responsive implementation, component architecture, and maintainable frontend patterns.",
+      },
+      {
+        slug: "interaction-contracts",
+        pathSlug: "kemiljk/interaction-contracts",
+        role: "Use when a mockup leaves triggers, state changes, interruption, or recovery behavior unresolved.",
+      },
+      {
+        slug: "component-canvas",
+        pathSlug: "ibelick/component-canvas",
+        role: "Use to inspect existing live components and compare their variants in a pan-and-zoom workspace.",
+      },
+      {
+        slug: "60fps-animation",
+        pathSlug: "iart-ai/60fps-animation",
+        role: "Use to reduce layout thrashing and build smoother animations with compositor-friendly techniques.",
+      },
+      {
+        slug: "fixing-accessibility",
+        pathSlug: "ibelick/fixing-accessibility",
+        role: "Use to fix keyboard navigation, focus management, labels, contrast, and form errors.",
+      },
+      {
+        slug: "harden",
+        pathSlug: "pbakaus/harden",
+        role: "Use before release to handle empty states, errors, edge cases, onboarding, and localization resilience.",
+      },
+      {
+        slug: "sync-figma-token",
+        pathSlug: "firebenders/sync-figma-token",
+        role: "Use to compare and sync code tokens with Figma variables, reviewing drift before applying changes.",
+      },
+      {
+        slug: "build-design",
+        pathSlug: "jakubkrehel/build-design",
+        role: "Use to implement a Figma design or reference image with the project's existing tokens and components.",
+      },
+      {
+        slug: "figma-code-connect",
+        pathSlug: "figma/figma-code-connect",
+        role: "Use when Figma components need maintained mappings to their production code through Code Connect.",
+      },
+      {
+        slug: "balise-ux-writing",
+        pathSlug: "mrstev3n/balise-ux-writing",
+        role: "Use to write or refine user-facing labels, onboarding, errors, and state messages without changing product behavior.",
+      },
+      {
+        slug: "design-review",
+        pathSlug: "superfuture/design-review",
+        role: "Use for a prioritized critique of hierarchy, spacing, typography, states, responsiveness, and accessibility.",
+      },
+    ],
+    agentCapabilities: [
+      "Translate interface design into responsive, maintainable components.",
+      "Specify interaction behavior and recovery paths beyond static mockups.",
+      "Inspect component variants and diagnose animation performance issues.",
+      "Prepare prototypes for real use with accessible controls and resilient states.",
+    ],
+    relatedSlugs: [
+      "web-development-best-practices",
+      "design-system-guidelines",
+      "website-layout",
     ],
   },
 ];
