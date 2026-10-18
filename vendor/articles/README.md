@@ -31,6 +31,7 @@
 | Ten simple rules for designing graphical abstracts | 正文 Markdown | current | [graphical-abstracts-rules.md](graphical-abstracts-rules.md) |
 | Ten simple rules for typographically appealing scientific texts | 正文 Markdown | current | [scientific-text-typography.md](scientific-text-typography.md) |
 | More than the Birds, Bees, and Trees: A Closer Look at Writing Haibun | 摘要 Markdown（非全文） | summary-only | [writing-haibun.md](writing-haibun.md) |
+| On the Many Different Engines That Power a Short Story | 摘要 Markdown（非全文） | summary-only | [short-story-engines.md](short-story-engines.md) |
 
 ## 更新方式
 
