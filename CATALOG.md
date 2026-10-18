@@ -18,7 +18,7 @@
 
   **规则：** 检查页面换成无关产品后是否仍能原样成立；若能，重新考虑构图和视觉语言与产品的关系。[出处](https://github.com/pbakaus/impeccable/blob/main/skill/reference/critique.md)
 
-- [Taste Skill](https://github.com/Leonxlnx/taste-skill) — 落地页与作品集的设计技能，调整布局变化、动效强度和信息密度。[正文](https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/Leonxlnx/taste-skill?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/Leonxlnx/taste-skill/stargazers) · [副本](vendor/leonxlnx/taste-skill)<!-- /source-meta -->
+- [Taste Skill](https://github.com/Leonxlnx/taste-skill) — 落地页与作品集的设计技能，调整布局变化、动效强度与信息密度。[正文](https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/Leonxlnx/taste-skill?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/Leonxlnx/taste-skill/stargazers) · [副本](vendor/leonxlnx/taste-skill)<!-- /source-meta -->
 
   **规则：** 设计落地页时，先按受众分别确定布局变化、动效强度与信息密度，不直接套默认风格。[出处](https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md)
 
@@ -153,6 +153,10 @@
 - [Chinese Novelist — 对话指南](https://github.com/PenglongHuang/chinese-novelist-skill) — 中文小说对白的潜台词、节奏和角色区分，附正反例；仅选读对话指南，不把章数、字数或章末钩子当通用要求。[正文](https://github.com/PenglongHuang/chinese-novelist-skill/blob/master/references/guides/dialogue-writing.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/PenglongHuang/chinese-novelist-skill?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/PenglongHuang/chinese-novelist-skill/stargazers) · [副本](vendor/penglonghuang/chinese-novelist-skill)<!-- /source-meta -->
 
   **规则：** 暂时遮住说话人标签，检查能否从用词、句式和语气识别人物；无法区分时，先改各自的说话方式。[出处](https://github.com/PenglongHuang/chinese-novelist-skill/blob/master/references/guides/dialogue-writing.md)
+
+- [On the Many Different Engines That Power a Short Story](https://lithub.com/on-the-many-different-engines-that-power-a-short-story/) — Lincoln Michel 的英语短篇创作讲义，用词语联想推动故事，附试写与修改示例；不是通用情节公式。[正文](https://lithub.com/on-the-many-different-engines-that-power-a-short-story/) <!-- article-copy --> · [Markdown 摘要](vendor/articles/short-story-engines.md)<!-- /article-copy -->
+
+  **规则：** 从首句圈出两三个关键词，列出 10–20 个联想词；试写时每句用到其中一个，修改时撤去限制，删改生硬重复。[出处](https://lithub.com/on-the-many-different-engines-that-power-a-short-story/)
 
 ## 诗歌写作
 
