@@ -5,7 +5,7 @@
       "repository": "ibelick/ui-skills",
       "branch": "main",
       "upstream_sha": "747a47fdb6b405e5cbf268f7c410123930455157",
-      "stars": 9855,
+      "stars": 9856,
       "archived": false,
       "scope": [
         "."
@@ -31,7 +31,7 @@
       "repository": "anthropics/skills",
       "branch": "main",
       "upstream_sha": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
-      "stars": 181996,
+      "stars": 181998,
       "archived": false,
       "scope": [
         "skills/frontend-design"
@@ -55,7 +55,7 @@
       "repository": "pbakaus/impeccable",
       "branch": "main",
       "upstream_sha": "2f46b7a8b059af00d20dd13b64dbe165e7c6a742",
-      "stars": 82716,
+      "stars": 82717,
       "archived": false,
       "scope": [
         "README.md",
@@ -80,7 +80,7 @@
       "repository": "Leonxlnx/taste-skill",
       "branch": "main",
       "upstream_sha": "a9c73c3d5dbf401e3e47f86e7b41f29ede1687df",
-      "stars": 98850,
+      "stars": 98857,
       "archived": false,
       "scope": [
         "."
@@ -106,7 +106,7 @@
       "repository": "vercel-labs/web-interface-guidelines",
       "branch": "main",
       "upstream_sha": "434b7f91364665f2f733b310ec54809bf8f37937",
-      "stars": 1006,
+      "stars": 1007,
       "archived": false,
       "scope": [
         "."
@@ -156,7 +156,7 @@
       "repository": "emilkowalski/skills",
       "branch": "main",
       "upstream_sha": "2d228630ba1446365f614a108cb8252f1feda202",
-      "stars": 47380,
+      "stars": 47382,
       "archived": false,
       "scope": [
         "."
@@ -182,7 +182,7 @@
       "repository": "wshobson/agents",
       "branch": "main",
       "upstream_sha": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
-      "stars": 41018,
+      "stars": 41020,
       "archived": false,
       "scope": [
         "."
@@ -208,7 +208,7 @@
       "repository": "hardikpandya/stop-slop",
       "branch": "main",
       "upstream_sha": "8da1f030185bdfe8471220585162991eaeb970e9",
-      "stars": 18114,
+      "stars": 18115,
       "archived": false,
       "scope": [
         "."
@@ -231,7 +231,7 @@
       "repository": "blader/humanizer",
       "branch": "main",
       "upstream_sha": "8c307f367c91bd974002f10f2be2965d642c13df",
-      "stars": 58102,
+      "stars": 58107,
       "archived": false,
       "scope": [
         "."
@@ -524,7 +524,7 @@
       "repository": "handsomestWei/patent-disclosure-skill",
       "branch": "main",
       "upstream_sha": "6935a14d342ed9c7a07440c999d1b7bf1852a701",
-      "stars": 11833,
+      "stars": 11836,
       "archived": false,
       "scope": [
         "skills/patent-application/SKILL.md",
@@ -625,7 +625,7 @@
       "repository": "PenglongHuang/chinese-novelist-skill",
       "branch": "master",
       "upstream_sha": "6a64a04651036aa519c6354a93d6e01d68a9c22a",
-      "stars": 3938,
+      "stars": 3939,
       "archived": false,
       "scope": [
         "README.md",
@@ -801,7 +801,7 @@
       "repository": "alchaincyf/huashu-art-motion",
       "branch": "main",
       "upstream_sha": "8a0d7d72ca65fcce6f8ba82c4a6c8dfe35b8422c",
-      "stars": 4358,
+      "stars": 4359,
       "archived": false,
       "scope": [
         "README.md",
