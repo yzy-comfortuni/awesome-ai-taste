@@ -216,7 +216,7 @@
 
   **规则：** 写解释背景的台词前，先明确说话人想让对方怎样反应，再按这个目的安排信息，而不是直接向观众报事实。[出处](https://johnaugust.com/2007/how-to-write-dialogue)
 
-- [Writing Fight Scenes](https://johnaugust.com/2011/writing-fight-scenes) — 通过剧本片段段讨论动作场面的取舍，让人物、场地和利害关系进入动作；不把剧本写成逐招编排表。[正文](https://johnaugust.com/2011/writing-fight-scenes) <!-- article-copy --> · [Markdown 摘要](vendor/articles/writing-fight-scenes.md)<!-- /article-copy -->
+- [Writing Fight Scenes](https://johnaugust.com/2011/writing-fight-scenes) — 通过剧本片段讨论动作场面的取舍，让人物、场地和利害关系进入动作；不把剧本写成逐招编排表。[正文](https://johnaugust.com/2011/writing-fight-scenes) <!-- article-copy --> · [Markdown 摘要](vendor/articles/writing-fight-scenes.md)<!-- /article-copy -->
 
   **规则：** 挑出由人物、场地和利害关系决定的关键动作，让打斗属于这场戏，不逐拳记录流水账。[出处](https://johnaugust.com/2011/writing-fight-scenes)
 
