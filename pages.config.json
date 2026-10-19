@@ -511,6 +511,24 @@
       "reviewed_on": "2026-10-18",
       "scope_note": "仅摘要 Literary Hub 于 2019-10-24 刊载的本篇写作讲义，不复制文章全文、小说例文或图片，不抓取整站。中文编辑摘要由 awesome-ai-taste 编写；全文 Markdown 仍有许可缺口。文中的词语联想练习由 Michel 明确注明借自 Rebecca Curtis。",
       "summary": "## 中文编辑摘要\n\n故事不一定先从情节大纲或人物小传开始。作者通过形式、声音和词义联想，讨论如何从已经写下的语言生出下一步事件；这种起草方法不等于最终作品的类型分析，也不排斥人物和情节。\n\n## 可采用的规则\n\n从首句圈出两三个关键词，列出 10–20 个联想词；试写时每句用到其中一个，修改时撤去限制，删改生硬重复。\n\n## 适用边界\n\n这是英语短篇小说的试写方法，不是普适情节公式或 AI 原生技能。作者允许成稿采用新的联想，并结合多种推进方式；不要求每句永久保留词表约束，未提供生成效果的实测保证。"
+    },
+    {
+      "id": "epo-two-part-form",
+      "title": "EPO Guidelines F-IV, 2.2 — Two-part Form",
+      "author": "European Patent Office",
+      "url": "https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_2_2.html",
+      "catalog_urls": [
+        "https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_2_2.html"
+      ],
+      "related_urls": [
+        "https://www.epo.org/en/legal/epc/2020/r43.html"
+      ],
+      "kind": "summary",
+      "license": "未确认适用于本页公开全文副本的再利用许可；仅存编辑摘要",
+      "license_evidence_url": "https://www.epo.org/en/terms-of-use",
+      "reviewed_on": "2026-10-19",
+      "scope_note": "仅摘要欧洲专利局 2026 年审查指南 F-IV, 2.2 单节；对照 EPC Rule 43(1)。中文编辑摘要由 awesome-ai-taste 编写，不是官方译文、原文全文或整部指南索引。全文再利用许可未确认，不自动下载原文或重新授予其版权。",
+      "summary": "## 中文编辑摘要\n\n两段式将独立权利要求分为前序和特征部分：前者交代主题类别及界定主题所需的已知技术组合，后者写与前序特征共同构成所求保护对象的附加特征。前序无需罗列与发明无关的全部常规部件。\n\n## 可采用的规则\n\n起草两段式独立权利要求时，前序只需列出界定主题所需、与发明有关的已知特征；若改进仅在快门，不必再罗列镜头和取景器。\n\n## 适用边界\n\n这是 EPC 审查语境中适当情形下的写法，不强加给从属权利要求或其他法域。该节也允许不失真的不同划分，并讨论申请人主动加入更多前序特征的后果；不能把分段机械等同于新颖性或创造性结论。本摘要不构成法律意见或授权保证。"
     }
   ]
 }
