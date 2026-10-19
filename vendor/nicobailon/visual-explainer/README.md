@@ -494,7 +494,7 @@ plugins/
     ├── SKILL.md           ← workflow + design principles
     ├── extension.ts       ← Pi native tool
     ├── commands/          ← slash commands
-    ├── kit/               ← shared page CSS and script, renderer, page check
+    ├── kit/               ← shared page CSS and script, renderer, page check, vendored Pele for Mermaid
     ├── mcp/               ← local stdio MCP server
     ├── pptx/              ← best-effort static PPTX exporter
     ├── video/             ← MP4 renderer for video decks
@@ -526,6 +526,8 @@ Pages are figure-first: the first screen shows the answer as a picture and one s
 ## Credits
 
 Borrows ideas from [Anthropic's frontend-design skill](https://github.com/anthropics/skills) and [interface-design](https://github.com/Dammyjay93/interface-design).
+
+Mermaid diagrams are drawn by [Pele](https://github.com/obsidianmd/pele) from Obsidian (MIT), bundled in `kit/vendor/`.
 
 ## License
 

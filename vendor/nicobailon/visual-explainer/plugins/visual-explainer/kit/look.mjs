@@ -163,7 +163,8 @@ function inspect(r) {
       const x = Math.min(a.right, b.right) - Math.max(a.left, b.left), y = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
       if (x > 1 && y > 1 && x * y > 0.1 * Math.min(area(a), area(b)) && !covered(texts[i].t, texts[j].t)) found.push({ where: name(svg), what: `"${texts[i].s}" overlaps "${texts[j].s}"` });
     }
-    if (!svg.matches(".ve-bars, .ve-waffle, .ve-stack")) found.push(...crossed(svg, texts).map((what) => ({ where: name(svg), what })));
+    // charts and Pele's Mermaid put labels on their shapes by design, and the agent cannot move them
+    if (!svg.matches(".ve-bars, .ve-waffle, .ve-stack, .pele")) found.push(...crossed(svg, texts).map((what) => ({ where: name(svg), what })));
   }
   scrollTo(0, 0);
   return found;

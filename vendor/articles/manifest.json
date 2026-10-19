@@ -395,6 +395,19 @@
       "saved_at": "2026-10-18T01:37:36.664145+00:00",
       "source_evidence": null,
       "status": "summary-only"
+    },
+    "epo-two-part-form": {
+      "path": "vendor/articles/epo-two-part-form.md",
+      "kind": "summary",
+      "sha256": "823ff28461116079018e713e4d10431b8307ac342e45238f0f9df231e7b6e14b",
+      "source_sha256": null,
+      "config_sha256": "8b413533e0a61972710472b24b76933dd81dba77ea9227ca213de943299fd603",
+      "converter_version": 1,
+      "license": "未确认适用于本页公开全文副本的再利用许可；仅存编辑摘要",
+      "source_url": "https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_2_2.html",
+      "saved_at": "2026-10-19T00:16:48.942479+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
     }
   },
   "unregistered": []

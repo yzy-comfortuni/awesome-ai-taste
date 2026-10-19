@@ -11,6 +11,7 @@
 - Agents read about 16% less for a page without motion, and no longer open the kit's source to look things up: step-throughs, replays, live figures, and 3D moved to their own guide that agents read when a figure moves, and the style guide no longer repeats what the kit already does.
 - A wide drawing is sized so its labels stay readable on a phone, so agents no longer work out label scale by hand. Every drawing gets `role="img"`, and a drawing without an `aria-label` stops the render.
 - SKILL.md is about 15% shorter: images, Mermaid, the older recipes, and PPTX moved to the references that need them, and checks the renderer now does left the delivery checklist.
+- Mermaid diagrams on kit pages are drawn when the page renders, by [Pele](https://github.com/obsidianmd/pele) from Obsidian, instead of by Mermaid from a CDN when the page opens. The page draws offline, follows theme switches through CSS, gets a separate phone layout, and the render's check sees the diagram. A Mermaid syntax error or a missing `aria-label` stops the render. Pele is vendored, so nothing needs installing.
 
 ### Fixed
 - A section that opens with a small label above its heading no longer sits flush on the figure below.

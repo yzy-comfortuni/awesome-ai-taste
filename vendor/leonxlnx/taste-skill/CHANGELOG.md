@@ -4,6 +4,66 @@ All notable changes to taste-skill live here. The repo follows SemVer-ish discip
 
 ---
 
+## 2.1.1 - 2026-10-19
+
+One skill to reach for. Installing the repo no longer means an agent might pick an older skill for the job.
+
+- **The classic skills are opt-in.** soft, minimalist, brutalist, gpt-taste, Stitch, v1 and v2-experimental run only when called by name: `disable-model-invocation: true` for Claude Code, `allow_implicit_invocation: false` (`agents/openai.yaml`) for Codex, and descriptions that say so for every other agent.
+- **Redesigns are part of taste-skill.** `SKILL.md` has a full route for a redesign, restyle or review of an existing page or app screen: record the before in a real browser, keep the stack, the content and what works, change type, colour, the frame, states and stock components in that order, prove it with before and after. `redesign-existing-projects` is retired and points there.
+- **The image-generation skills moved** to their own repo, [Leonxlnx/imagegen-skills](https://github.com/Leonxlnx/imagegen-skills): `imagegen-frontend-web`, `imagegen-frontend-mobile`, `brandkit`, `image-to-code`. Same install names; the folders here point there.
+- **`full-output-enforcement` is removed.**
+- **Two Claude Code plugins:** `taste-skill` carries only the default skill; `taste-skill-classics` carries the classic skills for whoever wants them.
+
+## 2.1.0 - 2026-10-19
+
+### The scroll-scene engine
+
+The groundwork for big scroll scenes, the moments award sites are remembered for (a camera flying through a field of pictures, a picture that grows from a window to the whole screen). The library of tested scenes, taken apart from 43 motion-led Sites of the Day and rebuilt from scratch, follows in 2.2; this release ships what they run on and the checks that judge them.
+
+- **`assets/scenes/stage.js` and `stage.css`**: a sticky stage scrubbed by native scroll with GSAP ScrollTrigger (pinned versions), optional Lenis smoothing that stays off for touch and reduced motion, and a finished composition for reduced motion, no script and a failed CDN. `references/scenes.md` says how to build a scene on it.
+- **`scripts/scenes.mjs`** photographs every scene on a page at 0-100% of its hold on desktop and phone, and the reduced-motion page. **`inspect.mjs --film`** films the whole scroll a third of a screen at a time, and the inspector fails a scene that never started or rests on desktop.
+- `draw.mjs` can deal scenes from `library/scenes.json` once it exists (`--redraw scenes`, `--list scenes`).
+- `motion.md`: smoothing allowed through the stage; inside a scene the scene's numbers apply; outside scenes the quiet limits stay. Still no preloader, gate, custom cursor or wheel capture.
+
+### Product pages that show their app
+
+A software product's page builds every interface fragment it shows (the hero's live screen, a feature crop, a chart) as a real piece of the app: its style dealt once with `draw.mjs --app --keep palette,type --out .taste-skill/app`, built with `app.css` and `charts.js`, real data that adds up.
+
+### Fixes
+
+- The inspector's throwaway Chrome profiles are removed reliably (Chrome is stopped before its profile is deleted, the profile cache is capped, profiles left by killed runs are swept); a long test session had left tens of GB in the temp folder. `TASTE_SKILL_TMP` moves them off the system drive.
+- `motion.md` and `research.md`: a claim that smooth-scroll pages showed empty frames mid-scroll was a capture artefact and is gone.
+
+### App screens: dashboards, admin, settings, inboxes
+
+The default skill now builds the screens people work in, not only the pages they read. `SKILL.md` asks first whether the job is a page or an app screen; an app screen takes its own route.
+
+- **`references/app-screens.md`**, a new chapter: the run for an app screen (inventory the data and the jobs, name the screen's one question and its one finding, write the data with assertions, deal a style, build the shell, the data and every state, check, look), the shell, the canvas and title, KPIs, charts, tables and lists, forms and settings, type and colour for light and dark, density, empty, zero, loading and error states, the phone and the tablet, the house rules for app screens and the tells of generated dashboards with what replaces each.
+- Distilled from a study of 23 real product screens chosen by the owner (17 products, 17 light and 6 dark), measured from their pixels. The screenshots stay private; the skill carries only the measurements and the rules.
+- **`draw.mjs --app`** deals an app style from `library/app.json`: seven styles (achromatic ledger, framed sheet, accent ladder, editorial greeting, pastel consumer, true-black flat, data terminal), each with tokens, type, a colour budget and the one move that makes it recognisable, plus five shells and 21 screen patterns for 13 kinds of product.
+- **`inspect.mjs --app`** and **`lint.mjs --app`** (switched on by an app sheet) judge app screens by their own rules: quiet borders, small labels, repeated panels and tables are allowed; heavy shadows, glass, icons in tinted squares, rainbow charts, placeholder data, text under 11px, a sidebar left on the phone, ragged rows, a thin first screen, landing-page titles and figures, a dead strip beside the canvas and colour sprawl are not.
+- **`assets/app.css`** (a neutral shell, panels, divided KPI strip, tables, pills, controls, tabs, empty states and the phone fold) and **`assets/charts.js`** (line, bars, ring, bar list, plan against spent, share against target, with annotations, reference lines, forecasts and capped ranges), both set to the study's defaults.
+- Tested in four blind rounds of eight, six, five and three builds judged from screenshots against the reference screens; the warnings at the top of the chapter come from what the judges marked down. The last round's complaint, "a well-applied kit, not a product with its own face", led to a required face step (each style lists ways to take one from the brief) and signature patterns for kinds of product (a power-flow summary, a leave timeline, a cover matrix, a sell-out strip).
+
+### The frame of a page
+
+Generated pages most often fail before any detail: no clear title, margins that do not match, a section pushed to one side with half the screen empty, long blank stretches, sections with no heading, text against the screen edge.
+
+- `SKILL.md` step 6 gains "The frame", the house rules three new rows, and a finish line before the report.
+- `inspect.mjs` measures each of them: `no-title`, `name-only-title`, `off-centre` (FAIL, and a WARN from 16px of drift), `lopsided`, `empty-middle`, `blank-gap`, `untitled-section`, `edge-text`, `ragged-edges`, `small-title`, `many-h1`. The thresholds come from the study below: strong pages hold their margins within a few pixels, about one text section in a hundred leaves half the width empty, 82% of text sections open with a heading.
+- `critique.md`: a five-second pass, a frame pass and new caps. `layout.md`: empty space rewritten and a new section on the frame.
+
+### A study of the latest 100 Awwwards Sites of the Day
+
+Captured on 18 October 2026 at 1440 and 390, with what moved and the CSS that loaded measured in the page, and read by a panel of one model reader per site (91 usable). Learning only: nothing a site owns is reproduced.
+
+- **Pictures and footage:** `imagery.md` §12, where pictures go (picture share per screen, nineteen placements ranked with their geometry and phone versions, footage, crops, text over pictures) and stricter video rules (a poster on every clip, one moving picture per screen, contrast checked across the whole loop).
+- **Motion:** `motion.md` gains what strong pages do with motion (the curves and durations that actually ran, staggers, scroll triggers, the cost of preloaders), new tokens (`--ease-expo`, `--ease-exit`, `--t-open`, staggers), scroll behaviours ranked, ten new recipes (lines that rise, an opening window, a held picture with passing captions, a sideways gallery, a receding hero, an index anchored to its row, a 1.2-second load sequence, view transitions between pages, an ink fill, rolling figures), the gimmicks to avoid and rules. Seven new signature moves in `library/motions.json`.
+- **Library:** 10 hero and 13 section compositions, 21 new studied sites and media and motion notes on 70 more (`draw.mjs --site <id>`).
+- **New checks:** `late-title` (the title is not readable 1.2s after load), `reduced-hidden` (content that stays hidden under reduced motion), `no-poster`.
+
+---
+
 ## 2.0.0 - 2026-10-13
 
 ### Repo

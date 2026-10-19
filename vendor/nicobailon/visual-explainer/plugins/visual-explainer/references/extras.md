@@ -1,6 +1,6 @@
 ## Mermaid
 
-Only when the user asks for it or supplies its source. `theme:'base'` with `themeVariables` from `getComputedStyle`, re-rendered on a theme switch. Quote labels with punctuation; `<br/>`, not `\n`. Natural size in a scroll box. No page class named `.node`, `.label`, `.nodeLabel`, `.edgeLabel`, `.cluster`, `.marker`, `.note`, `.actor`, or `.commit`.
+Only when the user asks for it or supplies its source, on kit pages. Put the source where a drawing goes: `<div class="frame"><pre class="mermaid" aria-label="what it shows">flowchart LR …</pre></div>`. The render draws it as plain SVG in the page's colors and fonts, with its own phone layout; no script, config, or theme code. `<br/>` for a line break. It does not step or replay: draw a figure that should move by hand.
 
 ## Images
 
@@ -12,4 +12,4 @@ node -e 'const fs=require("fs"),[f,i]=process.argv.slice(1);fs.writeFileSync(f,f
 
 ## Older recipes
 
-Fetch only for mechanics; keep this skill's look: `https://raw.githubusercontent.com/nicobailon/visual-explainer/v0.11.0/plugins/visual-explainer/` + `references/css-patterns.md` · `references/libraries.md` (Chart.js, anime.js) · `references/responsive-nav.md` (sticky TOC) · `references/slide-patterns.md` · `templates/architecture.html` · `templates/data-table.html` · `templates/mermaid-flowchart.html` (zoom and pan).
+Fetch only for mechanics; keep this skill's look: `https://raw.githubusercontent.com/nicobailon/visual-explainer/v0.11.0/plugins/visual-explainer/` + `references/css-patterns.md` · `references/libraries.md` (Chart.js, anime.js) · `references/responsive-nav.md` (sticky TOC) · `references/slide-patterns.md` · `templates/architecture.html` · `templates/data-table.html`.

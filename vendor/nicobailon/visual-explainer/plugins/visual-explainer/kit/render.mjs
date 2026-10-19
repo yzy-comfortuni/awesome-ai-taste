@@ -1,15 +1,17 @@
 #!/usr/bin/env node
 // Turns a page source into one self-contained page. A page that links the kit (<link rel="stylesheet" data-ve-kit>)
 // gets the kit's CSS, fonts, SVG defs, and script inlined at that marker; a plan source goes to plan/render.mjs.
-// Only the marker elements change, so a rendered page renders to itself. No dependencies, so it runs from a copied skill folder.
+// Only the marker elements change, so a rendered page renders to itself. No installed dependencies (Pele is vendored), so it runs
+// from a copied skill folder.
 import { lstatSync, readFileSync, realpathSync, renameSync, writeFileSync } from "node:fs";
 import { spawn } from "node:child_process";
 import { basename, dirname, join, resolve, sep } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { esc, find, hasClass, kids, parseHtml, serialize, textOf, words } from "./html.mjs";
+import { decode, esc, find, hasClass, inner, kids, parseHtml, serialize, textOf, words } from "./html.mjs";
 import { expandFlow } from "./flow.mjs";
 import { expandAsk } from "./ask.mjs";
 import { TAGS } from "./tags.mjs";
+import { PeleError, render as drawMermaid } from "./vendor/pele.mjs";
 import { hasPlan, renderPlan, renderPlanForHost } from "../plan/render.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -53,7 +55,9 @@ export function renderPage(source, { sendBack = false } = {}) {
   const links = find(doc, (n) => n.name === "link" && "data-ve-kit" in n.attrs);
   const tags = find(doc, (n) => Object.hasOwn(TAGS, n.name) || n.name === "ve-flow" || n.name === "ve-ask");
   const asks = tags.filter((t) => t.name === "ve-ask"), charts = tags.filter((t) => t.name !== "ve-ask");
-  if (!links.length && !tags.length) return { html: source, kit: false, errors, warnings, report: count(doc, charts) };
+  // Mermaid is drawn on kit pages only; a deck or another page without the kit keeps its <pre> as written
+  const mermaids = links.length ? find(doc, (n) => n.name === "pre" && hasClass(n, "mermaid")) : [];
+  if (!links.length && !tags.length && !mermaids.length) return { html: source, kit: false, errors, warnings, report: count(doc, charts) };
   const lineOf = (pos) => source.slice(0, pos).split("\n").length;
   const where = (n) => `line ${lineOf(n.pos)} <${n.name}${n.attrs.id ? `#${n.attrs.id}` : ""}>`;
   if (!links.length) errors.push(`${where(tags[0])}: tags need the kit; add <link rel="stylesheet" href="kit.css" data-ve-kit> to <head>`);
@@ -79,6 +83,32 @@ export function renderPage(source, { sendBack = false } = {}) {
     if (t.name === "ve-ask") t.html = expandAsk(t, { errors, warnings, where, ids, k: asks.indexOf(t) + 1, total: asks.length, page: true });
     else t.html = t.name === "ve-flow" ? expandFlow(t, { errors, warnings, where, ref, page: true }) : TAGS[t.name](t, { errors, warnings, where });
   }
+  // Mermaid becomes plain SVG here, so the page draws offline, follows the theme through CSS, and is checked like any drawing.
+  // A phone gets its own layout when Pele can make one narrower. Neither layout shrinks below its natural width (the frame
+  // scrolls instead), and Pele draws some labels smaller than its base size, so the base grows until the smallest is 12 px.
+  for (const [i, pre] of mermaids.entries()) {
+    const label = pre.attrs["aria-label"];
+    if (!label) { errors.push(`${where(pre)}: add aria-label="…" saying what the diagram shows`); continue; }
+    let wide, narrow;
+    try {
+      const text = decode(inner(pre));
+      const draw = (maxWidth, idPrefix) => {
+        for (let fontSize = 14; ; fontSize++) {
+          const r = drawMermaid(text, { fontSize, maxWidth, idPrefix });
+          if (fontSize >= 24 || Math.min(...[...r.svg.matchAll(/font-size(?:="|:\s*)([\d.]+)/g)].map((m) => +m[1])) >= 12) return r;
+        }
+      };
+      wide = draw(960, `ve-m${i}w`);
+      narrow = draw(280, `ve-m${i}n`);
+    } catch (e) {
+      if (!(e instanceof PeleError)) throw e;
+      errors.push(`${where(pre)}: Mermaid: ${e.message.replace(/\s*\n\s*/g, " ")}`);
+      continue;
+    }
+    const both = narrow.width < wide.width;
+    const svg = (r, cls) => r.svg.replace(' role="graphics-document document"', ` role="img" aria-label="${esc(label)}"`).replace('class="pele ', `class="pele${cls} `).replace('style="', `style="min-width:${r.width}px;`);
+    pre.html = `<div class="ve-mermaid"${pre.attrs.id ? ` id="${esc(pre.attrs.id)}"` : ""}>${svg(wide, both ? " is-wide" : "")}${both ? svg(narrow, " is-narrow") : ""}</div>`;
+  }
   // Each drawing says what it shows, and a viewBox wider than 816 gets the min-width that keeps 14-unit labels at 12 px.
   const drawings = [];
   const top = (n) => { for (const c of kids(n)) if (c.name === "svg") drawings.push(c); else top(c); };
@@ -95,8 +125,8 @@ export function renderPage(source, { sendBack = false } = {}) {
   }
   if (errors.length) return { html: source, kit: true, errors, warnings };
 
-  // a page with <ve-ask> also gets its styles and its part of the reply
-  const css = ["kit.css", ...(asks.length ? ["ask.css"] : [])].map((f) => readFileSync(join(here, f), "utf8")).join("");
+  // a page with <ve-ask> also gets its styles and its part of the reply; a page with Mermaid gets the diagram colors
+  const css = ["kit.css", ...(asks.length ? ["ask.css"] : []), ...(mermaids.length ? ["mermaid.css"] : [])].map((f) => readFileSync(join(here, f), "utf8")).join("");
   const js = ["reply.js", ...(asks.length ? ["ask.js"] : []), "kit.js"].map((f) => readFileSync(join(here, f), "utf8")).join("\n").replace(/<\/script/gi, "<\\/script");
   const script = `<script data-ve-kit${sendBack ? " data-send-back" : ""}>\n${js}</script>`;
   // without a charset, Firefox and Safari garble · and — (prepareRenderedHtml adds the viewport)
