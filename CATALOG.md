@@ -128,6 +128,10 @@
 
   **规则：** 写完每个核心步骤，说明产出的中间量是什么意思、如何进入下一步，不只列公式和定义。[出处](https://github.com/cycloneha/cn-patent-disclosure-writing-skill/blob/main/skills/cn-patent-disclosure-docx/references/03-technical-solution.md)
 
+- [EPO Guidelines F-IV, 2.2 — Two-part Form](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_2_2.html) — 欧洲专利局 2026 年指南的两段式权利要求写法，附快门示例；仅用于 EPC 审查中适当情形下的独立权利要求，不是法律意见或授权保证。[正文](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_2_2.html) <!-- article-copy --> · [Markdown 摘要](vendor/articles/epo-two-part-form.md)<!-- /article-copy -->
+
+  **规则：** 起草两段式独立权利要求时，前序只需列出界定主题所需、与发明有关的已知特征；若改进仅在快门，不必再罗列镜头和取景器。[出处](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_2_2.html)
+
 ## 学术论文
 
 - [Ten Simple Rules for Structuring Papers](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619) — 围绕中心贡献，用“背景—内容—结论”组织科学论文；适合研究论文的结构修改，仍须遵守学科和期刊规范。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619) <!-- article-copy --> · [Markdown 正文](vendor/articles/ten-simple-rules-structuring-papers.md)<!-- /article-copy -->
@@ -212,7 +216,7 @@
 
   **规则：** 写解释背景的台词前，先明确说话人想让对方怎样反应，再按这个目的安排信息，而不是直接向观众报事实。[出处](https://johnaugust.com/2007/how-to-write-dialogue)
 
-- [Writing Fight Scenes](https://johnaugust.com/2011/writing-fight-scenes) — 通过剧本片段讨论动作场面的取舍，让人物、场地和利害关系进入动作；不把剧本写成逐招编排表。[正文](https://johnaugust.com/2011/writing-fight-scenes) <!-- article-copy --> · [Markdown 摘要](vendor/articles/writing-fight-scenes.md)<!-- /article-copy -->
+- [Writing Fight Scenes](https://johnaugust.com/2011/writing-fight-scenes) — 通过剧本片段段讨论动作场面的取舍，让人物、场地和利害关系进入动作；不把剧本写成逐招编排表。[正文](https://johnaugust.com/2011/writing-fight-scenes) <!-- article-copy --> · [Markdown 摘要](vendor/articles/writing-fight-scenes.md)<!-- /article-copy -->
 
   **规则：** 挑出由人物、场地和利害关系决定的关键动作，让打斗属于这场戏，不逐拳记录流水账。[出处](https://johnaugust.com/2011/writing-fight-scenes)
 
