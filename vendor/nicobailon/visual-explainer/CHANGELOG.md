@@ -2,23 +2,31 @@
 
 ## [Unreleased]
 
+## [0.14.0] - 2026-10-18
+
+### Highlights
+- Pages check themselves. Every render opens the page in a browser, lists real layout problems like overlapping text, labels a line runs through, or text too small to read on a phone, and gives the agent one contact sheet to look at. Agents no longer write their own browser scripts, and a page takes about 23% fewer turns.
+- Explainers move when motion helps. A process, a flow, or a change of state gets a step-through or a replay without you asking for it.
+- Mermaid works offline and matches the page. A diagram written in Mermaid is drawn when the page is built, in the page's colors and fonts, with its own phone layout and nothing to load.
+- Less to read. An agent reads about 16% less guidance for a page without motion, and the main skill file is about 15% shorter.
+
 ### Added
-- Rendering a page now looks at it in a browser when Chrome and `playwright-core` are available. It reports text that overlaps other text or runs past its drawing, labels a border or line runs through (at every step of a stepper too), headings that sit on the figure below, labels under 12 px, script errors, and sideways scrolling. It also writes a contact sheet of the first screen, the figures, and every step. Pi and MCP hand the sheet straight to the agent; elsewhere the render prints its path. Agents no longer write their own browser scripts or take their own screenshots to check a page.
+- Rendering a page now looks at it in a browser when Chrome and `playwright-core` are available. It reports script errors, sideways scrolling, labels under 12 px, text that overlaps other text or runs past its drawing, labels a border or line runs through, and headings that sit on the figure below, at every step of a step-through too. It also saves a contact sheet with the first screen, each figure, and each step. Pi and MCP show the sheet to the agent; elsewhere the render prints its path. Without a browser, or when a page is slow or offline, the check is skipped with one line and the render still succeeds.
 - Kit classes for a dashed boundary, queue and worker slots, chart axes, and tables, which pages used to style by hand.
 
 ### Changed
-- Explainers animate wherever motion helps the reader understand a process, a flow, or a change of state, without being asked. Steppers, replays, flow dots, and live figures are the default there; a slide deck, a video file, and PPTX still need a request.
-- Agents read about 16% less for a page without motion, and no longer open the kit's source to look things up: step-throughs, replays, live figures, and 3D moved to their own guide that agents read when a figure moves, and the style guide no longer repeats what the kit already does.
-- A wide drawing is sized so its labels stay readable on a phone, so agents no longer work out label scale by hand. Every drawing gets `role="img"`, and a drawing without an `aria-label` stops the render.
-- SKILL.md is about 15% shorter: images, Mermaid, the older recipes, and PPTX moved to the references that need them, and checks the renderer now does left the delivery checklist.
-- Mermaid diagrams on kit pages are drawn when the page renders, by [Pele](https://github.com/obsidianmd/pele) from Obsidian, instead of by Mermaid from a CDN when the page opens. The page draws offline, follows theme switches through CSS, gets a separate phone layout, and the render's check sees the diagram. A Mermaid syntax error or a missing `aria-label` stops the render. Pele is vendored, so nothing needs installing.
+- Explainers animate wherever motion helps the reader understand a process, a flow, or a change of state, without being asked. Step-throughs, replays, flow dots, and live figures are the default there; a slide deck, a video, and PPTX still need a request.
+- Agents read about 16% less for a page without motion, and no longer open the kit's source to look things up. Step-throughs, replays, live figures, and 3D have their own guide that agents read only when a figure moves.
+- The main skill file is about 15% shorter. Images, Mermaid, PPTX, and the older recipes moved to the guides that need them, and checks the renderer now does left the delivery checklist.
+- Mermaid diagrams are drawn when the page is built, by [Pele](https://github.com/obsidianmd/pele) from Obsidian, instead of by Mermaid.js from a CDN when the page opens. The diagram works offline, follows theme switches, gets its own phone layout, and is checked like any other figure. A Mermaid syntax error or a missing `aria-label` stops the render and names the line. Pele ships inside the skill, so there is nothing to install. Mermaid is still used only when you ask for it; hand-drawn figures stay the default.
+- Wide drawings keep their labels readable on a phone without the agent working out the scale. Every drawing gets `role="img"`, and a drawing without an `aria-label` stops the render.
 
 ### Fixed
 - A section that opens with a small label above its heading no longer sits flush on the figure below.
 - Running `kit/render.mjs` or `plan/render.mjs` through a symlinked skill folder no longer exits without writing anything.
 
 ### Removed
-- `kit/check.mjs`: the render runs its checks.
+- `kit/check.mjs`. Rendering a page runs the same checks and more.
 
 ## [0.13.0] - 2026-10-17
 

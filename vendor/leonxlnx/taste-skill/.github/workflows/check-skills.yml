@@ -1,0 +1,21 @@
+name: Check skills
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Every SKILL.md frontmatter parses (as Claude Code and Codex parse it)
+        run: |
+          npm install --no-save --no-package-lock yaml@2.6.1
+          node tests/frontmatter.mjs
+      - name: Scripts parse
+        run: for f in skills/taste-skill/scripts/*.mjs skills/taste-skill/scripts/lib/*.mjs skills/taste-skill/assets/*.js; do node --check "$f" || exit 1; done

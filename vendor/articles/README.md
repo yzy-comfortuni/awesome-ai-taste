@@ -33,6 +33,7 @@
 | More than the Birds, Bees, and Trees: A Closer Look at Writing Haibun | 摘要 Markdown（非全文） | summary-only | [writing-haibun.md](writing-haibun.md) |
 | On the Many Different Engines That Power a Short Story | 摘要 Markdown（非全文） | summary-only | [short-story-engines.md](short-story-engines.md) |
 | EPO Guidelines F-IV, 2.2 — Two-part Form | 摘要 Markdown（非全文） | summary-only | [epo-two-part-form.md](epo-two-part-form.md) |
+| Ten Simple Rules to Create Biological Network Figures for Communication | 正文 Markdown | current | [biological-network-figures.md](biological-network-figures.md) |
 
 ## 更新方式
 

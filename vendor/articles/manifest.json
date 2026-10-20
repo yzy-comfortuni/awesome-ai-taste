@@ -273,13 +273,13 @@
     "writing-screen-dialogue": {
       "path": "vendor/articles/writing-screen-dialogue.md",
       "kind": "summary",
-      "sha256": "99d7d0ab13f5078ce4b9e2850dae28f72e9980a5d028e3f7ce8ce02fb4f94b59",
+      "sha256": "9ac817bc91501c2e5c572182ec7d6c2d215d7d19e72a865f05ff0478204ef495",
       "source_sha256": null,
-      "config_sha256": "8372c273fe0ef2db3bf710f7af8fb37954525457b2b17f2ee229fc4a4ce54c1d",
+      "config_sha256": "d5bf81a808f6fe5837cd95ea82707de4a7038f18fea488f2f8120f8f389e4f1a",
       "converter_version": 1,
       "license": "John August 网站标明 All Rights Reserved；仅存编辑摘要",
       "source_url": "https://johnaugust.com/2007/how-to-write-dialogue",
-      "saved_at": "2026-10-12T00:39:39.145999+00:00",
+      "saved_at": "2026-10-20T00:09:15.173656+00:00",
       "source_evidence": null,
       "status": "summary-only"
     },
@@ -408,6 +408,22 @@
       "saved_at": "2026-10-19T00:16:48.942479+00:00",
       "source_evidence": null,
       "status": "summary-only"
+    },
+    "biological-network-figures": {
+      "path": "vendor/articles/biological-network-figures.md",
+      "kind": "fulltext",
+      "sha256": "a18708b4523df39e3e3e6c43ed00acbdb9d4a420ed7f1163e9cccb11f79d87a8",
+      "source_sha256": "982fd6c1378abe8f8b00b2c4e25f9d93dea5def568827dee753ba6ca3fb2c216",
+      "config_sha256": "c02b81988c28526c51b79377003af147416d8af0bd3c44e6459dede174550ac8",
+      "converter_version": 1,
+      "license": "CC-BY-4.0",
+      "source_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007244",
+      "saved_at": "2026-10-20T00:09:17.652101+00:00",
+      "source_evidence": {
+        "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007244",
+        "license_evidence_sha256": "f6d8fe00cd19c116d0eaf86466ad18316ae2e0596fbd7b8c0ed6add1c356ab6f"
+      },
+      "status": "current"
     }
   },
   "unregistered": []
