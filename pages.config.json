@@ -342,7 +342,7 @@
       "license_evidence_url": "https://johnaugust.com/2007/how-to-write-dialogue",
       "reviewed_on": "2026-10-12",
       "scope_note": "仅保存本仓库编写的中文摘要，非原文全文或翻译；全文转载许可尚未取得。",
-      "summary": "## 中文摘要\n\n作者把对白看成角色为了某种反应而采取的行动。需要交代背景时，也应知道角色为什么此刻说出这些话。文中的对照示例还展示了角色真正听见并回应对方的重要性：交谈不是将两段说明文字轮流念出来。\n\n## 可采用的规则\n\n写解释背景的台词前，先明确说话人想让对方怎样反应，再按这个目的安排信息，而不是直接向观众报事实。\n\n影视对白的动机和回应方式，附同一信息的台词对照；主要面向英语剧本，不以自然闲聊代替戏剧目的。"
+      "summary": "## 中文摘要\n\n作者把对白看成角色为了某种反应而采取的行动。需要交代背景时，也应知道角色为什么此刻说出这些话。文中的对照示例还展示了角色真正听见并回应对方的重要性：交谈不是将两段说明文字轮流念出来。\n\n## 可采用的规则\n\n写解释背景的台词前，先明确说话人想让对方怎样反应，再按这个目的安排信息，而不是直接向观众报事实。\n\n影视对白的动机和回应方式，附同一信息的台词对照；主要面向英语剧本，不以自然闲聊替代戏剧目的。"
     },
     {
       "id": "writing-fight-scenes",
@@ -529,6 +529,51 @@
       "reviewed_on": "2026-10-19",
       "scope_note": "仅摘要欧洲专利局 2026 年审查指南 F-IV, 2.2 单节；对照 EPC Rule 43(1)。中文编辑摘要由 awesome-ai-taste 编写，不是官方译文、原文全文或整部指南索引。全文再利用许可未确认，不自动下载原文或重新授予其版权。",
       "summary": "## 中文编辑摘要\n\n两段式将独立权利要求分为前序和特征部分：前者交代主题类别及界定主题所需的已知技术组合，后者写与前序特征共同构成所求保护对象的附加特征。前序无需罗列与发明无关的全部常规部件。\n\n## 可采用的规则\n\n起草两段式独立权利要求时，前序只需列出界定主题所需、与发明有关的已知特征；若改进仅在快门，不必再罗列镜头和取景器。\n\n## 适用边界\n\n这是 EPC 审查语境中适当情形下的写法，不强加给从属权利要求或其他法域。该节也允许不失真的不同划分，并讨论申请人主动加入更多前序特征的后果；不能把分段机械等同于新颖性或创造性结论。本摘要不构成法律意见或授权保证。"
+    },
+    {
+      "id": "biological-network-figures",
+      "title": "Ten Simple Rules to Create Biological Network Figures for Communication",
+      "author": "G. Elisabeta Marai; Bruno Pinaud; Katja Bühler; Alexander Lex; John H. Morris",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007244",
+      "catalog_urls": [
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007244"
+      ],
+      "kind": "fulltext",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007244",
+      "license_marker": "creativecommons.org/licenses/by/4.0",
+      "reviewed_on": "2026-10-20",
+      "markers": [
+        "Abstract",
+        "Author summary",
+        "Introduction",
+        "Rule 1:",
+        "Rule 2:",
+        "Rule 3:",
+        "Rule 4:",
+        "Rule 5:",
+        "Rule 6:",
+        "Rule 7:",
+        "Rule 8:",
+        "Rule 9:",
+        "Rule 10:",
+        "Fig 1.",
+        "Fig 2.",
+        "Fig 3.",
+        "Fig 4.",
+        "Fig 5.",
+        "Fig 6.",
+        "Fig 7.",
+        "Fig 8.",
+        "Fig 9.",
+        "Fig 10.",
+        "Conclusion",
+        "Acknowledgments",
+        "References",
+        "Strategy-Driven Exploration for Rule-Based Models of Biochemical Systems with Porgy"
+      ],
+      "min_chars": 30000,
+      "scope_note": "© 2019 Marai et al.。PLOS Computational Biology 15(9): e1007244，DOI: 10.1371/journal.pcbi.1007244。依据 CC BY 4.0 转换本篇英文全文，保留摘要、作者摘要、引言、十条规则、十幅图的图注、结论、致谢和参考文献。图片保留原站链接，不是离线媒体包；不复制字体、不运行文中软件或示例。Markdown 格式转换由 awesome-ai-taste 完成，不代表作者背书。规则针对发表用的静态生物网络图，不直接作为动态、交互或探索工具的规范。许可：https://creativecommons.org/licenses/by/4.0/ 。"
     }
   ]
 }
