@@ -250,6 +250,10 @@
 
   **规则：** 分类图表不能只靠颜色区分，同时用纹理、形状或线型编码，让类别在不辨颜色时仍可识别。[出处](https://github.com/Chartability/POUR-CAF/blob/main/workbook.md)
 
+- [Ten Simple Rules to Create Biological Network Figures for Communication](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007244) — 生物网络静态图的布局、标注与视觉层级指南，附同一数据的对照示例；面向论文发表，不直接适用于交互探索工具。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007244) <!-- article-copy --> · [Markdown 正文](vendor/articles/biological-network-figures.md)<!-- /article-copy -->
+
+  **规则：** 当节点连线过密、难以辨认节点簇时，试用邻接矩阵，并调整行列顺序以突出聚类关系。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007244)
+
 ## 动画与视频
 
 - [huashu-art-motion](https://github.com/alchaincyf/huashu-art-motion) — 给编程助手的艺术动画指南：先画关键帧，再安排动作、转场和节拍；适合代码生成的动画与解说片，人物示范素材另有使用限制。[正文](https://github.com/alchaincyf/huashu-art-motion/blob/main/SKILL.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/alchaincyf/huashu-art-motion?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/alchaincyf/huashu-art-motion/stargazers) · [副本](vendor/alchaincyf/huashu-art-motion)<!-- /source-meta -->
