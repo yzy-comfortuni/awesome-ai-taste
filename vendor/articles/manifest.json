@@ -424,6 +424,19 @@
         "license_evidence_sha256": "f6d8fe00cd19c116d0eaf86466ad18316ae2e0596fbd7b8c0ed6add1c356ab6f"
       },
       "status": "current"
+    },
+    "screenplay-busy-sequence": {
+      "path": "vendor/articles/screenplay-busy-sequence.md",
+      "kind": "summary",
+      "sha256": "35af4c693f9ccb1fbfec04c9b70500d19e1fb5f85ab117d6a33e5f20f8f04751",
+      "source_sha256": null,
+      "config_sha256": "6a49dfc3284ea755c067794b4671c5278eb7853c6af1840835e62c3bdd160ed0",
+      "converter_version": 1,
+      "license": "John August 网站标明 All Rights Reserved；未取得全文转载许可，仅存中文编辑摘要",
+      "source_url": "https://johnaugust.com/2004/avoid-cut-tos-in-a-busy-sequence",
+      "saved_at": "2026-10-23T23:29:04.922205+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
     }
   },
   "unregistered": []
