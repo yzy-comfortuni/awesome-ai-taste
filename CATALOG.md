@@ -220,6 +220,10 @@
 
   **规则：** 挑出由人物、场地和利害关系决定的关键动作，让打斗属于这场戏，不逐拳记录流水账。[出处](https://johnaugust.com/2011/writing-fight-scenes)
 
+- [Avoid CUT TO’s in a Busy Sequence](https://johnaugust.com/2004/avoid-cut-tos-in-a-busy-sequence) — John August 用电影剧本示例说明连续动作场面如何在多处地点间切换焦点；适合英语影视剧本，不是拍摄分镜或通用场景标题规范。[正文](https://johnaugust.com/2004/avoid-cut-tos-in-a-busy-sequence) <!-- article-copy --> · [Markdown 摘要](vendor/articles/screenplay-busy-sequence.md)<!-- /article-copy -->
+
+  **规则：** 同一段连续动作频繁切至不同地点时，用简短的全大写位置提示标明每次叙述焦点，不必反复写完整场景标题或 `CUT TO`。[出处](https://johnaugust.com/2004/avoid-cut-tos-in-a-busy-sequence)
+
 ## 图表与图解
 
 - [FT Visual Vocabulary](https://github.com/Financial-Times/chart-doctor/tree/main/visual-vocabulary) — 《金融时报》的图表选型手册，按偏差、相关、排序、分布等表达目的组织。[正文](https://github.com/Financial-Times/chart-doctor/blob/main/visual-vocabulary/README.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/Financial-Times/chart-doctor?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/Financial-Times/chart-doctor/stargazers) · [副本](vendor/financial-times/chart-doctor)<!-- /source-meta -->
