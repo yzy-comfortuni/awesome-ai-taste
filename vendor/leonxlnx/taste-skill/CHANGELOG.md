@@ -4,6 +4,11 @@ All notable changes to taste-skill live here. The repo follows SemVer-ish discip
 
 ---
 
+## 2.1.4 - 2026-10-20
+
+- **Fix: one inspector run could delete the browser profile of another run that was still going** ([#157](https://github.com/Leonxlnx/taste-skill/issues/157), fixed in [#158](https://github.com/Leonxlnx/taste-skill/pull/158) by @t4sh). On macOS and Linux Chrome keeps no `lockfile`, so the sweep added in 2.1.0 judged a profile unused by its age alone, and a second run started during a long one could pull that run's profile away. #158 removed the sweep and added a regression test.
+- **Leftover profiles are cleaned up again, safely.** Every profile now carries `taste-skill-owner.json` with the machine and the process IDs of the run and its Chrome. A later run removes a profile left by a killed run only when that file names this machine and neither process is alive; a profile without the file is never touched. Profiles left by earlier versions are not removed automatically: delete the `ad-chrome-*` folders in your temp folder (or in `TASTE_SKILL_TMP`) by hand.
+
 ## 2.1.3 - 2026-10-19
 
 One repo, one skill. Nothing in `design-taste-frontend` changed.

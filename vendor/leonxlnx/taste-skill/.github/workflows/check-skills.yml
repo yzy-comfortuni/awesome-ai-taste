@@ -19,3 +19,5 @@ jobs:
           node tests/frontmatter.mjs
       - name: Scripts parse
         run: for f in skills/taste-skill/scripts/*.mjs skills/taste-skill/scripts/lib/*.mjs skills/taste-skill/assets/*.js; do node --check "$f" || exit 1; done
+      - name: Browser profile cleanup regression
+        run: node --test tests/profile-cleanup.mjs

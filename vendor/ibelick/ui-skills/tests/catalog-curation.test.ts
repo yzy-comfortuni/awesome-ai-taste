@@ -115,6 +115,7 @@ describe("curated topic and collection expansion", () => {
     for (const slug of [
       "web-development-best-practices",
       "design-engineering",
+      "deslop",
     ]) {
       const collection = getCollectionBySlug(slug);
       assert.ok(collection);
@@ -165,6 +166,7 @@ describe("curated topic and collection expansion", () => {
       "/skills/shadcn-ui-development",
       "/collections/web-development-best-practices",
       "/collections/design-engineering",
+      "/collections/deslop",
     ]) {
       assert.ok(
         body.includes(`https://www.ui-skills.com${path}</loc>`),

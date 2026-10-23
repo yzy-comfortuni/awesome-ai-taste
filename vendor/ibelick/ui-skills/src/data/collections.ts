@@ -493,8 +493,7 @@ export const collections: Collection[] = [
     slug: "videos",
     title: "Videos",
     keyword: "product videos",
-    seoTitle:
-      "Product videos, launch films, and motion graphics | UI Skills",
+    seoTitle: "Product videos, launch films, and motion graphics | UI Skills",
     cardDescription:
       "Ship product launch videos, social motion ads, HyperFrames clips, and Remotion films with agent skills built for design engineers.",
     metaDescription:
@@ -889,6 +888,7 @@ export const collections: Collection[] = [
       "ui-design-tips",
       "design-system-guidelines",
       "visual-hierarchy",
+      "deslop",
     ],
   },
   {
@@ -1200,7 +1200,8 @@ export const collections: Collection[] = [
     slug: "design-engineering",
     title: "Design engineering",
     keyword: "design engineering",
-    seoTitle: "Design engineering skills: from design to production | UI Skills",
+    seoTitle:
+      "Design engineering skills: from design to production | UI Skills",
     cardDescription:
       "Translate design intent into working interfaces, define interaction behavior, and verify production quality.",
     metaDescription:
@@ -1310,6 +1311,112 @@ export const collections: Collection[] = [
       "design-system-guidelines",
       "website-layout",
     ],
+  },
+  {
+    slug: "deslop",
+    title: "Deslop",
+    keyword: "deslop",
+    seoTitle: "Deslop skills for human writing | UI Skills",
+    cardDescription:
+      "Remove AI writing tells from drafts, docs, and reviews while keeping the author's meaning and voice.",
+    metaDescription:
+      "Browse deslop skills that detect and remove AI writing patterns from prose, docs, and reviews while preserving voice.",
+    intro:
+      "Use these skills when a draft sounds generated. They detect AI writing tells and rewrite prose so it keeps the author's meaning, density, and voice. Pick one skill for a pass. Running several at once tends to sand the voice back off.",
+    workflow: [
+      {
+        title: "Find the tells before rewriting",
+        description:
+          "Start with no-ai-slop when you want a diagnosis without a rewrite, or anti-slop and humanize when you also need a docs-folder audit. Note the patterns that actually show up in this draft.",
+      },
+      {
+        title: "Rewrite while keeping the voice",
+        description:
+          "Use deslop, stop-slop, unslop, or slopbeth to edit the draft in place. Use blader/humanizer when you want the pass grounded in Wikipedia's signs of AI writing. Keep the original claims, names, and structure.",
+      },
+      {
+        title: "Match a specific voice",
+        description:
+          "Use Aboudjem's humanizer when you need a scored rewrite in one of its voice profiles, or anti-ai-slop-writing when the draft should avoid a banned vocabulary and vary its structure on purpose.",
+      },
+      {
+        title: "Clean the agent's own replies",
+        description:
+          "Use slopgent when the problem is the assistant's chat voice: plain, action-first replies that still keep the precision and uncertainty the answer needs.",
+      },
+    ],
+    playbook: [
+      "use-sentence-case-labels",
+      "cap-line-length",
+      "use-text-balance",
+      "keep-secondary-text-readable",
+      "pair-status-with-labels",
+      "give-empty-states-one-action",
+    ],
+    skills: [
+      {
+        slug: "deslop",
+        pathSlug: "stephenturner/deslop",
+        role: "Remove AI writing patterns so a draft sounds like a specific person wrote it.",
+      },
+      {
+        slug: "humanizer",
+        pathSlug: "aboudjem/humanizer",
+        role: "Score 53 AI writing patterns and rewrite in one of five voice profiles.",
+      },
+      {
+        slug: "anti-ai-slop-writing",
+        pathSlug: "jalaalrd/anti-ai-slop-writing",
+        role: "Write or revise text that avoids banned AI vocabulary and repetitive structure.",
+      },
+      {
+        slug: "stop-slop",
+        pathSlug: "hardikpandya/stop-slop",
+        role: "Strip predictable AI tells while drafting, editing, or reviewing prose.",
+      },
+      {
+        slug: "no-ai-slop",
+        pathSlug: "petergyang/no-ai-slop",
+        role: "Sharpen a draft in the author's voice, or flag slop without rewriting it.",
+      },
+      {
+        slug: "humanizer",
+        pathSlug: "blader/humanizer",
+        role: "Rewrite AI-sounding text from Wikipedia's signs of AI writing without changing the meaning.",
+      },
+      {
+        slug: "unslop",
+        pathSlug: "cursor/unslop",
+        role: "Edit out machine patterns and put a more human voice back into the text.",
+      },
+      {
+        slug: "slopbeth",
+        pathSlug: "ehmo/slopbeth",
+        role: "Remove AI-writing tells while preserving meaning, voice, and density.",
+      },
+      {
+        slug: "anti-slop",
+        pathSlug: "elithrar/anti-slop",
+        role: "Detect and remove AI tells in blogs, docs, emails, and reports.",
+      },
+      {
+        slug: "humanize",
+        pathSlug: "aashaexo/humanize",
+        role: "Clean AI-generated prose and audit a docs folder for content, language, style, and rhetoric slop.",
+      },
+      {
+        slug: "slopgent",
+        pathSlug: "ehmo/slopgent",
+        role: "Shape the agent's own replies to be plain and action-first without dropping precision.",
+      },
+    ],
+    agentCapabilities: [
+      "Detect AI writing tells in drafts, docs, emails, and reviews before changing the text.",
+      "Rewrite prose so it keeps the original meaning, density, and author voice.",
+      "Score patterns and match a chosen voice profile when the draft needs a specific sound.",
+      "Audit a docs folder or the agent's own replies for slop.",
+    ],
+    relatedSlugs: ["ai-generated-ui", "ui-design-tips", "empty-state-design"],
   },
 ];
 

@@ -9,7 +9,7 @@
     {
       "name": "taste-skill",
       "description": "tasteskill v2: art direction for websites, product pages, dashboards and app screens, with a library of researched directions, real pictures from open collections and a real-browser inspector.",
-      "version": "2.1.3",
+      "version": "2.1.4",
       "source": "./",
       "skills": ["./skills/taste-skill"],
       "author": {

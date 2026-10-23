@@ -1,21 +1,21 @@
 <div align="center">
 
-# 🎭 chinese-novelist skill
+# chinese-novelist skill
 
 ### 让 AI 为你写一部完整的中文小说
 
-[![Version](https://img.shields.io/badge/version-2.0-blue.svg)](https://github.com/PenglongHuang/chinese-novelist-skill/releases/tag/v2.0)
+[![Version](https://img.shields.io/badge/version-2.3.1-blue.svg)](https://github.com/PenglongHuang/chinese-novelist-skill/releases)
 [![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-blue)](https://claude.com/claude-code)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-> **🎉 v2.0 重构发布**：引入三层递进式问答、偏好记忆系统、中断续写、三种写作模式和自动校验修复！
+> **v2.0 重构发布**：引入三层递进式问答、偏好记忆系统、中断续写、三种写作模式和自动校验修复！
 >
 > 查看 [v1.0 → v2.0 升级说明](https://github.com/PenglongHuang/chinese-novelist-skill/pull/10) 了解详情。
 
 </div>
 
 
-## ✨ 为什么用这个？
+## 为什么用这个？
 
 写小说最难的是**坚持写完**。这个 Skill 专为解决这个痛点而生：
 
@@ -26,13 +26,13 @@
 - **自动校验** - 完成后自动检查字数和连贯性，不合格自动重写
 - **每章必爽** - 开头即高潮，结尾留悬念
 
-## 🚀 快速开始
+## 快速开始
 
 安装skill：`npx skills add PenglongHuang/chinese-novelist-skill`
 
 输入指令：`使用 chinese-novelist 帮我写一部小说`
 
-## 📢 赞助商
+## 赞助商
 
 <p align="center">
   <a href="https://www.infistar.cc/register?aff=29SS8B9E&ref_source=link">
@@ -42,19 +42,19 @@
 
 **chinese-novelist-skill × [Infistar.cc](https://www.infistar.cc/register?aff=29SS8B9E&ref_source=link)**
 
-用这个技能包写长篇的朋友都知道：动辄几十万字的大纲回溯、多代理并行出章，额度往往比灵感先耗尽 💸。
+用这个技能包写长篇的朋友都知道：动辄几十万字的大纲回溯、多代理并行出章，额度往往比灵感先耗尽。
 
 如果想放开手脚写长篇，推荐换上 Infistar：
 
-- ⚙️ **零配置接入**：无需修改代码，Claude Code / 客户端只需换上 Base URL 与 Key 即可开工。
-- 🏷️ **超低成本试错**：多模型价格极具优势。整卷重构、换文风重写、多代理并行爆肝不再肉疼。
-- 🧩 **全模型任意切**：Claude、GPT、Gemini、DeepSeek 一个 Key 全搞定，改个模型名就能对比打斗与感情戏表现。
-- 💳 **国内顺畅使用**：RMB 直接结算，全模型支持验真防掺水。
-- 🎁 **专属福利**：通过[专属通道](https://www.infistar.cc/register?aff=29SS8B9E&ref_source=link)注册即送 $5 体验额度。建议领完拿同一份大纲让两个模型各试跑 3 章，感受文笔差异 ✍️！
+- **零配置接入**：无需修改代码，Claude Code / 客户端只需换上 Base URL 与 Key 即可开工。
+- **超低成本试错**：多模型价格极具优势。整卷重构、换文风重写、多代理并行爆肝不再肉疼。
+- **全模型任意切**：Claude、GPT、Gemini、DeepSeek 一个 Key 全搞定，改个模型名就能对比打斗与感情戏表现。
+- **国内顺畅使用**：RMB 直接结算，全模型支持验真防掺水。
+- **专属福利**：通过[专属通道](https://www.infistar.cc/register?aff=29SS8B9E&ref_source=link)注册即送 $5 体验额度。建议领完拿同一份大纲让两个模型各试跑 3 章，感受文笔差异！
 
 ---
 
-## 🖼️ 使用过程
+## 使用过程
 
 <table>
   <tr>
@@ -76,7 +76,7 @@
 </table>
 
 
-## 🧠 创作记忆
+## 创作记忆
 
 每次创作后，Skill 会自动学习你的偏好：喜欢的题材类型、叙事风格、章节数量倾向、文字密度等。下次使用时，直接应用你的习惯，省去重复问答。
 
@@ -85,7 +85,7 @@
 </p>
 
 
-## 📊 创作流程
+## 创作流程
 
 ```
 用户 → ┌─────────────┐    ┌──────────────────────┐    ┌──────────────┐
@@ -111,7 +111,7 @@
        │ 字数检查 → 连贯性检查 → 不合格自动重写（最多3轮）            │
        └──────────────────────────────────────────────────────────────┘
                             ↓
-                       ✅ 全稿完成
+                       全稿完成
 ```
 
 ### Phase 0：初始化
@@ -124,17 +124,17 @@
 
 **Layer 2 — 深度定制（可选，5问）**：世界观、叙事视角、核心主题、读者定位、章节数量
 
-> 每个问题都支持🎲随机生成，也可以直接说"跳过"或"都用默认"。
+> 每个问题都支持随机生成，也可以直接说"跳过"或"都用默认"。
 
 ```
-📝 Q1：题材与创意
+Q1：题材与创意
    ○ 悬疑推理   ○ 现代言情   ○ 奇幻玄幻   ○ 科幻未来
-   ○ 武侠仙侠   ○ 历史架空   ○ 都市现实   ○ 🎲 随机生成
+   ○ 武侠仙侠   ○ 历史架空   ○ 都市现实   ○ 随机生成
 
-📝 Q2：主角设定
+Q2：主角设定
    ○ 男性主角   ○ 女性主角   ○ 双主角     ○ 群像戏
 
-📝 Q3：核心冲突
+Q3：核心冲突
    ○ 生死存亡   ○ 查明真相   ○ 复仇雪恨   ○ 成长突破
    ○ 爱情阻碍   ○ 权力争夺   ○ 守护保护
 
@@ -182,9 +182,9 @@ AI 自动生成大纲（7列章节规划）、人物档案、写作计划 JSON�
 每章严格执行：写前分析 → 撰写(3000-5000字) → 润色去AI味 → 字数检查 → 更新摘要。
 
 ```
-✅ 第1章完成（3247字）
-✅ 第2章完成（3582字）
-✅ 第3章完成（3412字）
+第1章完成（3247字）
+第2章完成（3582字）
+第3章完成（3412字）
 ...
 ```
 
@@ -194,15 +194,17 @@ AI 自动生成大纲（7列章节规划）、人物档案、写作计划 JSON�
 
 ---
 
-## 📖 输出样例
+## 输出样例
 
 ```
 chinese-novelist/
 ├── user-preferences.json              # 用户偏好（跨项目共享）
 └── 20260412-143000-午夜列车/
-    ├── 01-大纲.md                      # 故事概述、章节规划（7列模板）
+    ├── 01-大纲.md                      # 故事概述、章节规划（7列模板）+ 设定词典
     ├── 00-人物档案.md                  # 主角、反派、配角档案
     ├── 02-写作计划.json                # 机器可读的写作计划（v2）
+    ├── 03-文风基准.md                  # 文风指纹、基准段落、AI味负面清单
+    ├── 99-章节摘要.md                  # 逐章摘要（连贯性参考，随进度追加）
     ├── 第01章-最后一班列车.md
     ├── 第02章-消失的乘客.md
     └── ...
@@ -210,7 +212,7 @@ chinese-novelist/
 
 ---
 
-## 🎯 核心法则
+## 核心法则
 
 | 法则 | 说明 |
 |-----|------|
@@ -221,7 +223,7 @@ chinese-novelist/
 
 ---
 
-## 🛠️ 安装
+## 安装
 
 将此目录放入 Claude Code 的 skills 目录：
 
@@ -233,7 +235,7 @@ chinese-novelist/
 
 ---
 
-## 📚 内置参考资料
+## 内置参考资料
 
 ### 流程文档（`references/flows/`）
 
@@ -241,7 +243,7 @@ chinese-novelist/
 |------|------|
 | `phase0-initialization.md` | Phase 0：初始化与偏好加载 |
 | `phase1-layer1-core.md` | Phase 1 Layer 1：核心定位问答（Q1-Q3） |
-| `phase1-layer2-customize.md` | Phase 1 Layer 2：深度定制问答（Q4-Q8） |
+| `phase1-layer2-customize.md` | Phase 1 Layer 2：深度定制问答 |
 | `phase2-planning.md` | Phase 2：规划与写作计划生成 |
 | `phase3-writing.md` | Phase 3：疯狂创作（三种写作模式） |
 | `phase4-validation.md` | Phase 4：自动校验与修复 |
@@ -263,40 +265,22 @@ chinese-novelist/
 
 ---
 
-## 🔄 版本更新
+## 版本与路线
 
-### v2.0 重大升级
-
-**核心架构重构**
-- ✅ 从单一 5 问流程升级为**三层递进式问答**（Layer 1 必答 + Layer 2 可选深度定制）
-- ✅ 新增 **Phase 0 初始化**：用户偏好跨会话记忆、中断续写检测
-- ✅ 新增 **写作模式选择**：串行/子Agent并行/Agent Teams 三种模式
-- ✅ 新增 **Phase 4 自动校验**：字数与连贯性自动检查，不合格自动修复
-- ✅ 流程文档化：将详细执行指令从 SKILL.md 拆分到 `references/flows/` 独立维护
-
-**新增功能**
-- 🧠 **偏好记忆系统**：自动学习用户创作偏好（题材类型、叙事风格、章节数量倾向等）
-- ⏸️ **中断续写**：自动检测未完成项目，支持从断点继续创作
-- 📋 **写作计划 JSON**：机器可读的写作状态文件，支持并行写作协调
-- 🔢 **字数检查脚本**：`scripts/check_chapter_wordcount.py` 自动验证每章 3000-5000 字要求
-
-**文档重组**
-- 📁 `references/flows/`：新增 7 个流程文档（phase0-4 + shared-infrastructure）
-- 📁 `references/guides/`：重组 8 个写作指南文档
-
-**查看完整变更**：[v2.0 提交记录](https://github.com/PenglongHuang/chinese-novelist-skill/commits/v2.0/)
+- **更新日志**：[Releases](https://github.com/PenglongHuang/chinese-novelist-skill/releases) — 每个版本的完整变更
+- **Roadmap**：[ROADMAP.md](ROADMAP.md) — 已完成 / 进行中 / 计划中
 
 ---
 
-## 💬 交流
+## 交流
 
-- 💬 [GitHub Discussions](https://github.com/PenglongHuang/chinese-novelist-skill/discussions) — 使用心得、作品分享、功能想法
-- 🐛 [Issues](https://github.com/PenglongHuang/chinese-novelist-skill/issues) — 问题反馈与 bug 报告
+- [GitHub Discussions](https://github.com/PenglongHuang/chinese-novelist-skill/discussions) — 使用心得、作品分享、功能想法
+- [Issues](https://github.com/PenglongHuang/chinese-novelist-skill/issues) — 问题反馈与 bug 报告
 
-## 💖 赞助
+## 赞助
 
-如果这个项目帮你写出了第一部小说，可以考虑[在爱发电赞助我](https://afdian.com/a/penglonghuang)，你的支持直接决定项目的更新速度 ⚡
+如果这个项目帮你写出了第一部小说，可以考虑[在爱发电赞助我](https://afdian.com/a/penglonghuang)，你的支持直接决定项目的更新速度。
 
-## ⚖️ 许可
+## 许可
 
 [MIT](LICENSE)

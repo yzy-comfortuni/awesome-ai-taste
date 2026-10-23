@@ -5733,6 +5733,19 @@ const registrySource: RegistrySourceSkill[] = [
     description:
       "Package an existing talking-head / interview / podcast video with timed, designed GRAPHIC OVERLAY cards — kinetic titles, lower-thirds, data callouts, quotes, side panels, picture-in-picture — synced to the transcript, on a 16:9 / 9:16 / 4:5 canvas of your choice; the clip plays untouched underneath. Trigger on \"graphic overlays\", \"on-screen graphics\", \"package / dress up my video\". Not plain subtitles (/embedded-captions). Unclear → /hyperframes.",
   },
+  {
+    slug: "create-canvas",
+    user: "ibelick",
+    repo: "ui-skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/ibelick/ui-skills/main/skills/create-canvas/SKILL.md",
+    githubUrl:
+      "https://github.com/ibelick/ui-skills/blob/main/skills/create-canvas/SKILL.md",
+    name: "create-canvas",
+    topics: ["systems", "interaction", "frontend"],
+    description:
+      "Build a freeform canvas to explore, compare, and iterate on anything.",
+  },
 ];
 
 const buildInitialPathSlug = (entry: RegistrySourceSkill) => {
