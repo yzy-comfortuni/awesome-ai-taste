@@ -206,6 +206,10 @@
 
   **规则：** 将散文与俳句合读，检查短诗的意象是否因前文交代的经历而获得更具体的意味。[出处](https://poets.org/text/more-birds-bees-and-trees-closer-look-writing-haibun)
 
+- [The 'Technique' of Rereading](https://poets.org/text/technique-rereading) — Marvin Bell 的英语诗歌创作讲座，用逐句重读追踪换词、意象和语气怎样推进一首诗；适合诗稿修改，不是通用情节或诗体公式。[正文](https://poets.org/text/technique-rereading) <!-- article-copy --> · [Markdown 摘要](vendor/articles/poetry-technique-rereading.md)<!-- /article-copy -->
+
+  **规则：** 重读诗稿时，挑出一句里偏离日常说法的关键词，沿后文追踪它引出的意象与意义变化，检查诗节有没有推进，而不只评判单行是否漂亮。[出处](https://poets.org/text/technique-rereading)
+
 ## 剧本写作
 
 - [How to Write a Scene](https://johnaugust.com/2007/write-scene) — John August 的英语影视剧本指南，帮助判断一场戏是否必要，以及如何安排人物、地点和开场。[正文](https://johnaugust.com/2007/write-scene) <!-- article-copy --> · [Markdown 摘要](vendor/articles/how-to-write-a-scene.md)<!-- /article-copy -->
