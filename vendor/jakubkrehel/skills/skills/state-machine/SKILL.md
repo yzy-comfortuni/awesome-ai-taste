@@ -69,7 +69,7 @@ After a visual change, flip through every state again, since a fix for one state
 
 ## Remove it in one step, on the user's word
 
-Delete the page folder and any seam the user approved. Then search the codebase for the route and fixture names, and check that the diff touches nothing else of the setup. Commit only when asked.
+Delete the page folder and any seam the user approved. Then search the codebase for the route and fixture names, and check that the diff touches nothing else of the setup.
 
 ## Before you finish
 

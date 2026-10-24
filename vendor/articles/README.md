@@ -35,6 +35,7 @@
 | EPO Guidelines F-IV, 2.2 — Two-part Form | 摘要 Markdown（非全文） | summary-only | [epo-two-part-form.md](epo-two-part-form.md) |
 | Ten Simple Rules to Create Biological Network Figures for Communication | 正文 Markdown | current | [biological-network-figures.md](biological-network-figures.md) |
 | Avoid CUT TO’s in a Busy Sequence | 摘要 Markdown（非全文） | summary-only | [screenplay-busy-sequence.md](screenplay-busy-sequence.md) |
+| The 'Technique' of Rereading | 摘要 Markdown（非全文） | summary-only | [poetry-technique-rereading.md](poetry-technique-rereading.md) |
 
 ## 更新方式
 

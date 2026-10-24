@@ -1,4 +1,4 @@
-# Build geometry once for every view
+# Model the object once for every view
 
 ## Separate the object from its arrangement on paper
 
@@ -6,49 +6,27 @@ Keep dimensions, local profiles, assembled transforms, explosion vectors and ite
 
 Keep annotation anchors in the same coordinate system as their features. Sheet positions belong to the view, never to the part definition.
 
-For a simple assembly, a small script generating SVG is sufficient. Complex curved intersections benefit from CAD hidden-line export rather than a new general-purpose renderer.
+## Know which way the camera looks
 
-## Use one parallel projection
+World `z` points up. A camera's `azimuth` places the viewer horizontally at `[cos a, sin a]`, so `-135` looks from the `-x`, `-y` quadrant toward the origin.
 
-For an upright object, use world `x` across, `y` in depth and `z` up. The following is an isometric drawing with equal scale along its axes:
+The camera's right vector is `[-sin a, cos a, 0]` and its up vector is `[-sin e cos a, -sin e sin a, cos e]`. At azimuth `-135`, world `+x` therefore points right and up the page while `+y` points left and up. Probe `createCamera(camera).project` on unit vectors when unsure.
 
-```js
-const project = ([x, y, z], { ox, oy, scale }) => [
-  ox + scale * Math.sqrt(3) / 2 * (x - y),
-  oy + scale * (0.5 * (x + y) - z)
-];
+`createCamera(camera).direction` points from the object toward the viewer. A face is visible when its outward normal has a positive dot product with it. Put openings, ports and labels on those faces, or turn the camera.
 
-const displace = (point, offset) =>
-  point.map((value, axis) => value + offset[axis]);
-```
+Turned helpers build along local `x`, as **Compose parts from profiles** in [geometry-library.md](geometry-library.md) lists. Place them on their world axis before judging which end the camera shows.
 
-Here `scale` is paper units per model unit along the principal axes. This pictorial convention differs from a physically foreshortened orthographic isometric projection.
+Exact diagonal azimuths such as `-135` stack features that sit on the diagonal through the center. Corner fasteners then overlap the parts above them, so move a few degrees off the diagonal.
 
-A different parallel camera is appropriate when the reference shows more of one face. Apply the same camera to every feature, including circles, slots and fasteners.
+Features at opposite ends, such as a port and a plug, both show when the camera sits about 60° off the long axis. Protruding parts still read at the far end, while flush openings there do not.
 
-Fit bounds after explosion, reserving the annotation lanes. Compute a uniform view scale from the available width and height. Never stretch horizontal and vertical coordinates independently.
+Keep `roll` at `0` for upright objects so vertical edges stay vertical. The renderer's default 16° roll suits an unrotated isometric study only.
 
-## Project circular features from their own plane
+## Choose constructions that explain themselves
 
-A circle on a sloping face becomes an ellipse with that plane's projected orientation. Arbitrary axis-aligned SVG ellipses break that relationship.
+When the request names a part but not its mechanism, prefer the construction whose parts stack on one explosion axis. A torsion spring around a pivot reads better than a tension spring between two posts.
 
-For a center `c`, radius `r` and orthonormal plane axes `u` and `v`, project points from this parameterization:
-
-```js
-function ringPoint(c, u, v, r, t) {
-  return c.map((n, i) =>
-    n + r * (u[i] * Math.cos(t) + v[i] * Math.sin(t))
-  );
-}
-```
-
-An affine SVG matrix can transform a local circle exactly. Its columns are the projected unit vectors `u` and `v`, and its translation is the projected center.
-
-That matrix also transforms stroke widths. Use transformed paths with sheet-space strokes, or compensate the stroke deliberately and verify its rendered thickness.
-
-When sampling curves, subdivide until the projected chord error is below 0.05 mm on paper. Fixed coarse polygons become visibly faceted in close-ups.
-
-For a cylinder, draw the visible rim arcs and tangent side edges. Hide rear arcs according to the chosen view, using hidden lines only when requested by its grammar.
+A mating feature visible only from below cannot appear in a view from above. Name it in `evidence.md` and the delivery message, or show it in a second drawing with its own camera.
 
 ## Give parts real boundaries
 
@@ -60,21 +38,55 @@ A cable meets a connector or strain relief. A spring wraps around its axis with 
 
 Choose only the features supported by the evidence record. Conceptual construction should fit together even when its geometry is invented.
 
-## Resolve visibility before drawing edges
+## Build what the helpers cannot
 
-Paint opaque surfaces back to front and draw only their visible edges. Plain paper-colored faces provide occlusion without adding shaded rendering.
+Plates with holes, bent sheet, tori and blended housings need a custom mesh. Build them as grids of rings with equal point counts, then join neighboring rings into triangles.
 
-A center-depth sort is insufficient when parts overlap or wrap around each other. Split intersecting projections, clip hidden segments or use the CAD renderer.
+Sample every ring of one surface on the same parameter values. `roundedRing` with shared `ringAngles` gives a square ring and a round ring matching points, so they loft into a frame with a round bore and no slivers.
 
-For holes, subtract the opening from the front face using a compound path or clipping. Draw visible inner walls and whatever is actually behind the opening.
+Touching curved surfaces need the same segment counts and start angles too. Equal radii alone leave dotted contact lines where differently faceted meshes meet.
 
-A white ellipse can suggest a shallow recess. It cannot represent a through-hole when another part should remain visible through it.
+A shell with walls is one cyclic `loft` through its wall section. Step the rings from the outer edge over the fillet, across the face, into an opening and back along the inner wall.
 
-Avoid triangulation seams, duplicate coincident edges and tessellation lines on smooth surfaces. Keep only silhouette edges, actual boundaries and necessary feature lines.
+A shell with a closed top steps its rings inward across the top until they shrink to a line, then returns along the inner skin. Make the first inner ring an exact copy of the last outer ring so the turn adds no visible fin.
+
+A turned part with a notch or flutes is a cyclic `loft` with one ring per profile point, each sampled around the axis with a radius that varies by angle. Pair the angle samples at least 0.01 rad apart where a wall should stand vertical, or slivers break its outline into dashes.
+
+Build one body as one surface. Two stacked lathes or extrusions draw their shared face edge as a seam across the part.
+
+A single-skin surface has free edges. They draw as outlines, so close the shell or give it a skirt where a wall should show thickness.
+
+Share vertex indices along every seam. Unshared seams hide the silhouette test, so an edge that should read as an outline draws as a thin crease.
+
+Wind every triangle of a part the same way, toward the outside where you can. One reversed patch swaps silhouette and interior edges, which shows as a heavy front arc beside a light rear arc.
+
+For a thin solid that needs real walls, orient each triangle against a reference point inside the material. That stays correct where a global centroid test fails.
+
+`transform` accepts rigid frames only. For a tilt or shear, map vertices and line endpoints to new arrays with one function, as `transform` does.
+
+Faces closer than about 0.5 mm on paper ink as a solid black shape. Thicken a thin part such as a watch hand, or draw it as one outline with no thickness.
+
+A part a little thicker than that, such as a fan blade, fin or sheet tab, still draws its edges twice. The visible edge jumps between the two faces and leaves steps and stubs that show when zoomed. Build it as one open sheet of triangles with no side walls, since its free edges outline themselves.
+
+Keep hidden internals clear of the surface that covers them by more than its facet error. A post that grazes a coarse patch pokes through as stray arcs.
+
+## Show moving parts in one pose
+
+A hinge, fold or slider becomes a parameter that rotates or moves that part about its real axis. Default it to the pose the request describes, and keep the explosion a pure translation from that pose.
+
+When both poses matter, such as folded and deployed prongs, the parameter's minimum and maximum show them. Use a second drawing only when the poses need different cameras.
+
+## Sample curves finely enough
+
+Sample circles in their own plane with `ringPoints`. An axis-aligned SVG ellipse cannot follow a circle on a sloping face.
+
+Subdivide curves until the projected chord error is below 0.05 mm on paper. The viewer zooms to 400%, so judge facets in a close-up crop rather than at sheet size. A freeform sheet such as a blade needs about 40 samples along each long curved edge.
+
+Draw only silhouettes, real boundaries and necessary feature lines. Triangulation diagonals, duplicate coincident edges and tessellation rings on smooth surfaces are not ink.
 
 ## Prove the assembly before decorating it
 
-Render with explosion offsets set to zero. Check each fastener's alignment and insertion depth against its hole. Check rims against their mating seats and covers against their enclosures.
+With explosion offsets at zero, check each fastener's alignment and insertion depth against its hole. Check rims against their mating seats and covers against their enclosures.
 
 Fastener heads should contact their seats, with shanks concealed where they enter solid material.
 

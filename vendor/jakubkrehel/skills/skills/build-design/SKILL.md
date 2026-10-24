@@ -1,6 +1,6 @@
 ---
 name: build-design
-description: Builds UI from a Figma file or a design image so it matches the design, using your project's existing tokens and components.
+description: Builds UI from a Figma file or a design image so it matches the design, using the project's existing tokens and components.
 ---
 
 # Build design

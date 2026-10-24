@@ -1,6 +1,6 @@
 # Reuse construction helpers
 
-Use [assets/geometry.js](assets/geometry.js) for small illustrative objects with repeated mechanical features. Copy it beside the generator so delivered sources remain independent of the skill installation.
+[assets/geometry.js](assets/geometry.js) builds the parts and [assets/projection.js](assets/projection.js) turns them into ink. Read **Compose parts from profiles**, **Place each part once** and **Project visible ink from the mesh** first. **Draw axes and assembly trails**, **Describe custom surfaces explicitly** and **Keep parameter changes coherent** matter only when the drawing uses them.
 
 The helpers run in Node through `require()` and in a browser or worker through `TechnicalGeometry`. They use caller-defined model units and have no package dependencies.
 
@@ -10,96 +10,143 @@ The helpers run in Node through `require()` and in a browser or worker through `
 
 | Helper | Inputs and result |
 | --- | --- |
-| `lathe(part, profile, options)` | Revolves a closed `[x, radius]` profile around X; inner profile segments form actual bores, and a third value of `'h'` makes that point hexagonal |
-| `ring(part, x, radius, role, kind)` | Adds a circular feature line perpendicular to X, or a hexagonal one with `kind` set to `'h'` |
-| `helix(part, options)` | Adds a thread line from `x0` to `x1` with `radius`, `pitch` and optional handedness |
-| `spring(part, options)` | Builds closed wire around X from `radius`, `wire`, `turns`, `x0` and `x1` |
+| `lathe(part, profile, options)` | Revolves a closed `[x, radius]` profile around X, or around world `axis` through point `at`. Inner segments form bores, a third value of `'h'` makes a point hexagonal and a crossing profile throws |
+| `ring(part, x, radius, options)` | Adds a circular feature line perpendicular to X, or a hexagonal one matching a lathe's `'h'` points with `hex: true` |
+| `helix(part, options)` | Adds a thread line from `x0` to `x1` with `radius` and `pitch`, plus optional `hand` of 1 or -1 and starting `phase` |
+| `spring(part, options)` | Builds closed wire around X from `radius`, `wire`, `turns`, `x0` and `x1`, starting at local +Y so whole turns end at the same angle |
 | `knurl(part, options)` | Adds crossing helices using `starts`, `pitch`, `radius`, `x0` and `x1` |
-| `screw(part, options)` | Combines a cylindrical head, shank, thread lines and a slot indication |
-| `ringPoints(center, radius, u, v, options)` | Samples a circular arc in orthonormal plane axes to a model-space chord tolerance |
-| `roundedRectangle(width, height, radius, options)` | Returns a rounded profile centered on X, with its bottom at Y zero |
-| `extrude(part, profile, options)` | Gives a simple XY polygon a positive Z `depth`; supports concave outlines without holes |
+| `screw(part, options)` | Builds a head, shank, thread lines and slot along X from `length`, `radius`, `headRadius`, `headHeight` and `pitch`, defaulting to 10, 1.5, 3, 2 and 0.8 |
+| `circle(part, center, radius, normal, options)` | Adds a closed circular feature line in the plane facing `normal`, with 144 `segments` to match a default lathe |
+| `ringPoints(center, radius, u, v, options)` | Samples an arc from `start` to `end` radians in orthonormal plane axes, to a `tolerance` of 0.008 model units. A full circle repeats its first point at the end |
+| `roundedRectangle(width, height, radius, options)` | Returns a rounded profile centered on the origin or on an `[x, y]` `center` |
+| `ringAngles(width, height, radius, options)` | Returns polar angles that crowd a rounded rectangle's corners, with `corner` and `side` sample counts defaulting to 12 and 24 per quarter |
+| `roundedRing(width, height, radius, options)` | Samples a rounded rectangle at given `angles` and height `z`, so rings of any size share one point count |
+| `loft(part, rings, options)` | Joins rings of equal point count into one surface; caps both ends by default, joins the last ring back to the first with `cyclic: true` and winds closed results outward |
+| `sweep(part, path, section, options)` | Carries a closed `[u, v]` section along a path of points, for handles, cables and tubes. `closed: true` joins the path into a ring, and `lines` defaults to `'ends'` or `'none'` when closed |
+| `polyline(part, points, options)` | Adds a feature line through points, closing it with `closed: true` |
+| `box(part, min, max, options)` | Adds an axis-aligned block between two corners, with rounded vertical edges when given `radius` |
+| `extrude(part, profile, options)` | Gives a simple XY polygon a positive Z `depth`, with concave outlines and real openings from a `holes` array of profiles inside it |
 | `transform(part, frame)` | Places mesh vertices, feature lines and explosion directions in one rigid frame |
 | `merge(target, source)` | Copies a positioned construction piece into one complete part, preserving the target's identity and explosion |
+| `piece()` | Returns a part named `Construction piece` for building something to merge |
+| `along(axis)` | Returns the frame that turns local X onto world `x`, `y` or `z`, for spreading into `transform` |
+| `plane(name)` | Returns the frame that lays a local XY profile in world `xy`, `xz` or `yz`, with extrusion depth along `+z`, `-y` or `+x` |
+| `line(part, a, b, role)` | Adds one feature segment between two `[x, y, z]` points |
 
 ```js
-const G = require('./geometry.js');
+const G = require('./tools/technical-drawing/assets/geometry.js');
 const sleeve = G.part('sleeve', 'Knurled sleeve', [25, 0, 0]);
 G.lathe(sleeve, [[0, 5], [30, 5], [30, 3], [0, 3]]);
 G.knurl(sleeve, {x0: 2, x1: 28, radius: 5.01, starts: 12, pitch: 40});
 ```
 
+`lathe` without `axis` or `at`, `ring`, `helix`, `knurl`, `spring` and `screw` all work in local X. On a part already placed elsewhere, build them on a `piece()`, transform it the same way and `merge` it.
+
 Surface thread and knurl lines describe appearance, not cut thread solids. The screw's slot is an indication, not a machined recess.
 
-Use CAD for boolean intersections, manufacturing threads, arbitrary section cuts or complex curved housings. These helpers do not infer those constructions.
+`lathe` uses 144 segments unless given `segments`, which must be divisible by 12 for hexagonal points. `start` and `end` in radians cut a partial sector, whose end caps require a convex radial profile.
 
-Full lathe profiles may contain concave radial boundaries. Partial lathe sectors use convex end caps and require a convex radial profile.
+`lathe` draws a ring at every profile point. For a sampled curve such as a dome or lens face, pass `creaseAngle` in degrees and only corners turning more than that keep their ring. `omitRings` drops rings by profile index.
+
+`loft` draws every ring the same way. Pass `lines: 'ends'` for a smooth surface or `lines: 'none'` when you author its feature lines yourself.
+
+A lathe cannot blend a round section into a hexagonal one. Build that chamfer as a `loft` whose ring radius is the smaller of the hexagon and the cone at each angle.
+
+Line roles are `outline`, `edge`, `detail`, `texture` and `axis`. `line(part, a, b, role)` and most helpers default to `edge` and take a `role` option. `helix` defaults to `detail`, while `knurl`, `spring` and `screw` set their own roles.
 
 ## Build prismatic parts without custom triangulation
 
 Pass `extrude` an ordered polygon without self-intersections. Clockwise and counterclockwise inputs work; a repeated closing point is optional.
 
+Cap triangulation preserves concave notches. Curved profiles need sampled points; `creaseAngle` controls which corners receive longitudinal feature lines, defaulting to 25°.
+
+Pass `holes` for pivot holes, mounting holes and windows. Each hole is its own ordered polygon inside the profile; the extrusion walls it and keeps it open through the part.
+
 ```js
-const bracket = G.part('bracket', 'Angle bracket', [0, 0, 20]);
-G.extrude(bracket, [[0, 0], [24, 0], [24, 4], [4, 4], [4, 30], [0, 30]], {depth: 12});
-G.transform(bracket, {origin: [10, 0, 0]});
+const disc = (cx, r) => Array.from({length: 48}, (_, i) => [cx + r * Math.cos(i * Math.PI / 24), r * Math.sin(i * Math.PI / 24)]);
+G.extrude(lever, G.roundedRectangle(80, 16, 8), {depth: 3, holes: [disc(-30, 4), disc(30, 3)]});
 ```
 
-Cap triangulation preserves concave notches. Curved profiles need sampled points; `creaseAngle` controls which corners receive longitudinal feature lines, defaulting to 25°.
+## Place each part once
 
 `transform` mutates the part and accepts `origin`, `xAxis`, `yAxis` and `zAxis`. Axes must form a right-handed orthonormal frame; omitted values use the world frame.
 
-Explosion vectors rotate with that frame but do not receive its origin translation. Place each complete part once, after constructing its local features.
+Explosion vectors rotate with that frame but do not receive its origin translation. Build each part with zero explosion, place it, then assign `part.explosion` in world coordinates.
 
-Use CAD or a verified custom mesh for profiles with holes, intersecting contours or boolean subtraction. An outlined hole on a solid extrusion does not create an opening.
+```js
+const pin = G.part('pin', 'Hinge pin');
+G.lathe(pin, [[0, 0], [0, 1.2], [14, 1.2], [14, 0]], {creaseAngle: 20});
+G.transform(pin, {origin: [0, 8, 2], ...G.along('z')});
+pin.explosion = [0, 0, 30];
+```
+
+Build positioned pieces with `piece()` and combine them through `merge`, which throws when the source has an explosion. Merging copies geometry and leaves the source unchanged.
+
+Merging does not union intersecting solids, draw their intersection curve or erase their authored feature lines. Embed a joined piece just below the surface it meets and add the junction curve as a feature line yourself. Offset that curve about 0.05 mm outward from both surfaces so neither hides it.
+
+Keep such junctions away from a silhouette. Where a junction curve grazes one, sampled visibility leaves short dash fragments.
 
 ## Describe custom surfaces explicitly
 
-Use this mesh contract when a verified construction needs surfaces beyond the helpers:
+Use this mesh contract when a construction needs surfaces beyond the helpers:
 
 | Field | Representation |
 | --- | --- |
 | `vertices` | Finite `[x, y, z]` positions in assembled model coordinates |
-| `triangles` | Three zero-based vertex indices per face, consistently wound toward the surface's outside |
+| `triangles` | Three zero-based vertex indices per face, wound toward the surface's outside |
 | `lines` | Feature segments with `a` and `b` endpoints and a line `role` |
 | `explosion` | A translation applied to the complete part, independent of its assembled position |
+| `transparent` | Optional; `true` for glass, which draws its own edges but hides nothing behind it |
 
-Add feature lines through `line(part, a, b, role)`. The role is `outline`, `edge`, `detail` or `texture` and defaults to `edge`. Helpers that add lines take the same `role` option.
+The renderer throws when a triangle references a missing vertex. An edge used by only one triangle draws as an outline, so an open skin keeps its rim and an unshared seam shows up as a stray line.
 
-Share vertex indices across adjacent faces so silhouette detection can compare their normals. Triangulation diagonals belong only in the mesh, never in feature lines.
-
-Build positioned submeshes with zero explosion and combine them through `merge`. Set the complete part's explosion separately; merging copies geometry and leaves the source unchanged.
-
-Merging does not union intersecting solids or erase their authored feature lines. Remove internal faces and seams explicitly, or move that construction to CAD.
+A part with feature lines and no triangles still fits the page, which suits a marking or a reference axis.
 
 ## Project visible ink from the mesh
 
-[assets/projection.js](assets/projection.js) supplies parallel cameras and sampled hidden-line removal for these meshes.
-
 ```js
-const {render} = require('./projection.js');
+const {render} = require('./tools/technical-drawing/assets/projection.js');
 const {markup} = render([sleeve], {explosion: 0.6, isolated: null});
 ```
 
-For upright objects, set `camera: {azimuth: -135, elevation: 20, roll: 0}` in the render options. Angles use degrees, with world Z up and positive elevation above the object.
+The model owns its camera. The viewer passes only `explosion`, `fitExplosion`, `isolated` and `fill`, so spread those options and add the camera:
 
-Zero roll keeps vertical edges vertical. The default camera retains the original isometric elevation and 16° roll; choose a view that reveals the object's important surfaces.
+```js
+return TechnicalProjection.render(parts, {...options, camera: {azimuth: -128, elevation: 30, roll: 0}});
+```
 
-`project(point, camera)` accepts the same angles for feature anchors. For many anchors, build the camera once with `createCamera(camera)` and call its `project`. Keep camera changes out of model coordinates so geometry and explosion vectors remain in one physical frame.
+Angles use degrees. [geometry.md](geometry.md) explains choosing them under **Know which way the camera looks**.
 
-The render result includes `scale` and `offset` for paper placement. Map an anchor with `project(anchor, camera).slice(0, 2).map((n, i) => n * result.scale + result.offset[i])`.
+`project(point, camera)` accepts the same angles for feature anchors. For many anchors, build the camera once with `createCamera(camera)` and call its `project`.
 
-Add its part's current explosion translation before projecting the anchor. This keeps requested leaders and insertion axes attached after the view refits.
+The render result includes `scale` and `offset` for paper placement. Add the part's current explosion translation to an anchor, then map it with `project(anchor, camera).slice(0, 2).map((n, i) => n * result.scale + result.offset[i])`.
 
-The result contains named part groups and paths carrying `data-line-role`. Roles are `outline`, `edge`, `detail` and `texture`; the viewer supplies their ink styles.
+The result contains named part groups and paths carrying `data-line-role`. The viewer supplies their ink styles and dashes `axis`.
 
-Coordinates fit a landscape A3 page with a 28 mm margin, which is the paper space the viewer expects. `explosion` accepts 0–2, while `isolated` accepts one part ID or `null` for the complete assembly.
+Coordinates fit a landscape A3 page with a 28 mm margin, which is the paper space the viewer expects. `explosion` accepts 0–2 and the viewer's spacing slider reaches 1.5, so models must stay coherent across that range.
 
-The renderer samples visibility at 0.045 mm on paper by default. Its depth tolerance tracks 0.01 mm on paper, so inspect shallow recesses and nearly touching faces closely.
+`fitExplosion` fits the page to a wider spacing than the current one. Above zero spacing the viewer previews with at least the authored spacing of 1, so the scale holds while the slider moves below it. `isolated` accepts one part ID or `null`.
 
-Move to CAD when sampled clipping cannot resolve the construction reliably.
+The `sample` option sets visibility sampling in paper millimeters, 0.045 by default within 0.01–0.2. Depth tolerance tracks 0.01 mm on paper, so inspect shallow recesses and nearly touching faces closely.
+
+`fill: true` adds a `data-fills` group behind every part. Each path in it carries `data-fill` with its part ID and `data-covers` with the parts it paints over, and starts with `fill="none"` until the viewer colors it. Paths paint far to near, and a part fully hidden behind others gets none.
+
+Fills rely on closed shells. A closed shell hides its own back faces whichever way its triangles wind, while an open skin fills both sides. Fills roughly double render time, so the viewer requests them only while a part is filled.
 
 Regenerate visibility after changing geometry, spacing or isolation. Previously hidden segments cannot be recovered by moving or hiding already-clipped SVG groups.
+
+## Draw axes and assembly trails
+
+Pass `trails` to `render` for centerlines and insertion paths. Each trail has model-space ends `a` and `b` plus optional part IDs `from` and `to` whose explosion moves that end:
+
+```js
+const trails = [{a: [0, 0, 25], b: [0, 0, 25], from: 'screw', to: 'frame'}];
+return TechnicalProjection.render(parts, {...options, camera, trails});
+```
+
+Trails use the `axis` role by default, hide behind solid parts and render in a `data-trails` group outside every part. A trail between two parts collapses at zero spacing, and isolating a part omits every trail.
+
+Author each trail as one straight segment. A dash pattern restarts at every subpath, so a trail broken into pieces loses its rhythm.
 
 ## Keep parameter changes coherent
 
@@ -107,8 +154,4 @@ Expose only meaningful parameters with validated minima, maxima, defaults and un
 
 Derive mating features and repeated instances from shared parameters. Length changes must move attached components without stretching their independent details.
 
-Share angular samples between touching curved surfaces, including segment counts and start angles. Equal radii alone can leave dotted contact lines when differently tessellated meshes intersect.
-
-Retain stable part IDs across every parameter value. Confirm minimum, default and maximum settings reconstruct a credible assembly at zero explosion.
-
-Run the helper checks with `node scripts/test-geometry.cjs` from this skill's directory. Render representative primitives and inspect their outlines after changing a construction helper.
+Retain stable part IDs across every parameter value.

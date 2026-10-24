@@ -296,7 +296,9 @@ not finished. Order of work:
    wrong ("no clear title", "random empty space", "everything is pushed to one side"), and the
    inspector measures each of them.
 9. **States and semantics.** Real links and buttons, visible focus, alt text, a phone layout that is
-   its own composition.
+   its own composition. Every control, the live thing included, works from the keyboard alone in
+   reading order and has an accessible name: its visible label, or `aria-label` when it shows only an
+   icon.
 
 Read `references/type.md`, `references/colour.md` and `references/layout.md` when you need the detail
 behind a decision; the laws below are the short form.
@@ -458,6 +460,11 @@ Short form. Numbers are from the study unless marked as house style.
   square, 23% pill; the 9–16px "soft" radius is the weak-site default). Most strong heroes have no
   button at all, or one.
 - Navigation: wordmark, three to five plain links, one action. No bar chrome.
+- A control explains how to use it by its form, its label and its place. When it seems to need a
+  sentence on how to operate it, redesign the control instead of adding the sentence. What a field
+  accepts is different. First remove the limit where you can: a date picker, or a parser that takes
+  any common format. A limit that remains, such as password rules or file type and size, stays visible
+  beside the field and is tied to it with `aria-describedby`.
 - The footer is a designed close, not a sitemap: on most strong sites the name returns at full width.
 
 ## Special cases

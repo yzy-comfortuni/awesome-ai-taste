@@ -1,8 +1,6 @@
 # Build the reusable viewer
 
-Use the bundled viewer for a standalone page with editable drawing state. It includes linework, spacing, dimensions, part selection, coloring and export panels.
-
-Keep the target project's existing components when integrating into an application. The assets provide a working standalone starting point, not a requirement to replace that interface.
+Use the bundled viewer for a standalone page with editable drawing state. It includes linework, spacing, parameter sliders, part selection, coloring and export panels.
 
 ## Describe the drawings and their controls
 
@@ -10,7 +8,7 @@ Create a JSON configuration beside the model scripts. Paths resolve relative to 
 
 ```json
 {
-  "dependencies": "vendor/node_modules",
+  "dependencies": "node_modules",
   "modelScripts": ["model.js"],
   "drawings": [{
     "id": "sleeve",
@@ -32,15 +30,21 @@ Create a JSON configuration beside the model scripts. Paths resolve relative to 
 
 Use an empty `parameters` array when the object has no suitable editable dimensions. IDs stay stable, and drawing IDs use lowercase slugs.
 
+One optional field shapes the exports. `concept` defaults to `true` and marks exports as illustrative, so set it to `false` only for a drawing built from authoritative dimensions.
+
+The drawing selector appears only when the configuration holds more than one drawing.
+
 Set `initialView` to `assembled` when the object's normal form or scale is the main subject. Assemblies otherwise start exploded; single-part drawings start assembled.
 
-Install `jspdf`, `svg2pdf.js` and `@fontsource-variable/inter` into the output project's dependency directory, using its existing package manager. Keep its lockfile with the generator.
+Install `jspdf`, `svg2pdf.js` and `@fontsource-variable/inter` with the project's package manager, or with `npm install` in a standalone folder. Point `dependencies` at the resulting `node_modules` folder and keep the lockfile with the generator.
 
 The builder embeds those packages, the Inter font and its license. The generated page makes no runtime network requests.
 
 ## Implement the model boundary
 
 Each model script registers a function in `self.DrawingModels`, keyed by drawing ID. The worker already provides `TechnicalGeometry` and `TechnicalProjection`.
+
+The worker calls each model with the parameter values and `{explosion, fitExplosion, isolated, fill}`.
 
 Preserve existing registrations when the viewer includes multiple model scripts.
 
@@ -55,7 +59,7 @@ self.DrawingModels.sleeve = (parameters, options) => {
   }
   G.lathe(p, [[0, 5], [length, 5], [length, 3], [0, 3]]);
   G.knurl(p, {x0: 2, x1: length - 2, radius: 5.01, starts: 12, pitch: 40});
-  return TechnicalProjection.render([p], options);
+  return TechnicalProjection.render([p], {...options, camera: {azimuth: -128, elevation: 30, roll: 0}});
 };
 ```
 
@@ -67,26 +71,34 @@ Mark filled ink, including engraved text and arrowheads, with `data-ink-fill`. T
 
 Keep occluding faces unmarked and explicitly paper-colored. A filled-ink marker identifies content to recolor, not every closed surface.
 
-Return coordinates in millimeters on the 420 × 297 mm sheet. `TechnicalProjection.render` already fits them, and the viewer draws them unscaled. Model scripts handle `explosion` and `isolated` before projecting, including newly exposed surfaces.
+Part fills come from `render` with `fill: true`. A different renderer that supports them returns one `data-fills` group before the parts, holding paths with `data-fill` and `data-covers` as **Project visible ink from the mesh** in [geometry-library.md](geometry-library.md) describes.
 
-Treat model code as generator source you control. Sanitize imported SVG before it reaches this boundary, following [preview-page.md](preview-page.md).
+Return coordinates in millimeters on the 420 × 297 mm sheet. `TechnicalProjection.render` already fits them, and the viewer draws them unscaled. `render` applies each part's explosion vector scaled by `explosion`, drops parts outside `isolated` and draws fills for `fill`, so models pass all three through. Handle them in the model only when spacing or isolation changes the geometry itself.
+
+Treat model code as generator source you control. Remove scripts and external resources from imported SVG before it reaches this boundary.
 
 ## Build one portable file
 
 Run [scripts/build-viewer.cjs](scripts/build-viewer.cjs) with the configuration and destination:
 
 ```sh
-node /path/to/technical-drawing/scripts/build-viewer.cjs drawing.json dist/index.html
+node tools/technical-drawing/scripts/build-viewer.cjs drawing.json dist/index.html
 ```
 
-Deliver the resulting HTML alongside the configuration, model scripts, dependency lockfile and copies of the required builder assets. Record a local regeneration command using those copies.
+Deliver the resulting HTML alongside `evidence.md`, the configuration, model scripts, dependency lockfile and copies of the skill's `assets/` and `scripts/` folders kept side by side.
 
-[assets/viewer.html](assets/viewer.html) owns the shell, [assets/viewer.js](assets/viewer.js) owns interaction state and [assets/export.js](assets/export.js) owns export snapshots.
+[assets/sheet.js](assets/sheet.js) owns the sheet size and linework presets, [assets/viewer.html](assets/viewer.html) owns the shell, [assets/viewer.js](assets/viewer.js) owns interaction state and [assets/export.js](assets/export.js) owns export snapshots. [assets/worker.js](assets/worker.js) runs the models away from the controls, one job at a time.
 
-[assets/theme.js](assets/theme.js) resolves system appearance and saved overrides before the page paints. Run `node scripts/test-theme.cjs` from the skill directory after changing appearance behavior.
+A newer preview supersedes queued and running ones, and slider input is debounced. Downloads stay disabled until the current drawing is ready.
 
-[assets/worker.js](assets/worker.js) runs model generation away from the controls. [assets/render-queue.js](assets/render-queue.js) runs one job at a time. A newer preview supersedes queued and running previews, an optional delay debounces slider input and captured export requests always run.
+## Test the controls and the downloaded bytes
 
-Downloads wait for the current drawing. Run `node scripts/test-render-queue.cjs` from the skill directory after changing request scheduling.
+For every build, run `node tools/technical-drawing/scripts/check-viewer.cjs dist/index.html check/` from the project folder, with Node 22 or later. It opens the page from disk in headless Chrome, waits for each drawing, screenshots it and fails on errors, missing parts or network requests. Add `--dark` to check the dark appearance.
 
-Use [verification.md](verification.md) for geometry checks and [preview-page.md](preview-page.md) for browser and downloaded-file checks. Run `node scripts/test-viewer-builder.cjs` from the skill directory after changing packaging. Successful bundling does not establish visual correctness.
+The page renders in a worker, so a plain headless screenshot taken at load shows an empty page. Interactive checks beyond the script need a DevTools driver that waits until `#render-status` reads `Drawing updated`.
+
+The bundled controls and appearance are the skill's own code and are tested with it, so test what this drawing adds. Open the generated page from disk and change whole-drawing and individual-part colors, fill one part and then every part, then switch views where available. Download after zooming and scrolling, confirming that every format preserves the complete selected view and its colors.
+
+Check full-page, cropped, transparent and isolated-part exports. Verify PNG pixel dimensions and alpha, plus PDF page count, physical size and vector content. Render the downloaded PDF independently and inspect its labels, fine lines and sheet edges.
+
+If browser testing is unavailable, state that limitation and provide the standalone files for inspection.

@@ -437,6 +437,19 @@
       "saved_at": "2026-10-23T23:29:04.922205+00:00",
       "source_evidence": null,
       "status": "summary-only"
+    },
+    "poetry-technique-rereading": {
+      "path": "vendor/articles/poetry-technique-rereading.md",
+      "kind": "summary",
+      "sha256": "be727cad76d41032e4741a2e846e80357713e5e7f245553392a1dfee6f3a12f5",
+      "source_sha256": null,
+      "config_sha256": "af99b919fceb0e4b971431ef7e62218338c178b41129c0a7be5c5c99019fbdd8",
+      "converter_version": 1,
+      "license": "未确认本篇讲座及其中引诗的全文转载许可；仅存中文编辑摘要",
+      "source_url": "https://poets.org/text/technique-rereading",
+      "saved_at": "2026-10-24T23:42:10.474089+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
     }
   },
   "unregistered": []

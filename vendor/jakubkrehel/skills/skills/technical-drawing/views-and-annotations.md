@@ -1,23 +1,5 @@
 # Choose the view and its annotation grammar
 
-## Explode along the assembly paths
-
-Keep the assembled and exploded cameras identical unless a second angle reveals something necessary. Identify any camera change in the view label.
-
-Choose a primary disassembly axis. Translate components along it, preserving their orientation, then separate secondary hardware along its own insertion axis.
-
-Each offset begins at the component's assembled placement. Setting all explosion offsets to zero must reconstruct the assembly.
-
-Choose gaps in paper space after projection. Start with 8–15 mm of clear space between silhouettes, increasing it where leaders or inner surfaces need room.
-
-Keep stacks such as screw, washer, cover and boss coaxial. Show the real locating features at both ends of an assembly trail.
-
-Use fine chain lines for necessary trails and omit redundant ones. Stop trails at their attachment features or conceal them behind opaque parts.
-
-An explosion should reveal mating surfaces, not just spread silhouettes across the page. Preserve enough assembled context to explain where each group belongs.
-
-These relationships follow [Autodesk's exploded-view model](https://help.autodesk.com/cloudhelp/2025/ENU/Inventor-Help/files/GUID-2569BBA6-816B-4656-9AC9-ABB9E1DC43C0.htm). Its item numbers connect the drawing to a parts list.
-
 ## Align orthographic views
 
 Use a common scale and preserve corresponding widths, heights and hole positions between views.
@@ -37,8 +19,6 @@ Hatch the solid regions intersected by the plane. Leave holes, passages and open
 For an illustrative section, start with 45° hatching at 2–3 mm spacing on paper. Enlarge narrow regions or adjust spacing before they become solid black.
 
 For formal drafting, check the chosen standard's exceptions for ribs, shafts and fasteners. A visually plausible cutaway does not establish standards compliance.
-
-The [MIT drawing handbook](https://ocw.mit.edu/courses/2-007-design-and-manufacturing-i-spring-2009/pages/related-resources/drawing_and_sketching/) explains section lining and view selection.
 
 ## Attach each balloon to one item
 

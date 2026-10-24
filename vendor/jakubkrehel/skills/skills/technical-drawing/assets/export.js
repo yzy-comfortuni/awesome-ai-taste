@@ -88,9 +88,9 @@
         URL.revokeObjectURL(url);
       }
     },
-    async pdf(svg, {width, height}, filename) {
+    async pdf(svg, {width, height}, filename, metadata) {
       const pdf = new jspdf.jsPDF({orientation: width >= height ? 'landscape' : 'portrait', unit: 'mm', format: [width, height], compress: true});
-      pdf.setProperties({title: filename, subject: 'Illustrative technical drawing'});
+      pdf.setProperties({title: filename, subject: metadata.concept === false ? 'Technical drawing' : 'Illustrative technical drawing'});
       await pdf.svg(svg, {x: 0, y: 0, width, height});
       saveBlob(pdf.output('blob'), filename + '.pdf');
     }
@@ -107,7 +107,7 @@
       const size = prepare(svg, {crop, transparent, metadata});
       host.style.width = size.width + 'mm';
       host.style.height = size.height + 'mm';
-      await write(svg, size, filename);
+      await write(svg, size, filename, metadata);
     } finally {
       host.remove();
     }
