@@ -36,6 +36,7 @@
 | Ten Simple Rules to Create Biological Network Figures for Communication | 正文 Markdown | current | [biological-network-figures.md](biological-network-figures.md) |
 | Avoid CUT TO’s in a Busy Sequence | 摘要 Markdown（非全文） | summary-only | [screenplay-busy-sequence.md](screenplay-busy-sequence.md) |
 | The 'Technique' of Rereading | 摘要 Markdown（非全文） | summary-only | [poetry-technique-rereading.md](poetry-technique-rereading.md) |
+| Ten Simple Rules for Reducing Overoptimistic Reporting in Methodological Computational Research | 正文 Markdown | current | [overoptimistic-method-reporting.md](overoptimistic-method-reporting.md) |
 
 ## 更新方式
 

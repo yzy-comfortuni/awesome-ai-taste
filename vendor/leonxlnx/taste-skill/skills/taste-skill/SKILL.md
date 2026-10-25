@@ -141,8 +141,9 @@ The command prints a **direction sheet**. It is the art direction for this build
 - **Adopt it.** Do not blend it with the layout you would have made anyway. If it feels unfamiliar,
   good: the familiar layout is the one this skill exists to prevent.
 - Redraw one slot (`--redraw hero | type | palette | photos | scenes | section:<role> | direction`) only for a
-  reason you can state: it contradicts a stated brand constraint, or needs an asset that does not
-  exist. Never redraw to get something more comfortable. Record every redraw in your report.
+  reason you can state: it contradicts a stated brand constraint, needs an asset that does not exist,
+  or is a section that cannot hold the real content (next point). Never redraw to get something more
+  comfortable. Record every redraw in your report.
 - When a dealt section cannot hold the real content (it compares three plans and there is one price;
   it wants five quotations and there are none), do not bend the content to fit. List the others with
   `--alternatives <role>`, pick the one whose assumptions match the content, and take it with
@@ -323,6 +324,11 @@ saves screenshots to `.taste-skill/inspect/`. Fix every `FAIL`. Treat each `WARN
 designer in one sentence. Re-run until there are no `FAIL`s. Do not argue with the meter and do not
 hide things from it. The inspector serves local files over a throwaway local server; if the page must
 also open straight from the file system, open `index.html` that way once before you finish.
+
+Inspect what the visitor receives. With a build step, run the last gate on the production build
+(`vite build && vite preview`, `next build && next start`, or the built `index.html`), not only on the
+dev server: minifiers and bundlers change what ships (one dropped a `backdrop-filter` that the dev
+server showed). The inspector warns when it is looking at a dev server.
 
 ### 8. Look
 

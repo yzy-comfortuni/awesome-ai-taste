@@ -23,6 +23,7 @@ function build(configPath, outputPath) {
     __SHEET_SCRIPT__: script(asset('sheet.js')),
     __EXPORT_SCRIPT__: script(asset('export.js')),
     __RENDER_QUEUE_SCRIPT__: script(asset('render-queue.js')),
+    __FLIPBOOK_SCRIPT__: script(asset('flipbook.js')),
     __VIEWER_SCRIPT__: script(asset('viewer.js'))
   };
   const html = asset('viewer.html').replace(/__[A-Z0-9_]+__/g, key => {

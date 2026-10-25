@@ -38,6 +38,16 @@ A cable meets a connector or strain relief. A spring wraps around its axis with 
 
 Choose only the features supported by the evidence record. Conceptual construction should fit together even when its geometry is invented.
 
+## Draw concepts as layered parts
+
+A concept becomes geometry by giving each idea its own part. Display pixels become a backlight, a black matrix, one part per color filter and a cover glass. An interface card becomes page, shadow, surface, image, text and button. Explode along one axis, so each layer lifts off the one below it.
+
+Build layers from thin `box` or `extrude` plates. Leave about a tenth of the plate thickness between stacked layers. Faces that share a plane fight over visibility and break both lines and fills into fragments.
+
+Keep layers from wrapping around each other. Rest a filter on top of the matrix and overlap its bars, rather than sinking it into the matrix's openings. Parts that cover each other in both directions fall back to a slower fill path and heavier markup.
+
+Repeat elements from one loop over shared parameters, such as pixel count and pitch, so a slider changes the whole grid at once. Set `colors` in the drawing configuration when color carries the meaning, as **Describe the drawings and their controls** in [viewer-assets.md](viewer-assets.md) shows.
+
 ## Build what the helpers cannot
 
 Plates with holes, bent sheet, tori and blended housings need a custom mesh. Build them as grids of rings with equal point counts, then join neighboring rings into triangles.
@@ -81,6 +91,8 @@ When both poses matter, such as folded and deployed prongs, the parameter's mini
 Sample circles in their own plane with `ringPoints`. An axis-aligned SVG ellipse cannot follow a circle on a sloping face.
 
 Subdivide curves until the projected chord error is below 0.05 mm on paper. The viewer zooms to 400%, so judge facets in a close-up crop rather than at sheet size. A freeform sheet such as a blade needs about 40 samples along each long curved edge.
+
+The renderer bends a path through any vertex where it turns less than 35°, so a sampled circle prints as a smooth curve rather than a polygon. A circle seen at a steep angle squashes into a flat ellipse and concentrates its turn at the two ends: 32 segments reach about 30° there at a 3:1 squash. Where such an ellipse still shows corners at its ends in a close-up, give the circle more segments.
 
 Draw only silhouettes, real boundaries and necessary feature lines. Triangulation diagonals, duplicate coincident edges and tessellation rings on smooth surfaces are not ink.
 

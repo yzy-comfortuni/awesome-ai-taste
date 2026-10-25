@@ -124,6 +124,8 @@ try {
     const how = await page.goto(url, { timeoutMs: 30000, settleMs: 600 });
     await sleep(600); // about 1.2s after the load event: is the title there to read yet?
     const early = await page.eval(TITLE_SEEN).catch(() => null);
+    // a dev server is not what ships: bundlers and minifiers change the CSS a visitor receives
+    const devServer = await page.eval(`(() => { const s = [...document.scripts].map((x) => x.src || '').join(' '); if (/@vite\\/client|webpack-dev-server|\\/_next\\/static\\/development\\/|react-refresh|webpack-hmr/.test(s)) return true; try { return !!(window.__NEXT_DATA__ && window.__NEXT_DATA__.buildId === 'development'); } catch { return false; } })()`).catch(() => false);
     await page.eval('document.fonts.ready.then(() => true)').catch(() => {});
     await sleep(800); // let the load choreography finish before judging the first screen
     const fold = join(outDir, `${imageLabel}-fold.jpg`);
@@ -198,6 +200,7 @@ try {
       sheets.push(p);
     }
     let findings = [...judge(m, { width: w, allow }), ...sceneFindings];
+    if (devServer && !allow.includes('dev-server')) findings.push({ level: 'WARN', id: 'dev-server', width: w, message: 'This page is served by a development server (Vite, webpack or Next in dev mode).', fix: 'Run the last gate on the production build too (vite build && vite preview, next build && next start, or the built index.html): minifiers and bundlers change the CSS a visitor receives.' });
     if (dealtFonts.length && w >= 1100 && !allow.includes('font-not-dealt')) {
       const norm = (f) => String(f).toLowerCase().replace(/["']/g, '').replace(/\s+variable$/, '').trim();
       const used = m.type.families.filter((f) => f.share >= 0.1).map((f) => norm(f.family));

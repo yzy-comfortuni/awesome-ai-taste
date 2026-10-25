@@ -27,7 +27,7 @@ try {
   const data = JSON.parse(scripts.find(s => s[1].includes('id="drawing-data"'))[2]);
   assert.equal(data[0].title, title, 'Embedding must preserve text without creating script elements');
   const executable = scripts.filter(s => !s[1].includes('type='));
-  assert.equal(executable.length, 7, 'Only the intended theme, libraries, sheet, queue and viewer scripts execute');
+  assert.equal(executable.length, 8, 'Only the intended theme, libraries, sheet, queue, flipbook and viewer scripts execute');
   assert.ok(executable[0][2].includes('globalThis.DrawingTheme ='));
   assert.ok(html.indexOf(executable[0][0]) < html.indexOf('<style>'), 'Appearance must initialize before the page paints');
   const environment = {};

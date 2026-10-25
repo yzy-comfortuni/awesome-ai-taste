@@ -1,5 +1,5 @@
 globalThis.DrawingTheme = (() => {
-  const key = 'technical-drawing-appearance', root = document.documentElement;
+  const key = 'teardown-appearance', root = document.documentElement;
   const system = matchMedia('(prefers-color-scheme: dark)'), listeners = new Set();
   const valid = value => ['system', 'light', 'dark'].includes(value);
   let mode = 'system';

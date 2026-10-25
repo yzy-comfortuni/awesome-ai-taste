@@ -62,11 +62,40 @@
     return new Blob(slices, {type: 'image/png'});
   }
 
+  async function inline(url) {
+    if (url.startsWith('data:')) return url;
+    const bytes = new Uint8Array(await (await fetch(url)).arrayBuffer());
+    let binary = '';
+    for (let i = 0; i < bytes.length; i += 0x8000) binary += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+    return `data:font/woff2;base64,${btoa(binary)}`;
+  }
+
+  async function embedFonts(svg) {
+    const families = new Set([...svg.querySelectorAll('text')].flatMap(t => (t.getAttribute('font-family') || '').split(',').map(f => f.trim().replace(/^["']|["']$/g, ''))));
+    if (!families.size) return;
+    let css = '';
+    for (const sheet of document.styleSheets) {
+      let rules;
+      try { rules = sheet.cssRules; } catch { continue; }
+      for (const rule of rules) {
+        if (!(rule instanceof CSSFontFaceRule) || !families.has(rule.style.getPropertyValue('font-family').replace(/["']/g, '').trim())) continue;
+        let text = rule.cssText;
+        for (const [, url] of text.matchAll(/url\(["']?([^"')]+)["']?\)/g)) text = text.replace(url, await inline(new URL(url, sheet.href || location.href).href));
+        css += text;
+      }
+    }
+    if (!css) return;
+    const style = document.createElementNS(ns, 'style');
+    style.textContent = css;
+    svg.prepend(style);
+  }
+
   const writers = {
     async svg(svg, size, filename) {
       saveBlob(new Blob([new XMLSerializer().serializeToString(svg)], {type: 'image/svg+xml'}), filename + '.svg');
     },
     async png(svg, {width, height}, filename) {
+      await embedFonts(svg);
       const source = new XMLSerializer().serializeToString(svg);
       const image = new Image(), url = URL.createObjectURL(new Blob([source], {type: 'image/svg+xml'}));
       try {

@@ -51,6 +51,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, #viewport:focus
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar) var(--page);
 }
+#viewport[data-pannable] { cursor: grab; user-select: none; }
+#viewport[data-panning] { cursor: grabbing; }
 #stage {
   position: relative;
   display: flex;
@@ -72,11 +74,15 @@ button:focus-visible, input:focus-visible, select:focus-visible, #viewport:focus
 #drawing { flex: none; position: relative; }
 #drawing > svg { display: block; width: 100%; height: 100%; }
 #drawing [data-item] { cursor: pointer; }
+#drawing[data-playing] :is([data-annotations], #selection) { display: none; }
+#drawing [data-leaving] { pointer-events: none; animation: annotation-leave .2s ease-out forwards; }
+@keyframes annotation-leave { to { opacity: 0; } }
 #drawing :is(#paper, [fill="white"], [fill="#fff"], [fill="#ffffff"]) { fill: var(--page); }
 #drawing [data-line-role] { stroke: var(--drawing-ink); }
 #drawing [data-ink-fill] { fill: var(--drawing-ink); }
 :root[data-theme=dark] #drawing [data-line-role] { stroke: color-mix(in srgb, var(--drawing-ink), white 60%); }
 :root[data-theme=dark] #drawing [data-ink-fill] { fill: color-mix(in srgb, var(--drawing-ink), white 60%); }
+#drawing [data-annotation] { font-family: var(--annotation-font, Inter, Arial, sans-serif); }
 #drawing [data-filled=paper] { fill: var(--page); stroke: var(--page); }
 #drawing [data-filled=tint] { --tint: color-mix(in srgb, var(--drawing-ink) 18%, var(--page)); fill: var(--tint); stroke: var(--tint); cursor: pointer; }
 :root[data-theme=dark] #drawing [data-filled=tint] { --tint: color-mix(in srgb, color-mix(in srgb, var(--drawing-ink), white 60%) 24%, var(--page)); }
@@ -259,11 +265,12 @@ body:has(#download-panel:popover-open) #download-toggle { background: rgb(255 25
 <div class="field"><label for="color-target">Apply to</label><select id="color-target"><option value="all">All parts</option></select></div>
 <input id="hue" class="hue" type="range" min="0" max="360" step="1" aria-label="Line hue">
 <label class="check-field"><input id="fill" type="checkbox">Fill</label>
-<div class="action-row"><button id="reset-colors">Reset colors</button></div>
+<div class="action-row"><button id="reset-colors">Reset</button></div>
 </div>
 <div id="settings-panel" popover="auto" aria-label="Drawing settings">
 <div class="panel-heading">Drawing<button class="close" popovertarget="settings-panel" popovertargetaction="hide" aria-label="Close drawing settings">×</button></div>
 <div class="field"><label for="linework">Linework</label><select id="linework"><option value="technical">Technical</option><option value="patent">Fine patent</option><option value="service">Service manual</option></select></div>
+<label class="check-field"><input id="annotate" type="checkbox">Annotations</label>
 <div class="field" id="spacing-field"><div class="field-title"><label for="explosion">Part spacing</label><output id="explosion-value" for="explosion">100%</output></div><input id="explosion" type="range" min="0" max="150" value="100" step="5"></div>
 <hr class="panel-divider" id="parameter-divider"><div id="parameters"></div>
 <button id="reset-parameters" class="export-choice">Reset dimensions</button>
@@ -287,5 +294,6 @@ body:has(#download-panel:popover-open) #download-toggle { background: rgb(255 25
 <script id="drawing-worker" type="application/json">__WORKER_SOURCE__</script>
 <script>__EXPORT_SCRIPT__</script>
 <script>__RENDER_QUEUE_SCRIPT__</script>
+<script>__FLIPBOOK_SCRIPT__</script>
 <script>__VIEWER_SCRIPT__</script>
 </body></html>

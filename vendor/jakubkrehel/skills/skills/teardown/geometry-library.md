@@ -34,7 +34,7 @@ The helpers run in Node through `require()` and in a browser or worker through `
 | `line(part, a, b, role)` | Adds one feature segment between two `[x, y, z]` points |
 
 ```js
-const G = require('./tools/technical-drawing/assets/geometry.js');
+const G = require('./tools/teardown/assets/geometry.js');
 const sleeve = G.part('sleeve', 'Knurled sleeve', [25, 0, 0]);
 G.lathe(sleeve, [[0, 5], [30, 5], [30, 3], [0, 3]]);
 G.knurl(sleeve, {x0: 2, x1: 28, radius: 5.01, starts: 12, pitch: 40});
@@ -105,11 +105,11 @@ A part with feature lines and no triangles still fits the page, which suits a ma
 ## Project visible ink from the mesh
 
 ```js
-const {render} = require('./tools/technical-drawing/assets/projection.js');
+const {render} = require('./tools/teardown/assets/projection.js');
 const {markup} = render([sleeve], {explosion: 0.6, isolated: null});
 ```
 
-The model owns its camera. The viewer passes only `explosion`, `fitExplosion`, `isolated` and `fill`, so spread those options and add the camera:
+The model owns its camera. The viewer passes only `explosion`, `fitExplosion`, `isolated`, `fill` and `annotate`, so spread those options and add the camera:
 
 ```js
 return TechnicalProjection.render(parts, {...options, camera: {azimuth: -128, elevation: 30, roll: 0}});
@@ -129,7 +129,11 @@ Coordinates fit a landscape A3 page with a 28 mm margin, which is the paper spac
 
 The `sample` option sets visibility sampling in paper millimeters, 0.045 by default within 0.01–0.2. Depth tolerance tracks 0.01 mm on paper, so inspect shallow recesses and nearly touching faces closely.
 
+Each role's path joins line pieces whose ends fall within 0.02 mm, bends as cubic curves through vertices that turn less than 35°, and ends exactly where a line passes out of sight. A curve's handles never reach past a third of the shorter segment at a vertex, so a straight line meeting a curve stays straight. An `edge` that carries on from an `outline` without a corner takes the outline role up to its first corner, so a contour keeps one weight past its silhouette. Coordinates carry three decimals. Anything that reads the path data must accept `C` as well as `M` and `L`.
+
 `fill: true` adds a `data-fills` group behind every part. Each path in it carries `data-fill` with its part ID and `data-covers` with the parts it paints over, and starts with `fill="none"` until the viewer colors it. Paths paint far to near, and a part fully hidden behind others gets none.
+
+`annotate: true` widens the side margins and adds a `data-annotations` group: for each part with visible ink, a dot on its silhouette, a leader and its name in capitals as `<text data-annotation>`, stacked in a column on each side. Leaders and dots carry `data-line-role="detail"` and `data-ink-fill`, so they take the base ink. Name parts as a reader would label them, such as `Focus ring` or `Thermal paste`, since the names become the labels.
 
 Fills rely on closed shells. A closed shell hides its own back faces whichever way its triangles wind, while an open skin fills both sides. Fills roughly double render time, so the viewer requests them only while a part is filled.
 

@@ -4,6 +4,19 @@ All notable changes to taste-skill live here. The repo follows SemVer-ish discip
 
 ---
 
+## 2.1.5 - 2026-10-25
+
+Fixes from the community. Thanks to everyone who reported and sent them.
+
+- **Safe text in charts and split headings** ([#160](https://github.com/Leonxlnx/taste-skill/issues/160), [#169](https://github.com/Leonxlnx/taste-skill/pull/169), thanks @jcastilla89 and @Pablolakotek): `charts.js` and the `Stage.split` fallback escape the text they insert, so a chart label or heading that comes from user data can no longer inject markup.
+- **No lost screenshots when two widths share a class** ([#162](https://github.com/Leonxlnx/taste-skill/issues/162), [#165](https://github.com/Leonxlnx/taste-skill/pull/165), thanks @nosawavey-spec and @ketpatil77): `--widths 1280,1024,768,390` keeps both tablet renders (`tablet-1024-*`, `tablet-768-*`).
+- **Keyboard and accessible names** ([#170](https://github.com/Leonxlnx/taste-skill/pull/170), thanks @MrBinnacle): every control works from the keyboard and has an accessible name; a control explains itself by its form, not by a sentence beside it.
+- **The italic faces load** ([#161](https://github.com/Leonxlnx/taste-skill/issues/161), with the fix from [#166](https://github.com/Leonxlnx/taste-skill/pull/166), thanks @nosawavey-spec and @ketpatil77): Boska, Erode and Sentient request their italic weight, so the browser no longer fakes it.
+- **`edge-text` no longer fails ellipsised lines** ([#156](https://github.com/Leonxlnx/taste-skill/issues/156), thanks @shoctroper): text is measured where the reader sees it, clipped by `overflow`.
+- **Inspect the production build** ([#171](https://github.com/Leonxlnx/taste-skill/issues/171), thanks @lilozzy): the Gate step says to run the last check on the built page, and the inspector warns (`dev-server`) when it is looking at a Vite, webpack or Next dev server.
+- **The redraw rule names its third reason** ([#163](https://github.com/Leonxlnx/taste-skill/issues/163), thanks @Tsury): a section that cannot hold the real content.
+- CI now also checks that every text file is clean UTF-8 (a double-encoded save is caught), runs the inspector file-name tests, and parses the scene scripts.
+
 ## 2.1.4 - 2026-10-20
 
 - **Fix: one inspector run could delete the browser profile of another run that was still going** ([#157](https://github.com/Leonxlnx/taste-skill/issues/157), fixed in [#158](https://github.com/Leonxlnx/taste-skill/pull/158) by @t4sh). On macOS and Linux Chrome keeps no `lockfile`, so the sweep added in 2.1.0 judged a profile unused by its age alone, and a second run started during a long one could pull that run's profile away. #158 removed the sweep and added a regression test.

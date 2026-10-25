@@ -27,7 +27,7 @@ Use the project's fonts when the sheet belongs to a product. Otherwise choose an
 
 Keep annotations in sheet coordinates so changing the drawing scale does not change their size. Font sizes above describe the em size, not guaranteed capital height.
 
-Use butt-ended strokes with round joins, as the viewer does. Inspect acute joins for unwanted spikes.
+Use round-ended strokes with round joins, as the viewer does, so pieces of one contour meet without a step. Dashed axis lines keep butt ends, since round ends would close their gaps. Inspect acute joins for unwanted spikes.
 
 ## Make line roles distinguishable
 
@@ -70,10 +70,10 @@ This shell establishes physical units and line roles without prescribing the she
       [data-line-role], .leader {
         fill: none;
         stroke: #202020;
-        stroke-linecap: butt;
+        stroke-linecap: round;
         stroke-linejoin: round;
       }
-      /* one stroke-width rule per line role, plus the axis dash */
+      /* one stroke-width rule per line role, plus the axis dash with butt ends */
       .leader { stroke-width: .16; }
       text { fill: #202020; font-family: Arial, sans-serif; font-size: 3px; }
     </style>
@@ -90,7 +90,7 @@ Paste `render` markup into `views` as it comes out. Its paths carry `data-line-r
 Generate the role rules where the shell's comment sits, from the sheet module rather than copied numbers:
 
 ```js
-const SHEET = require('./tools/technical-drawing/assets/sheet.js');
+const SHEET = require('./tools/teardown/assets/sheet.js');
 const roles = SHEET.css('technical');
 ```
 

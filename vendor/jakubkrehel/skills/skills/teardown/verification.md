@@ -6,9 +6,9 @@ For models built on the bundled helpers, run the copied proof script from the pr
 
 | Command | Use it |
 | --- | --- |
-| `node tools/technical-drawing/scripts/proof.cjs drawing.json proof/ --quick` | While iterating, for default parameters assembled and exploded in a few seconds |
-| `node tools/technical-drawing/scripts/proof.cjs drawing.json proof/ --view=exploded --crop=x,y,w,h` | For the close-up pass, a 2000 px crop of a sheet rectangle given in millimeters |
-| `node tools/technical-drawing/scripts/proof.cjs drawing.json proof/` | Before delivery, for every parameter extreme, 150% spacing and the occlusion check |
+| `node tools/teardown/scripts/proof.cjs drawing.json proof/ --quick` | While iterating, for default parameters assembled and exploded in a few seconds |
+| `node tools/teardown/scripts/proof.cjs drawing.json proof/ --view=exploded --crop=x,y,w,h` | For the close-up pass, a 2000 px crop of a sheet rectangle given in millimeters |
+| `node tools/teardown/scripts/proof.cjs drawing.json proof/` | Before delivery, for every parameter extreme, 150% spacing and the occlusion check |
 
 Add `--only=id` to proof one drawing, `--set=key=value` to proof a pose other than the defaults or `--no-png` to skip rasterizing. A full run with more than two sheets also writes `contact.png`, every sheet on one page for a first look. `--view` accepts `assembled`, `exploded` or `spread`. Sheets use the viewer's Technical linework and fit each spacing tightly.
 

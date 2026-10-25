@@ -20,7 +20,7 @@ function load(configPath) {
 function pathLength(d) {
   let total = 0;
   for (const run of d.split('M').filter(Boolean)) {
-    const points = run.split('L').map(p => p.trim().split(/\s+/).map(Number));
+    const points = run.split(/[LC]/).map(p => p.trim().split(/\s+/).map(Number).slice(-2));
     for (let i = 1; i < points.length; i++) total += Math.hypot(points[i][0] - points[i - 1][0], points[i][1] - points[i - 1][1]);
   }
   return total;
@@ -37,7 +37,7 @@ function inkLengths(markup) {
 
 function sheet(markup, title, viewBox = SHEET_BOX.join(' '), size = `width="${SHEET.width}mm" height="${SHEET.height}mm"`) {
   return `<svg xmlns="http://www.w3.org/2000/svg" ${size} viewBox="${viewBox}"><title>${title.replaceAll('&', '&amp;').replaceAll('<', '&lt;')}</title>`
-    + `<style>path{fill:none;stroke:#202020;stroke-linecap:butt;stroke-linejoin:round}${SHEET.css('technical')}</style>`
+    + `<style>path{fill:none;stroke:#202020;stroke-linejoin:round}${SHEET.css('technical')}</style>`
     + `<rect x="-1000" y="-1000" width="3000" height="3000" fill="#fff"/>${markup}</svg>`;
 }
 

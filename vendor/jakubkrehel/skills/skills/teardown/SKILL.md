@@ -1,11 +1,13 @@
 ---
-name: technical-drawing
-description: Creates precise static technical drawings of physical objects, with coherent views and fine linework.
+name: teardown
+description: Creates technical illustrations of physical objects and of how things work, such as display pixels or interface layers, with coherent views, fine linework and part fills.
 ---
 
-# Technical drawing
+# Teardown
 
-This skill creates technical drawings from objects, descriptions, photographs or CAD models. It constructs the geometry, inspects the rendered drawing and packages a page for viewing, coloring and downloading it.
+This skill creates technical illustrations from objects, descriptions, photographs, CAD models or concepts. It constructs the geometry, inspects the rendered drawing and packages a page for viewing, coloring and downloading it.
+
+The result explains and presents. It is not a manufacturing drawing: nothing is toleranced, and invented dimensions stay invented. When someone needs a drawing to make a part from, say so and point them to their CAD tool's drawing workflow.
 
 Treat geometry and annotation correspondence as exact. Treat sheet proportions and line weights as starting recipes, adjusted to the reference and output size.
 
@@ -29,10 +31,11 @@ Keep the evidence record in `evidence.md` beside the drawing source. Give each f
 | Features visible in a photograph | Reconstruct their proportions, marking them as estimated |
 | Hidden or unspecified construction | Omit it, request the missing reference or identify it as illustrative |
 | A fictional object requested by the user | Design a coherent assembly and label the sheet as a concept |
+| A concept with no physical form, such as pixels, layers or memory | Give each idea a part, build it from thin plates and label the sheet as a concept |
 
 Choose the least speculative route that still fulfils the request. A styling reference alone cannot establish another object's internals or dimensions.
 
-For a visual illustration, proceed with stated assumptions. For a manufacturing drawing, obtain missing dimensions, units, fits and the required drafting standard before presenting it as usable for fabrication.
+Proceed with stated assumptions. Ask only when the answer changes what the drawing shows, such as which internals matter.
 
 This step is done when `evidence.md` classifies every feature group and names the intended use and output size. Default to a local preview page with SVG, PNG and PDF downloads unless the user requests a narrower deliverable.
 
@@ -46,10 +49,11 @@ Choose the smallest view set that answers the request. Read the conventions for 
 | The external shape of one object | One parallel pictorial view, with a detail inset where needed |
 | Shape and specified dimensions | Aligned orthographic views |
 | An internal passage or interface | A section through that feature |
+| How a concept is layered, such as subpixels or composited interface layers | An exploded stack of plates, one part per layer, filled so color tells them apart |
 
 The bundled viewer switches between assembled and exploded views for any drawing with more than one part.
 
-The bundled viewer places no text, balloons or dimension annotations. An annotated sheet is a separate SVG composed around the rendered views, so build one only when the user asks for it.
+The bundled viewer's Annotations switch labels each visible part with its name and a leader line, so part names are written for readers. It places no balloons or dimension annotations. A sheet with those is a separate SVG composed around the rendered views, so build one only when the user asks for it.
 
 Keep object animation and simulation out of scope unless requested.
 
@@ -57,9 +61,9 @@ This step is done when each view has a purpose and a scale policy. Annotated she
 
 ## 3. Construct one object, then project it
 
-Set up the project before modeling. Copy the skill's `assets/` and `scripts/` folders into `tools/technical-drawing/`, leaving out the `test-*.cjs` files, which check the skill itself. Write `drawing.json` and a model script as [viewer-assets.md](viewer-assets.md) describes under **Describe the drawings and their controls** and **Implement the model boundary**.
+Set up the project before modeling. Copy the skill's `assets/` and `scripts/` folders into `tools/teardown/`, leaving out the `test-*.cjs` files, which check the skill itself. Write `drawing.json` and a model script as [viewer-assets.md](viewer-assets.md) describes under **Describe the drawings and their controls** and **Implement the model boundary**.
 
-Derive every view from one model, including the parts list when the drawing needs one. Read [geometry.md](geometry.md) before modeling, since its rules apply whatever builds the geometry.
+Derive every view from one model, including the parts list when the drawing needs one. Read [geometry.md](geometry.md) before modeling, since its rules apply whatever builds the geometry. For a concept, also read its **Draw concepts as layered parts** section.
 
 Build with the bundled helpers in [geometry-library.md](geometry-library.md) by default. They construct meshes, remove hidden lines and feed the viewer directly. Prefer CAD projection when a model already exists or the object needs boolean cuts the helpers cannot make. Its projected SVG enters the viewer as the `{markup}` result that **Implement the model boundary** describes.
 
@@ -110,6 +114,7 @@ This step is done when the available controls work and every download preserves 
 | The proof warns that a part shows less than half its linework | Lengthen its explosion path, move it to a parallel row or turn the camera |
 | Identical parts stack on one column of the page | Turn the camera so no two sit on one line through the view direction |
 | A smooth turned surface shows concentric stripes | Give `lathe` a `creaseAngle`, or `loft` the `lines` option |
+| A circle seen at a steep angle keeps corners at the ends of its ellipse | Give it more segments; the renderer only rounds vertices that turn less than 35° |
 | Balloons appear inside cavities or leaders cross labels | Move the callout lane and reconnect the anchored endpoints |
 | A gallery, sidebar or framed sheet surrounds the default drawing | Return to the bundled blank-page viewer in [viewer-assets.md](viewer-assets.md) |
 | A title block claims a scale the fitted view cannot preserve | Use `NTS`, or compute and verify the physical output scale |

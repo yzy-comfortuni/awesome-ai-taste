@@ -9,7 +9,7 @@ function segmentLengths(markup) {
   const lengths = [];
   for (const [, d] of markup.matchAll(/data-line-role="[^"]*" fill="none" d="([^"]*)"/g))
     for (const run of d.split('M').filter(Boolean)) {
-      const points = run.split('L').map(p => p.split(' ').map(Number));
+      const points = run.split(/[LC]/).map(p => p.trim().split(' ').map(Number).slice(-2));
       for (let i = 1; i < points.length; i++) lengths.push(Math.hypot(points[i][0] - points[i - 1][0], points[i][1] - points[i - 1][1]));
     }
   return lengths;
@@ -501,5 +501,20 @@ test('Fills cover each part once, behind its ink and in depth order', () => {
     }, 0);
   };
   assert.ok(area('tube') > 1, 'An inward-wound closed shell still fills its silhouette');
+});
+test('Annotations label each visible part beside the drawing', () => {
+  const camera = {azimuth: -120, elevation: 30, roll: 0};
+  const base = G.part('base', 'Base plate');
+  G.box(base, [0, 0, 0], [20, 20, 2]);
+  const cap = G.part('cap', 'Cap', [0, 0, 20]);
+  G.box(cap, [5, 5, 2.1], [15, 15, 6]);
+  assert.ok(!P.render([base, cap], {camera}).markup.includes('data-annotations'), 'Labels are drawn only on request');
+  const {markup, bounds} = P.render([base, cap], {camera, annotate: true});
+  const labels = [...markup.matchAll(/<path[^>]* d="M([-\d.]+) [-\d.]+L[^"]*"\/>.*?<text[^>]* x="([^"]*)"[^>]*text-anchor="(\w+)"[^>]*>([^<]*)<\/text>/g)];
+  assert.deepEqual(labels.map(m => m[4]).sort(), ['BASE PLATE', 'CAP'], 'Labels are the part names in capitals');
+  assert.ok(labels.every(([, anchor, x, side]) => side === 'start' ? +x > +anchor : +x < +anchor), 'Labels sit beside their part, away from the drawing');
+  const capLabel = labels.find(m => m[4] === 'CAP');
+  assert.ok(+capLabel[2] > bounds.x && +capLabel[2] < bounds.x + bounds.width, 'A label hugs the drawing at its own height instead of the widest part');
+  assert.ok(bounds.x >= 78 - 1e-6, 'The drawing leaves room for labels');
 });
 console.log(JSON.stringify({passed: checks.length, checks}, null, 2));

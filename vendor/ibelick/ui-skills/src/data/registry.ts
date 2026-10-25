@@ -5746,6 +5746,294 @@ const registrySource: RegistrySourceSkill[] = [
     description:
       "Build a freeform canvas to explore, compare, and iterate on anything.",
   },
+  {
+    slug: "teardown",
+    user: "jakubkrehel",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/jakubkrehel/skills/main/skills/teardown/SKILL.md",
+    githubUrl:
+      "https://github.com/jakubkrehel/skills/blob/main/skills/teardown/SKILL.md",
+    name: "teardown",
+    topics: ["craft", "frontend", "visual"],
+    description:
+      "Creates technical illustrations of physical objects and of how things work, such as display pixels or interface layers, with coherent views, fine linework and part fills.",
+  },
+  {
+    slug: "glaze",
+    user: "arla6ka",
+    repo: "skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/arla6ka/skills/main/systems/glaze/SKILL.md",
+    githubUrl:
+      "https://github.com/arla6ka/skills/blob/main/systems/glaze/SKILL.md",
+    name: "glaze",
+    topics: ["systems", "visual", "frontend"],
+    description:
+      "Glaze design system rules for this project's UI. Use when building or changing any screen, component, form or style, when porting an existing screen onto Glaze, or when checking UI against Glaze.",
+  },
+  {
+    slug: "threejs-asset-pipeline",
+    user: "cloudai-x",
+    repo: "threejs-skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/cloudai-x/threejs-skills/main/skills/threejs-asset-pipeline/SKILL.md",
+    githubUrl:
+      "https://github.com/cloudai-x/threejs-skills/blob/main/skills/threejs-asset-pipeline/SKILL.md",
+    name: "threejs-asset-pipeline",
+    topics: ["threejs", "3d", "frontend", "performance"],
+    description:
+      "Shrinking glTF assets for three.js with gltf-transform: inspect, validate and optimize commands, Draco, meshopt and quantization, KTX2, WebP and AVIF textures, the loader setup each output needs, and gltfjsx for React. Use when compressing, optimizing or validating 3D models before loading them.",
+  },
+  {
+    slug: "threejs-performance",
+    user: "cloudai-x",
+    repo: "threejs-skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/cloudai-x/threejs-skills/main/skills/threejs-performance/SKILL.md",
+    githubUrl:
+      "https://github.com/cloudai-x/threejs-skills/blob/main/skills/threejs-performance/SKILL.md",
+    name: "threejs-performance",
+    topics: ["threejs", "3d", "frontend", "performance"],
+    description:
+      "Measuring and optimizing three.js speed: render statistics, memory counters, fewer draw calls via merging, instancing, batching and LOD, fill rate, shadows, CPU work per frame, shader stalls and GPU compute for particles, WebGL or WebGPU with TSL. Use when a scene is slow, janks or exceeds memory.",
+  },
+  {
+    slug: "threejs-react-three-fiber",
+    user: "cloudai-x",
+    repo: "threejs-skills",
+    rawUrl:
+      "https://raw.githubusercontent.com/cloudai-x/threejs-skills/main/skills/threejs-react-three-fiber/SKILL.md",
+    githubUrl:
+      "https://github.com/cloudai-x/threejs-skills/blob/main/skills/threejs-react-three-fiber/SKILL.md",
+    name: "threejs-react-three-fiber",
+    topics: ["threejs", "3d", "frontend", "performance"],
+    description:
+      "Building three.js scenes from React with React Three Fiber and drei: renderer setup, the scene graph as JSX, frame-loop, state and loading hooks, pointer events, and adaptive performance, on WebGL or with WebGPU and TSL. Use when writing React components that render three.js.",
+  },
+  {
+    slug: "captions-overlay",
+    user: "heygen-com",
+    repo: "hyperframes",
+    rawUrl:
+      "https://raw.githubusercontent.com/heygen-com/hyperframes/main/.agents/skills/captions-overlay/SKILL.md",
+    githubUrl:
+      "https://github.com/heygen-com/hyperframes/blob/main/.agents/skills/captions-overlay/SKILL.md",
+    name: "captions-overlay",
+    topics: ["video", "remotion", "motion"],
+    description:
+      "Overlay doctrine for captions in HyperFrames videos — the caption MODEL (drop / rail / embed) and the rule that captions are an OVERLAY composited on top of the film, never a reserved bottom band you shift content up to avoid. Load when adding captions/subtitles to a talking-head or launch video, when deciding whether a phrase should be dropped, ride the verbatim rail, or be promoted to a scarce embedded climax, when laying out a composition that will carry captions (do NOT reserve a keep-out band), or when centering a composition on the true frame center under captions. Applies ON TOP of the `/hyperframes` skill's references/captions.md.",
+  },
+  {
+    slug: "changelog-video",
+    user: "heygen-com",
+    repo: "hyperframes",
+    rawUrl:
+      "https://raw.githubusercontent.com/heygen-com/hyperframes/main/.agents/skills/changelog-video/SKILL.md",
+    githubUrl:
+      "https://github.com/heygen-com/hyperframes/blob/main/.agents/skills/changelog-video/SKILL.md",
+    name: "changelog-video",
+    topics: ["video", "remotion", "motion"],
+    description:
+      "Turn a weekly changelog .md into a finished branded changelog video (square 1080, ~45-60s, Annie VO, animated brand background, mock-UI visualizations, lowkey captions). Use when the user provides a changelog/digest markdown and wants the weekly video, or says \"changelog video\". Self-contained — fonts, background, lexicon, and scripts ship in this skill.",
+  },
+  {
+    slug: "cut-the-curve",
+    user: "heygen-com",
+    repo: "hyperframes",
+    rawUrl:
+      "https://raw.githubusercontent.com/heygen-com/hyperframes/main/.agents/skills/cut-the-curve/SKILL.md",
+    githubUrl:
+      "https://github.com/heygen-com/hyperframes/blob/main/.agents/skills/cut-the-curve/SKILL.md",
+    name: "cut-the-curve",
+    topics: ["video", "remotion", "motion"],
+    description:
+      "The technique catalog: five velocity-matched SEAMS (zoom-through, INVERSE zoom-through, cut-the-curve, waterfall cut, rack-focus blur-cut) plus the two in-scene techniques — waterfall ENTRY (staggered arrival cascades for title cards / segment openers) and the nudge curve (slow-fast-slow three-phase group slides). Covers partial-travel (~12% of frame) velocity matching via mirrored power4 eases, the Z scale-sign rule, size-scaled blur (10px text / 18-20px full-frame), word-by-word staggered cuts, cascade pacing by element weight, and the 10/65/25 slide ratio. Read before authoring any transition, text-beat handoff, kinetic text entry, or group reposition. [depth, zoom, inverse-zoom, scale-sign, mirrored-zoom, rack-focus, pacing, velocity, cut-the-curve, waterfall, stagger, cascade, kinetic-text, title-card, segment-opener, nudge, slide, easing, group-motion, z-depth, motion-graphics, cinematic, transition, blur, directional-continuity]",
+  },
+  {
+    slug: "motion-doctrine",
+    user: "heygen-com",
+    repo: "hyperframes",
+    rawUrl:
+      "https://raw.githubusercontent.com/heygen-com/hyperframes/main/.agents/skills/motion-doctrine/SKILL.md",
+    githubUrl:
+      "https://github.com/heygen-com/hyperframes/blob/main/.agents/skills/motion-doctrine/SKILL.md",
+    name: "motion-doctrine",
+    topics: ["video", "remotion", "motion"],
+    description:
+      "GATEWAY — load FIRST before composing any HyperFrames animation or video. The high-level motion law that makes a multi-scene video feel like ONE continuous camera move instead of a stack of independently-animated slides. Covers the vector law (how you exit determines how you enter, incl. the Z scale-sign rule), the film's current, carrier elements, causal motion, the Seam Gate (build-gate enforcement), the ban on idle wobble (motion must PERFORM, not breathe), stillness-before-climax, and the sustained-motion routes. Routes to the low-level technique skills (cut-the-curve — the full catalog incl. waterfall entry + nudge curve, oversized-cursor, seam-craft). These rules SUPERSEDE generic / upstream motion guidance. [continuity, direction, vector, momentum, seam, transition, ease, performance, idle-motion, narrative-motion, film-grammar]",
+  },
+  {
+    slug: "oversized-cursor",
+    user: "heygen-com",
+    repo: "hyperframes",
+    rawUrl:
+      "https://raw.githubusercontent.com/heygen-com/hyperframes/main/.agents/skills/oversized-cursor/SKILL.md",
+    githubUrl:
+      "https://github.com/heygen-com/hyperframes/blob/main/.agents/skills/oversized-cursor/SKILL.md",
+    name: "oversized-cursor",
+    topics: ["video", "remotion", "motion"],
+    description:
+      "House-style oversized macOS cursor technique for HyperFrames launch videos. Load whenever a scene involves cursors or a pointer-led action, when kicking off a UI scene, when igniting a morph/transition/typing run with a click, or when a scene reads as static, dead, or stale and needs a cheap high-yield source of motion to carry the viewer's eye and segment them out of the stale state. Covers cursor size/look (incl. brand-motif cursors), the off-screen entry law, tip-targeting and the click tap, click-ignites-the-next-beat, and exit / cross-scene handoff.",
+  },
+  {
+    slug: "seam-craft",
+    user: "heygen-com",
+    repo: "hyperframes",
+    rawUrl:
+      "https://raw.githubusercontent.com/heygen-com/hyperframes/main/.agents/skills/seam-craft/SKILL.md",
+    githubUrl:
+      "https://github.com/heygen-com/hyperframes/blob/main/.agents/skills/seam-craft/SKILL.md",
+    name: "seam-craft",
+    topics: ["video", "remotion", "motion"],
+    description:
+      "Render-correctness doctrine for scene-to-scene seams in HyperFrames launch videos — the prerequisites that make transitions composite correctly on the master timeline. Load when assembling the master timeline / index.html, when a white flash appears at a cut or crossfade seam (especially on dark films), when reasoning about why a transition opacity dip shows through, or when verifying the render-side mechanics of how overlapping scene wrappers blend. Covers the opaque stage-ground (#root background) white-flash guard and how the injector overlaps wrappers, holds final frames, ping-pongs tracks, and stamps lint-clean template code onto the master timeline. Does NOT contain the per-transition catalog — see the transition registry for individual transition entries.",
+  },
+  {
+    slug: "canopy-part-title",
+    user: "heygen-com",
+    repo: "hyperframes",
+    rawUrl:
+      "https://raw.githubusercontent.com/heygen-com/hyperframes/main/registry/blocks/canopy-part-title/SKILL.md",
+    githubUrl:
+      "https://github.com/heygen-com/hyperframes/blob/main/registry/blocks/canopy-part-title/SKILL.md",
+    name: "canopy-part-title",
+    topics: ["video", "remotion", "motion"],
+    description:
+      "Leaves sweep through the frame and part to reveal the headline. HyperFrames block, 1920×1080, 12s, 11 variables.",
+  },
+  {
+    slug: "code-slice-hero",
+    user: "heygen-com",
+    repo: "hyperframes",
+    rawUrl:
+      "https://raw.githubusercontent.com/heygen-com/hyperframes/main/registry/blocks/code-slice-hero/SKILL.md",
+    githubUrl:
+      "https://github.com/heygen-com/hyperframes/blob/main/registry/blocks/code-slice-hero/SKILL.md",
+    name: "code-slice-hero",
+    topics: ["video", "remotion", "motion"],
+    description:
+      "A tiled headline surface flips cell by cell under a sweeping depth field to reveal the rear headline. HyperFrames block, 1920×1080, 8s, 18 variables.",
+  },
+  {
+    slug: "cuboid-carousel",
+    user: "heygen-com",
+    repo: "hyperframes",
+    rawUrl:
+      "https://raw.githubusercontent.com/heygen-com/hyperframes/main/registry/blocks/cuboid-carousel/SKILL.md",
+    githubUrl:
+      "https://github.com/heygen-com/hyperframes/blob/main/registry/blocks/cuboid-carousel/SKILL.md",
+    name: "cuboid-carousel",
+    topics: ["video", "remotion", "motion"],
+    description:
+      "A chain of bevelled cuboids rides a travelling wave as a content carousel. HyperFrames block, 1920×1080, 6.666666666666667s, 40 variables.",
+  },
+  {
+    slug: "frost-sequence-camera-orbit",
+    user: "heygen-com",
+    repo: "hyperframes",
+    rawUrl:
+      "https://raw.githubusercontent.com/heygen-com/hyperframes/main/registry/blocks/frost-sequence-camera-orbit/SKILL.md",
+    githubUrl:
+      "https://github.com/heygen-com/hyperframes/blob/main/registry/blocks/frost-sequence-camera-orbit/SKILL.md",
+    name: "frost-sequence-camera-orbit",
+    topics: ["video", "remotion", "motion"],
+    description:
+      "An orbiting camera follows an ice logo as it breaks apart, reforms into two text moments, and fades. HyperFrames block, 1920×1080, 22.5s, 216 variables.",
+  },
+  {
+    slug: "glass-shard-title",
+    user: "heygen-com",
+    repo: "hyperframes",
+    rawUrl:
+      "https://raw.githubusercontent.com/heygen-com/hyperframes/main/registry/blocks/glass-shard-title/SKILL.md",
+    githubUrl:
+      "https://github.com/heygen-com/hyperframes/blob/main/registry/blocks/glass-shard-title/SKILL.md",
+    name: "glass-shard-title",
+    topics: ["video", "remotion", "motion"],
+    description:
+      "Glass shards fly in through fog and tile themselves into the headline. HyperFrames block, 1920×1080, 12.16s, 19 variables.",
+  },
+  {
+    slug: "orbit-card",
+    user: "heygen-com",
+    repo: "hyperframes",
+    rawUrl:
+      "https://raw.githubusercontent.com/heygen-com/hyperframes/main/registry/blocks/orbit-card/SKILL.md",
+    githubUrl:
+      "https://github.com/heygen-com/hyperframes/blob/main/registry/blocks/orbit-card/SKILL.md",
+    name: "orbit-card",
+    topics: ["video", "remotion", "motion"],
+    description:
+      "A single feature card orbits a dot sphere on approved Blender camera motion. HyperFrames block, 1920×1080, 10s, 4 variables.",
+  },
+  {
+    slug: "wireframe-portal-title",
+    user: "heygen-com",
+    repo: "hyperframes",
+    rawUrl:
+      "https://raw.githubusercontent.com/heygen-com/hyperframes/main/registry/blocks/wireframe-portal-title/SKILL.md",
+    githubUrl:
+      "https://github.com/heygen-com/hyperframes/blob/main/registry/blocks/wireframe-portal-title/SKILL.md",
+    name: "wireframe-portal-title",
+    topics: ["video", "remotion", "motion"],
+    description:
+      "A wireframe portal bursts open, the title comes through, then its letters swap into a second phrase. HyperFrames block, 1920×1080, 8s, 9 variables.",
+  },
+  {
+    slug: "dimensional-drawing",
+    user: "enesozturk",
+    repo: "dimensional-drawing",
+    rawUrl:
+      "https://raw.githubusercontent.com/enesozturk/dimensional-drawing/main/skills/dimensional-drawing/SKILL.md",
+    githubUrl:
+      "https://github.com/enesozturk/dimensional-drawing/blob/main/skills/dimensional-drawing/SKILL.md",
+    name: "dimensional-drawing",
+    topics: ["visual", "craft", "frontend"],
+    description:
+      "Make an Apple-style monochrome dimensional drawing of a UI component or physical product — title-block summary plus one dense drawing sheet with variable-based dimensions. Use when asked for an anatomy, spec sheet, redline or dimensional drawing of a component.",
+  },
+  {
+    slug: "dimensional-drawing-motion",
+    user: "enesozturk",
+    repo: "dimensional-drawing",
+    rawUrl:
+      "https://raw.githubusercontent.com/enesozturk/dimensional-drawing/main/skills/dimensional-drawing-motion/SKILL.md",
+    githubUrl:
+      "https://github.com/enesozturk/dimensional-drawing/blob/main/skills/dimensional-drawing-motion/SKILL.md",
+    files: ["adapters/claude-motion.md"],
+    name: "dimensional-drawing-motion",
+    topics: ["motion", "visual", "craft", "video"],
+    description:
+      "Turn a finished dimensional drawing sheet into a ~10 s Apple-style motion film — lines draw themselves in, the camera pulls back, layers lift into an exploded view, the full sheet resolves. Use after the dimensional-drawing skill, or when asked to animate a spec sheet or anatomy drawing.",
+  },
+  {
+    slug: "rossark-motion-skill",
+    user: "rossark0",
+    repo: "rossark-motion-skill",
+    rawUrl:
+      "https://raw.githubusercontent.com/rossark0/rossark-motion-skill/main/SKILL.md",
+    githubUrl:
+      "https://github.com/rossark0/rossark-motion-skill/blob/main/SKILL.md",
+    files: ["MOTION.md"],
+    name: "rossark-motion-skill",
+    topics: ["motion", "craft", "visual", "frontend"],
+    description:
+      'Bring anything drawn to life with calm, believable motion. It covers characters and creatures (gliding pupils, blinks, breathing, head tilts), full-body acting (landing, waving, leaning, levitating, kicking a ball), plants, fabric, fire, smoke, water, weather, lights, machines, vehicles, icons, logos, charts and whole scenes. Use it whenever someone asks to animate an illustration, an icon, a mascot or a scene, to make something "feel alive", to add idle motion, to turn a static drawing into a living one, or to recreate the motion of a reference video. Comes with a small motion engine and templates for React Native (react-native-svg + Reanimated) and SwiftUI (TimelineView + Canvas), tools that measure a reference video frame by frame, and offline rendering to video, in a phone frame too. The method also works on the web.',
+  },
+  {
+    slug: "hallmark",
+    user: "nutlope",
+    repo: "hallmark",
+    rawUrl:
+      "https://raw.githubusercontent.com/nutlope/hallmark/main/skills/hallmark/SKILL.md",
+    githubUrl:
+      "https://github.com/nutlope/hallmark/blob/main/skills/hallmark/SKILL.md",
+    name: "hallmark",
+    topics: ["taste", "visual", "craft", "frontend"],
+    description:
+      'Design skill for websites and new pages that look designed, not generated. Use when the user asks to build or design something new, or names Hallmark. Never use it on an existing design unless the user names Hallmark, as in `/hallmark redesign <path>`.',
+  },
 ];
 
 const buildInitialPathSlug = (entry: RegistrySourceSkill) => {

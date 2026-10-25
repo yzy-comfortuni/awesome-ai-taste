@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict'), fs = require('node:fs'), path = require('node:path'), vm = require('node:vm');
 const source = fs.readFileSync(path.join(__dirname, '../assets/theme.js'), 'utf8');
 function boot({dark = false, saved = null, blocked = false} = {}) {
-  const root = {dataset: {}}, meta = {}, events = {}, storage = new Map(saved === null ? [] : [['technical-drawing-appearance', saved]]);
+  const root = {dataset: {}}, meta = {}, events = {}, storage = new Map(saved === null ? [] : [['teardown-appearance', saved]]);
   const system = {
     matches: dark,
     addEventListener(name, listener) {
@@ -41,7 +41,7 @@ function boot({dark = false, saved = null, blocked = false} = {}) {
       system.matches = value;
       events.system();
     },
-    external(value, key = 'technical-drawing-appearance') {
+    external(value, key = 'teardown-appearance') {
       events.storage({key, newValue: value});
     }
   };
@@ -55,12 +55,12 @@ assert.equal(page.meta.content, '#191919');
 const updates = [];
 const unsubscribe = page.api.subscribe((mode, theme) => updates.push([mode, theme]));
 page.api.set('light');
-assert.equal(page.storage.get('technical-drawing-appearance'), 'light');
+assert.equal(page.storage.get('teardown-appearance'), 'light');
 page.system(false);
 page.system(true);
 assert.equal(page.root.dataset.theme, 'light', 'Explicit choice must survive a system change');
 assert.equal(
-  boot({dark: true, saved: page.storage.get('technical-drawing-appearance')}).root.dataset.theme,
+  boot({dark: true, saved: page.storage.get('teardown-appearance')}).root.dataset.theme,
   'light',
   'Saved choice must apply on reload'
 );

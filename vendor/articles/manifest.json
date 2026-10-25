@@ -450,6 +450,22 @@
       "saved_at": "2026-10-24T23:42:10.474089+00:00",
       "source_evidence": null,
       "status": "summary-only"
+    },
+    "overoptimistic-method-reporting": {
+      "path": "vendor/articles/overoptimistic-method-reporting.md",
+      "kind": "fulltext",
+      "sha256": "4f17aece4d10de40c91d143512115643b39990b94f98583ecd6f081a6247e8ba",
+      "source_sha256": "71d2f49df65d6cb83ee83551c0faa75ad05c7c02b913b68492b465e6239078c2",
+      "config_sha256": "ba197d8627a929cc41f85ed43cb61975d5005425d5e4beed307510752a75eeb7",
+      "converter_version": 1,
+      "license": "CC-BY-4.0",
+      "source_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004191",
+      "saved_at": "2026-10-25T23:23:30.707333+00:00",
+      "source_evidence": {
+        "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004191",
+        "license_evidence_sha256": "b87bad7f04f435bb054be1bc2a4ecda464b40c0b4eca07d203b4fc5bdd5172c3"
+      },
+      "status": "current"
     }
   },
   "unregistered": []
