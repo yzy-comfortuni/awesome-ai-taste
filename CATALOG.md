@@ -162,6 +162,10 @@
 
   **规则：** 科研结果表的文字列左对齐，数值列右对齐并使用等宽数字，让不同位数的结果便于比较。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008458)
 
+- [Ten Simple Rules for Reducing Overoptimistic Reporting in Methodological Computational Research](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004191) — 计算方法论文的性能比较与结果报告指南，提醒作者避免只展示有利数据；以计算生物学为主要语境，不代替独立评估。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004191) <!-- article-copy --> · [Markdown 正文](vendor/articles/overoptimistic-method-reporting.md)<!-- /article-copy -->
+
+  **规则：** 撰写方法比较结果时，先写清数据集纳入标准，再报告所有符合标准的数据集结果；不能只挑让新方法表现更好的样本。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004191)
+
 ## 小说写作
 
 - [Steering the Craft](https://www.ursulakleguin.com/steering-the-craft) — Le Guin 的英语叙事写作练习，训练句子节奏、视角和叙述距离；适合小说与叙事散文，不套固定情节公式。[第一章节选](https://lithub.com/a-writing-lesson-from-ursula-k-leguin/) <!-- article-copy --> · [Markdown 摘要](vendor/articles/steering-the-craft.md)<!-- /article-copy -->
