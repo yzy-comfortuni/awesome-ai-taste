@@ -466,6 +466,22 @@
         "license_evidence_sha256": "b87bad7f04f435bb054be1bc2a4ecda464b40c0b4eca07d203b4fc5bdd5172c3"
       },
       "status": "current"
+    },
+    "algorithmic-bioinformatics-conference-papers": {
+      "path": "vendor/articles/algorithmic-bioinformatics-conference-papers.md",
+      "kind": "fulltext",
+      "sha256": "a1e68b7e717fc32aea3319129f14e622d814a272fcbf179d7ee851b56b11e2bf",
+      "source_sha256": "6ed072ccda2bc898beb4e08b5f2cd3b3195c952fcd96885ae86008cc271b6c54",
+      "config_sha256": "247b0c8a2beaadfa125c0d710519cdf06169e112547c512b806e5513687b1e34",
+      "converter_version": 1,
+      "license": "CC-BY-4.0",
+      "source_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007742",
+      "saved_at": "2026-10-26T23:37:28.261570+00:00",
+      "source_evidence": {
+        "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007742",
+        "license_evidence_sha256": "fc588c35ed42f1db84d03b218f08eeb10c6ab4a6731205d6d64d8490cc7d8faa"
+      },
+      "status": "current"
     }
   },
   "unregistered": []
