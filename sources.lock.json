@@ -31,7 +31,7 @@
       "repository": "anthropics/skills",
       "branch": "main",
       "upstream_sha": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
-      "stars": 183980,
+      "stars": 183981,
       "archived": false,
       "scope": [
         "skills/frontend-design"
@@ -54,8 +54,8 @@
     "pbakaus/impeccable": {
       "repository": "pbakaus/impeccable",
       "branch": "main",
-      "upstream_sha": "f6a8ca9053d8d35156f74b2d07523291ed6d192f",
-      "stars": 89135,
+      "upstream_sha": "414603bf14c7a344edb466bb1f85690c77ce8b7d",
+      "stars": 89137,
       "archived": false,
       "scope": [
         "README.md",
@@ -63,7 +63,7 @@
       ],
       "config_sha256": "67454a40f9ddcedc9d2a2d277bcac3898ade57857396a0c19411b09b67224eba",
       "status": "current",
-      "copied_sha": "f6a8ca9053d8d35156f74b2d07523291ed6d192f",
+      "copied_sha": "414603bf14c7a344edb466bb1f85690c77ce8b7d",
       "license": {
         "spdx": "Apache-2.0",
         "path": "LICENSE",
@@ -156,7 +156,7 @@
       "repository": "emilkowalski/skills",
       "branch": "main",
       "upstream_sha": "2d228630ba1446365f614a108cb8252f1feda202",
-      "stars": 50099,
+      "stars": 50100,
       "archived": false,
       "scope": [
         "."
