@@ -166,6 +166,10 @@
 
   **规则：** 撰写方法比较结果时，先写清数据集纳入标准，再报告所有符合标准的数据集结果；不能只挑让新方法表现更好的样本。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004191)
 
+- [Ten Simple Rules for writing algorithmic bioinformatics conference papers](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007742) — 算法型生物信息学会议论文的方法描述与评测写法，来自作者的审稿经验；主要适用 RECOMB、WABI 等算法论文，不是会议官方录用标准。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007742) <!-- article-copy --> · [Markdown 正文](vendor/articles/algorithmic-bioinformatics-conference-papers.md)<!-- /article-copy -->
+
+  **规则：** 写算法方法节时，先分别定义输入及其假设、目标输出，再用伪代码或公式说明算法如何完成转换，不让操作流水账取代算法定义。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007742)
+
 ## 小说写作
 
 - [Steering the Craft](https://www.ursulakleguin.com/steering-the-craft) — Le Guin 的英语叙事写作练习，训练句子节奏、视角和叙述距离；适合小说与叙事散文，不套固定情节公式。[第一章节选](https://lithub.com/a-writing-lesson-from-ursula-k-leguin/) <!-- article-copy --> · [Markdown 摘要](vendor/articles/steering-the-craft.md)<!-- /article-copy -->
