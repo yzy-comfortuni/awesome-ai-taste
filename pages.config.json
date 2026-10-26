@@ -636,6 +636,39 @@
       ],
       "min_chars": 8500,
       "scope_note": "© 2015 Anne-Laure Boulesteix。PLOS Computational Biology 11(4): e1004191，DOI: 10.1371/journal.pcbi.1004191。依据 CC BY 4.0 转换本篇英文全文，保留引言、十条规则、结论、致谢与参考文献；网站导航和广告不属正文。格式转换由 awesome-ai-taste 完成，原作者及 PLOS 不为本仓库背书。主要适用提出与评测新计算方法的研究论文（作者侧重计算生物学），不是对所有学科的一律要求，也不把写作建议当成实测性能。许可：https://creativecommons.org/licenses/by/4.0/ 。"
+    },
+    {
+      "id": "algorithmic-bioinformatics-conference-papers",
+      "title": "Ten Simple Rules for writing algorithmic bioinformatics conference papers",
+      "author": "Paul Medvedev",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007742",
+      "catalog_urls": [
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007742"
+      ],
+      "kind": "fulltext",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007742",
+      "license_marker": "creativecommons.org/licenses/by/4.0",
+      "reviewed_on": "2026-10-27",
+      "markers": [
+        "Author summary",
+        "Introduction",
+        "Rule 1:",
+        "Rule 2:",
+        "Rule 3:",
+        "Rule 4:",
+        "Rule 5:",
+        "Rule 6:",
+        "Rule 7:",
+        "Rule 8:",
+        "Rule 9:",
+        "Rule 10:",
+        "Conclusion",
+        "References",
+        "Mensh B, Kording K"
+      ],
+      "min_chars": 6000,
+      "scope_note": "© 2020 Paul Medvedev。PLOS Computational Biology 16(4): e1007742，DOI: 10.1371/journal.pcbi.1007742。依据 CC BY 4.0 转换本篇英文全文，保留作者摘要、引言、十条规则、结论及参考文献；不含网站导航、广告与评论。Markdown 格式转换由 awesome-ai-taste 完成，不代表原作者背书。重点适用算法型生物信息学会议论文（如 RECOMB、WABI、ISMB 相应方法学分轨）；这是作者的审稿经验，不是会议官方录用标准，也不保证算法正确性或投稿结果。许可：https://creativecommons.org/licenses/by/4.0/ 。"
     }
   ]
 }
