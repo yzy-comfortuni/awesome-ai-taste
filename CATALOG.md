@@ -132,6 +132,10 @@
 
   **规则：** 起草两段式独立权利要求时，前序只需列出界定主题所需、与发明有关的已知特征；若改进仅在快门，不必再罗列镜头和取景器。[出处](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_2_2.html)
 
+- [EPO Guidelines F-IV, 4.4 — General Statements and Claim-like Clauses](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_4_4.html) — 欧洲专利局 2026 年指南对说明书中扩张保护范围的兜底句和类权利要求条款的处理；适用于 EPC 审查，不是其他法域的起草准则或法律意见。[正文](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_4_4.html) <!-- article-copy --> · [Markdown 摘要](vendor/articles/epo-general-statements.md)<!-- /article-copy -->
+
+  **规则：** 复核欧洲专利申请说明书时，删除声称保护范围涵盖“发明精神”或“所有等同物”的兜底句；需要说明范围时，准确指向正式权利要求。[出处](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_4_4.html)
+
 ## 学术论文
 
 - [Ten Simple Rules for Structuring Papers](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619) — 围绕中心贡献，用“背景—内容—结论”组织科学论文；适合研究论文的结构修改，仍须遵守学科和期刊规范。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619) <!-- article-copy --> · [Markdown 正文](vendor/articles/ten-simple-rules-structuring-papers.md)<!-- /article-copy -->
