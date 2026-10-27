@@ -482,6 +482,19 @@
         "license_evidence_sha256": "fc588c35ed42f1db84d03b218f08eeb10c6ab4a6731205d6d64d8490cc7d8faa"
       },
       "status": "current"
+    },
+    "epo-general-statements": {
+      "path": "vendor/articles/epo-general-statements.md",
+      "kind": "summary",
+      "sha256": "3b091a5fcded105b069deaae63786c048d2a9c5cdf193e2581a783d7bbcc329e",
+      "source_sha256": null,
+      "config_sha256": "84c51b1ea7ed69fd4a7c4b8d446ff9cd0e0c0479c519f5bf4ad46db036d73035",
+      "converter_version": 1,
+      "license": "未确认本节官方正文可作为公开全文再利用；仅存中文编辑摘要",
+      "source_url": "https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_4_4.html",
+      "saved_at": "2026-10-27T23:11:35.269976+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
     }
   },
   "unregistered": []
