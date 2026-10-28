@@ -200,6 +200,10 @@
 
   **规则：** 从首句圈出两三个关键词，列出 10–20 个联想词；试写时每句用到其中一个，修改时撤去限制，删改生硬重复。[出处](https://lithub.com/on-the-many-different-engines-that-power-a-short-story/)
 
+- [Black Finnegan — Joyce Voice](https://lithub.com/black-finnegan-on-william-melvin-kelley-james-joyce-and-the-avant-garde-of-the-subaltern/) — Benjamin Hale 记录 Kelley 以叙述人称切换训练小说的外部行动与人物内心；主要用于英语小说试写，不是通用结构配方。[正文](https://lithub.com/black-finnegan-on-william-melvin-kelley-james-joyce-and-the-avant-garde-of-the-subaltern/) <!-- article-copy --> · [Markdown 摘要](vendor/articles/black-finnegan-joyce-voice.md)<!-- /article-copy -->
+
+  **规则：** 试写英语小说段落时，先用第三人称过去时写一句外部行动，再用第一人称现在时写两句人物内心；改稿时不必保留固定句数。[出处](https://lithub.com/black-finnegan-on-william-melvin-kelley-james-joyce-and-the-avant-garde-of-the-subaltern/)
+
 ## 诗歌写作
 
 - [Some Thoughts on the Integrity of the Single Line in Poetry](https://poets.org/text/some-thoughts-integrity-single-line-poetry) — Alberto Ríos 用分行对照讨论停顿、跨行和诗行的独立意味；主要谈英语抒情诗，代表作者的一种诗学观点。[正文](https://poets.org/text/some-thoughts-integrity-single-line-poetry) <!-- article-copy --> · [Markdown 摘要](vendor/articles/integrity-of-the-poetic-line.md)<!-- /article-copy -->
