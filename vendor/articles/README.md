@@ -39,6 +39,7 @@
 | Ten Simple Rules for Reducing Overoptimistic Reporting in Methodological Computational Research | 正文 Markdown | current | [overoptimistic-method-reporting.md](overoptimistic-method-reporting.md) |
 | Ten Simple Rules for writing algorithmic bioinformatics conference papers | 正文 Markdown | current | [algorithmic-bioinformatics-conference-papers.md](algorithmic-bioinformatics-conference-papers.md) |
 | EPO Guidelines F-IV, 4.4 — General Statements and Claim-like Clauses | 摘要 Markdown（非全文） | summary-only | [epo-general-statements.md](epo-general-statements.md) |
+| Black Finnegan: On William Melvin Kelley, James Joyce, and the Avant-Garde of the Subaltern | 摘要 Markdown（非全文） | summary-only | [black-finnegan-joyce-voice.md](black-finnegan-joyce-voice.md) |
 
 ## 更新方式
 

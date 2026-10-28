@@ -495,6 +495,19 @@
       "saved_at": "2026-10-27T23:11:35.269976+00:00",
       "source_evidence": null,
       "status": "summary-only"
+    },
+    "black-finnegan-joyce-voice": {
+      "path": "vendor/articles/black-finnegan-joyce-voice.md",
+      "kind": "summary",
+      "sha256": "255120c3a95118c2eb8acab226ea9e9ea6d18bd137e2261fe2fe182482b75f8b",
+      "source_sha256": null,
+      "config_sha256": "e5fa6cbf379dceac132631d8a0c789e22de33ffbe0c1e03807264196d4be3577",
+      "converter_version": 1,
+      "license": "未确认本篇文章及其中引文的全文转载许可；仅存中文编辑摘要",
+      "source_url": "https://lithub.com/black-finnegan-on-william-melvin-kelley-james-joyce-and-the-avant-garde-of-the-subaltern/",
+      "saved_at": "2026-10-28T23:51:51.746435+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
     }
   },
   "unregistered": []
