@@ -699,6 +699,38 @@
       "reviewed_on": "2026-10-29",
       "scope_note": "仅摘要 Benjamin Hale 2025-06-23 刊于 Literary Hub（原载 Conjunctions）的本篇单页所介绍的 William Melvin Kelley 小说课堂练习，不复制文章全文、乔伊斯作品段落、照片或整站内容。中文编辑摘要由 awesome-ai-taste 编写，不是原文译文。所选段落属于英语小说写作的叙述人称与时态切换试写方法；并非自由间接引语的唯一规范，也不要求定稿维持固定句数。全文 Markdown 仍有许可缺口。",
       "summary": "## 中文编辑摘要\n\nBenjamin Hale 回忆小说家 William Melvin Kelley 的写作课堂：Kelley 将在第三人称叙述的外部世界和人物内心之间往返的写法称作“Joyce Voice”。文章把这种转换与《尤利西斯》中的人物意识描写联系起来，强调小说文字不必始终从同一距离观察人物。\n\n作者保留并改写了一项课堂练习：写九段，每段三句；第一句用第三人称过去时描述人物行动，后两句用第一人称现在时进入人物当下想法。这是帮助作者体会外部行动和内部意识区别的试写约束，并非成稿中必须反复套用的公式。文中还以乔伊斯作品片段说明叙述中的快速切换；这里不复制小说原文。\n\n## 可采用的规则\n\n练习英语小说叙事时，先用第三人称过去时写一句外部行动，再用第一人称现在时写两句人物内心；重读时比较读者从外部看到什么、进入人物意识后又知道什么，修改成稿时不必保留句式配额。\n\n## 适用边界\n\n文章为 Benjamin Hale 对 Kelley 教学的回忆，不是 Kelley 独立出版的完整课程，也不是 AI 原生技能。英语中的时态与人称切换不能机械对应到没有同样动词时态形态的中文小说；练习旨在感受叙述距离，不要求所有小说改用第一人称或固定三句一组。全文版权与引文再利用许可未确认，本归档仅存中文编辑摘要。"
+    },
+    {
+      "id": "scientific-poster-presentation",
+      "title": "Ten Simple Rules for a Good Poster Presentation",
+      "author": "Thomas C. Erren; Philip E. Bourne",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0030102",
+      "catalog_urls": [
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0030102"
+      ],
+      "kind": "fulltext",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0030102",
+      "license_marker": "Creative Commons Attribution License",
+      "reviewed_on": "2026-10-30",
+      "markers": [
+        "Posters are a key component",
+        "Rule 1:",
+        "Rule 2:",
+        "Rule 3:",
+        "Rule 4:",
+        "Rule 5:",
+        "Rule 6:",
+        "Rule 7:",
+        "Rule 8:",
+        "Rule 9:",
+        "Rule 10:",
+        "Acknowledgments",
+        "References",
+        "Schau mich an!"
+      ],
+      "min_chars": 4200,
+      "scope_note": "© 2007 Erren 与 Bourne，PLOS Computational Biology 3(5): e102，DOI 10.1371/journal.pcbi.0030102。原站声明采用 Creative Commons Attribution License，按 CC BY 4.0 登记并保留作者及原始出处；转换英文单篇正文、十条规则、致谢和参考文献，排除站点导航、广告、评论和外部文献全文。Markdown 由 awesome-ai-taste 转换，不代表作者背书。重点是现场科研海报的内容取舍、信息块读序与远距离可读性，不是论文、投影片或通用广告海报规范；24pt 字号是原作者场景建议，须以会议尺寸及可读性复核。许可：https://creativecommons.org/licenses/by/4.0/ 。"
     }
   ]
 }
