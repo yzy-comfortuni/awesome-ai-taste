@@ -4,9 +4,9 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 74 -->
+<!-- catalog-count: 75 -->
 
-[界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [动画](vendor/tasks/动画与视频.md)
+[界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
 [专利](vendor/tasks/专利写作.md) · [论文](vendor/tasks/学术论文.md) · [小说](vendor/tasks/小说写作.md) · [诗歌](vendor/tasks/诗歌写作.md) · [剧本](vendor/tasks/剧本写作.md)
 
