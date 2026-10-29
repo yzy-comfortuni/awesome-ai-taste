@@ -2,7 +2,7 @@
 
 [返回首页](README.md)。按任务查阅；每项包含用途、具体规则和原文出处。[使用说明](USAGE.md)、[示例](examples/README.md)和[勘误](ERRATA.md)按需查阅。
 
-[界面设计](#界面设计) · [文字表达](#文字表达) · [软件工程文档](#软件工程文档) · [专利写作](#专利写作) · [学术论文](#学术论文) · [小说写作](#小说写作) · [诗歌写作](#诗歌写作) · [剧本写作](#剧本写作) · [图表与图解](#图表与图解) · [动画与视频](#动画与视频) · [演示文稿](#演示文稿)
+[界面设计](#界面设计) · [文字表达](#文字表达) · [软件工程文档](#软件工程文档) · [专利写作](#专利写作) · [学术论文](#学术论文) · [小说写作](#小说写作) · [诗歌写作](#诗歌写作) · [剧本写作](#剧本写作) · [图表与图解](#图表与图解) · [动画与视频](#动画与视频) · [演示文稿](#演示文稿) · [学术海报](#学术海报)
 
 ## 界面设计
 
@@ -321,6 +321,12 @@
 - [Ten Simple Rules for Effective Presentation Slides](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554) — 科研演讲的逐页信息安排与排练检查，附复杂图形的拆解示例；偏向现场讲解，不套用到所有阅读型报告。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554) <!-- article-copy --> · [Markdown 正文](vendor/articles/effective-presentation-slides.md)<!-- /article-copy -->
 
   **规则：** 把复杂流程图拆成逐步增加信息的连续页，最后给出全图，不在开头一次展示所有细节。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009554)
+
+## 学术海报
+
+- [Ten Simple Rules for a Good Poster Presentation](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0030102) — 科研会议海报的内容取舍、阅读路径与现场沟通指南；面向实体或展板式学术海报，不直接套用于论文或逐页幻灯片。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0030102) <!-- article-copy --> · [Markdown 正文](vendor/articles/scientific-poster-presentation.md)<!-- /article-copy -->
+
+  **规则：** 学术海报不能假定读者按论文顺序阅读：将问题、证据和结论排成连贯的信息块，再用编号或箭头标明推荐的阅读路径。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0030102)
 
 ## 获取副本
 
