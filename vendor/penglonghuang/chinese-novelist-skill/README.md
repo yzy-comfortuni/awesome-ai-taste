@@ -4,7 +4,7 @@
 
 ### 让 AI 为你写一部完整的中文小说
 
-[![Version](https://img.shields.io/badge/version-2.3.1-blue.svg)](https://github.com/PenglongHuang/chinese-novelist-skill/releases)
+[![Version](https://img.shields.io/badge/version-2.3.2-blue.svg)](https://github.com/PenglongHuang/chinese-novelist-skill/releases)
 [![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-blue)](https://claude.com/claude-code)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
@@ -15,22 +15,22 @@
 </div>
 
 
-## 为什么用这个？
+## 📖 为什么用这个？
 
-写小说最难的是**坚持写完**。这个 Skill 专为解决这个痛点而生：
+脑子里有个故事，却总卡在“然后呢”？先定人物和大纲，再逐章写到完稿。面向 Coding Agent、Personal Agent 等各类 Agent：
 
 - **智能问答** - 三层递进式问答，支持快速跳过和随机生成
-- **偏好记忆** - 跨会话学习你的喜好，下次创作更贴心
+- **偏好记忆** - 保存题材、视角和文风偏好，减少重复问答
 - **中断续写** - 意外中断？自动检测并从断点继续
 - **多种写作模式** - 串行 / 子Agent并行 / Agent Teams，按需选择
-- **自动校验** - 完成后自动检查字数和连贯性，不合格自动重写
-- **每章必爽** - 开头即高潮，结尾留悬念
+- **检查与润色** - 逐章审读连贯性与表达，脚本检查字数，不达标时修复
+- **章节衔接** - 记录人物处境与事件后果，承接未解悬念
 
-## 快速开始
+## 🚀 快速开始
 
-安装skill：`npx skills add PenglongHuang/chinese-novelist-skill`
+安装 Skill：`npx skills add PenglongHuang/chinese-novelist-skill`
 
-输入指令：`使用 chinese-novelist 帮我写一部小说`
+装好后，说一句：`使用 chinese-novelist 帮我写一部小说`
 
 ## 赞助商
 
@@ -54,7 +54,7 @@
 
 ---
 
-## 使用过程
+## ✍️ 使用过程
 
 <table>
   <tr>
@@ -76,7 +76,7 @@
 </table>
 
 
-## 创作记忆
+## 🧠 创作记忆
 
 每次创作后，Skill 会自动学习你的偏好：喜欢的题材类型、叙事风格、章节数量倾向、文字密度等。下次使用时，直接应用你的习惯，省去重复问答。
 
@@ -108,7 +108,7 @@
                             ↓
        ┌──────────────────────────────────────────────────────────────┐
        │ Phase 4 自动校验与修复（全自动）                             │
-       │ 字数检查 → 连贯性检查 → 不合格自动重写（最多3轮）            │
+       │ 文件与字数检查 → 不合格章节修复（最多3轮）                    │
        └──────────────────────────────────────────────────────────────┘
                             ↓
                        全稿完成
@@ -122,7 +122,7 @@
 
 **Layer 1 — 核心定位（必答，3问）**：题材创意、主角设定、核心冲突
 
-**Layer 2 — 深度定制（可选，5问）**：世界观、叙事视角、核心主题、读者定位、章节数量
+**Layer 2 — 深度定制（可跳过）**：世界观、叙事视角、核心主题、读者定位、章节数量
 
 > 每个问题都支持随机生成，也可以直接说"跳过"或"都用默认"。
 
@@ -143,7 +143,7 @@ Q3：核心冲突
 
 ### Phase 2：规划 + 确认
 
-AI 自动生成大纲（7列章节规划）、人物档案、写作计划 JSON，展示给你确认：
+AI 生成人物档案、章节大纲和写作计划，展示给你确认：
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -177,7 +177,7 @@ AI 自动生成大纲（7列章节规划）、人物档案、写作计划 JSON�
 
 ### Phase 3：疯狂创作
 
-确认后进入全自动创作模式，无需再次确认。你可以离开工作台，等待完成。
+确认后按计划连续写作，无需逐章确认；中断时可从已保存的进度继续。
 
 每章严格执行：写前分析 → 撰写(3000-5000字) → 润色去AI味 → 字数检查 → 更新摘要。
 
@@ -190,48 +190,25 @@ AI 自动生成大纲（7列章节规划）、人物档案、写作计划 JSON�
 
 ### Phase 4：自动校验
 
-全稿完成后自动检查：字数达标、连贯性通过，不合格章节自动重写（最多3轮）。
+全稿完成后检查章节文件与字数，不合格章节自动修复（最多3轮）。连贯性和文字质量由 Agent 审读，仍需作者把关。
 
 ---
 
-## 输出样例
+## 📂 输出样例
 
 ```
 chinese-novelist/
 ├── user-preferences.json              # 用户偏好（跨项目共享）
 └── 20260412-143000-午夜列车/
-    ├── 01-大纲.md                      # 故事概述、章节规划（7列模板）+ 设定词典
+    ├── 01-大纲.md                      # 故事概述、章节规划+ 设定词典
     ├── 00-人物档案.md                  # 主角、反派、配角档案
-    ├── 02-写作计划.json                # 机器可读的写作计划（v2）
+    ├── 02-写作计划.json                # 章节状态与字数记录
     ├── 03-文风基准.md                  # 文风指纹、基准段落、AI味负面清单
-    ├── 99-章节摘要.md                  # 逐章摘要（连贯性参考，随进度追加）
+    ├── 99-章节摘要.md                  # 逐章事件后果与人物状态
     ├── 第01章-最后一班列车.md
     ├── 第02章-消失的乘客.md
     └── ...
 ```
-
----
-
-## 核心法则
-
-| 法则 | 说明 |
-|-----|------|
-| **展示而非讲述** | 用动作和对话表现，不要直接陈述 |
-| **冲突驱动剧情** | 每章必须有冲突或转折 |
-| **悬念承上启下** | 每章结尾必须留下钩子 |
-| **开头即高潮** | 前 20% 必须极其吸引人 |
-
----
-
-## 安装
-
-将此目录放入 Claude Code 的 skills 目录：
-
-```
-~/.claude/skills/chinese-novelist/
-```
-
-或通过 Claude Code 技能管理界面安装。
 
 ---
 
@@ -259,7 +236,7 @@ chinese-novelist/
 | `dialogue-writing.md` | 对话写作规范（含节奏进阶、权力博弈） |
 | `plot-structures.md` | 情节结构模板 |
 | `content-expansion.md` | 内容扩充技巧（含分题材策略、实例对比） |
-| `outline-template.md` | 大纲模板（7列章节规划） |
+| `outline-template.md` | 大纲与设定词典模板 |
 | `character-template.md` | 人物档案模板 |
 | `chapter-template.md` | 章节文件模板 |
 
@@ -272,7 +249,7 @@ chinese-novelist/
 
 ---
 
-## 交流
+## 💬 交流
 
 - [GitHub Discussions](https://github.com/PenglongHuang/chinese-novelist-skill/discussions) — 使用心得、作品分享、功能想法
 - [Issues](https://github.com/PenglongHuang/chinese-novelist-skill/issues) — 问题反馈与 bug 报告

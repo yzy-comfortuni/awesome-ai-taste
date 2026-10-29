@@ -508,6 +508,22 @@
       "saved_at": "2026-10-28T23:51:51.746435+00:00",
       "source_evidence": null,
       "status": "summary-only"
+    },
+    "scientific-poster-presentation": {
+      "path": "vendor/articles/scientific-poster-presentation.md",
+      "kind": "fulltext",
+      "sha256": "2267e24d22fcbb0f3fa858aafa2fcd3a831f7b79075c466dc375e3a479c4fa21",
+      "source_sha256": "1700a7491684cbf28c5568a4316f115cd0310126667d414080192bb5814a4149",
+      "config_sha256": "ab8847520b12c8b6e76266c6eec76174befc48f0bc5c8108cb4b3a3e85b6bbc0",
+      "converter_version": 1,
+      "license": "CC-BY-4.0",
+      "source_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0030102",
+      "saved_at": "2026-10-29T23:18:57.271343+00:00",
+      "source_evidence": {
+        "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0030102",
+        "license_evidence_sha256": "cf8c3ed5780cb6547ec4bb1677bb6a11f00310a4785310543d18e69260e3018e"
+      },
+      "status": "current"
     }
   },
   "unregistered": []
