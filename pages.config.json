@@ -731,6 +731,39 @@
       ],
       "min_chars": 4200,
       "scope_note": "© 2007 Erren 与 Bourne，PLOS Computational Biology 3(5): e102，DOI 10.1371/journal.pcbi.0030102。原站声明采用 Creative Commons Attribution License，按 CC BY 4.0 登记并保留作者及原始出处；转换英文单篇正文、十条规则、致谢和参考文献，排除站点导航、广告、评论和外部文献全文。Markdown 由 awesome-ai-taste 转换，不代表作者背书。重点是现场科研海报的内容取舍、信息块读序与远距离可读性，不是论文、投影片或通用广告海报规范；24pt 字号是原作者场景建议，须以会议尺寸及可读性复核。许可：https://creativecommons.org/licenses/by/4.0/ 。"
+    },
+    {
+      "id": "registered-report-writing",
+      "title": "Ten simple rules for writing a Registered Report",
+      "author": "Emma L. Henderson; Christopher D. Chambers",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010571",
+      "catalog_urls": [
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010571"
+      ],
+      "kind": "fulltext",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010571",
+      "license_marker": "creativecommons.org/licenses/by/4.0",
+      "reviewed_on": "2026-10-31",
+      "markers": [
+        "Introduction",
+        "Rule 1:",
+        "Rule 2:",
+        "Rule 3:",
+        "Rule 4:",
+        "Rule 5:",
+        "Rule 6:",
+        "Rule 7:",
+        "Rule 8:",
+        "Rule 9:",
+        "Rule 10:",
+        "Conclusion",
+        "Supporting information",
+        "References",
+        "Soderberg CK"
+      ],
+      "min_chars": 9000,
+      "scope_note": "© 2022 Emma L. Henderson 与 Christopher D. Chambers。PLOS Computational Biology 18(10): e1010571，DOI: 10.1371/journal.pcbi.1010571。依据 CC BY 4.0 转换这一篇英文开放获取正文，保留引言、十条规则、结论、补充材料链接和参考文献；不把链接所指的 DOCX 补充材料冒充已离线保存，也不复制广告、评论或站点导航。Markdown 格式转换由 awesome-ai-taste 完成，不代表作者或期刊背书。指南专用于采用分两阶段审稿的 Registered Reports（注册报告），并以假设检验的确认性/探索性分析为主要例子；非所有研究论文的通用要求，各期刊具体规范须单独核对。许可：https://creativecommons.org/licenses/by/4.0/ 。"
     }
   ]
 }
