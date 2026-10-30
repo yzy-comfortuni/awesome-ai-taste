@@ -6,6 +6,7 @@ import { GET as getSitemap } from "../src/pages/sitemap.xml.ts";
 import { renderSkillMarkdown } from "../src/lib/render-skill-markdown.ts";
 import { collections } from "../src/data/collections.ts";
 import { componentCollections } from "../src/data/component-libraries.ts";
+import { designSystemCollections } from "../src/data/design-systems.ts";
 
 describe("route boundaries", () => {
   test("includes Playbook pages in the sitemap", async () => {
@@ -50,6 +51,23 @@ describe("route boundaries", () => {
         body,
         new RegExp(
           `https://www\\.ui-skills\\.com/components/${collection.routeSlug}`,
+        ),
+      );
+    }
+  });
+
+  test("includes every design system collection in the sitemap", async () => {
+    const response = await getSitemap({
+      site: new URL("https://www.ui-skills.com"),
+    } as never);
+    const body = await response.text();
+
+    assert.match(body, /https:\/\/www\.ui-skills\.com\/design-systems</);
+    for (const collection of designSystemCollections) {
+      assert.match(
+        body,
+        new RegExp(
+          `https://www\\.ui-skills\\.com/design-systems/${collection.routeSlug}`,
         ),
       );
     }

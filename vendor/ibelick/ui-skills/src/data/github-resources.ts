@@ -1,8 +1,9 @@
 import { componentLibraries } from "./component-libraries";
+import { designSystems } from "./design-systems";
 import { iconLibraries } from "./icon-libraries";
 
 export type GithubResource = {
-  source: "site" | "icons" | "components" | "tools" | "mcp";
+  source: "site" | "icons" | "components" | "design-systems" | "tools" | "mcp";
   key: string;
   githubRepo?: string;
 };
@@ -26,5 +27,14 @@ export const githubResources: GithubResource[] = [
       source: "components" as const,
       key: library.name,
       githubRepo: library.githubRepo,
+    })),
+  ...designSystems
+    .filter((system): system is typeof system & { githubRepo: string } =>
+      Boolean(system.githubRepo),
+    )
+    .map((system) => ({
+      source: "design-systems" as const,
+      key: system.name,
+      githubRepo: system.githubRepo,
     })),
 ];

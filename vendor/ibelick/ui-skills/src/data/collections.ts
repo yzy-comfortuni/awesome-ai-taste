@@ -227,7 +227,7 @@ export const collections: Collection[] = [
     slug: "design-principles",
     title: "Design Principles",
     keyword: "design principles",
-    seoTitle: "Practical design principles for UI | UI Skills",
+    seoTitle: "Design principles for practical UI | UI Skills",
     cardDescription:
       "Apply design principles that improve clarity, consistency, usability, visual balance, and accessibility.",
     metaDescription:

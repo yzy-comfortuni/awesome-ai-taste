@@ -4,7 +4,11 @@ import { collections } from "../src/data/collections.ts";
 import { registry } from "../src/data/registry.ts";
 import { topics, topicsBySlug } from "../src/data/topics.ts";
 import { componentCollections } from "../src/data/component-libraries.ts";
-import { componentDirectoryLinks } from "../src/data/directory-links.ts";
+import { designSystemCollections } from "../src/data/design-systems.ts";
+import {
+  componentDirectoryLinks,
+  designSystemDirectoryLinks,
+} from "../src/data/directory-links.ts";
 import {
   getCollectionBySlug,
   getCollectionRoutePaths,
@@ -87,11 +91,15 @@ describe("curated topic and collection expansion", () => {
   test("data-defined directory links point to published routes", () => {
     const routes = new Set([
       "/components",
+      "/design-systems",
       "/icons",
       "/collections",
       "/skills",
       ...componentCollections.map(
         (collection) => `/components/${collection.routeSlug}`,
+      ),
+      ...designSystemCollections.map(
+        (collection) => `/design-systems/${collection.routeSlug}`,
       ),
       ...getCollectionRoutePaths().map(
         (route) => `/collections/${route.params.slug}`,
@@ -100,7 +108,11 @@ describe("curated topic and collection expansion", () => {
     ]);
     const links = [
       ...componentDirectoryLinks,
+      ...designSystemDirectoryLinks,
       ...componentCollections.flatMap(
+        (collection) => collection.relatedLinks ?? [],
+      ),
+      ...designSystemCollections.flatMap(
         (collection) => collection.relatedLinks ?? [],
       ),
       ...topics.flatMap((topic) => topic.relatedLinks ?? []),

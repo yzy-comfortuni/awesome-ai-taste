@@ -7,6 +7,7 @@ import { collections } from "../data/collections";
 import { playbook } from "../data/playbook";
 import { designMd } from "../data/design-md";
 import { componentCollections } from "../data/component-libraries";
+import { designSystemCollections } from "../data/design-systems";
 import { SHOW_DESIGN_MD } from "../config/features";
 
 export const prerender = true;
@@ -52,6 +53,7 @@ export const GET: APIRoute = ({ site }) => {
     "/authors",
     "/icons",
     "/components",
+    "/design-systems",
     "/jobs",
     "/collections",
     ...(SHOW_DESIGN_MD ? ["/design-md"] : []),
@@ -69,6 +71,9 @@ export const GET: APIRoute = ({ site }) => {
   const componentCollectionRoutes = componentCollections.map(
     (collection) => `/components/${collection.routeSlug}`,
   );
+  const designSystemCollectionRoutes = designSystemCollections.map(
+    (collection) => `/design-systems/${collection.routeSlug}`,
+  );
   const playbookRoutes = playbook.map((entry) => `/playbook/${entry.slug}`);
   const agentRoutes = agents.map((agent) => `/agents/${agent.id}`);
   const designMdRoutes = SHOW_DESIGN_MD
@@ -82,6 +87,7 @@ export const GET: APIRoute = ({ site }) => {
       ...skillRoutes,
       ...collectionRoutes,
       ...componentCollectionRoutes,
+      ...designSystemCollectionRoutes,
       ...playbookRoutes,
       ...agentRoutes,
       ...designMdRoutes,

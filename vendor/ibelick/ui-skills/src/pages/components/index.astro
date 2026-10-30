@@ -29,9 +29,9 @@ const structuredData = [
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "React Component Libraries",
+    name: "React Components",
     description:
-      "Browse curated React component libraries, UI libraries, primitives, shadcn components, Tailwind CSS systems, and generative UI tools.",
+      "Browse React components, component libraries, and UI libraries, including shadcn components and generative UI.",
     url: pageUrl,
     mainEntity: {
       "@type": "ItemList",
@@ -59,8 +59,8 @@ const structuredData = [
 
 <Layout
   structuredData={structuredData}
-  title="React Component Libraries | UI Skills"
-  description="Browse curated React component libraries, UI libraries, primitives, shadcn components, Tailwind CSS systems, and generative UI tools."
+  title="React Components | UI Skills"
+  description="Browse React components, component libraries, and UI libraries, including shadcn components and generative UI."
 >
   <div class="relative flex min-h-dvh flex-col items-center justify-start">
     <div class="container-3xl relative mt-20">
@@ -68,13 +68,11 @@ const structuredData = [
         <Breadcrumbs items={breadcrumbItems} />
 
         <div class="flex flex-col gap-3">
-          <h1 class="type-h1 text-content-primary">
-            React component libraries
-          </h1>
+          <h1 class="type-h1 text-content-primary">React components</h1>
           <p class="type-body-md text-content-secondary">
-            Find production-ready React component libraries, UI libraries,
-            primitives, copy-paste components, Tailwind CSS systems, animated
-            interfaces, and generative UI kits for modern web projects.
+            Find React components, component libraries, and UI libraries,
+            including primitives, shadcn components, Tailwind CSS systems, and
+            generative UI.
           </p>
           <div class="mt-5">
             <ComponentCollectionNav collections={collectionSelections} />
@@ -91,6 +89,12 @@ const structuredData = [
         </section>
         <RelatedDirectoryLinks
           links={[
+            {
+              label: "Design systems",
+              href: "/design-systems",
+              description:
+                "Browse public design systems from product companies, component libraries, and government services.",
+            },
             {
               label: "Icon libraries",
               href: "/icons",

@@ -30,6 +30,20 @@ export const topicsBySlug = {
     description:
       "Design systems, component architecture, and scalable UI foundations.",
     isDesignCore: true,
+    relatedLinks: [
+      {
+        label: "Design systems",
+        href: "/design-systems",
+        description:
+          "Browse public design systems from product companies, component libraries, and government services.",
+      },
+      {
+        label: "Component libraries",
+        href: "/components",
+        description:
+          "Compare React libraries, primitives, shadcn components, and UI systems.",
+      },
+    ],
   },
   visual: {
     slug: "visual",
@@ -232,7 +246,13 @@ export const primaryDesignTopicSlugs: TopicSlug[] = [
 export const relatedTopicSlugs: Record<TopicSlug, TopicSlug[]> = {
   accessibility: ["testing", "color", "interaction", "frontend"],
   motion: ["interaction", "performance", "visual", "remotion"],
-  systems: ["architecture", "frontend", "tooling", "craft", "shadcn-ui-development"],
+  systems: [
+    "architecture",
+    "frontend",
+    "tooling",
+    "craft",
+    "shadcn-ui-development",
+  ],
   visual: ["color", "typography", "craft", "taste"],
   interaction: ["motion", "visual", "accessibility", "frontend"],
   performance: ["tooling", "frontend", "testing", "motion", "debugging"],
@@ -241,12 +261,38 @@ export const relatedTopicSlugs: Record<TopicSlug, TopicSlug[]> = {
   typography: ["visual", "craft", "systems", "accessibility"],
   color: ["visual", "accessibility", "systems", "craft"],
   "3d": ["threejs", "visual", "interaction", "performance"],
-  frontend: ["architecture", "tooling", "performance", "testing", "debugging", "code-quality"],
+  frontend: [
+    "architecture",
+    "tooling",
+    "performance",
+    "testing",
+    "debugging",
+    "code-quality",
+  ],
   architecture: ["systems", "frontend", "tooling", "testing", "code-quality"],
-  testing: ["accessibility", "frontend", "performance", "tooling", "debugging", "code-quality"],
+  testing: [
+    "accessibility",
+    "frontend",
+    "performance",
+    "tooling",
+    "debugging",
+    "code-quality",
+  ],
   debugging: ["testing", "performance", "frontend", "tooling", "code-quality"],
-  "code-quality": ["architecture", "testing", "debugging", "tooling", "frontend"],
-  tooling: ["frontend", "performance", "architecture", "testing", "code-quality"],
+  "code-quality": [
+    "architecture",
+    "testing",
+    "debugging",
+    "tooling",
+    "frontend",
+  ],
+  tooling: [
+    "frontend",
+    "performance",
+    "architecture",
+    "testing",
+    "code-quality",
+  ],
   video: ["motion", "remotion", "visual", "frontend"],
   nextjs: ["frontend", "performance", "tooling", "architecture"],
   nuxt: ["vue", "frontend", "performance", "tooling"],

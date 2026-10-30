@@ -61,7 +61,7 @@ export const componentCollections: Array<{
   {
     slug: "copy-paste",
     routeSlug: "shadcn",
-    title: "Copy-paste and shadcn components",
+    title: "shadcn components",
     controlTitle: "shadcn",
     description:
       "Source-first component collections that let you copy, adapt, and keep the implementation inside your own codebase.",
@@ -93,10 +93,10 @@ export const componentCollections: Array<{
     description:
       "Motion-rich components and interaction patterns for expressive landing pages, product moments, and visual experiments.",
     intro:
-      "Compare animated React components, interaction patterns, and motion libraries for expressive landing pages and product moments.",
+      "Compare animated React components, including Aceternity UI, for expressive landing pages and product moments.",
     seoTitle: "Animated React Components",
     metaDescription:
-      "Browse animated React components and creative UI libraries for motion-rich interfaces and landing pages.",
+      "Browse animated React components, including Aceternity UI, for motion-rich interfaces and landing pages.",
   },
   {
     slug: "tailwind",

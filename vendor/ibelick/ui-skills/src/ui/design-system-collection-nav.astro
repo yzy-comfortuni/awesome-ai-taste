@@ -1,0 +1,34 @@
+---
+import Button from "./button.astro";
+import type { DesignSystemCollection } from "../data/design-systems";
+
+type CollectionOption = {
+  slug: DesignSystemCollection;
+  routeSlug: string;
+  controlTitle: string;
+  count: number;
+};
+
+type Props = {
+  collections: CollectionOption[];
+};
+
+const { collections } = Astro.props as Props;
+---
+
+<nav aria-label="Design system collections" class="flex flex-wrap gap-2">
+  {
+    collections.map((collection) => (
+      <Button
+        href={`/design-systems/${collection.routeSlug}`}
+        variant="secondary"
+        size="sm"
+      >
+        {collection.controlTitle}
+        <span class="type-body-sm text-content-muted tabular-nums">
+          {collection.count}
+        </span>
+      </Button>
+    ))
+  }
+</nav>

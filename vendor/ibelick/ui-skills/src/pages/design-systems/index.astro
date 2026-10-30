@@ -1,0 +1,110 @@
+---
+export const prerender = true;
+
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../ui/breadcrumbs.astro";
+import DesignSystemDirectory from "../../ui/design-system-directory";
+import DesignSystemCollectionNav from "../../ui/design-system-collection-nav.astro";
+import RelatedDirectoryLinks from "../../ui/related-directory-links.astro";
+import {
+  designSystemCollections,
+  designSystems,
+} from "../../data/design-systems";
+
+const breadcrumbItems = [
+  { label: "Explore", href: "/" },
+  { label: "Design systems" },
+];
+const siteOrigin = Astro.site ?? new URL("https://www.ui-skills.com");
+const pageUrl = new URL("/design-systems", siteOrigin).toString();
+const collectionSelections = designSystemCollections
+  .map((collection) => ({
+    ...collection,
+    count: designSystems.filter(
+      (system) => system.collection === collection.slug,
+    ).length,
+  }))
+  .filter((collection) => collection.count > 0);
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Design Systems",
+    description:
+      "Browse public design systems from product companies and government teams, including the Carbon Design System and Atlassian Design System.",
+    url: pageUrl,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: designSystems.length,
+      itemListElement: designSystems.map((system, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: system.name,
+        url: system.websiteUrl,
+      })),
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbItems.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.label,
+      item: new URL(item.href ?? "/design-systems", siteOrigin).toString(),
+    })),
+  },
+];
+---
+
+<Layout
+  structuredData={structuredData}
+  title="Design Systems | UI Skills"
+  description="Browse public design systems from product companies and government teams, including the Carbon Design System and Atlassian Design System."
+>
+  <div class="relative flex min-h-dvh flex-col items-center justify-start">
+    <div class="container-3xl relative mt-20">
+      <div class="mx-auto flex w-full flex-col gap-10">
+        <Breadcrumbs items={breadcrumbItems} />
+
+        <div class="flex flex-col gap-3">
+          <h1 class="type-h1 text-content-primary">Design systems</h1>
+          <p class="type-body-md text-content-secondary">
+            Find public design systems from product companies, component
+            libraries, and government services, including the Carbon Design
+            System and Atlassian Design System, grouped by the industry they
+            serve.
+          </p>
+          <div class="mt-5">
+            <DesignSystemCollectionNav collections={collectionSelections} />
+          </div>
+        </div>
+
+        <section aria-labelledby="design-system-list-title">
+          <h2 id="design-system-list-title" class="sr-only">Design systems</h2>
+          <DesignSystemDirectory
+            systems={designSystems}
+            showCollectionHeaders={false}
+            client:idle
+          />
+        </section>
+        <RelatedDirectoryLinks
+          links={[
+            {
+              label: "Component libraries",
+              href: "/components",
+              description:
+                "Compare React libraries, primitives, shadcn components, and UI systems.",
+            },
+            {
+              label: "Icon libraries",
+              href: "/icons",
+              description:
+                "Browse open-source icon libraries for product interfaces and web apps.",
+            },
+          ]}
+        />
+      </div>
+    </div>
+  </div>
+</Layout>

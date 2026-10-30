@@ -30,7 +30,7 @@ export const iconLibraries: IconLibrary[] = [
   {
     name: "Lucide",
     description:
-      "A growing set of consistent, customizable SVG icons forked from Feather Icons and built for modern interfaces.",
+      "A consistent set of customizable SVG icons for React, forked from Feather Icons and built for modern interfaces.",
     websiteUrl: "https://lucide.dev/icons/",
     githubRepo: "lucide-icons/lucide",
   },
