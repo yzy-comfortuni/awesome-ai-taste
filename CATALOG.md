@@ -174,6 +174,10 @@
 
   **规则：** 写算法方法节时，先分别定义输入及其假设、目标输出，再用伪代码或公式说明算法如何完成转换，不让操作流水账取代算法定义。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007742)
 
+- [Ten simple rules for writing a Registered Report](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010571) — Henderson 与 Chambers 的注册报告写作指南，区分研究前的批准方案与研究后的探索性分析；仅适用于 Registered Reports 的两阶段稿件。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010571) <!-- article-copy --> · [Markdown 正文](vendor/articles/registered-report-writing.md)<!-- /article-copy -->
+
+  **规则：** 在注册报告第二阶段论文中，将第1阶段批准方案之外的数据依赖型分析单列为“探索性分析”，说明它用于提出待验证的假设，不写成预先计划的确认性检验。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010571)
+
 ## 小说写作
 
 - [Steering the Craft](https://www.ursulakleguin.com/steering-the-craft) — Le Guin 的英语叙事写作练习，训练句子节奏、视角和叙述距离；适合小说与叙事散文，不套固定情节公式。[第一章节选](https://lithub.com/a-writing-lesson-from-ursula-k-leguin/) <!-- article-copy --> · [Markdown 摘要](vendor/articles/steering-the-craft.md)<!-- /article-copy -->
