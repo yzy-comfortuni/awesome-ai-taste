@@ -11,8 +11,8 @@
 | --- | ---: | --- | --- | --- |
 | [ibelick/ui-skills](https://github.com/ibelick/ui-skills) | 10384 | current | [`3823f15`](https://github.com/ibelick/ui-skills/commit/3823f1573f6fb564a091a062594b95066dbd974c) · [文件](ibelick/ui-skills/) | `.` |
 | [anthropics/skills](https://github.com/anthropics/skills) | 185289 | current | [`ca45fc4`](https://github.com/anthropics/skills/commit/ca45fc496a3436251f191354091d557da31c15b5) · [文件](anthropics/skills/) | `skills/frontend-design` |
-| [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 97015 | current | [`df3a4ab`](https://github.com/pbakaus/impeccable/commit/df3a4abe7d0840d5f60324812c432e00b66a4e75) · [文件](pbakaus/impeccable/) | `README.md, skill` |
-| [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 106317 | current | [`12af471`](https://github.com/Leonxlnx/taste-skill/commit/12af471f627f866411b4bd785b19646d3672784c) · [文件](leonxlnx/taste-skill/) | `.` |
+| [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 97016 | current | [`df3a4ab`](https://github.com/pbakaus/impeccable/commit/df3a4abe7d0840d5f60324812c432e00b66a4e75) · [文件](pbakaus/impeccable/) | `README.md, skill` |
+| [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 106318 | current | [`12af471`](https://github.com/Leonxlnx/taste-skill/commit/12af471f627f866411b4bd785b19646d3672784c) · [文件](leonxlnx/taste-skill/) | `.` |
 | [vercel-labs/web-interface-guidelines](https://github.com/vercel-labs/web-interface-guidelines) | 1069 | current | [`434b7f9`](https://github.com/vercel-labs/web-interface-guidelines/commit/434b7f91364665f2f733b310ec54809bf8f37937) · [文件](vercel-labs/web-interface-guidelines/) | `.` |
 | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | 9364 | current | [`592aedc`](https://github.com/jakubkrehel/skills/commit/592aedc44d7d5b3e29740984252902f3e5402a1c) · [文件](jakubkrehel/skills/) | `.` |
 | [emilkowalski/skills](https://github.com/emilkowalski/skills) | 51989 | current | [`a81dbca`](https://github.com/emilkowalski/skills/commit/a81dbca07f2217b7103e510c0f13f8d5b017afc9) · [文件](emilkowalski/skills/) | `.` |
