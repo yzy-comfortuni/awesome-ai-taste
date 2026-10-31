@@ -31,7 +31,7 @@
       "repository": "anthropics/skills",
       "branch": "main",
       "upstream_sha": "ca45fc496a3436251f191354091d557da31c15b5",
-      "stars": 185861,
+      "stars": 185862,
       "archived": false,
       "scope": [
         "skills/frontend-design"
@@ -156,7 +156,7 @@
       "repository": "emilkowalski/skills",
       "branch": "main",
       "upstream_sha": "a81dbca07f2217b7103e510c0f13f8d5b017afc9",
-      "stars": 52424,
+      "stars": 52425,
       "archived": false,
       "scope": [
         "."

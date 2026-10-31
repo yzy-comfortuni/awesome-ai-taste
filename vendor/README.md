@@ -10,12 +10,12 @@
 | 仓库 | Stars | 状态 | 已复制 commit | 范围 |
 | --- | ---: | --- | --- | --- |
 | [ibelick/ui-skills](https://github.com/ibelick/ui-skills) | 10420 | current | [`b88b130`](https://github.com/ibelick/ui-skills/commit/b88b130b87af0570d46692fa9806ccbcbd5afec2) · [文件](ibelick/ui-skills/) | `.` |
-| [anthropics/skills](https://github.com/anthropics/skills) | 185861 | current | [`ca45fc4`](https://github.com/anthropics/skills/commit/ca45fc496a3436251f191354091d557da31c15b5) · [文件](anthropics/skills/) | `skills/frontend-design` |
+| [anthropics/skills](https://github.com/anthropics/skills) | 185862 | current | [`ca45fc4`](https://github.com/anthropics/skills/commit/ca45fc496a3436251f191354091d557da31c15b5) · [文件](anthropics/skills/) | `skills/frontend-design` |
 | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 98218 | current | [`4f95649`](https://github.com/pbakaus/impeccable/commit/4f956490f0056ae1ff5ea80372cf56e83c001d3c) · [文件](pbakaus/impeccable/) | `README.md, skill` |
 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 107006 | current | [`12af471`](https://github.com/Leonxlnx/taste-skill/commit/12af471f627f866411b4bd785b19646d3672784c) · [文件](leonxlnx/taste-skill/) | `.` |
 | [vercel-labs/web-interface-guidelines](https://github.com/vercel-labs/web-interface-guidelines) | 1077 | current | [`434b7f9`](https://github.com/vercel-labs/web-interface-guidelines/commit/434b7f91364665f2f733b310ec54809bf8f37937) · [文件](vercel-labs/web-interface-guidelines/) | `.` |
 | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | 9598 | current | [`592aedc`](https://github.com/jakubkrehel/skills/commit/592aedc44d7d5b3e29740984252902f3e5402a1c) · [文件](jakubkrehel/skills/) | `.` |
-| [emilkowalski/skills](https://github.com/emilkowalski/skills) | 52424 | current | [`a81dbca`](https://github.com/emilkowalski/skills/commit/a81dbca07f2217b7103e510c0f13f8d5b017afc9) · [文件](emilkowalski/skills/) | `.` |
+| [emilkowalski/skills](https://github.com/emilkowalski/skills) | 52425 | current | [`a81dbca`](https://github.com/emilkowalski/skills/commit/a81dbca07f2217b7103e510c0f13f8d5b017afc9) · [文件](emilkowalski/skills/) | `.` |
 | [wshobson/agents](https://github.com/wshobson/agents) | 42053 | current | [`7e2fb55`](https://github.com/wshobson/agents/commit/7e2fb559cf4b824b27f1fec49fe88f7511066d26) · [文件](wshobson/agents/) | `.` |
 | [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop) | 18507 | current | [`8da1f03`](https://github.com/hardikpandya/stop-slop/commit/8da1f030185bdfe8471220585162991eaeb970e9) · [文件](hardikpandya/stop-slop/) | `.` |
 | [blader/humanizer](https://github.com/blader/humanizer) | 62975 | current | [`0ef9fe5`](https://github.com/blader/humanizer/commit/0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0) · [文件](blader/humanizer/) | `.` |
