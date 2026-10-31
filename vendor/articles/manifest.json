@@ -540,6 +540,22 @@
         "license_evidence_sha256": "dab73766af85c7809476b38cf06b4ca4b8bd8658441ffae25724c0e4d826133d"
       },
       "status": "current"
+    },
+    "design-for-driving-writing": {
+      "path": "vendor/articles/design-for-driving-writing.md",
+      "kind": "fulltext",
+      "sha256": "9130585a6252ea70b768a707a90695ed9fe9cb747d8f7dc913fc4f063255d8d5",
+      "source_sha256": "d05003cf14c55027366a06c1fc0c7898505770e4b93463ea8e3352a25a6967ef",
+      "config_sha256": "6485b1f0ee1f07d3358a5673681013af9e8036669c082ae5b2d71b064315b078",
+      "converter_version": 1,
+      "license": "CC-BY-4.0",
+      "source_url": "https://developers.google.com/cars/design/design-foundations/writing-principles",
+      "saved_at": "2026-10-31T23:16:55.199719+00:00",
+      "source_evidence": {
+        "url": "https://developers.google.com/cars/design/design-foundations/writing-principles",
+        "license_evidence_sha256": "8fdfcab5e97724b09c1b4245e13e1d35ad8c5173c895e52c75e54b0045750a8a"
+      },
+      "status": "current"
     }
   },
   "unregistered": []
