@@ -764,6 +764,31 @@
       ],
       "min_chars": 9000,
       "scope_note": "© 2022 Emma L. Henderson 与 Christopher D. Chambers。PLOS Computational Biology 18(10): e1010571，DOI: 10.1371/journal.pcbi.1010571。依据 CC BY 4.0 转换这一篇英文开放获取正文，保留引言、十条规则、结论、补充材料链接和参考文献；不把链接所指的 DOCX 补充材料冒充已离线保存，也不复制广告、评论或站点导航。Markdown 格式转换由 awesome-ai-taste 完成，不代表作者或期刊背书。指南专用于采用分两阶段审稿的 Registered Reports（注册报告），并以假设检验的确认性/探索性分析为主要例子；非所有研究论文的通用要求，各期刊具体规范须单独核对。许可：https://creativecommons.org/licenses/by/4.0/ 。"
+    },
+    {
+      "id": "design-for-driving-writing",
+      "title": "Design for Driving — Writing Principles",
+      "author": "Google for Developers — Android for Cars",
+      "url": "https://developers.google.com/cars/design/design-foundations/writing-principles",
+      "catalog_urls": [
+        "https://developers.google.com/cars/design/design-foundations/writing-principles"
+      ],
+      "kind": "fulltext",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://developers.google.com/cars/design/design-foundations/writing-principles",
+      "license_marker": "creativecommons.org/licenses/by/4.0",
+      "reviewed_on": "2026-11-01",
+      "markers": [
+        "Make content glanceable",
+        "Use consistent language",
+        "Write with situational awareness",
+        "Follow best practices for writing component text",
+        "Provide recovery from errors",
+        "Front-load critical information in notifications",
+        "Focus on driving"
+      ],
+      "min_chars": 2200,
+      "scope_note": "© Google。仅转换 Google Design for Driving 的 Writing principles 英文单页，保留四组车屏写作原则、驾驶与驻车区别及 Do/Don't 示例；不抓取整套 Android for Cars 设计指南。页面明确声明文本 CC BY 4.0、代码示例 Apache 2.0；图片、外部内容仅保留链接，不构成离线媒体包。Markdown 格式转换由 awesome-ai-taste 完成，不代表 Google 背书。该指南面向 Android for Cars 的车载界面，尤其驾驶过程中可扫读的文案，不等同于整车功能安全、道路法规或人机工程合规认证；英文和日文的具体字数上限不可直接机械套用到中文。许可：https://creativecommons.org/licenses/by/4.0/ 。"
     }
   ]
 }
