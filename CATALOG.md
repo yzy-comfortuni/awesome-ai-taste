@@ -38,6 +38,10 @@
 
   **规则：** 把字号、间距和状态颜色定义为可复用的设计变量，同类组件引用同一套值，不逐处随手取数。[出处](https://github.com/wshobson/agents/blob/main/plugins/ui-design/skills/visual-design-foundations/SKILL.md)
 
+- [Design for Driving — Writing Principles](https://developers.google.com/cars/design/design-foundations/writing-principles) — Google 的车载界面文案指南，用驾驶、驻车及紧急状态的正反例指导消息措辞；面向 Android for Cars，不代替整车安全或法规合规审查。[正文](https://developers.google.com/cars/design/design-foundations/writing-principles) <!-- article-copy --> · [Markdown 正文](vendor/articles/design-for-driving-writing.md)<!-- /article-copy -->
+
+  **规则：** 检查车载通知：行驶中非紧急状态用平静的陈述，不用感叹号制造警报；只有确需立即行动的安全危险才改为直接指令。[出处](https://developers.google.com/cars/design/design-foundations/writing-principles#tone)
+
 ## 文字表达
 
 - [Stop Slop](https://github.com/hardikpandya/stop-slop) — 英文写作短清单，处理空泛开场、冗余修饰和格言式收尾。[规则](https://github.com/hardikpandya/stop-slop/blob/main/SKILL.md#core-rules) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/hardikpandya/stop-slop?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/hardikpandya/stop-slop/stargazers) · [副本](vendor/hardikpandya/stop-slop)<!-- /source-meta -->
