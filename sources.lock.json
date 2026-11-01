@@ -182,7 +182,7 @@
       "repository": "wshobson/agents",
       "branch": "main",
       "upstream_sha": "7e2fb559cf4b824b27f1fec49fe88f7511066d26",
-      "stars": 42079,
+      "stars": 42080,
       "archived": false,
       "scope": [
         "."
@@ -231,7 +231,7 @@
       "repository": "blader/humanizer",
       "branch": "main",
       "upstream_sha": "0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0",
-      "stars": 63450,
+      "stars": 63453,
       "archived": false,
       "scope": [
         "."
