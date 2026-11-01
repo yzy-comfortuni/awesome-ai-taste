@@ -43,6 +43,7 @@
 | Ten Simple Rules for a Good Poster Presentation | 正文 Markdown | current | [scientific-poster-presentation.md](scientific-poster-presentation.md) |
 | Ten simple rules for writing a Registered Report | 正文 Markdown | current | [registered-report-writing.md](registered-report-writing.md) |
 | Design for Driving — Writing Principles | 正文 Markdown | current | [design-for-driving-writing.md](design-for-driving-writing.md) |
+| Ten simple rules for documenting scientific software | 正文 Markdown | current | [scientific-software-documentation.md](scientific-software-documentation.md) |
 
 ## 更新方式
 

@@ -556,6 +556,22 @@
         "license_evidence_sha256": "8fdfcab5e97724b09c1b4245e13e1d35ad8c5173c895e52c75e54b0045750a8a"
       },
       "status": "current"
+    },
+    "scientific-software-documentation": {
+      "path": "vendor/articles/scientific-software-documentation.md",
+      "kind": "fulltext",
+      "sha256": "7182f60dd1a7fb5551bb3a9c72f370743a76cfb7dadfdd548e730ab3f4b131dc",
+      "source_sha256": "20d7a9ff05f9b6b4204348ee0fe123f94e60db63b2674c9d504be0eb8a8c8378",
+      "config_sha256": "e6765205b838ab1d8dda1d8ce3e30ce217ac54043c4804e9e317c58f495abf36",
+      "converter_version": 1,
+      "license": "CC-BY-4.0",
+      "source_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006561",
+      "saved_at": "2026-11-01T23:29:14.877093+00:00",
+      "source_evidence": {
+        "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006561",
+        "license_evidence_sha256": "2d1f7b8d483912f98d59a4ca645c644cb53db0c675b8f504cf2b51bd6418b956"
+      },
+      "status": "current"
     }
   },
   "unregistered": []
