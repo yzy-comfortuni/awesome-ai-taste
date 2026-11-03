@@ -2,7 +2,7 @@
 
 [返回首页](README.md)。按任务查阅；每项包含用途、具体规则和原文出处。[使用说明](USAGE.md)、[示例](examples/README.md)和[勘误](ERRATA.md)按需查阅。
 
-[界面设计](#界面设计) · [文字表达](#文字表达) · [软件工程文档](#软件工程文档) · [专利写作](#专利写作) · [学术论文](#学术论文) · [小说写作](#小说写作) · [诗歌写作](#诗歌写作) · [剧本写作](#剧本写作) · [图表与图解](#图表与图解) · [动画与视频](#动画与视频) · [演示文稿](#演示文稿) · [学术海报](#学术海报)
+[界面设计](#界面设计) · [文字表达](#文字表达) · [软件工程文档](#软件工程文档) · [专利写作](#专利写作) · [学术论文](#学术论文) · [小说写作](#小说写作) · [诗歌写作](#诗歌写作) · [歌词写作](#歌词写作) · [剧本写作](#剧本写作) · [图表与图解](#图表与图解) · [动画与视频](#动画与视频) · [演示文稿](#演示文稿) · [学术海报](#学术海报)
 
 ## 界面设计
 
@@ -237,6 +237,12 @@
 - [The 'Technique' of Rereading](https://poets.org/text/technique-rereading) — Marvin Bell 的英语诗歌创作讲座，用逐句重读追踪换词、意象和语气怎样推进一首诗；适合诗稿修改，不是通用情节或诗体公式。[正文](https://poets.org/text/technique-rereading) <!-- article-copy --> · [Markdown 摘要](vendor/articles/poetry-technique-rereading.md)<!-- /article-copy -->
 
   **规则：** 重读诗稿时，挑出一句里偏离日常说法的关键词，沿后文追踪它引出的意象与意义变化，检查诗节有没有推进，而不只评判单行是否漂亮。[出处](https://poets.org/text/technique-rereading)
+
+## 歌词写作
+
+- [Berklee Riffs: Natural Music in Language](https://www.berklee.edu/berklee-now/news/berklee-riffs-natural-music-in-language) — Berklee 对 Keppie Coutts 作词课堂的记录：让英语口语重音与旋律安排相互照应；适用于英语歌曲，不是中文声调或所有曲风的通则。[正文](https://www.berklee.edu/berklee-now/news/berklee-riffs-natural-music-in-language) <!-- article-copy --> · [Markdown 摘要](vendor/articles/berklee-natural-stress-lyrics.md)<!-- /article-copy -->
+
+  **规则：** 给英语歌词标出自然朗读时的重读音节，对照旋律强调的位置；若无意中突出弱读词，就尝试调整词或旋律，刻意制造语气错位的情形除外。[出处](https://www.berklee.edu/berklee-now/news/berklee-riffs-natural-music-in-language)
 
 ## 剧本写作
 
