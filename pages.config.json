@@ -837,6 +837,37 @@
       "reviewed_on": "2026-11-03",
       "scope_note": "仅摘要 Berklee Now 由 Brenda Pike 撰写的《Berklee Riffs: Natural Music in Language》单篇网页，重点是 Keppie Coutts 课堂中的英语歌词自然重音检查及有意错位的实例。不复制原报道全文、图片、歌曲片段或版权作品；中文编辑摘要由 awesome-ai-taste 独立撰写，不是原文译文。仅面向英语歌曲写词，不把英语词重音规则推广为中文词曲结合的统一准则。全文 Markdown 尚无转载许可。",
       "summary": "## 中文编辑摘要\n\nBrenda Pike 在 Berklee College of Music 的报道中记录了作词人 Keppie Coutts 的歌曲写作课堂。课堂要求学生在已有歌词中标出自然朗读时的强读与弱读音节，再观察这些语言重音怎样与旋律节奏配合。英语中并不是每个音节都获得同等强调；如果旋律意外抬高一个日常说话时轻读的词，听者可能误判句子重点。\n\n文章还记录了一个反例：Coutts 的歌曲《Waiting for the Avalanche》曾把通常轻读的英语介词 for 放在强调位置。她和教师 Pat Pattison 试图调整，最终录音合作方认为这处错位具有表达作用，因而保留。文章不是要求所有歌曲必须机械对齐拍点，而是让作者能够听出不自然之处，并有意识地作出选择。\n\n## 可采用的规则\n\n给英语歌词标出自然朗读时的重读音节，再对照旋律的强调位置；若弱读词被无意突出，尝试改词或改旋律。若重音错位有明确表达目的，可保留并试听判断。\n\n## 适用边界\n\n这是 Brenda Pike 对 Berklee 歌曲写作课堂的报道，不是 Coutts 的完整课程、实测研究或 AI 原生技能。规则主要适用于英语歌曲写词；英语多音节词的词重音与中文声调、汉字唱词对音的关系不同，不能把英文重音规律直接当作中文歌曲规范。本文不转载受版权保护的原文、Beatles 歌词或歌曲音频；全文 Markdown 仍有转载许可缺口。"
+    },
+    {
+      "id": "technical-book-writing",
+      "title": "Ten simple rules for writing a technical book",
+      "author": "Jess Haberman; Greg Wilson",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011305",
+      "catalog_urls": [
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011305"
+      ],
+      "kind": "fulltext",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011305",
+      "license_marker": "creativecommons.org/licenses/by/4.0",
+      "reviewed_on": "2026-11-04",
+      "markers": [
+        "Introduction",
+        "Rule 1:",
+        "Rule 2:",
+        "Rule 3:",
+        "Rule 4:",
+        "Rule 5:",
+        "Rule 6:",
+        "Rule 7:",
+        "Rule 8:",
+        "Rule 9:",
+        "Rule 10:",
+        "References",
+        "Kernighan BW"
+      ],
+      "min_chars": 8500,
+      "scope_note": "© 2023 Jess Haberman 与 Greg Wilson。PLOS Computational Biology 19(8): e1011305，DOI 10.1371/journal.pcbi.1011305。依据 CC BY 4.0 转换本篇英文开放获取全文，保留引言、十条规则和参考文献，排除网站导航、广告及评论。Markdown 格式转换由 awesome-ai-taste 完成，不代表作者或期刊背书。主要适用于面向学习者的技术图书，特别是编程与技术教程；作者的出版经验不是所有语言、市场与出版社的统一规则。读者试讲反馈不是学习效果的定量验证。媒体和外部链接不属于离线副本。许可：https://creativecommons.org/licenses/by/4.0/ 。"
     }
   ]
 }
