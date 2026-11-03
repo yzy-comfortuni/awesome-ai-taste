@@ -572,6 +572,19 @@
         "license_evidence_sha256": "2d1f7b8d483912f98d59a4ca645c644cb53db0c675b8f504cf2b51bd6418b956"
       },
       "status": "current"
+    },
+    "berklee-natural-stress-lyrics": {
+      "path": "vendor/articles/berklee-natural-stress-lyrics.md",
+      "kind": "summary",
+      "sha256": "300aa15d9ed98619fd7f4b99833adc03565c6af0d0d5b9a52f03cd28a646f9c1",
+      "source_sha256": null,
+      "config_sha256": "e10d146e794ae30a979ed4761e7800ebec2e825e0da18e21b0f735d3523fa186",
+      "converter_version": 1,
+      "license": "© Berklee College of Music；未确认本篇全文转载许可，仅存中文编辑摘要",
+      "source_url": "https://www.berklee.edu/berklee-now/news/berklee-riffs-natural-music-in-language",
+      "saved_at": "2026-11-03T00:06:53.211593+00:00",
+      "source_evidence": null,
+      "status": "summary-only"
     }
   },
   "unregistered": []

@@ -4,23 +4,23 @@
     "ibelick/ui-skills": {
       "repository": "ibelick/ui-skills",
       "branch": "main",
-      "upstream_sha": "4907a526b07943b3a338177558d42fae4fdf0a86",
-      "stars": 10458,
+      "upstream_sha": "ccf0dc5b00e9dd4e460e60831509eef77565d142",
+      "stars": 10524,
       "archived": false,
       "scope": [
         "."
       ],
       "config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "copied_sha": "4907a526b07943b3a338177558d42fae4fdf0a86",
+      "copied_sha": "ccf0dc5b00e9dd4e460e60831509eef77565d142",
       "license": {
         "spdx": "MIT",
         "path": "LICENSE",
         "sha": "cac7c466df604fc44527fd89d9662626bab57354"
       },
-      "tree_sha256": "55aba2b6014207144eabc368375657bcceaea4c9baf4aafdc825480a7146f1ab",
-      "archive_sha256": "764a3441279fcf7ad483bca43b1c93c2bc8a2dadbd99e0551a5f3a0a962da6ab",
-      "files": 320,
-      "bytes": 2853371,
+      "tree_sha256": "4616323f3fbd16727ed4b40484b49a17e8011579e6690fe984efe239d30c3df0",
+      "archive_sha256": "cd6b08ae9a674f59b4623d42804b20f4b580cdd3f54059d6ed547eabec9c64cb",
+      "files": 321,
+      "bytes": 2868157,
       "exclusions": [
         "public/fonts/InterVariable.woff2 (excluded metadata/font)"
       ],
@@ -31,7 +31,7 @@
       "repository": "anthropics/skills",
       "branch": "main",
       "upstream_sha": "ca45fc496a3436251f191354091d557da31c15b5",
-      "stars": 186351,
+      "stars": 186769,
       "archived": false,
       "scope": [
         "skills/frontend-design"
@@ -54,8 +54,8 @@
     "pbakaus/impeccable": {
       "repository": "pbakaus/impeccable",
       "branch": "main",
-      "upstream_sha": "e89e3ada3e875a89ac2c5d33d11e65ebef6fe285",
-      "stars": 99276,
+      "upstream_sha": "9fadc41729c38fd47d7ae622b501558653f9d2e9",
+      "stars": 100447,
       "archived": false,
       "scope": [
         "README.md",
@@ -63,24 +63,24 @@
       ],
       "config_sha256": "67454a40f9ddcedc9d2a2d277bcac3898ade57857396a0c19411b09b67224eba",
       "status": "current",
-      "copied_sha": "e89e3ada3e875a89ac2c5d33d11e65ebef6fe285",
+      "copied_sha": "9fadc41729c38fd47d7ae622b501558653f9d2e9",
       "license": {
         "spdx": "Apache-2.0",
         "path": "LICENSE",
         "sha": "bb3f6d23b1f8025514a62a12b51b47d73e3c9aa9"
       },
-      "tree_sha256": "e7ece49a85c79ce8361092cc3913d112de339374f369e8ab58eea29609ff39e5",
+      "tree_sha256": "8b2cbb1249acc7a70651deff0bf4a5c6ac5b34e033532cc331905932b6aa6a73",
       "archive_sha256": null,
       "fetch_mode": "git-tree",
       "files": 63,
-      "bytes": 2258317,
+      "bytes": 2259077,
       "exclusions": []
     },
     "leonxlnx/taste-skill": {
       "repository": "Leonxlnx/taste-skill",
       "branch": "main",
       "upstream_sha": "12af471f627f866411b4bd785b19646d3672784c",
-      "stars": 107745,
+      "stars": 108708,
       "archived": false,
       "scope": [
         "."
@@ -106,7 +106,7 @@
       "repository": "vercel-labs/web-interface-guidelines",
       "branch": "main",
       "upstream_sha": "434b7f91364665f2f733b310ec54809bf8f37937",
-      "stars": 1084,
+      "stars": 1097,
       "archived": false,
       "scope": [
         "."
@@ -129,23 +129,23 @@
     "jakubkrehel/skills": {
       "repository": "jakubkrehel/skills",
       "branch": "main",
-      "upstream_sha": "592aedc44d7d5b3e29740984252902f3e5402a1c",
-      "stars": 10053,
+      "upstream_sha": "60bf140e43c98b248e6594487384ec967e89d98a",
+      "stars": 10361,
       "archived": false,
       "scope": [
         "."
       ],
       "config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "copied_sha": "592aedc44d7d5b3e29740984252902f3e5402a1c",
+      "copied_sha": "60bf140e43c98b248e6594487384ec967e89d98a",
       "license": {
         "spdx": "MIT",
         "path": "LICENSE",
         "sha": "6a067e906e1346e640a0cda6ed37c5fb793104e4"
       },
-      "tree_sha256": "dcce7affef6c5df1189e57fc6c493d31fa74ed39cea56663575d48842aa42c83",
-      "archive_sha256": "efe1fbc8916c149b4ff382e53c4c7b8872094acf3ee76ed38f0c34e1a723c540",
+      "tree_sha256": "7a6e6e7dc2eb1d6129a0d8b997eab4f4bf34432c9b15e40bcb6de02ed9eba805",
+      "archive_sha256": "b5a3b5526cbe67fa74082fd464bf4a6ded5a905257612d46ad02767811136881",
       "files": 101,
-      "bytes": 540546,
+      "bytes": 540498,
       "exclusions": [
         ".gitattributes (excluded metadata/font)"
       ],
@@ -155,23 +155,23 @@
     "emilkowalski/skills": {
       "repository": "emilkowalski/skills",
       "branch": "main",
-      "upstream_sha": "a81dbca07f2217b7103e510c0f13f8d5b017afc9",
-      "stars": 52739,
+      "upstream_sha": "f1090bec277140d02ed202440185ad9d02ac1490",
+      "stars": 53031,
       "archived": false,
       "scope": [
         "."
       ],
       "config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "copied_sha": "a81dbca07f2217b7103e510c0f13f8d5b017afc9",
+      "copied_sha": "f1090bec277140d02ed202440185ad9d02ac1490",
       "license": {
         "spdx": "MIT",
         "path": "LICENSE",
         "sha": "57b46f1fd11dc62351ea548104a88aa3f659c11b"
       },
-      "tree_sha256": "ac6c716f64e73f56cf328dbfbf8603035e3b70136d68c0e5860bee57fabe8376",
-      "archive_sha256": "25f5e22bb2e9426041da4f36d482711aa0933eb60c4975d586ab169c3c4da455",
+      "tree_sha256": "83ef85debe3584e529785213cfc03afc691aa2449c68375346e387e1b31834d5",
+      "archive_sha256": "670de445fca9fb01fe2eecad76edb1889c6e8e164091ed519aa31c2250496b1c",
       "files": 30,
-      "bytes": 312201,
+      "bytes": 313432,
       "exclusions": [
         ".gitattributes (excluded metadata/font)"
       ],
@@ -182,7 +182,7 @@
       "repository": "wshobson/agents",
       "branch": "main",
       "upstream_sha": "7e2fb559cf4b824b27f1fec49fe88f7511066d26",
-      "stars": 42080,
+      "stars": 42117,
       "archived": false,
       "scope": [
         "."
@@ -208,7 +208,7 @@
       "repository": "hardikpandya/stop-slop",
       "branch": "main",
       "upstream_sha": "8da1f030185bdfe8471220585162991eaeb970e9",
-      "stars": 18525,
+      "stars": 18555,
       "archived": false,
       "scope": [
         "."
@@ -231,7 +231,7 @@
       "repository": "blader/humanizer",
       "branch": "main",
       "upstream_sha": "0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0",
-      "stars": 63453,
+      "stars": 64008,
       "archived": false,
       "scope": [
         "."
@@ -255,7 +255,7 @@
       "repository": "op7418/Humanizer-zh",
       "branch": "main",
       "upstream_sha": "f4518a8eab97b8bfebc66a89d34320a89bef6930",
-      "stars": 21679,
+      "stars": 21779,
       "archived": false,
       "scope": [
         "."
@@ -278,7 +278,7 @@
       "repository": "ruanyf/document-style-guide",
       "branch": "master",
       "upstream_sha": "571951731efb4b83b1939af1d3dd830441ebef45",
-      "stars": 13057,
+      "stars": 13059,
       "archived": false,
       "scope": [
         "."
@@ -302,7 +302,7 @@
       "repository": "sparanoid/chinese-copywriting-guidelines",
       "branch": "master",
       "upstream_sha": "2c2d89c8c7cf8c2b96509e58626e73f6bc223347",
-      "stars": 15823,
+      "stars": 15827,
       "archived": false,
       "scope": [
         "."
@@ -351,7 +351,7 @@
       "repository": "evildmp/diataxis-documentation-framework",
       "branch": "main",
       "upstream_sha": "957c09ca40b4a1edc23874f713e01937d50d54d5",
-      "stars": 1266,
+      "stars": 1268,
       "archived": false,
       "scope": [
         "README.rst",
@@ -376,7 +376,7 @@
       "repository": "arc42/arc42-template",
       "branch": "main",
       "upstream_sha": "9057fe1f32ce543e546f76971515c537f0dd3f63",
-      "stars": 1316,
+      "stars": 1317,
       "archived": false,
       "scope": [
         "ZH/adoc/03_context_and_scope.adoc",
@@ -452,7 +452,7 @@
       "repository": "rust-lang/rfcs",
       "branch": "main",
       "upstream_sha": "3bdcd22feea6848a7920fa06d17ad4c6ada9db89",
-      "stars": 6627,
+      "stars": 6630,
       "archived": false,
       "scope": [
         "0000-template.md"
@@ -475,14 +475,14 @@
     "kubernetes/enhancements": {
       "repository": "kubernetes/enhancements",
       "branch": "master",
-      "upstream_sha": "a904b50283fe82d0d4f46988d0fd9d1a35a86c25",
+      "upstream_sha": "e704e0bf614b67887d4138a3a95c772a082856d8",
       "stars": 3979,
       "archived": false,
       "scope": [
         "keps/NNNN-kep-template/README.md"
       ],
       "config_sha256": "7d82a76d304a453ba9f3cd2b1b56079a73a3a0b14b0566363be1e5da90c1b310",
-      "copied_sha": "a904b50283fe82d0d4f46988d0fd9d1a35a86c25",
+      "copied_sha": "e704e0bf614b67887d4138a3a95c772a082856d8",
       "license": {
         "spdx": "Apache-2.0",
         "path": "LICENSE",
@@ -524,7 +524,7 @@
       "repository": "handsomestWei/patent-disclosure-skill",
       "branch": "main",
       "upstream_sha": "0b95b547f78c2a0dd0e4e71eb43a88841c99c936",
-      "stars": 12633,
+      "stars": 12724,
       "archived": false,
       "scope": [
         "skills/patent-application/SKILL.md",
@@ -600,7 +600,7 @@
       "repository": "haowjy/creative-writing-skills",
       "branch": "main",
       "upstream_sha": "1cb520f9c61e79ce2b1c56dba18601b2d6873433",
-      "stars": 556,
+      "stars": 558,
       "archived": false,
       "scope": [
         "README.md",
@@ -625,7 +625,7 @@
       "repository": "PenglongHuang/chinese-novelist-skill",
       "branch": "master",
       "upstream_sha": "507d41567925eab520ad459db08fda83813e8051",
-      "stars": 4517,
+      "stars": 4592,
       "archived": false,
       "scope": [
         "README.md",
@@ -650,7 +650,7 @@
       "repository": "Financial-Times/chart-doctor",
       "branch": "main",
       "upstream_sha": "befb9cba21849432a4029d0cfdda938819ae733f",
-      "stars": 3387,
+      "stars": 3386,
       "archived": false,
       "scope": [
         "visual-vocabulary/README.md",
@@ -677,7 +677,7 @@
       "repository": "antvis/chart-visualization-skills",
       "branch": "master",
       "upstream_sha": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
-      "stars": 523,
+      "stars": 525,
       "archived": false,
       "scope": [
         "."
@@ -699,15 +699,15 @@
     "k-dense-ai/scientific-agent-skills": {
       "repository": "K-Dense-AI/scientific-agent-skills",
       "branch": "main",
-      "upstream_sha": "5f2bc0341354fd5590aef76a533ada1e1e5b4e62",
-      "stars": 55658,
+      "upstream_sha": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+      "stars": 55832,
       "archived": false,
       "scope": [
         "skills/scientific-visualization"
       ],
       "config_sha256": "4e2a40273daad962cae3273b6aa7ad09d405bf64443828eb8f841e7505b879aa",
       "status": "current",
-      "copied_sha": "5f2bc0341354fd5590aef76a533ada1e1e5b4e62",
+      "copied_sha": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
       "license": {
         "spdx": "MIT",
         "path": "LICENSE.md",
@@ -724,7 +724,7 @@
       "repository": "nicobailon/visual-explainer",
       "branch": "main",
       "upstream_sha": "2a34c38c8bf5d0affbf60700f7cf24245bb8ed07",
-      "stars": 10732,
+      "stars": 10749,
       "archived": false,
       "scope": [
         "."
@@ -749,24 +749,24 @@
     "jimliu/baoyu-skills": {
       "repository": "JimLiu/baoyu-skills",
       "branch": "main",
-      "upstream_sha": "6c2f6f0744d421140288ba8dd9827e583d461df4",
-      "stars": 27160,
+      "upstream_sha": "5792c7dc8d09a28d6969e8970166c5eb090ce6ad",
+      "stars": 27206,
       "archived": false,
       "scope": [
         "skills/baoyu-infographic",
         "skills/baoyu-slide-deck"
       ],
       "config_sha256": "ef7f31a15bd5cb348f95b0f88e922812d65ec4941a83f1642dfeb61040b5e34e",
-      "copied_sha": "6c2f6f0744d421140288ba8dd9827e583d461df4",
+      "copied_sha": "5792c7dc8d09a28d6969e8970166c5eb090ce6ad",
       "license": {
         "spdx": "MIT",
         "path": "LICENSE",
         "sha": "9f2cc0d74570c5841f02b639593d12a70dc7dc65"
       },
-      "tree_sha256": "28b5badd6d939950454fb27c982c37b9700f1e0eebffa43581a54054a8cc7096",
-      "archive_sha256": "21602c4dd38be0ce7c8500b335f886acffd3d2379f3d56e8ef040e12a45e47a7",
+      "tree_sha256": "0f53816cf677c70759faba7685c3d795a63590e94c4f0887d69d1d65648cc8d8",
+      "archive_sha256": "352ea91fd6531eb44a4512a4ac610c5242dcd4a0664dfa629f3668503e62665b",
       "files": 86,
-      "bytes": 230909,
+      "bytes": 213044,
       "exclusions": [],
       "status": "current",
       "fetch_mode": "archive"
@@ -802,7 +802,7 @@
       "repository": "alchaincyf/huashu-art-motion",
       "branch": "main",
       "upstream_sha": "8a0d7d72ca65fcce6f8ba82c4a6c8dfe35b8422c",
-      "stars": 5929,
+      "stars": 6008,
       "archived": false,
       "scope": [
         "README.md",
@@ -828,7 +828,7 @@
       "repository": "adithya-s-k/manim_skill",
       "branch": "main",
       "upstream_sha": "cef045011722d285692e3381d12d4d637da56e18",
-      "stars": 1242,
+      "stars": 1244,
       "archived": false,
       "scope": [
         "skills/manim-composer"
@@ -852,7 +852,7 @@
       "repository": "iart-ai/motion-design-skills",
       "branch": "main",
       "upstream_sha": "3c129f769d90a1328c209c386492333c9ac62312",
-      "stars": 184,
+      "stars": 189,
       "archived": false,
       "scope": [
         "skills/motion-art-direction"
@@ -900,7 +900,7 @@
       "repository": "zarazhangrui/frontend-slides",
       "branch": "main",
       "upstream_sha": "9906a34d640d2111f724544cbc50f7f130569ae1",
-      "stars": 31701,
+      "stars": 31756,
       "archived": false,
       "scope": [
         "."
