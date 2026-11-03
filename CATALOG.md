@@ -80,6 +80,10 @@
 
   **规则：** 面向熟练用户的操作指南只保留完成目标所需的动作；原理说明和完整参数另页链接，不夹进步骤。[出处](https://github.com/evildmp/diataxis-documentation-framework/blob/main/source/how-to-guides.rst)
 
+- [Ten simple rules for writing a technical book](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011305) — Haberman 与 Wilson 的技术教学图书写作指南，用试讲反馈核对前置知识与章节次序；主要针对编程及英文技术教程，不是一般软件 README 模板。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011305) <!-- article-copy --> · [Markdown 正文](vendor/articles/technical-book-writing.md)<!-- /article-copy -->
+
+  **规则：** 写完整章节之前，先向目标读者试讲其中的核心内容，记录他们缺少哪些前置知识，再据反馈调整讲解顺序与例子，不只凭作者直觉排列章节。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011305)
+
 ## 软件工程文档
 
 - [arc42 — 架构说明](https://github.com/arc42/arc42-template) — 架构文档的边界、运行、部署和质量要求，选读官方中文章节；按项目需要取舍，不把十二章当填空配额。[上下文](https://github.com/arc42/arc42-template/blob/main/ZH/adoc/03_context_and_scope.adoc) · [运行](https://github.com/arc42/arc42-template/blob/main/ZH/adoc/06_runtime_view.adoc) · [部署](https://github.com/arc42/arc42-template/blob/main/ZH/adoc/07_deployment_view.adoc) · [质量](https://github.com/arc42/arc42-template/blob/main/ZH/adoc/10_quality_requirements.adoc) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/arc42/arc42-template?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/arc42/arc42-template/stargazers) · [副本](vendor/arc42/arc42-template)<!-- /source-meta -->
