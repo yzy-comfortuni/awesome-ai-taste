@@ -868,6 +868,21 @@
       ],
       "min_chars": 8500,
       "scope_note": "© 2023 Jess Haberman 与 Greg Wilson。PLOS Computational Biology 19(8): e1011305，DOI 10.1371/journal.pcbi.1011305。依据 CC BY 4.0 转换本篇英文开放获取全文，保留引言、十条规则和参考文献，排除网站导航、广告及评论。Markdown 格式转换由 awesome-ai-taste 完成，不代表作者或期刊背书。主要适用于面向学习者的技术图书，特别是编程与技术教程；作者的出版经验不是所有语言、市场与出版社的统一规则。读者试讲反馈不是学习效果的定量验证。媒体和外部链接不属于离线副本。许可：https://creativecommons.org/licenses/by/4.0/ 。"
+    },
+    {
+      "id": "epo-comprising-consisting",
+      "title": "EPO Guidelines F-IV, 4.20 — \"Comprising\" vs \"Consisting of\"",
+      "author": "European Patent Office",
+      "url": "https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_4_20.html",
+      "catalog_urls": [
+        "https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_4_20.html"
+      ],
+      "kind": "summary",
+      "license": "欧洲专利局网站条款未确认允许本节全文公开再利用；仅保存中文编辑摘要",
+      "license_evidence_url": "https://www.epo.org/en/terms-of-use/terms-and-conditions-use-website-european-patent-office",
+      "reviewed_on": "2026-11-05",
+      "scope_note": "仅摘要 EPO《Guidelines for Examination in the European Patent Office》2026 年 4 月版 F-IV, 4.20 单节；EPC 审查语境。中文编辑摘要独立撰写，不是官方译本、法律意见或授权保证。未确认全文转载许可，不复制英文原文、官方标识、网站导航和引用判例全文。源站内容与判例须以官方现行版本为准。",
+      "summary": "## 中文编辑摘要\n\n欧洲专利局 2026 年审查指南 F-IV, 4.20 区分英文权利要求中两种连接用语。“comprising”是开放式表达：已列出的特征必须存在，但不排除不会使所要求的方案失去可实施性的其他特征。“consisting of”是封闭式表达：权利要求列出的要素之外不再包含其他要素；例如化学组成如按组分百分比列出 A、B、C，则相应比例合计应为 100%。\n\n对于化学化合物或组合物，“consisting essentially of”和“comprising substantially”另有针对不实质影响基本特性的附加成分的解释；其他产品、装置或方法中的解释不应从化学语境机械搬用。原文还提醒：原申请中写有“comprising”本身，不当然为后来改为“consisting of”或“consisting essentially of”提供符合 EPC Art. 123(2) 的基础。\n\n## 可采用的规则\n\n审读英文欧洲专利权利要求时，逐项检查“comprising”和“consisting of”是否符合预定保护对象：容许不影响方案工作的附加特征时用开放式“comprising”；明确排除未列举特征时才用封闭式“consisting of”，修改前核对申请原始披露是否支持。\n\n## 适用边界\n\n仅总结欧洲专利局 2026 年版 F-IV, 4.20 的审查解释，并非中国或美国专利的统一语词规则，也不保证授权或特定保护范围。化学领域“consisting essentially of”等特殊表达与普通装置、方法不同，不能仅靠替换用语规避新增内容、清楚性或支持要求。原文章节为官方最终依据；本页是中文编辑摘要，非全文，也不构成法律意见。"
     }
   ]
 }
