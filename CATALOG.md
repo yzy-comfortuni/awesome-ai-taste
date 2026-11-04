@@ -148,6 +148,10 @@
 
   **规则：** 复核欧洲专利申请说明书时，删除声称保护范围涵盖“发明精神”或“所有等同物”的兜底句；需要说明范围时，准确指向正式权利要求。[出处](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_4_4.html)
 
+- [EPO Guidelines F-IV, 4.20 — "Comprising" vs "Consisting of"](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_4_20.html) — 欧洲专利局 2026 年审查指南对开放式与封闭式权利要求用语的解释；限 EPC 审查，不是其他法域的通用写法或授权保证。[正文](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_4_20.html)
+
+  **规则：** 核对英文权利要求的“comprising”与“consisting of”：允许不妨碍方案工作的附加特征时用前者；只有确实排除附加特征才用后者，并核对原申请依据。[出处](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_4_20.html)
+
 ## 学术论文
 
 - [Ten Simple Rules for Structuring Papers](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619) — 围绕中心贡献，用“背景—内容—结论”组织科学论文；适合研究论文的结构修改，仍须遵守学科和期刊规范。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619) <!-- article-copy --> · [Markdown 正文](vendor/articles/ten-simple-rules-structuring-papers.md)<!-- /article-copy -->
