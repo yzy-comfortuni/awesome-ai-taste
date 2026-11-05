@@ -883,6 +883,21 @@
       "reviewed_on": "2026-11-05",
       "scope_note": "仅摘要 EPO《Guidelines for Examination in the European Patent Office》2026 年 4 月版 F-IV, 4.20 单节；EPC 审查语境。中文编辑摘要独立撰写，不是官方译本、法律意见或授权保证。未确认全文转载许可，不复制英文原文、官方标识、网站导航和引用判例全文。源站内容与判例须以官方现行版本为准。",
       "summary": "## 中文编辑摘要\n\n欧洲专利局 2026 年审查指南 F-IV, 4.20 区分英文权利要求中两种连接用语。“comprising”是开放式表达：已列出的特征必须存在，但不排除不会使所要求的方案失去可实施性的其他特征。“consisting of”是封闭式表达：权利要求列出的要素之外不再包含其他要素；例如化学组成如按组分百分比列出 A、B、C，则相应比例合计应为 100%。\n\n对于化学化合物或组合物，“consisting essentially of”和“comprising substantially”另有针对不实质影响基本特性的附加成分的解释；其他产品、装置或方法中的解释不应从化学语境机械搬用。原文还提醒：原申请中写有“comprising”本身，不当然为后来改为“consisting of”或“consisting essentially of”提供符合 EPC Art. 123(2) 的基础。\n\n## 可采用的规则\n\n审读英文欧洲专利权利要求时，逐项检查“comprising”和“consisting of”是否符合预定保护对象：容许不影响方案工作的附加特征时用开放式“comprising”；明确排除未列举特征时才用封闭式“consisting of”，修改前核对申请原始披露是否支持。\n\n## 适用边界\n\n仅总结欧洲专利局 2026 年版 F-IV, 4.20 的审查解释，并非中国或美国专利的统一语词规则，也不保证授权或特定保护范围。化学领域“consisting essentially of”等特殊表达与普通装置、方法不同，不能仅靠替换用语规避新增内容、清楚性或支持要求。原文章节为官方最终依据；本页是中文编辑摘要，非全文，也不构成法律意见。"
+    },
+    {
+      "id": "psychic-distance-in-creative-writing",
+      "title": "Psychic Distance in Creative Writing",
+      "author": "Aaron Smale（University of Nevada, Reno Writing & Speaking Center）",
+      "url": "https://www.unr.edu/writing-speaking-center/writing-speaking-resources/psychic-distance-in-creative-writing",
+      "catalog_urls": [
+        "https://www.unr.edu/writing-speaking-center/writing-speaking-resources/psychic-distance-in-creative-writing"
+      ],
+      "kind": "summary",
+      "license": "大学网站内容受版权保护；未获得原文全文转载许可",
+      "license_evidence_url": "https://www.unr.edu/copyright",
+      "reviewed_on": "2026-11-06",
+      "scope_note": "仅针对内华达大学里诺分校写作中心该单页的叙事距离讲义，记录中文编辑摘要与实操判断。大学版权页明确要求复制原站文字先取得许可；未复制或翻译五级英文示例全文，亦未保存原站图片、导航。没有全文转载许可，因此仍存在原文全文 Markdown 缺口。五级标尺不是所有小说的强制结构。",
+      "summary": "## 中文编辑摘要\n\nAaron Smale 的写作讲义借鉴 John Gardner 关于叙事距离的讨论，以同一位骑车到咖啡馆的女性为例，写出从遥远的外部介绍逐步进入人物心绪的五个版本。远景侧重年代、地点与可观察的动作；进一步靠近会出现人物的偏好、厌恶和有个人色彩的表达；最近的版本则通过声音、交通和气味等感受把读者带入人物体验。五级对照展示叙事信息与感受如何改变阅读距离，而不是给每个段落打分。\n\n## 可直接采用的规则\n\n修改人物焦点段落时，标出远景交代与人物感官、措辞的切换；若从外部背景突然跳进内心让读者失去定位，就用人物偏好或即时反应作过渡。可以先对同一事件改写两个远近版本，再选择符合该场景节奏的距离。\n\n## 适用边界\n\n本条主要服务英语小说、叙事散文的视角与镜头距离修订。原文认为突兀的距离变化可能打断阅读，并建议视需要逐层过渡；这不是禁止跳切，也不要求全文统一为近距离叙述。这里是编辑摘要，不是大学原文的翻译或全文归档。"
     }
   ]
 }
