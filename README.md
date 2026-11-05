@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 81 -->
+<!-- catalog-count: 82 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -17,6 +17,10 @@
 - [EPO Guidelines F-IV, 4.20 — "Comprising" vs "Consisting of"](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_4_20.html) — 欧洲专利局 2026 年审查指南对开放式与封闭式权利要求用语的解释；限 EPC 审查，不是其他法域的通用写法或授权保证。[正文](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_4_20.html)
 
   **规则：** 核对英文权利要求的“comprising”与“consisting of”：允许不妨碍方案工作的附加特征时用前者；只有确实排除附加特征才用后者，并核对原申请依据。[出处](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_4_20.html)
+
+- [Psychic Distance in Creative Writing](https://www.unr.edu/writing-speaking-center/writing-speaking-resources/psychic-distance-in-creative-writing) — 内华达大学里诺分校写作中心用同一场景的五级改写说明叙事距离；适用于英语小说与叙事散文，五级是分析工具而非固定写作公式。[正文](https://www.unr.edu/writing-speaking-center/writing-speaking-resources/psychic-distance-in-creative-writing)
+
+  **规则：** 修改人物焦点段落时，标出远景交代与人物感官、措辞的切换；若从外部背景突然跳进内心让读者失去定位，就用人物偏好或即时反应作过渡。[出处](https://www.unr.edu/writing-speaking-center/writing-speaking-resources/psychic-distance-in-creative-writing)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
