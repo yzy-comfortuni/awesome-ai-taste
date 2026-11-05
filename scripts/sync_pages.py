@@ -29,7 +29,7 @@ HOSTS = {'developers.google.com', 'journals.plos.org', 'www.digital.go.jp',
          'poets.org', 'johnaugust.com', 'www.craftscicom.org', 'www.wipo.int',
          'www.epo.org', 'www.uspto.gov', 'owl.purdue.edu',
          'emmadarwin.substack.com', 'www.animationmentor.com', 'cognitect.com',
-         'www.berklee.edu'}
+         'www.berklee.edu', 'www.unr.edu'}
 # This article has its own explicit copyright waiver; this is not a site-wide grant.
 REVIEWED_PUBLIC_DOMAIN = {
     'id': 'documenting-architecture-decisions',
