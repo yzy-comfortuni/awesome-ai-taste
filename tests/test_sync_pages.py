@@ -149,6 +149,11 @@ class PageTests(unittest.TestCase):
             with self.subTest(url=url), self.assertRaises(m.ArchiveError):
                 m.url_ok(url)
 
+    def test_reviewed_unr_writing_host_and_unreviewed_lookalike(self):
+        m.url_ok('https://www.unr.edu/writing-speaking-center/writing-speaking-resources/psychic-distance-in-creative-writing')
+        with self.assertRaises(m.ArchiveError):
+            m.url_ok('https://www.unr.edu.evil.example/psychic-distance')
+
     def test_symlink_output_rejected(self):
         outside = self.root/'outside'
         outside.mkdir()
