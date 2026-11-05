@@ -224,6 +224,10 @@
 
   **规则：** 试写英语小说段落时，先用第三人称过去时写一句外部行动，再用第一人称现在时写两句人物内心；改稿时不必保留固定句数。[出处](https://lithub.com/black-finnegan-on-william-melvin-kelley-james-joyce-and-the-avant-garde-of-the-subaltern/)
 
+- [Psychic Distance in Creative Writing](https://www.unr.edu/writing-speaking-center/writing-speaking-resources/psychic-distance-in-creative-writing) — 内华达大学里诺分校写作中心用同一场景的五级改写说明叙事距离；适用于英语小说与叙事散文，五级是分析工具而非固定写作公式。[正文](https://www.unr.edu/writing-speaking-center/writing-speaking-resources/psychic-distance-in-creative-writing) <!-- article-copy --> · [Markdown 摘要](vendor/articles/psychic-distance-in-creative-writing.md)<!-- /article-copy -->
+
+  **规则：** 修改人物焦点段落时，标出远景交代与人物感官、措辞的切换；若从外部背景突然跳进内心让读者失去定位，就用人物偏好或即时反应作过渡。[出处](https://www.unr.edu/writing-speaking-center/writing-speaking-resources/psychic-distance-in-creative-writing)
+
 ## 诗歌写作
 
 - [Some Thoughts on the Integrity of the Single Line in Poetry](https://poets.org/text/some-thoughts-integrity-single-line-poetry) — Alberto Ríos 用分行对照讨论停顿、跨行和诗行的独立意味；主要谈英语抒情诗，代表作者的一种诗学观点。[正文](https://poets.org/text/some-thoughts-integrity-single-line-poetry) <!-- article-copy --> · [Markdown 摘要](vendor/articles/integrity-of-the-poetic-line.md)<!-- /article-copy -->
