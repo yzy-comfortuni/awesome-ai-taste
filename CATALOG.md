@@ -250,6 +250,10 @@
 
   **规则：** 重读诗稿时，挑出一句里偏离日常说法的关键词，沿后文追踪它引出的意象与意义变化，检查诗节有没有推进，而不只评判单行是否漂亮。[出处](https://poets.org/text/technique-rereading)
 
+- [The Peril of the Poetry Reading: The Page Versus the Performance](https://poets.org/text/peril-poetry-reading-page-versus-performance) — David Groff 讨论纸面诗与现场朗读的不同，并提醒声音表演可能遮掩纸面文字问题；针对英语纸面诗，不是表演诗的通用评判。[正文](https://poets.org/text/peril-poetry-reading-page-versus-performance)
+
+  **规则：** 对主要供纸面阅读的诗稿，朗读后再让读者静默阅读；标出只能靠朗诵语速和语气才能读顺的诗句，优先修改文字或分行，不用表演遮掩稿面缺陷。[出处](https://poets.org/text/peril-poetry-reading-page-versus-performance)
+
 ## 歌词写作
 
 - [Berklee Riffs: Natural Music in Language](https://www.berklee.edu/berklee-now/news/berklee-riffs-natural-music-in-language) — Berklee 对 Keppie Coutts 作词课堂的记录：让英语口语重音与旋律安排相互照应；适用于英语歌曲，不是中文声调或所有曲风的通则。[正文](https://www.berklee.edu/berklee-now/news/berklee-riffs-natural-music-in-language) <!-- article-copy --> · [Markdown 摘要](vendor/articles/berklee-natural-stress-lyrics.md)<!-- /article-copy -->
