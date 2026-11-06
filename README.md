@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 82 -->
+<!-- catalog-count: 83 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -21,6 +21,10 @@
 - [Psychic Distance in Creative Writing](https://www.unr.edu/writing-speaking-center/writing-speaking-resources/psychic-distance-in-creative-writing) — 内华达大学里诺分校写作中心用同一场景的五级改写说明叙事距离；适用于英语小说与叙事散文，五级是分析工具而非固定写作公式。[正文](https://www.unr.edu/writing-speaking-center/writing-speaking-resources/psychic-distance-in-creative-writing)
 
   **规则：** 修改人物焦点段落时，标出远景交代与人物感官、措辞的切换；若从外部背景突然跳进内心让读者失去定位，就用人物偏好或即时反应作过渡。[出处](https://www.unr.edu/writing-speaking-center/writing-speaking-resources/psychic-distance-in-creative-writing)
+
+- [The Peril of the Poetry Reading: The Page Versus the Performance](https://poets.org/text/peril-poetry-reading-page-versus-performance) — David Groff 讨论纸面诗与朗诵的不同，提醒表演可能遮掩文字问题；限英语纸面诗。[正文](https://poets.org/text/peril-poetry-reading-page-versus-performance)
+
+  **规则：** 对主要供纸面阅读的诗稿，朗读后再让读者静默阅读；标出只能靠朗诵语速和语气才能读顺的诗句，优先修改文字或分行，不用表演遮掩稿面缺陷。[出处](https://poets.org/text/peril-poetry-reading-page-versus-performance)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
