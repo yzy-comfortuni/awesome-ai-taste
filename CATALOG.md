@@ -118,6 +118,10 @@
 
   **规则：** 发布软件新版本时，将文档标明为该版本适用，并保留旧版文档入口；默认设置发生变化后，旧版本用户仍应能查到与其安装版本一致的说明。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006561)
 
+- [Blameless Incident Postmortem](https://github.com/k3rt4s/security-program-templates) — 用于严重安全事件或重大险情的事后复盘，区分检测盲点和对应整改；是安全事件文档模板，不是通用监管或审批标准。[正文](https://github.com/k3rt4s/security-program-templates/blob/main/incident-response/blameless-postmortem-template.md)
+
+  **规则：** 写检测失效时，先区分“没有采集信号、采集了但未报警、报警了却被忽略”；针对所属情形写具体修复动作，缺少日志证据不能写成“已排除”。[出处](https://github.com/k3rt4s/security-program-templates/blob/main/incident-response/blameless-postmortem-template.md)
+
 ## 专利写作
 
 - [WIPO Patent Drafting Manual](https://www.wipo.int/publications/en/details.jsp?id=4706) — 世界知识产权组织的专利撰写手册，用实例讲权利要求层次、术语、说明书支持与附图；适合跨法域起草训练，具体申请仍须核对目标专利局现行规则。[说明书支持（第六单元第 10 节）](https://www.wipo.int/edocs/pubdocs/zh/wipo-pub-867-23-zh-wipo-patent-drafting-manual.pdf#page=108) <!-- article-copy --> · [Markdown 阅读索引](vendor/articles/wipo-patent-drafting-manual.md)<!-- /article-copy -->
