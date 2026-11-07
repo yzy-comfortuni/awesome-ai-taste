@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 83 -->
+<!-- catalog-count: 84 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -25,6 +25,10 @@
 - [The Peril of the Poetry Reading: The Page Versus the Performance](https://poets.org/text/peril-poetry-reading-page-versus-performance) — David Groff 讨论纸面诗与朗诵的不同，提醒表演可能遮掩文字问题；限英语纸面诗。[正文](https://poets.org/text/peril-poetry-reading-page-versus-performance)
 
   **规则：** 对主要供纸面阅读的诗稿，朗读后再让读者静默阅读；标出只能靠朗诵语速和语气才能读顺的诗句，优先修改文字或分行，不用表演遮掩稿面缺陷。[出处](https://poets.org/text/peril-poetry-reading-page-versus-performance)
+
+- [Blameless Incident Postmortem](https://github.com/k3rt4s/security-program-templates) — 用于严重安全事件或重大险情的事后复盘，区分检测盲点和对应整改；是安全事件文档模板，不是通用监管或审批标准。[正文](https://github.com/k3rt4s/security-program-templates/blob/main/incident-response/blameless-postmortem-template.md)
+
+  **规则：** 写检测失效时，先区分“没有采集信号、采集了但未报警、报警了却被忽略”；针对所属情形写具体修复动作，缺少日志证据不能写成“已排除”。[出处](https://github.com/k3rt4s/security-program-templates/blob/main/incident-response/blameless-postmortem-template.md)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
