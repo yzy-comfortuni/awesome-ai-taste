@@ -198,6 +198,10 @@
 
   **规则：** 在注册报告第二阶段论文中，将第1阶段批准方案之外的数据依赖型分析单列为“探索性分析”，说明它用于提出待验证的假设，不写成预先计划的确认性检验。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010571)
 
+- [Ten simple rules for carrying out and writing meta-analyses](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006922) — 定量系统综述的异质性检查与结果论证；以生物医学研究为例，2019 年方法建议须结合 PRISMA 2020 和具体学科规范。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006922)
+
+  **规则：** 研究间效应差异较大时，不要只改用随机效应模型；还应报告 I² 等异质性指标，研究数量足够时分析亚组或元回归能否解释差异，并注明未解释的部分。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006922)
+
 ## 小说写作
 
 - [Steering the Craft](https://www.ursulakleguin.com/steering-the-craft) — Le Guin 的英语叙事写作练习，训练句子节奏、视角和叙述距离；适合小说与叙事散文，不套固定情节公式。[第一章节选](https://lithub.com/a-writing-lesson-from-ursula-k-leguin/) <!-- article-copy --> · [Markdown 摘要](vendor/articles/steering-the-craft.md)<!-- /article-copy -->
