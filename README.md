@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 84 -->
+<!-- catalog-count: 85 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -29,6 +29,10 @@
 - [Blameless Incident Postmortem](https://github.com/k3rt4s/security-program-templates) — 用于严重安全事件或重大险情的事后复盘，区分检测盲点和对应整改；是安全事件文档模板，不是通用监管或审批标准。[正文](https://github.com/k3rt4s/security-program-templates/blob/main/incident-response/blameless-postmortem-template.md)
 
   **规则：** 写检测失效时，先区分“没有采集信号、采集了但未报警、报警了却被忽略”；针对所属情形写具体修复动作，缺少日志证据不能写成“已排除”。[出处](https://github.com/k3rt4s/security-program-templates/blob/main/incident-response/blameless-postmortem-template.md)
+
+- [Ten simple rules for carrying out and writing meta-analyses](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006922) — 定量系统综述的异质性检查与结果论证；以生物医学研究为例，2019 年方法建议须结合 PRISMA 2020 和具体学科规范。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006922)
+
+  **规则：** 研究间效应差异较大时，不要只改用随机效应模型；还应报告 I² 等异质性指标，研究数量足够时分析亚组或元回归能否解释差异，并注明未解释的部分。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006922)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
