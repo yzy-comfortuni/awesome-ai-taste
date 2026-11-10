@@ -943,6 +943,37 @@
       ],
       "min_chars": 8500,
       "scope_note": "© 2019 Forero、Lopez-Leon、González-Giraldo、Bagos。PLOS Computational Biology 15(5): e1006922，DOI: 10.1371/journal.pcbi.1006922。依据 CC BY 4.0，仅转换本篇单页英文完整文章（引言、十条规则及参考文献，图与外部补充内容保留链接），排除站点导航、评论及广告。Markdown 格式转换由 awesome-ai-taste 完成，不代表作者背书。2019 年指南不代替 PRISMA 2020 或研究类型对应的现行方法要求；元回归需要足够研究数量。许可：https://creativecommons.org/licenses/by/4.0/ 。"
+    },
+    {
+      "id": "ten-simple-rules-writing-reply-paper",
+      "title": "Ten Simple Rules for Writing a Reply Paper",
+      "author": "Mark P. Simmons",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004536",
+      "catalog_urls": [
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004536"
+      ],
+      "kind": "fulltext",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004536",
+      "license_marker": "creativecommons.org/licenses/by/4.0",
+      "reviewed_on": "2026-11-11",
+      "markers": [
+        "Introduction",
+        "Rule 1:",
+        "Rule 2:",
+        "Rule 3:",
+        "Rule 4:",
+        "Rule 5:",
+        "Rule 6:",
+        "Rule 7:",
+        "Rule 8:",
+        "Rule 9:",
+        "Rule 10:",
+        "Acknowledgments",
+        "References"
+      ],
+      "min_chars": 6000,
+      "scope_note": "© 2015 Mark P. Simmons。PLOS Computational Biology 11(10): e1004536，DOI: 10.1371/journal.pcbi.1004536。依据 CC BY 4.0，仅转换这一单页完整英文正文（引言、十条规则、致谢及参考文献），保留文献来源链接；不包含网页导航、广告、评论及第三方站外内容。Markdown 格式转换由 awesome-ai-taste 完成，不代表原作者背书。用于公开发表的科学评论／反驳论文（reply paper），不是给审稿人的返修回复；举例以系统生物学、分类学等为主，仍须遵守目标期刊规范。许可：https://creativecommons.org/licenses/by/4.0/ 。"
     }
   ]
 }
