@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 85 -->
+<!-- catalog-count: 86 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -33,6 +33,10 @@
 - [Ten simple rules for carrying out and writing meta-analyses](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006922) — 定量系统综述的异质性检查与结果论证；以生物医学研究为例，2019 年方法建议须结合 PRISMA 2020 和具体学科规范。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006922)
 
   **规则：** 研究间效应差异较大时，不要只改用随机效应模型；还应报告 I² 等异质性指标，研究数量足够时分析亚组或元回归能否解释差异，并注明未解释的部分。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006922)
+
+- [Writing good CL descriptions](https://github.com/google/eng-practices) — Google 的代码变更说明写作指南，以差例和实例如实交代改了什么、为什么改；可借鉴于 PR 描述，原仓库已归档且命令式标题只是其惯例。[正文](https://github.com/google/eng-practices/blob/master/review/developer/cl-descriptions.md)
+
+  **规则：** 提交代码变更说明前，检查首行能否独立说明具体改动，并在正文写明修改原因和关键取舍；不要让“Fix bug”一类笼统标题代替说明。[出处](https://github.com/google/eng-practices/blob/master/review/developer/cl-descriptions.md)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
