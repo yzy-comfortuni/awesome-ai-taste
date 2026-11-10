@@ -206,6 +206,10 @@
 
   **规则：** 研究间效应差异较大时，不要只改用随机效应模型；还应报告 I² 等异质性指标，研究数量足够时分析亚组或元回归能否解释差异，并注明未解释的部分。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006922)
 
+- [Ten Simple Rules for Writing a Reply Paper](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004536) — 公开回应已发表科研论文的反驳文章写作方法，侧重核对原论文的判据和证据；不同于返修时给审稿人的回复，案例偏生物学，仍须遵守目标期刊要求。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004536)
+
+  **规则：** 写公开的论文回应时，先按原作者自己的判断标准复核其结论；若原文证据与其标准矛盾，就列出标准、对应结果和推论问题，而不是另换一套评价标准。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004536)
+
 ## 小说写作
 
 - [Steering the Craft](https://www.ursulakleguin.com/steering-the-craft) — Le Guin 的英语叙事写作练习，训练句子节奏、视角和叙述距离；适合小说与叙事散文，不套固定情节公式。[第一章节选](https://lithub.com/a-writing-lesson-from-ursula-k-leguin/) <!-- article-copy --> · [Markdown 摘要](vendor/articles/steering-the-craft.md)<!-- /article-copy -->
