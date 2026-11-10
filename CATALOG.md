@@ -122,6 +122,10 @@
 
   **规则：** 写检测失效时，先区分“没有采集信号、采集了但未报警、报警了却被忽略”；针对所属情形写具体修复动作，缺少日志证据不能写成“已排除”。[出处](https://github.com/k3rt4s/security-program-templates/blob/main/incident-response/blameless-postmortem-template.md)
 
+- [Writing good CL descriptions](https://github.com/google/eng-practices) — Google 的代码变更说明写作指南，以差例和实例如实交代改了什么、为什么改；可借鉴于 PR 描述，原仓库已归档且命令式标题只是其惯例。[正文](https://github.com/google/eng-practices/blob/master/review/developer/cl-descriptions.md)
+
+  **规则：** 提交代码变更说明前，检查首行能否独立说明具体改动，并在正文写明修改原因和关键取舍；不要让“Fix bug”一类笼统标题代替说明。[出处](https://github.com/google/eng-practices/blob/master/review/developer/cl-descriptions.md)
+
 ## 专利写作
 
 - [WIPO Patent Drafting Manual](https://www.wipo.int/publications/en/details.jsp?id=4706) — 世界知识产权组织的专利撰写手册，用实例讲权利要求层次、术语、说明书支持与附图；适合跨法域起草训练，具体申请仍须核对目标专利局现行规则。[说明书支持（第六单元第 10 节）](https://www.wipo.int/edocs/pubdocs/zh/wipo-pub-867-23-zh-wipo-patent-drafting-manual.pdf#page=108) <!-- article-copy --> · [Markdown 阅读索引](vendor/articles/wipo-patent-drafting-manual.md)<!-- /article-copy -->
