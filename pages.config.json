@@ -974,6 +974,31 @@
       ],
       "min_chars": 6000,
       "scope_note": "© 2015 Mark P. Simmons。PLOS Computational Biology 11(10): e1004536，DOI: 10.1371/journal.pcbi.1004536。依据 CC BY 4.0，仅转换这一单页完整英文正文（引言、十条规则、致谢及参考文献），保留文献来源链接；不包含网页导航、广告、评论及第三方站外内容。Markdown 格式转换由 awesome-ai-taste 完成，不代表原作者背书。用于公开发表的科学评论／反驳论文（reply paper），不是给审稿人的返修回复；举例以系统生物学、分类学等为主，仍须遵守目标期刊规范。许可：https://creativecommons.org/licenses/by/4.0/ 。"
+    },
+    {
+      "id": "write-helpful-alt-text",
+      "title": "Write helpful alt text",
+      "author": "Google for Developers — Technical Writing",
+      "url": "https://developers.google.com/tech-writing/accessibility/self-study/write-alt-text",
+      "catalog_urls": [
+        "https://developers.google.com/tech-writing/accessibility/self-study/write-alt-text"
+      ],
+      "kind": "fulltext",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://developers.google.com/tech-writing/accessibility/self-study/write-alt-text",
+      "license_marker": "creativecommons.org/licenses/by/4.0",
+      "reviewed_on": "2026-11-12",
+      "markers": [
+        "Explain the image in context",
+        "Avoid duplicating the surrounding text",
+        "Describe complex images in your document",
+        "Include demographic information only when necessary",
+        "Examples",
+        "Exercises",
+        "Exercise 2"
+      ],
+      "min_chars": 4200,
+      "scope_note": "© Google。仅转换 Google Technical Writing for Accessibility 的 Write helpful alt text 英文单页，保留上下文比较、过短与过长的 alt 对照、复杂图示与练习内容；网页导航和外部视频不属于正文，配图及视频仅保留外链。原页标明文字 CC BY 4.0、代码示例 Apache 2.0；Markdown 格式转换由 awesome-ai-taste 完成，不代表 Google 背书。本页适用于网页、技术文档和图表的图片替代文本，不可把短 alt 当作对复杂数据的完整文本替代，也不等同于 WCAG 合规核验。许可：https://creativecommons.org/licenses/by/4.0/ 。"
     }
   ]
 }
