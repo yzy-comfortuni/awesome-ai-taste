@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 87 -->
+<!-- catalog-count: 88 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -41,6 +41,10 @@
 - [Ten Simple Rules for Writing a Reply Paper](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004536) — 公开回应已发表科研论文的反驳文章写作方法，侧重核对原论文的判据和证据；不同于返修时给审稿人的回复，案例偏生物学，仍须遵守目标期刊要求。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004536)
 
   **规则：** 写公开的论文回应时，先按原作者自己的判断标准复核其结论；若原文证据与其标准矛盾，就列出标准、对应结果和推论问题，而不是另换一套评价标准。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004536)
+
+- [Write helpful alt text](https://developers.google.com/tech-writing/accessibility/self-study/write-alt-text) — Google 技术写作课程用同图不同语境及过短／过长的正反例指导图片替代文本；适用于网页、技术文档和图表，不等于完整的无障碍合规测试。[正文](https://developers.google.com/tech-writing/accessibility/self-study/write-alt-text)
+
+  **规则：** 遇到复杂图表或流程图，先用简短的 alt 文本概括它的用途或主要信息，再在正文提供读者需要核对的数据表或流程说明；不要把整张图的细节塞进 alt。[出处](https://developers.google.com/tech-writing/accessibility/self-study/write-alt-text)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
