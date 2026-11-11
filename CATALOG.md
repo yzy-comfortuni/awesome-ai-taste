@@ -296,6 +296,10 @@
 
 ## 图表与图解
 
+- [Write helpful alt text](https://developers.google.com/tech-writing/accessibility/self-study/write-alt-text) — Google 技术写作课程用同图不同语境及过短／过长的正反例指导图片替代文本；适用于网页、技术文档和图表，不等于完整的无障碍合规测试。[正文](https://developers.google.com/tech-writing/accessibility/self-study/write-alt-text)
+
+  **规则：** 遇到复杂图表或流程图，先用简短的 alt 文本概括它的用途或主要信息，再在正文提供读者需要核对的数据表或流程说明；不要把整张图的细节塞进 alt。[出处](https://developers.google.com/tech-writing/accessibility/self-study/write-alt-text)
+
 - [FT Visual Vocabulary](https://github.com/Financial-Times/chart-doctor/tree/main/visual-vocabulary) — 《金融时报》的图表选型手册，按偏差、相关、排序、分布等表达目的组织。[正文](https://github.com/Financial-Times/chart-doctor/blob/main/visual-vocabulary/README.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/Financial-Times/chart-doctor?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/Financial-Times/chart-doctor/stargazers) · [副本](vendor/financial-times/chart-doctor)<!-- /source-meta -->
 
   **规则：** 要表达高于或低于目标的偏差，先标出共同参考线，再用两侧延伸的条形呈现正负变化。[出处](https://github.com/Financial-Times/chart-doctor/blob/main/visual-vocabulary/README.md)
