@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 88 -->
+<!-- catalog-count: 89 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -45,6 +45,10 @@
 - [Write helpful alt text](https://developers.google.com/tech-writing/accessibility/self-study/write-alt-text) — Google 技术写作课程用同图不同语境及过短／过长的正反例指导图片替代文本；适用于网页、技术文档和图表，不等于完整的无障碍合规测试。[正文](https://developers.google.com/tech-writing/accessibility/self-study/write-alt-text)
 
   **规则：** 遇到复杂图表或流程图，先用简短的 alt 文本概括它的用途或主要信息，再在正文提供读者需要核对的数据表或流程说明；不要把整张图的细节塞进 alt。[出处](https://developers.google.com/tech-writing/accessibility/self-study/write-alt-text)
+
+- [Formatting a montage sequence](https://johnaugust.com/2004/formatting-a-montage-sequence) — John August 对比同一场地与跨地点的蒙太奇写法，说明怎样用短场景压缩一段时间；适用于英语影视剧本，不是拍摄分镜或统一强制格式。[正文](https://johnaugust.com/2004/formatting-a-montage-sequence)
+
+  **规则：** 跨地点蒙太奇先用连续短场景呈现：每次换地点只写场景标题和一两句动作；读者能看出这段快剪时，不必再加 `MONTAGE` 标记。[出处](https://johnaugust.com/2004/formatting-a-montage-sequence)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
