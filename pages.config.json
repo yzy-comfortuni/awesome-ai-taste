@@ -999,6 +999,21 @@
       ],
       "min_chars": 4200,
       "scope_note": "© Google。仅转换 Google Technical Writing for Accessibility 的 Write helpful alt text 英文单页，保留上下文比较、过短与过长的 alt 对照、复杂图示与练习内容；网页导航和外部视频不属于正文，配图及视频仅保留外链。原页标明文字 CC BY 4.0、代码示例 Apache 2.0；Markdown 格式转换由 awesome-ai-taste 完成，不代表 Google 背书。本页适用于网页、技术文档和图表的图片替代文本，不可把短 alt 当作对复杂数据的完整文本替代，也不等同于 WCAG 合规核验。许可：https://creativecommons.org/licenses/by/4.0/ 。"
+    },
+    {
+      "id": "screenplay-montage-formatting",
+      "title": "Formatting a montage sequence",
+      "author": "John August",
+      "url": "https://johnaugust.com/2004/formatting-a-montage-sequence",
+      "catalog_urls": [
+        "https://johnaugust.com/2004/formatting-a-montage-sequence"
+      ],
+      "kind": "summary",
+      "license": "© John August，All Rights Reserved；未取得全文转载许可，仅存中文编辑摘要",
+      "license_evidence_url": "https://johnaugust.com/2004/formatting-a-montage-sequence",
+      "reviewed_on": "2026-11-13",
+      "scope_note": "仅针对 John August 于 2004-03-31 发表的英语影视剧本蒙太奇格式问答单页，独立编写中文编辑摘要。原站标明 All Rights Reserved，不复制原英文段落、剧本片段、图片或整站内容；全文 Markdown 仍有版权许可缺口。这是作者对易读剧本格式的实践建议，不是影视剧本统一标准或拍摄分镜指令；对制作和场景编号另需遵守项目约定。",
+      "summary": "## 中文编辑摘要\n\nJohn August 把蒙太奇描述为由若干简短片段构成的连续动作安排，可用来压缩一段时间内的行为。文章以同一场所内的连续变化、跨多个场所的短场景，以及一栋房子内多房间的穿插为例，说明标记和场景标题应随读者需要的信息多少而变化。\n\n当连续片段发生在同一场所，可以在普通场景标题下标出蒙太奇的开始与结束，使读者知道何时回到正常的场景时间。跨多个场所时，作者反而建议考虑省略专门的蒙太奇标记：连续写出地点明确、描述极短的几个场景，读者可以自己读出这是一串压缩时间的镜头。若变化都发生在一处大地点的不同房间，概括性地点标题也可能足够。作者没有推荐所有剧本只能使用一种格式。\n\n## 可采用的规则\n\n跨地点蒙太奇先写成连续的短场景：每次切换给清楚的场景标题和一两句动作；若读者已能理解这种连续快剪，不必强行添加 MONTAGE 标记。\n\n## 适用边界\n\n仅是英语影视剧本可读性方面的写法选择，不是分镜、剪辑指令或跨制作团队的硬性版式规范。与同一连续动作场景中的位置切换不同，这里处理的是多个短片段组成的时间压缩段落。此文件是中文编辑摘要，未获全文转载许可，原文与示例仍应到作者网站阅读。"
     }
   ]
 }
