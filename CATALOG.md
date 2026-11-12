@@ -294,6 +294,10 @@
 
   **规则：** 同一段连续动作频繁切至不同地点时，用简短的全大写位置提示标明每次叙述焦点，不必反复写完整场景标题或 `CUT TO`。[出处](https://johnaugust.com/2004/avoid-cut-tos-in-a-busy-sequence)
 
+- [Formatting a montage sequence](https://johnaugust.com/2004/formatting-a-montage-sequence) — John August 对比同一场地与跨地点的蒙太奇写法，说明怎样用短场景压缩一段时间；适用于英语影视剧本，不是拍摄分镜或统一强制格式。[正文](https://johnaugust.com/2004/formatting-a-montage-sequence)
+
+  **规则：** 跨地点蒙太奇先用连续短场景呈现：每次换地点只写场景标题和一两句动作；读者能看出这段快剪时，不必再加 `MONTAGE` 标记。[出处](https://johnaugust.com/2004/formatting-a-montage-sequence)
+
 ## 图表与图解
 
 - [Write helpful alt text](https://developers.google.com/tech-writing/accessibility/self-study/write-alt-text) — Google 技术写作课程用同图不同语境及过短／过长的正反例指导图片替代文本；适用于网页、技术文档和图表，不等于完整的无障碍合规测试。[正文](https://developers.google.com/tech-writing/accessibility/self-study/write-alt-text)
