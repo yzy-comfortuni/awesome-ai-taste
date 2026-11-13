@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 89 -->
+<!-- catalog-count: 90 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -49,6 +49,10 @@
 - [Formatting a montage sequence](https://johnaugust.com/2004/formatting-a-montage-sequence) — John August 对比同一场地与跨地点的蒙太奇写法，说明怎样用短场景压缩一段时间；适用于英语影视剧本，不是拍摄分镜或统一强制格式。[正文](https://johnaugust.com/2004/formatting-a-montage-sequence)
 
   **规则：** 跨地点蒙太奇先用连续短场景呈现：每次换地点只写场景标题和一两句动作；读者能看出这段快剪时，不必再加 `MONTAGE` 标记。[出处](https://johnaugust.com/2004/formatting-a-montage-sequence)
+
+- [Productskills — PRD Writing](https://github.com/assimovt/productskills) — Tair Asim 的软件产品需求文档写作 skill，给出证据、目标和优先级的正反例；主要面向英文轻量 PRD，固定字数和 P0 数量是作者偏好。[正文](https://github.com/assimovt/productskills/blob/main/skills/prd-writing/SKILL.md)
+
+  **规则：** 给 PRD 的每个核心成功指标配一条防止副作用的反向约束；例如提高新用户激活率时同时监测留存，不把示例数字直接当作真实目标。[出处](https://github.com/assimovt/productskills/blob/main/skills/prd-writing/SKILL.md)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
