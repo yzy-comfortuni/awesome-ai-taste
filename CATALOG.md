@@ -126,6 +126,10 @@
 
   **规则：** 提交代码变更说明前，检查首行能否独立说明具体改动，并在正文写明修改原因和关键取舍；不要让“Fix bug”一类笼统标题代替说明。[出处](https://github.com/google/eng-practices/blob/master/review/developer/cl-descriptions.md)
 
+- [Productskills — PRD Writing](https://github.com/assimovt/productskills) — Tair Asim 的软件产品需求文档写作 skill，给出证据、目标和优先级的正反例；主要面向英文轻量 PRD，固定字数和 P0 数量是作者偏好。[正文](https://github.com/assimovt/productskills/blob/main/skills/prd-writing/SKILL.md)
+
+  **规则：** 给 PRD 的每个核心成功指标配一条防止副作用的反向约束；例如提高新用户激活率时同时监测留存，不把示例数字直接当作真实目标。[出处](https://github.com/assimovt/productskills/blob/main/skills/prd-writing/SKILL.md)
+
 ## 专利写作
 
 - [WIPO Patent Drafting Manual](https://www.wipo.int/publications/en/details.jsp?id=4706) — 世界知识产权组织的专利撰写手册，用实例讲权利要求层次、术语、说明书支持与附图；适合跨法域起草训练，具体申请仍须核对目标专利局现行规则。[说明书支持（第六单元第 10 节）](https://www.wipo.int/edocs/pubdocs/zh/wipo-pub-867-23-zh-wipo-patent-drafting-manual.pdf#page=108) <!-- article-copy --> · [Markdown 阅读索引](vendor/articles/wipo-patent-drafting-manual.md)<!-- /article-copy -->
