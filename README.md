@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 90 -->
+<!-- catalog-count: 91 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -53,6 +53,10 @@
 - [Productskills — PRD Writing](https://github.com/assimovt/productskills) — Tair Asim 的软件产品需求文档写作 skill，给出证据、目标和优先级的正反例；主要面向英文轻量 PRD，固定字数和 P0 数量是作者偏好。[正文](https://github.com/assimovt/productskills/blob/main/skills/prd-writing/SKILL.md)
 
   **规则：** 给 PRD 的每个核心成功指标配一条防止副作用的反向约束；例如提高新用户激活率时同时监测留存，不把示例数字直接当作真实目标。[出处](https://github.com/assimovt/productskills/blob/main/skills/prd-writing/SKILL.md)
+
+- [Error Message Style Guide — GitHub Agentic Workflows](https://github.com/github/gh-aw) — GitHub 的英文 CLI 与配置校验错误提示正反例；Go/YAML 实现细节并非通用规范。[正文](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/troubleshooting/error-messages.md)
+
+  **规则：** 校验错误要同时指出无效值、预期格式和正确示例；不要只报 `invalid repo format`，应说明 `owner/repo` 并举例。[出处](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/troubleshooting/error-messages.md)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
