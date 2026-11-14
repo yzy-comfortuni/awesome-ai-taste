@@ -84,6 +84,10 @@
 
   **规则：** 写完整章节之前，先向目标读者试讲其中的核心内容，记录他们缺少哪些前置知识，再据反馈调整讲解顺序与例子，不只凭作者直觉排列章节。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011305)
 
+- [Error Message Style Guide — GitHub Agentic Workflows](https://github.com/github/gh-aw) — GitHub 的命令行与配置校验错误文案指南，以正反例说明如何告知预期格式与修复方式；面向英文 CLI/YAML，不是所有产品提示的通用模板。[正文](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/troubleshooting/error-messages.md)
+
+  **规则：** 写输入校验错误时，同时交代无效值、预期格式及可照填的正确例子；不要只报 `invalid repo format`，而应指出需要 `owner/repo` 并给出示例。[出处](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/troubleshooting/error-messages.md)
+
 ## 软件工程文档
 
 - [arc42 — 架构说明](https://github.com/arc42/arc42-template) — 架构文档的边界、运行、部署和质量要求，选读官方中文章节；按项目需要取舍，不把十二章当填空配额。[上下文](https://github.com/arc42/arc42-template/blob/main/ZH/adoc/03_context_and_scope.adoc) · [运行](https://github.com/arc42/arc42-template/blob/main/ZH/adoc/06_runtime_view.adoc) · [部署](https://github.com/arc42/arc42-template/blob/main/ZH/adoc/07_deployment_view.adoc) · [质量](https://github.com/arc42/arc42-template/blob/main/ZH/adoc/10_quality_requirements.adoc) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/arc42/arc42-template?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/arc42/arc42-template/stargazers) · [副本](vendor/arc42/arc42-template)<!-- /source-meta -->
