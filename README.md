@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 91 -->
+<!-- catalog-count: 92 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -57,6 +57,10 @@
 - [Error Message Style Guide — GitHub Agentic Workflows](https://github.com/github/gh-aw) — GitHub 的英文 CLI 与配置校验错误提示正反例；Go/YAML 实现细节并非通用规范。[正文](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/troubleshooting/error-messages.md)
 
   **规则：** 校验错误要同时指出无效值、预期格式和正确示例；不要只报 `invalid repo format`，应说明 `owner/repo` 并举例。[出处](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/troubleshooting/error-messages.md)
+
+- [EPO G 1/25 — Claims and Description (Notice, 2026-11-10)](https://www.epo.org/en/legal/official-journal/notice-10-november-2026) — EPO 对修改后权利要求与说明书冲突的最新处理说明，附必备／附加特征对照例；限 EPC，网页为拟刊 OJ 的预览文本，非已正式刊载版本。[正文](https://www.epo.org/en/legal/official-journal/notice-10-november-2026)
+
+  **规则：** 修改欧洲专利独立权利要求后，若特征 C 已列为必备，检查说明书是否仍称 C 为 `may` 或 `optional`；使 C 看似可选的冲突表述须修正，不能仅因实施例含额外特征就删去实施例。[出处](https://www.epo.org/en/legal/official-journal/notice-10-november-2026)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
