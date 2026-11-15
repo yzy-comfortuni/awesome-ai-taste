@@ -168,6 +168,10 @@
 
   **规则：** 核对英文权利要求的“comprising”与“consisting of”：允许不妨碍方案工作的附加特征时用前者；只有确实排除附加特征才用后者，并核对原申请依据。[出处](https://www.epo.org/en/legal/guidelines-epc/2026/f_iv_4_20.html)
 
+- [EPO G 1/25 — Claims and Description (Notice, 2026-11-10)](https://www.epo.org/en/legal/official-journal/notice-10-november-2026) — EPO 依据 2026 年 9 月 G 1/25 判决解释权利要求与说明书应在何种条件下协调，附必备／附加特征正反例；限 EPC 审查、异议，11 月 10 日网页为拟刊 OJ 预览，后续正式版为准。[正文](https://www.epo.org/en/legal/official-journal/notice-10-november-2026)
+
+  **规则：** 修改欧洲专利独立权利要求后，若特征 C 已列为必备，检查说明书是否仍称 C 为 `may` 或 `optional`；使 C 看似可选的冲突表述须修正，不能仅因实施例含额外特征就删去实施例。[出处](https://www.epo.org/en/legal/official-journal/notice-10-november-2026)
+
 ## 学术论文
 
 - [Ten Simple Rules for Structuring Papers](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619) — 围绕中心贡献，用“背景—内容—结论”组织科学论文；适合研究论文的结构修改，仍须遵守学科和期刊规范。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619) <!-- article-copy --> · [Markdown 正文](vendor/articles/ten-simple-rules-structuring-papers.md)<!-- /article-copy -->
