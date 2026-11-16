@@ -134,6 +134,10 @@
 
   **规则：** 给 PRD 的每个核心成功指标配一条防止副作用的反向约束；例如提高新用户激活率时同时监测留存，不把示例数字直接当作真实目标。[出处](https://github.com/assimovt/productskills/blob/main/skills/prd-writing/SKILL.md)
 
+- [Google AIP-192 — Documentation](https://google.aip.dev/192) — Google API Improvement Proposals 对 Protocol Buffers 公共接口注释的写作要求，聚焦默认值与行为边界；适用于 proto API 参考文档，不是所有 REST 接口的强制规范。[正文](https://github.com/aip-dev/google.aip.dev/blob/master/aip/general/0192.md)
+
+  **规则：** 为带默认行为的请求字段写清“未传时会怎样”，不能只列字段类型；例如 `page_size` 省略时默认 50，就应在字段注释中写明。[出处](https://github.com/aip-dev/google.aip.dev/blob/master/aip/general/0192.md)
+
 ## 专利写作
 
 - [WIPO Patent Drafting Manual](https://www.wipo.int/publications/en/details.jsp?id=4706) — 世界知识产权组织的专利撰写手册，用实例讲权利要求层次、术语、说明书支持与附图；适合跨法域起草训练，具体申请仍须核对目标专利局现行规则。[说明书支持（第六单元第 10 节）](https://www.wipo.int/edocs/pubdocs/zh/wipo-pub-867-23-zh-wipo-patent-drafting-manual.pdf#page=108) <!-- article-copy --> · [Markdown 阅读索引](vendor/articles/wipo-patent-drafting-manual.md)<!-- /article-copy -->
