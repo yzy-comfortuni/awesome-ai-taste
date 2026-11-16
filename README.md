@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 92 -->
+<!-- catalog-count: 93 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -61,6 +61,10 @@
 - [EPO G 1/25 — Claims and Description (Notice, 2026-11-10)](https://www.epo.org/en/legal/official-journal/notice-10-november-2026) — EPO 对修改后权利要求与说明书冲突的最新处理说明，附必备／附加特征对照例；限 EPC，网页为拟刊 OJ 的预览文本，非已正式刊载版本。[正文](https://www.epo.org/en/legal/official-journal/notice-10-november-2026)
 
   **规则：** 修改欧洲专利独立权利要求后，若特征 C 已列为必备，检查说明书是否仍称 C 为 `may` 或 `optional`；使 C 看似可选的冲突表述须修正，不能仅因实施例含额外特征就删去实施例。[出处](https://www.epo.org/en/legal/official-journal/notice-10-november-2026)
+
+- [Google AIP-192 — Documentation](https://google.aip.dev/192) — Google API Improvement Proposals 对 Protocol Buffers 公共接口注释的写作要求，聚焦默认值与行为边界；适用于 proto API 参考文档，不是所有 REST 接口的强制规范。[正文](https://github.com/aip-dev/google.aip.dev/blob/master/aip/general/0192.md)
+
+  **规则：** 为带默认行为的请求字段写清“未传时会怎样”，不能只列字段类型；例如 `page_size` 省略时默认 50，就应在字段注释中写明。[出处](https://github.com/aip-dev/google.aip.dev/blob/master/aip/general/0192.md)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
