@@ -286,6 +286,10 @@
 
   **规则：** 对主要供纸面阅读的诗稿，朗读后再让读者静默阅读；标出只能靠朗诵语速和语气才能读顺的诗句，优先修改文字或分行，不用表演遮掩稿面缺陷。[出处](https://poets.org/text/peril-poetry-reading-page-versus-performance)
 
+- [June Jordan’s Guidelines for Critiquing a Poem](https://poets.org/june-jordans-guidelines-critiquing-poem) — June Jordan 的诗稿评议讲义，先辨表达目的与成败，再检查语言和节奏；2026 年书籍选摘，主要面向英语诗歌，不将作者对系动词、标点的偏好当通则。[正文](https://poets.org/june-jordans-guidelines-critiquing-poem)
+
+  **规则：** 给诗稿写评语时，先用一句话说明作品想完成的表达，再各指出一处奏效与一处受阻的具体诗句，最后检查动词、分行和节奏是否支持这个目的。[出处](https://poets.org/june-jordans-guidelines-critiquing-poem)
+
 ## 歌词写作
 
 - [Berklee Riffs: Natural Music in Language](https://www.berklee.edu/berklee-now/news/berklee-riffs-natural-music-in-language) — Berklee 对 Keppie Coutts 作词课堂的记录：让英语口语重音与旋律安排相互照应；适用于英语歌曲，不是中文声调或所有曲风的通则。[正文](https://www.berklee.edu/berklee-now/news/berklee-riffs-natural-music-in-language) <!-- article-copy --> · [Markdown 摘要](vendor/articles/berklee-natural-stress-lyrics.md)<!-- /article-copy -->
