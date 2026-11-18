@@ -260,6 +260,10 @@
 
   **规则：** 修改人物焦点段落时，标出远景交代与人物感官、措辞的切换；若从外部背景突然跳进内心让读者失去定位，就用人物偏好或即时反应作过渡。[出处](https://www.unr.edu/writing-speaking-center/writing-speaking-resources/psychic-distance-in-creative-writing)
 
+- [Structuring Your Story’s Scenes, Pt. 10 — Scene Sequel Decisions](https://www.helpingwritersbecomeauthors.com/structuring-your-storys-sequels-pt-10/) — K.M. Weiland 以《傲慢与偏见》等例子解释场景后续（sequel）中何时明写人物的决定；适用于英语小说的场景衔接修订，不把 Swain 模型当作通用情节公式。[正文](https://www.helpingwritersbecomeauthors.com/structuring-your-storys-sequels-pt-10/)
+
+  **规则：** 修订相邻场景时，先写出人物面对的两难与选择；若下一场的行动已说明其决定，就删去重复的内心宣告，只有决定本身构成人物转折或必要衔接时才明写。[出处](https://www.helpingwritersbecomeauthors.com/structuring-your-storys-sequels-pt-10/)
+
 ## 诗歌写作
 
 - [Some Thoughts on the Integrity of the Single Line in Poetry](https://poets.org/text/some-thoughts-integrity-single-line-poetry) — Alberto Ríos 用分行对照讨论停顿、跨行和诗行的独立意味；主要谈英语抒情诗，代表作者的一种诗学观点。[正文](https://poets.org/text/some-thoughts-integrity-single-line-poetry) <!-- article-copy --> · [Markdown 摘要](vendor/articles/integrity-of-the-poetic-line.md)<!-- /article-copy -->
