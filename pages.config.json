@@ -6,13 +6,19 @@
       "title": "Google Developer Documentation Style Guide — Highlights",
       "author": "Google for Developers",
       "url": "https://developers.google.com/style/highlights",
-      "catalog_urls": ["https://developers.google.com/style/"],
+      "catalog_urls": [
+        "https://developers.google.com/style/"
+      ],
       "kind": "fulltext",
       "license": "CC-BY-4.0",
       "license_evidence_url": "https://developers.google.com/style/highlights",
       "license_marker": "creativecommons.org/licenses/by/4.0",
       "reviewed_on": "2026-10-10",
-      "markers": ["Tone and content", "Language and grammar", "Images"],
+      "markers": [
+        "Tone and content",
+        "Language and grammar",
+        "Images"
+      ],
       "min_chars": 600,
       "scope_note": "范围：根 README 实际引用的 Highlights 单页，不是 Google 整站手册。正文版权归 Google；正文采用 CC BY 4.0，代码示例如有则沿用 Apache 2.0。Markdown 格式转换由 awesome-ai-taste 完成。许可：https://creativecommons.org/licenses/by/4.0/ 。"
     },
@@ -21,7 +27,9 @@
       "title": "WIPO Patent Drafting Manual — 阅读索引",
       "author": "World Intellectual Property Organization",
       "url": "https://www.wipo.int/publications/en/details.jsp?id=4706",
-      "catalog_urls": ["https://www.wipo.int/publications/en/details.jsp?id=4706"],
+      "catalog_urls": [
+        "https://www.wipo.int/publications/en/details.jsp?id=4706"
+      ],
       "kind": "document-index",
       "license": "原书许可未在此索引中重新授予",
       "license_evidence_url": "https://www.wipo.int/publications/en/details.jsp?id=4706",
@@ -34,13 +42,20 @@
       "title": "Ten simple rules for structuring papers",
       "author": "Brett Mensh; Konrad Kording",
       "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619",
-      "catalog_urls": ["https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619"],
+      "catalog_urls": [
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619"
+      ],
       "kind": "fulltext",
       "license": "CC-BY-4.0",
       "license_evidence_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619",
       "license_marker": "creativecommons.org/licenses/by/4.0",
       "reviewed_on": "2026-10-10",
-      "markers": ["Overview", "Rule 1:", "Rule 10:", "References"],
+      "markers": [
+        "Overview",
+        "Rule 1:",
+        "Rule 10:",
+        "References"
+      ],
       "min_chars": 12000,
       "scope_note": "© 2017 Mensh, Kording。PLOS Computational Biology 13(9): e1005619，DOI: 10.1371/journal.pcbi.1005619。依据 CC BY 4.0 转换正文，保留参考文献与图表链接；网站导航和广告不属于正文。原站另有[2017 年更正](https://doi.org/10.1371/journal.pcbi.1005830)。格式转换由 awesome-ai-taste 完成，不代表原作者背书。许可：https://creativecommons.org/licenses/by/4.0/ 。"
     },
@@ -49,7 +64,9 @@
       "title": "Organizing Literature Reviews: The Basics",
       "author": "George Mason University Writing Center",
       "url": "https://writingcenter.gmu.edu/writing-resources/research-based-writing/organizing-literature-reviews-the-basics",
-      "catalog_urls": ["https://writingcenter.gmu.edu/writing-resources/research-based-writing/organizing-literature-reviews-the-basics"],
+      "catalog_urls": [
+        "https://writingcenter.gmu.edu/writing-resources/research-based-writing/organizing-literature-reviews-the-basics"
+      ],
       "kind": "summary",
       "license": "原站 All Rights Reserved；未取得全文转载许可",
       "license_evidence_url": "https://writingcenter.gmu.edu/writing-resources/research-based-writing/organizing-literature-reviews-the-basics",
@@ -62,8 +79,12 @@
       "title": "Steering the Craft — 官方介绍与第一章节选",
       "author": "Ursula K. Le Guin",
       "url": "https://www.ursulakleguin.com/steering-the-craft",
-      "catalog_urls": ["https://www.ursulakleguin.com/steering-the-craft"],
-      "related_urls": ["https://lithub.com/a-writing-lesson-from-ursula-k-leguin/"],
+      "catalog_urls": [
+        "https://www.ursulakleguin.com/steering-the-craft"
+      ],
+      "related_urls": [
+        "https://lithub.com/a-writing-lesson-from-ursula-k-leguin/"
+      ],
       "kind": "summary",
       "license": "原著及节选受版权保护；未取得全文转载许可",
       "license_evidence_url": "https://lithub.com/a-writing-lesson-from-ursula-k-leguin/",
@@ -76,7 +97,9 @@
       "title": "Some Thoughts on the Integrity of the Single Line in Poetry",
       "author": "Alberto Ríos",
       "url": "https://poets.org/text/some-thoughts-integrity-single-line-poetry",
-      "catalog_urls": ["https://poets.org/text/some-thoughts-integrity-single-line-poetry"],
+      "catalog_urls": [
+        "https://poets.org/text/some-thoughts-integrity-single-line-poetry"
+      ],
       "kind": "summary",
       "license": "© 2011 Alberto Ríos；原站经 University of Iowa Press 许可转载",
       "license_evidence_url": "https://poets.org/text/some-thoughts-integrity-single-line-poetry",
@@ -89,7 +112,9 @@
       "title": "How to write a scene",
       "author": "John August",
       "url": "https://johnaugust.com/2007/write-scene",
-      "catalog_urls": ["https://johnaugust.com/2007/write-scene"],
+      "catalog_urls": [
+        "https://johnaugust.com/2007/write-scene"
+      ],
       "kind": "summary",
       "license": "原站 All Rights Reserved；未取得全文转载许可",
       "license_evidence_url": "https://johnaugust.com/2007/write-scene",
@@ -102,7 +127,9 @@
       "title": "ダッシュボードデザインの実践ガイドブック — 官方替代文本",
       "author": "デジタル庁 / Digital Agency, Government of Japan",
       "url": "https://www.digital.go.jp/resources/dashboard-guidebook",
-      "catalog_urls": ["https://www.digital.go.jp/resources/dashboard-guidebook"],
+      "catalog_urls": [
+        "https://www.digital.go.jp/resources/dashboard-guidebook"
+      ],
       "kind": "fulltext",
       "converter": "official-text",
       "license": "LicenseRef-PDL-1.0",
@@ -111,7 +138,9 @@
       "reviewed_on": "2026-10-10",
       "min_chars": 5000,
       "text_encoding": "cp932",
-      "text_markers": ["ダッシュボード"],
+      "text_markers": [
+        "ダッシュボード"
+      ],
       "scope_note": "出典：デジタル庁『ダッシュボードデザインの実践ガイドブック』。由 awesome-ai-taste 根据官方发布的替代文本整理为 Markdown，非政府原样发布版本。保留日文文本，不包含原 PDF 的版面、图片或 Power BI 模板；因此不声称是原 PDF 的完整视觉复制。依据 PDL1.0 使用，商标、标志和另列权利的第三方内容不在一般许可范围内。"
     },
     {
@@ -119,7 +148,9 @@
       "title": "Tutorial: Creating an Assertion-Evidence Presentation",
       "author": "Michael Alley / Craft of Scientific Communication",
       "url": "https://www.craftscicom.org/ae_tutorial.html",
-      "catalog_urls": ["https://www.assertion-evidence.com/"],
+      "catalog_urls": [
+        "https://www.assertion-evidence.com/"
+      ],
       "kind": "summary",
       "license": "未发现适用于教程全文的开放转载许可",
       "license_evidence_url": "https://www.craftscicom.org/ae_tutorial.html",
@@ -1044,6 +1075,21 @@
       "reviewed_on": "2026-11-18",
       "scope_note": "仅依据 Academy of American Poets 发布的 June Jordan《Poetry for the People》2026 扩充版节选单页，独立撰写中文编辑摘要。原文是一份诗歌评议顺序与技术自检清单，不是 AI 原生技能。没有获得原作者／出版社的全文转载许可，不复制英文清单或书籍其他章节；原站仅为节选，不可把该页当成全书。主要面向英语诗歌评议，‘去除 to be’‘删除标点’等属于作者诗学选择，并非英语、中文现代诗或格律诗的普适强制规则。全文 Markdown 仍存在许可缺口。",
       "summary": "## 中文编辑摘要\n\n诗人 June Jordan 的评诗指南先让读者大声朗读诗稿，再辨认诗的表达目的、连贯性、有效之处与问题所在，然后才进入具体语言和形式检查。它将一首诗是否传达某种经验、诗句如何发挥作用，与单纯检查技巧分开，使批评者不至于只凭押韵或华丽词汇给出笼统好坏判断。\n\n技术部分提醒评议者关注动词的表现力、意象的具体性、措辞与声音是否独特、分行和行内节奏是否有理由，以及说话声音与读者距离是否一致。原文也提出不使用系动词、尽量不用标点等激进建议；这些属于 Jordan 的特定诗学立场，不能当成所有诗体必须遵守的普适禁令。\n\n## 可采用的规则\n\n给诗稿写评语时，先用一句话说出作品想完成的表达，再各指出一处奏效和一处受阻的具体诗句或声音处理；最后核查动词、分行及节奏是否支持这个目的，而不是只说‘好听’或‘有意境’。\n\n## 适用边界\n\n这是 June Jordan 的个人教学与批评方法，Academy of American Poets 页面为 2026 年再版书籍节选，不是全书、实验研究或 AI skill。批评英语纸面诗时可以采用评议顺序，但不应将她对标点、系动词和诗歌完成度的偏好强制用于其他语言、口头诗或不同诗派。未取得全文再利用许可，故此文件仅为独立中文 Markdown 摘要；原文需到来源网页阅读。"
+    },
+    {
+      "id": "scene-sequel-decisions-writing",
+      "title": "Structuring Your Story’s Scenes, Pt. 10: Options for Decisions in a Scene Sequel",
+      "author": "K.M. Weiland",
+      "url": "https://www.helpingwritersbecomeauthors.com/structuring-your-storys-sequels-pt-10/",
+      "catalog_urls": [
+        "https://www.helpingwritersbecomeauthors.com/structuring-your-storys-sequels-pt-10/"
+      ],
+      "kind": "summary",
+      "license": "© K.M. Weiland / Helping Writers Become Authors；原站保留版权，未确认本篇全文再利用许可，仅存独立中文 Markdown 编辑摘要",
+      "license_evidence_url": "https://www.helpingwritersbecomeauthors.com/site-policy/",
+      "reviewed_on": "2026-11-19",
+      "scope_note": "仅依据 K.M. Weiland 于 2013-02-10 发布的这篇小说场景衔接指南单页，选读关于场景后续（sequel）中的决定是否需要明写的具体论述和《傲慢与偏见》等作品示例。该文是作者结合 Dwight V. Swain 场景概念提出的英语小说写作指导，不是 AI 原生技能，也不是所有文学类型的强制结构。网站保留版权、未核得全文开放再利用许可，不复制英文正文、插图或小说摘录，仅保存独立中文编辑摘要；原站正文需在线阅读，全文 Markdown 缺口仍存在。",
+      "summary": "## 中文编辑摘要\n\nK.M. Weiland 将小说场景中的后续反应（sequel）理解为人物经历上一段事件后，从面临的两难走向选择，再带出下一场行动的过程。她提醒写作者，人物的长期目标往往不能一次完成，应先让人物决定一个可执行的小步骤，避免情节突然跳到不相干的行动。\n\n## 可采用的规则\n\n修改相邻场景时，先在草稿旁用一句话记下人物当前的两难与所做决定，再检查下一场的行动是否已经自然呈现这项决定。如果读者能从上下文看出来，就不必再写一段内心独白宣布它；如果作决定本身改变了人物关系、立场或故事方向，才让这个选择留在正文中。\n\n## 例子与判断\n\n作者以《傲慢与偏见》中班纳特家族计划邀请宾利共进晚餐为例：决定不需要被明确宣布，因为后续发出邀请的行动已经让意图清楚。她也举出角色必须明确表态、而这一表态本身构成转折的情形。检查重点不在出现多少句“我决定”，而是两难与下一行动之间的因果链是否可读。\n\n## 边界\n\n原文属于英语类型小说的场景结构讲义，其中“场景／后续”的术语可用于诊断节奏，但不应要求所有文学小说、意识流或散文都遵循固定六步公式。此处为独立中文 Markdown 摘要，不是英文全文，也不包括原文作品插图；全文版权未获授权转载。"
     }
   ]
 }
