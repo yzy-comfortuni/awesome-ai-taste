@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 94 -->
+<!-- catalog-count: 95 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -69,6 +69,10 @@
 - [June Jordan’s Guidelines for Critiquing a Poem](https://poets.org/june-jordans-guidelines-critiquing-poem) — June Jordan 的诗稿评议讲义，先辨表达目的与成败，再检查语言和节奏；2026 年书籍选摘，主要面向英语诗歌，不将作者对系动词、标点的偏好当通则。[正文](https://poets.org/june-jordans-guidelines-critiquing-poem)
 
   **规则：** 给诗稿写评语时，先用一句话说明作品想完成的表达，再各指出一处奏效与一处受阻的具体诗句，最后检查动词、分行和节奏是否支持这个目的。[出处](https://poets.org/june-jordans-guidelines-critiquing-poem)
+
+- [Structuring Your Story’s Scenes, Pt. 10 — Scene Sequel Decisions](https://www.helpingwritersbecomeauthors.com/structuring-your-storys-sequels-pt-10/) — K.M. Weiland 以《傲慢与偏见》等例子解释场景后续（sequel）中何时明写人物的决定；适用于英语小说的场景衔接修订，不把 Swain 模型当作通用情节公式。[正文](https://www.helpingwritersbecomeauthors.com/structuring-your-storys-sequels-pt-10/)
+
+  **规则：** 修订相邻场景时，先写出人物面对的两难与选择；若下一场的行动已说明其决定，就删去重复的内心宣告，只有决定本身构成人物转折或必要衔接时才明写。[出处](https://www.helpingwritersbecomeauthors.com/structuring-your-storys-sequels-pt-10/)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
