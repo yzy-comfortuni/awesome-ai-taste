@@ -360,6 +360,10 @@
 
   **规则：** 当节点连线过密、难以辨认节点簇时，试用邻接矩阵，并调整行列顺序以突出聚类关系。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007244)
 
+- [Ten simple rules to colorize biological data visualization](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008259) — Hattab 等人的科研数据配色指南，用热图正反例区分顺序与发散色带；主要适用于静态科学数据图，不替代色觉无障碍检查。原论文 Fig 1 于 2021 年更正。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008259)
+
+  **规则：** 画没有有意义中点的 0–1 相似度热图时，用明度有序的顺序色带，不套正负变化用的发散色带；只有零变化等分界确有意义时才选发散色带。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008259)
+
 ## 动画与视频
 
 - [huashu-art-motion](https://github.com/alchaincyf/huashu-art-motion) — 给编程助手的艺术动画指南：先画关键帧，再安排动作、转场和节拍；适合代码生成的动画与解说片，人物示范素材另有使用限制。[正文](https://github.com/alchaincyf/huashu-art-motion/blob/main/SKILL.md) <!-- source-meta -->[![Stars](https://img.shields.io/github/stars/alchaincyf/huashu-art-motion?style=flat&label=Stars&cacheSeconds=3600)](https://github.com/alchaincyf/huashu-art-motion/stargazers) · [副本](vendor/alchaincyf/huashu-art-motion)<!-- /source-meta -->
