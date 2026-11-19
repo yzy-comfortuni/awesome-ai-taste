@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 95 -->
+<!-- catalog-count: 96 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -73,6 +73,10 @@
 - [Structuring Your Story’s Scenes, Pt. 10 — Scene Sequel Decisions](https://www.helpingwritersbecomeauthors.com/structuring-your-storys-sequels-pt-10/) — K.M. Weiland 以《傲慢与偏见》等例子解释场景后续（sequel）中何时明写人物的决定；适用于英语小说的场景衔接修订，不把 Swain 模型当作通用情节公式。[正文](https://www.helpingwritersbecomeauthors.com/structuring-your-storys-sequels-pt-10/)
 
   **规则：** 修订相邻场景时，先写出人物面对的两难与选择；若下一场的行动已说明其决定，就删去重复的内心宣告，只有决定本身构成人物转折或必要衔接时才明写。[出处](https://www.helpingwritersbecomeauthors.com/structuring-your-storys-sequels-pt-10/)
+
+- [Ten simple rules to colorize biological data visualization](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008259) — Hattab 等人的科研数据配色指南，用热图正反例区分顺序与发散色带；主要适用于静态科学数据图，不替代色觉无障碍检查。原论文 Fig 1 于 2021 年更正。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008259)
+
+  **规则：** 画没有有意义中点的 0–1 相似度热图时，用明度有序的顺序色带，不套正负变化用的发散色带；只有零变化等分界确有意义时才选发散色带。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008259)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
