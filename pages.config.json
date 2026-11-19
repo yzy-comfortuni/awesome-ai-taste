@@ -1090,6 +1090,35 @@
       "reviewed_on": "2026-11-19",
       "scope_note": "仅依据 K.M. Weiland 于 2013-02-10 发布的这篇小说场景衔接指南单页，选读关于场景后续（sequel）中的决定是否需要明写的具体论述和《傲慢与偏见》等作品示例。该文是作者结合 Dwight V. Swain 场景概念提出的英语小说写作指导，不是 AI 原生技能，也不是所有文学类型的强制结构。网站保留版权、未核得全文开放再利用许可，不复制英文正文、插图或小说摘录，仅保存独立中文编辑摘要；原站正文需在线阅读，全文 Markdown 缺口仍存在。",
       "summary": "## 中文编辑摘要\n\nK.M. Weiland 将小说场景中的后续反应（sequel）理解为人物经历上一段事件后，从面临的两难走向选择，再带出下一场行动的过程。她提醒写作者，人物的长期目标往往不能一次完成，应先让人物决定一个可执行的小步骤，避免情节突然跳到不相干的行动。\n\n## 可采用的规则\n\n修改相邻场景时，先在草稿旁用一句话记下人物当前的两难与所做决定，再检查下一场的行动是否已经自然呈现这项决定。如果读者能从上下文看出来，就不必再写一段内心独白宣布它；如果作决定本身改变了人物关系、立场或故事方向，才让这个选择留在正文中。\n\n## 例子与判断\n\n作者以《傲慢与偏见》中班纳特家族计划邀请宾利共进晚餐为例：决定不需要被明确宣布，因为后续发出邀请的行动已经让意图清楚。她也举出角色必须明确表态、而这一表态本身构成转折的情形。检查重点不在出现多少句“我决定”，而是两难与下一行动之间的因果链是否可读。\n\n## 边界\n\n原文属于英语类型小说的场景结构讲义，其中“场景／后续”的术语可用于诊断节奏，但不应要求所有文学小说、意识流或散文都遵循固定六步公式。此处为独立中文 Markdown 摘要，不是英文全文，也不包括原文作品插图；全文版权未获授权转载。"
+    },
+    {
+      "id": "colorizing-biological-data-visualization",
+      "title": "Ten simple rules to colorize biological data visualization",
+      "author": "Georges Hattab; Theresa-Marie Rhyne; Dominik Heider",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008259",
+      "catalog_urls": [
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008259"
+      ],
+      "kind": "fulltext",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008259",
+      "license_marker": "Creative Commons Attribution License",
+      "reviewed_on": "2026-11-20",
+      "markers": [
+        "Rule 1:",
+        "Rule 2:",
+        "Rule 3:",
+        "Rule 4:",
+        "Rule 5:",
+        "Rule 6:",
+        "Rule 7:",
+        "Rule 8:",
+        "Rule 9:",
+        "Rule 10:",
+        "References"
+      ],
+      "min_chars": 8000,
+      "scope_note": "© 2020 Georges Hattab、Theresa-Marie Rhyne 与 Dominik Heider。PLOS Computational Biology 16(10): e1008259，DOI: 10.1371/journal.pcbi.1008259。依据原站明确的 Creative Commons Attribution License（CC BY 4.0）仅转换该篇英文文章正文、十条规则、图注与参考文献，排除网站导航、广告、评论和站外媒体；外链图像不等于离线保存。Markdown 格式转换由 awesome-ai-taste 完成，不代表原作者或期刊背书。文中 Rule 4 的 0–1 Jaccard 热图展示无有意义中点的数据应使用顺序色带；有临界点的正负变化才用发散色带。仅面向科学数据图，不能代替对色觉障碍的无障碍检查。原论文 Fig 1 曾存在相邻色（Analogous）色轮示意错误，2021-04-06 勘误修正：https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008901 。本归档含原始论文页面所展示内容；应结合该勘误阅读，不把旧图当最新正确版本。许可：https://creativecommons.org/licenses/by/4.0/ 。"
     }
   ]
 }
