@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 96 -->
+<!-- catalog-count: 97 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -77,6 +77,10 @@
 - [Ten simple rules to colorize biological data visualization](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008259) — Hattab 等人的科研数据配色指南，用热图正反例区分顺序与发散色带；主要适用于静态科学数据图，不替代色觉无障碍检查。原论文 Fig 1 于 2021 年更正。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008259)
 
   **规则：** 画没有有意义中点的 0–1 相似度热图时，用明度有序的顺序色带，不套正负变化用的发散色带；只有零变化等分界确有意义时才选发散色带。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008259)
+
+- [EPO Guidelines A-IX, 7.5.5 — Consistent Reference Signs in Drawings](https://www.epo.org/en/legal/guidelines-epc/2026/a_ix_7_5_5.html) — 欧洲专利局 2026 年审查指南对跨图附图标记及多实施例编号例外的说明；限 EPC 申请附图，不是其他法域的标准或授权保证。[正文](https://www.epo.org/en/legal/guidelines-epc/2026/a_ix_7_5_5.html)
+
+  **规则：** 校对同一技术特征在各张附图中的标记：原则上同号；若不同实施例用 `115`、`215` 表示图 1、图 2 的对应特征，须在说明书解释编号前缀，避免读者误认为是无关部件。[出处](https://www.epo.org/en/legal/guidelines-epc/2026/a_ix_7_5_5.html)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
