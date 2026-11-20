@@ -176,6 +176,10 @@
 
   **规则：** 修改欧洲专利独立权利要求后，若特征 C 已列为必备，检查说明书是否仍称 C 为 `may` 或 `optional`；使 C 看似可选的冲突表述须修正，不能仅因实施例含额外特征就删去实施例。[出处](https://www.epo.org/en/legal/official-journal/notice-10-november-2026)
 
+- [EPO Guidelines A-IX, 7.5.5 — Consistent Reference Signs in Drawings](https://www.epo.org/en/legal/guidelines-epc/2026/a_ix_7_5_5.html) — 欧洲专利局 2026 年审查指南对跨图附图标记及多实施例编号例外的说明；限 EPC 申请附图，不是其他法域的标准或授权保证。[正文](https://www.epo.org/en/legal/guidelines-epc/2026/a_ix_7_5_5.html)
+
+  **规则：** 校对同一技术特征在各张附图中的标记：原则上同号；若不同实施例用 `115`、`215` 表示图 1、图 2 的对应特征，须在说明书解释编号前缀，避免读者误认为是无关部件。[出处](https://www.epo.org/en/legal/guidelines-epc/2026/a_ix_7_5_5.html)
+
 ## 学术论文
 
 - [Ten Simple Rules for Structuring Papers](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619) — 围绕中心贡献，用“背景—内容—结论”组织科学论文；适合研究论文的结构修改，仍须遵守学科和期刊规范。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619) <!-- article-copy --> · [Markdown 正文](vendor/articles/ten-simple-rules-structuring-papers.md)<!-- /article-copy -->
