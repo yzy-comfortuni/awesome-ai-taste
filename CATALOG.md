@@ -304,6 +304,10 @@
 
   **规则：** 给英语歌词标出自然朗读时的重读音节，对照旋律强调的位置；若无意中突出弱读词，就尝试调整词或旋律，刻意制造语气错位的情形除外。[出处](https://www.berklee.edu/berklee-now/news/berklee-riffs-natural-music-in-language)
 
+- [Music Composition — Lyric Writing](https://github.com/SJY051/music-composition) — 音乐创作 skill 的英语歌词参考页，重点检查副歌高音、延音的发音是否顺畅；不替代歌手试唱，也不直接套用于中文声调歌曲。[正文](https://github.com/SJY051/music-composition/blob/main/references/songwriting/lyric-writing.md)
+
+  **规则：** 把副歌唱在实际旋律上，逐个检查高音与长音；若延音卡在 `-st`、`-nch` 等辅音连缀上，尝试更适合持续发声的元音或调整音符落点，同时保留歌词原意。[出处](https://github.com/SJY051/music-composition/blob/main/references/songwriting/lyric-writing.md)
+
 ## 剧本写作
 
 - [How to Write a Scene](https://johnaugust.com/2007/write-scene) — John August 的英语影视剧本指南，帮助判断一场戏是否必要，以及如何安排人物、地点和开场。[正文](https://johnaugust.com/2007/write-scene) <!-- article-copy --> · [Markdown 摘要](vendor/articles/how-to-write-a-scene.md)<!-- /article-copy -->
