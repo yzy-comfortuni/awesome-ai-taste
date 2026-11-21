@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 97 -->
+<!-- catalog-count: 98 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -81,6 +81,10 @@
 - [EPO Guidelines A-IX, 7.5.5 — Consistent Reference Signs in Drawings](https://www.epo.org/en/legal/guidelines-epc/2026/a_ix_7_5_5.html) — 欧洲专利局 2026 年审查指南对跨图附图标记及多实施例编号例外的说明；限 EPC 申请附图，不是其他法域的标准或授权保证。[正文](https://www.epo.org/en/legal/guidelines-epc/2026/a_ix_7_5_5.html)
 
   **规则：** 校对同一技术特征在各张附图中的标记：原则上同号；若不同实施例用 `115`、`215` 表示图 1、图 2 的对应特征，须在说明书解释编号前缀，避免读者误认为是无关部件。[出处](https://www.epo.org/en/legal/guidelines-epc/2026/a_ix_7_5_5.html)
+
+- [Music Composition — Lyric Writing](https://github.com/SJY051/music-composition) — 英语歌词的演唱适配参考，检查高音和延音上的发音；不直接套用于中文声调歌曲。[正文](https://github.com/SJY051/music-composition/blob/main/references/songwriting/lyric-writing.md)
+
+  **规则：** 将副歌唱在实际旋律上，若长音卡在 `-st`、`-nch` 等辅音连缀，尝试更便于持续发声的元音或调整音符落点，保留歌词原意。[出处](https://github.com/SJY051/music-composition/blob/main/references/songwriting/lyric-writing.md)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
