@@ -1134,6 +1134,29 @@
       "reviewed_on": "2026-11-21",
       "scope_note": "仅摘要欧洲专利局《Guidelines for Examination in the European Patent Office》2026 年版 A-IX 7.5.5 单节；原站许可未确认开放全文再利用，不复制英文正文、网站图像或整部指南。该页的 115/215 编号例外以说明书解释前缀为条件。本摘要非官方译本，只适用于 EPC 专利附图写法，不构成中国或美国专利的法律意见或授权保证。",
       "summary": "## 中文编辑摘要\n\n欧洲专利局 2026 年审查指南 A-IX 7.5.5 讨论不同附图间的技术特征编号。同一技术特征如果在各图中随意改用不同标记，读者会难以判断它们是否为同一个部件；一般应保持同一特征标记一致。\n\n原文允许一种有条件的例外：若多张图分别描述不同实施例，且对应部件功能相同或基本相同，可在说明书明确解释编号规则后，用图号或实施例号作前缀。例如图 1 的对应特征为 115、图 2 为 215，后两位 15 表示功能对应的特征。这样的编号既区分所属图或实施例，又保留部件对应关系，前提是说明书解释其约定。\n\n## 可采用的规则\n\n修改多实施例专利申请时，制作各图附图标记对照；同一特征原则上用同号，如采用 115/215 一类前缀编号，先在说明书解释前缀，再检查各图及正文是否一致。\n\n## 适用边界\n\n本节只处理 EPO 2026 年版附图标记的跨图一致性，不涉及专利充分公开、权利要求保护范围或所有图纸格式要求；不代表中国或美国法域要求。此文件是独立中文 Markdown 摘要，不是官方原文或全文翻译。"
+    },
+    {
+      "id": "empirical-rules-writing-science",
+      "title": "Ten Simple (Empirical) Rules for Writing Science",
+      "author": "Cody J. Weinberger; James A. Evans; Stefano Allesina",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004205",
+      "catalog_urls": [
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004205"
+      ],
+      "kind": "fulltext",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004205",
+      "license_marker": "Creative Commons Attribution License",
+      "reviewed_on": "2026-11-23",
+      "markers": [
+        "Rule 1: Keep It Short",
+        "Rule 5: Avoid Adjectives and Adverbs",
+        "Rule 10: Avoid Evocative Words",
+        "Conclusions",
+        "References"
+      ],
+      "min_chars": 6000,
+      "scope_note": "© 2015 Cody J. Weinberger、James A. Evans、Stefano Allesina。PLOS Computational Biology 11(4): e1004205；DOI 10.1371/journal.pcbi.1004205。原文按 CC BY 4.0 发布（https://creativecommons.org/licenses/by/4.0/），仅转换该篇英文文章正文、十条被检验的常见写作建议、统计结果、局限、图注和参考文献；排除网站导航、广告、评论及独立补充资料。图片为远程链接，不构成离线媒体包。Markdown 格式转换由本仓库完成，保留原作者署名，非期刊背书。作者分析八个学科逾百万篇论文摘要的语言特征与引用量关联，部分常见“越短越好”建议与更高引用量不一致；检索可见性只是作者提出的可能解释，并未证明摘要长度导致引用变化，引用量也不等于文章质量。适用于诊断英文科研摘要的信息损失，不作为统一字数、词汇或引用量优化标准。"
     }
   ]
 }
