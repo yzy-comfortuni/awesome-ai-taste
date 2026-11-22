@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 98 -->
+<!-- catalog-count: 99 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -85,6 +85,10 @@
 - [Music Composition — Lyric Writing](https://github.com/SJY051/music-composition) — 英语歌词的演唱适配参考，检查高音和延音上的发音；不直接套用于中文声调歌曲。[正文](https://github.com/SJY051/music-composition/blob/main/references/songwriting/lyric-writing.md)
 
   **规则：** 将副歌唱在实际旋律上，若长音卡在 `-st`、`-nch` 等辅音连缀，尝试更便于持续发声的元音或调整音符落点，保留歌词原意。[出处](https://github.com/SJY051/music-composition/blob/main/references/songwriting/lyric-writing.md)
+
+- [Ten Simple (Empirical) Rules for Writing Science](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004205) — Weinberger 等对八个学科逾百万篇科研摘要的文风与被引关联分析，提醒改写英文摘要时不要盲目删掉具体研究信息；被引数不是写作质量，也不能据相关性推断因果。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004205)
+
+  **规则：** 精简英文论文摘要时，先标出研究对象、方法和关键结果等可检索的具体信息，只删重复套话，不为缩短字数而抹掉这些内容；原文观察到的被引关联不等于“加字就会增引”。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004205)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
