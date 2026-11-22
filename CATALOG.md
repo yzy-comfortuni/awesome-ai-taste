@@ -230,6 +230,10 @@
 
   **规则：** 写公开的论文回应时，先按原作者自己的判断标准复核其结论；若原文证据与其标准矛盾，就列出标准、对应结果和推论问题，而不是另换一套评价标准。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004536)
 
+- [Ten Simple (Empirical) Rules for Writing Science](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004205) — Weinberger 等对八个学科逾百万篇科研摘要的文风与被引关联分析，提醒改写英文摘要时不要盲目删掉具体研究信息；被引数不是写作质量，也不能据相关性推断因果。[正文](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004205)
+
+  **规则：** 精简英文论文摘要时，先标出研究对象、方法和关键结果等可检索的具体信息，只删重复套话，不为缩短字数而抹掉这些内容；原文观察到的被引关联不等于“加字就会增引”。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004205)
+
 ## 小说写作
 
 - [Steering the Craft](https://www.ursulakleguin.com/steering-the-craft) — Le Guin 的英语叙事写作练习，训练句子节奏、视角和叙述距离；适合小说与叙事散文，不套固定情节公式。[第一章节选](https://lithub.com/a-writing-lesson-from-ursula-k-leguin/) <!-- article-copy --> · [Markdown 摘要](vendor/articles/steering-the-craft.md)<!-- /article-copy -->
