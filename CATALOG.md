@@ -426,6 +426,10 @@
 
   **规则：** 学术海报不能假定读者按论文顺序阅读：将问题、证据和结论排成连贯的信息块，再用编号或箭头标明推荐的阅读路径。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0030102)
 
+- [Academic Poster — General Academic Poster Design](https://github.com/ChenYvhang/academic-poster) — Yuhang Chen 的学术海报设计参考，处理各栏内容与视觉重心失衡；面向会议展板，优先遵守主办方尺寸和字号要求。[正文](https://github.com/ChenYvhang/academic-poster/blob/main/references/general-poster-design.md)
+
+  **规则：** 一栏拥挤而另一栏留空时，先移动完整的内容块、放大关键结果图或压缩次要内容，再考虑缩小字号；不要用无关解释填满空栏。[出处](https://github.com/ChenYvhang/academic-poster/blob/main/references/general-poster-design.md)
+
 ## 获取副本
 
 [副本状态](vendor/README.md) · [网页 Markdown 状态](vendor/articles/README.md) · [使用与更新说明](SYNC.md)
