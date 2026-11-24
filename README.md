@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 100 -->
+<!-- catalog-count: 101 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -93,6 +93,10 @@
 - [Academic Poster — General Academic Poster Design](https://github.com/ChenYvhang/academic-poster) — Yuhang Chen 的学术海报设计参考，处理各栏内容与视觉重心失衡；面向会议展板，优先遵守主办方尺寸和字号要求。[正文](https://github.com/ChenYvhang/academic-poster/blob/main/references/general-poster-design.md)
 
   **规则：** 一栏拥挤而另一栏留空时，先移动完整的内容块、放大关键结果图或压缩次要内容，再考虑缩小字号；不要用无关解释填满空栏。[出处](https://github.com/ChenYvhang/academic-poster/blob/main/references/general-poster-design.md)
+
+- [Subtext You Can Build](https://www.notmfa.com/craft/form-not-formula-subtext-design) — Matthew Cricchio 的英语小说潜台词设计讲义，以原创场景说明说出、未说与不可说的张力；未确认全文转载许可，仅收录中文编辑摘要。[正文](https://www.notmfa.com/craft/form-not-formula-subtext-design)
+
+  **规则：** 为每位说话人标一个即时目标动词，再写出直说的私人代价；用一个动作或物件泄露压力，并在五轮交流内至少让风险升级一次。[出处](https://www.notmfa.com/craft/form-not-formula-subtext-design)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
