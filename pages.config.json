@@ -1157,6 +1157,21 @@
       ],
       "min_chars": 6000,
       "scope_note": "© 2015 Cody J. Weinberger、James A. Evans、Stefano Allesina。PLOS Computational Biology 11(4): e1004205；DOI 10.1371/journal.pcbi.1004205。原文按 CC BY 4.0 发布（https://creativecommons.org/licenses/by/4.0/），仅转换该篇英文文章正文、十条被检验的常见写作建议、统计结果、局限、图注和参考文献；排除网站导航、广告、评论及独立补充资料。图片为远程链接，不构成离线媒体包。Markdown 格式转换由本仓库完成，保留原作者署名，非期刊背书。作者分析八个学科逾百万篇论文摘要的语言特征与引用量关联，部分常见“越短越好”建议与更高引用量不一致；检索可见性只是作者提出的可能解释，并未证明摘要长度导致引用变化，引用量也不等于文章质量。适用于诊断英文科研摘要的信息损失，不作为统一字数、词汇或引用量优化标准。"
+    },
+    {
+      "id": "notmfa-subtext-you-can-build",
+      "title": "Subtext You Can Build",
+      "author": "Matthew Cricchio",
+      "url": "https://www.notmfa.com/craft/form-not-formula-subtext-design",
+      "catalog_urls": [
+        "https://www.notmfa.com/craft/form-not-formula-subtext-design"
+      ],
+      "kind": "summary",
+      "license": "© Matthew Cricchio / NotMFA；未确认全文再利用许可，仅保存独立中文编辑摘要",
+      "license_evidence_url": "https://www.notmfa.com/craft/form-not-formula-subtext-design",
+      "reviewed_on": "2026-11-25",
+      "scope_note": "仅依据 Matthew Cricchio 于 2025-08-26 发布的《Subtext You Can Build》单页。该文为英语小说写作指导，以原创人物场景说明潜台词、环境调度与风险升级的关系。页面未提供明确的全文再利用许可，因此只保存独立中文编辑摘要，不复制英文正文、长对话示例、插图、worksheet 或整站内容；不把作者方法当作普适情节公式。非 AI 原生 skill，未进行 AI 效果实测。",
+      "summary": "## 中文编辑摘要\n\nMatthew Cricchio 将潜台词视为场景设计：人物说出口的（Said）、心里保留的（Unsaid）、连自己也无法承认的动机或恐惧（Unsayable）之间形成张力。读者不是靠作者解释情绪，而是从人物的动作、物件摆放、说话节奏和视角注意到的细节推断。\n\n## 可采用的规则\n\n为每位说话人先写一个即时目标动词（如说服、回避、试探），再标明直说的私人代价；选择一个动作或物件泄露压力，并在不超过五轮交流内让风险上升一次。检查动作是否与人物顾虑有关，而不是随意加道具。\n\n## 例子与边界\n\n原文用一场厨房对话说明：人物试图间接求助，隐藏的通知和反复移动的杯子逐步暴露压力，最终对话转为具体条件。作者还区分推动当下行动的戏剧化对白、重构自我的独白和压缩过渡时间的叙述式对白。此法适合英语小说的场景潜台词设计，不是每段对话都必须含蓄，也不是所有场景都要在五轮内升级。"
     }
   ]
 }
