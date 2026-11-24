@@ -154,6 +154,11 @@ class PageTests(unittest.TestCase):
         with self.assertRaises(m.ArchiveError):
             m.url_ok('https://www.unr.edu.evil.example/psychic-distance')
 
+    def test_reviewed_notmfa_summary_host_and_unreviewed_lookalike(self):
+        m.url_ok('https://www.notmfa.com/craft/form-not-formula-subtext-design')
+        with self.assertRaises(m.ArchiveError):
+            m.url_ok('https://www.notmfa.com.evil.example/craft/form-not-formula-subtext-design')
+
     def test_symlink_output_rejected(self):
         outside = self.root/'outside'
         outside.mkdir()
