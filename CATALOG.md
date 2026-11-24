@@ -272,6 +272,10 @@
 
   **规则：** 修订相邻场景时，先写出人物面对的两难与选择；若下一场的行动已说明其决定，就删去重复的内心宣告，只有决定本身构成人物转折或必要衔接时才明写。[出处](https://www.helpingwritersbecomeauthors.com/structuring-your-storys-sequels-pt-10/)
 
+- [Subtext You Can Build](https://www.notmfa.com/craft/form-not-formula-subtext-design) — Matthew Cricchio 以原创场景说明潜台词的“说出／未说／不可说”层次，并将人物目标、隐瞒代价、动作物件与风险升级连成修订方法；适用于英语小说场景，不是 AI 原生 skill 或通用情节公式。原站未确认全文转载许可，仅收录独立中文编辑摘要。[正文](https://www.notmfa.com/craft/form-not-formula-subtext-design)
+
+  **规则：** 为每位说话人标一个即时目标动词，再写出直说的私人代价；用一个动作或物件泄露压力，并在五轮交流内至少让风险升级一次。[出处](https://www.notmfa.com/craft/form-not-formula-subtext-design)
+
 ## 诗歌写作
 
 - [Some Thoughts on the Integrity of the Single Line in Poetry](https://poets.org/text/some-thoughts-integrity-single-line-poetry) — Alberto Ríos 用分行对照讨论停顿、跨行和诗行的独立意味；主要谈英语抒情诗，代表作者的一种诗学观点。[正文](https://poets.org/text/some-thoughts-integrity-single-line-poetry) <!-- article-copy --> · [Markdown 摘要](vendor/articles/integrity-of-the-poetic-line.md)<!-- /article-copy -->
