@@ -306,6 +306,10 @@
 
   **规则：** 给诗稿写评语时，先用一句话说明作品想完成的表达，再各指出一处奏效与一处受阻的具体诗句，最后检查动词、分行和节奏是否支持这个目的。[出处](https://poets.org/june-jordans-guidelines-critiquing-poem)
 
+- [Where It Breaks: Drama, Silence, Speed, and Accrual](https://poets.org/text/where-it-breaks-drama-silence-speed-and-accrual) — Dana Levin 的英语诗歌随笔，讨论分行如何安排情绪停顿、阅读速度与逐步累积；聚焦自由诗的节奏，不是通用分行公式。[正文](https://poets.org/text/where-it-breaks-drama-silence-speed-and-accrual) <!-- article-copy --> · [Markdown 摘要](vendor/articles/where-it-breaks-drama-silence-speed-accrual.md)<!-- /article-copy -->
+
+  **规则：** 朗读时逐处读出分行的停顿，再检查它是否对应情绪、思路或速度变化；需要先积累再加速时，可让短行逐步收束后接一条长行，让阅读速度随场景变化。[出处](https://poets.org/text/where-it-breaks-drama-silence-speed-and-accrual)
+
 ## 歌词写作
 
 - [Berklee Riffs: Natural Music in Language](https://www.berklee.edu/berklee-now/news/berklee-riffs-natural-music-in-language) — Berklee 对 Keppie Coutts 作词课堂的记录：让英语口语重音与旋律安排相互照应；适用于英语歌曲，不是中文声调或所有曲风的通则。[正文](https://www.berklee.edu/berklee-now/news/berklee-riffs-natural-music-in-language) <!-- article-copy --> · [Markdown 摘要](vendor/articles/berklee-natural-stress-lyrics.md)<!-- /article-copy -->
