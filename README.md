@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 101 -->
+<!-- catalog-count: 102 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -97,6 +97,10 @@
 - [Subtext You Can Build](https://www.notmfa.com/craft/form-not-formula-subtext-design) — Matthew Cricchio 的英语小说潜台词设计讲义，以原创场景说明说出、未说与不可说的张力；未确认全文转载许可，仅收录中文编辑摘要。[正文](https://www.notmfa.com/craft/form-not-formula-subtext-design)
 
   **规则：** 为每位说话人标一个即时目标动词，再写出直说的私人代价；用一个动作或物件泄露压力，并在五轮交流内至少让风险升级一次。[出处](https://www.notmfa.com/craft/form-not-formula-subtext-design)
+
+- [Where It Breaks: Drama, Silence, Speed, and Accrual](https://poets.org/text/where-it-breaks-drama-silence-speed-and-accrual) — Dana Levin 的英语诗歌随笔，讨论分行如何安排情绪停顿、阅读速度与逐步累积；聚焦自由诗的节奏，不是通用分行公式。[正文](https://poets.org/text/where-it-breaks-drama-silence-speed-and-accrual)
+
+  **规则：** 朗读时逐处读出分行的停顿，再检查它是否对应情绪、思路或速度变化；需要先积累再加速时，可让短行逐步收束后接一条长行。[出处](https://poets.org/text/where-it-breaks-drama-silence-speed-and-accrual)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
