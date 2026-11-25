@@ -1172,6 +1172,21 @@
       "reviewed_on": "2026-11-25",
       "scope_note": "仅依据 Matthew Cricchio 于 2025-08-26 发布的《Subtext You Can Build》单页。该文为英语小说写作指导，以原创人物场景说明潜台词、环境调度与风险升级的关系。页面未提供明确的全文再利用许可，因此只保存独立中文编辑摘要，不复制英文正文、长对话示例、插图、worksheet 或整站内容；不把作者方法当作普适情节公式。非 AI 原生 skill，未进行 AI 效果实测。",
       "summary": "## 中文编辑摘要\n\nMatthew Cricchio 将潜台词视为场景设计：人物说出口的（Said）、心里保留的（Unsaid）、连自己也无法承认的动机或恐惧（Unsayable）之间形成张力。读者不是靠作者解释情绪，而是从人物的动作、物件摆放、说话节奏和视角注意到的细节推断。\n\n## 可采用的规则\n\n为每位说话人先写一个即时目标动词（如说服、回避、试探），再标明直说的私人代价；选择一个动作或物件泄露压力，并在不超过五轮交流内让风险上升一次。检查动作是否与人物顾虑有关，而不是随意加道具。\n\n## 例子与边界\n\n原文用一场厨房对话说明：人物试图间接求助，隐藏的通知和反复移动的杯子逐步暴露压力，最终对话转为具体条件。作者还区分推动当下行动的戏剧化对白、重构自我的独白和压缩过渡时间的叙述式对白。此法适合英语小说的场景潜台词设计，不是每段对话都必须含蓄，也不是所有场景都要在五轮内升级。"
+    },
+    {
+      "id": "where-it-breaks-drama-silence-speed-accrual",
+      "title": "Where It Breaks: Drama, Silence, Speed, and Accrual",
+      "author": "Dana Levin",
+      "url": "https://poets.org/text/where-it-breaks-drama-silence-speed-and-accrual",
+      "catalog_urls": [
+        "https://poets.org/text/where-it-breaks-drama-silence-speed-and-accrual"
+      ],
+      "kind": "summary",
+      "license": "© 2011 Dana Levin；Poets.org 页面注明经 University of Iowa Press 许可转载；未确认本仓库全文再利用许可，仅存独立中文编辑摘要",
+      "license_evidence_url": "https://poets.org/text/where-it-breaks-drama-silence-speed-and-accrual",
+      "reviewed_on": "2026-11-26",
+      "scope_note": "仅依据 Dana Levin 的单页随笔《Where It Breaks: Drama, Silence, Speed, and Accrual》。页面注明本文重印自 A Broken Thing: Poets on the Line（Emily Rosko、Anton Vander Zee 编），经 University of Iowa Press 许可，版权归 Dana Levin；该许可是原站转载许可，不构成本仓库全文转载授权。仅保存独立中文编辑摘要，不复制原文诗歌摘录、插图或整本选集。内容主要讨论英语现代诗／自由诗的分行、停顿、速度与情绪，不作为中文格律诗或所有诗体的统一规则。",
+      "summary": "## 中文摘要\n\nDana Levin 把诗行的断点看作戏剧性停顿：空白可以表现说话者在情绪或思路上碰到的沉默。跨行不仅改变句法悬念，也控制读者移动的速度。她比较了长行连续推进、突然停顿的效果，也用 Michael Dickman 的诗说明短行逐步积累后接长行，可以让读者从迟缓思索转入突然行动。她要求朗读时把断行也读出来，检查它如何参与诗的体验。\n\n## 可采用的规则\n\n朗读时逐处读出分行的停顿，再检查它是否对应情绪、思路或速度变化；需要先积累再加速时，可让短行逐步收束后接一条长行，让阅读速度随场景变化。\n\n## 适用边界\n\n原文主要以英语现代诗／自由诗为例，强调诗行长度与 enjambment 对节奏、沉默和情绪的作用。它是一位诗人的创作观点，不是所有诗体的统一规则，不能机械套用于中文格律诗或要求每个断行都制造戏剧效果。原文版权归作者；这里只保存独立中文摘要，未转载英文全文或长诗摘录。"
     }
   ]
 }
