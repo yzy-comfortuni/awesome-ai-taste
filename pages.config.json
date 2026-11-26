@@ -1187,6 +1187,27 @@
       "reviewed_on": "2026-11-26",
       "scope_note": "仅依据 Dana Levin 的单页随笔《Where It Breaks: Drama, Silence, Speed, and Accrual》。页面注明本文重印自 A Broken Thing: Poets on the Line（Emily Rosko、Anton Vander Zee 编），经 University of Iowa Press 许可，版权归 Dana Levin；该许可是原站转载许可，不构成本仓库全文转载授权。仅保存独立中文编辑摘要，不复制原文诗歌摘录、插图或整本选集。内容主要讨论英语现代诗／自由诗的分行、停顿、速度与情绪，不作为中文格律诗或所有诗体的统一规则。",
       "summary": "## 中文摘要\n\nDana Levin 把诗行的断点看作戏剧性停顿：空白可以表现说话者在情绪或思路上碰到的沉默。跨行不仅改变句法悬念，也控制读者移动的速度。她比较了长行连续推进、突然停顿的效果，也用 Michael Dickman 的诗说明短行逐步积累后接长行，可以让读者从迟缓思索转入突然行动。她要求朗读时把断行也读出来，检查它如何参与诗的体验。\n\n## 可采用的规则\n\n朗读时逐处读出分行的停顿，再检查它是否对应情绪、思路或速度变化；需要先积累再加速时，可让短行逐步收束后接一条长行，让阅读速度随场景变化。\n\n## 适用边界\n\n原文主要以英语现代诗／自由诗为例，强调诗行长度与 enjambment 对节奏、沉默和情绪的作用。它是一位诗人的创作观点，不是所有诗体的统一规则，不能机械套用于中文格律诗或要求每个断行都制造戏剧效果。原文版权归作者；这里只保存独立中文摘要，未转载英文全文或长诗摘录。"
+    },
+    {
+      "id": "limited-by-our-limitations",
+      "title": "Limited by our limitations",
+      "author": "Paula T Ross; Nikki L Bibler Zaidi",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6684501/",
+      "catalog_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6684501/"
+      ],
+      "kind": "fulltext",
+      "license": "CC-BY-4.0",
+      "license_evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6684501/",
+      "license_marker": "Creative Commons Attribution 4.0 International License",
+      "reviewed_on": "2026-11-27",
+      "markers": [
+        "Abstract",
+        "A guide to presenting limitations",
+        "References"
+      ],
+      "min_chars": 6500,
+      "scope_note": "© 2019 Paula T Ross and Nikki L Bibler Zaidi. Perspectives on Medical Education 8(4):261–264, DOI: 10.1007/s40037-019-00530-x. The PMC page explicitly identifies this single article as CC BY 4.0; this archive converts the full English article, including its limitation categories, four-part guidance and references, while excluding site navigation and unrelated pages. Markdown conversion is by awesome-ai-taste and is not author endorsement. The examples are rooted in medical education research; apply the reasoning to other empirical papers only where the design and claims fit. This is a writing aid, not a substitute for study-specific evidence or journal instructions. License: https://creativecommons.org/licenses/by/4.0/."
     }
   ]
 }
