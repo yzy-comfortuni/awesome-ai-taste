@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 102 -->
+<!-- catalog-count: 103 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -101,6 +101,11 @@
 - [Where It Breaks: Drama, Silence, Speed, and Accrual](https://poets.org/text/where-it-breaks-drama-silence-speed-and-accrual) — Dana Levin 的英语诗歌随笔，讨论分行如何安排情绪停顿、阅读速度与逐步累积；聚焦自由诗的节奏，不是通用分行公式。[正文](https://poets.org/text/where-it-breaks-drama-silence-speed-and-accrual)
 
   **规则：** 朗读时逐处读出分行的停顿，再检查它是否对应情绪、思路或速度变化；需要先积累再加速时，可让短行逐步收束后接一条长行。[出处](https://poets.org/text/where-it-breaks-drama-silence-speed-and-accrual)
+
+- [Limited by our limitations](https://pmc.ncbi.nlm.nih.gov/articles/PMC6684501/) — Paula T. Ross 与 Nikki L. Bibler Zaidi 用具体研究示例拆解局限讨论，区分研究设计、数据收集、分析与结果效度，并给出从识别、解释影响到替代方案和减轻措施的写法；案例主要来自医学教育研究，不是期刊通用格式。[正文](https://pmc.ncbi.nlm.nih.gov/articles/PMC6684501/)
+
+  **规则：** 对每项重要局限，写明其来源、对结果或结论的影响、可考虑的替代方法，以及已采取的减轻措施；不要只罗列“小样本”等标签。[出处](https://pmc.ncbi.nlm.nih.gov/articles/PMC6684501/)
+
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
