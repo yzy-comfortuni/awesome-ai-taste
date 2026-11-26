@@ -234,6 +234,10 @@
 
   **规则：** 精简英文论文摘要时，先标出研究对象、方法和关键结果等可检索的具体信息，只删重复套话，不为缩短字数而抹掉这些内容；原文观察到的被引关联不等于“加字就会增引”。[出处](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004205)
 
+- [Limited by our limitations](https://pmc.ncbi.nlm.nih.gov/articles/PMC6684501/) — Paula T. Ross 与 Nikki L. Bibler Zaidi 用具体研究示例拆解局限讨论，区分研究设计、数据收集、分析与结果效度，并给出从识别、解释影响到替代方案和减轻措施的写法；案例主要来自医学教育研究，不是期刊通用格式。[正文](https://pmc.ncbi.nlm.nih.gov/articles/PMC6684501/)
+
+  **规则：** 对每项重要局限，写明其来源、对结果或结论的影响、可考虑的替代方法，以及已采取的减轻措施；不要只罗列“小样本”等标签。[出处](https://pmc.ncbi.nlm.nih.gov/articles/PMC6684501/)
+
 ## 小说写作
 
 - [Steering the Craft](https://www.ursulakleguin.com/steering-the-craft) — Le Guin 的英语叙事写作练习，训练句子节奏、视角和叙述距离；适合小说与叙事散文，不套固定情节公式。[第一章节选](https://lithub.com/a-writing-lesson-from-ursula-k-leguin/) <!-- article-copy --> · [Markdown 摘要](vendor/articles/steering-the-craft.md)<!-- /article-copy -->
