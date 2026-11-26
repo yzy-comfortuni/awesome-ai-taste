@@ -106,7 +106,6 @@
 
   **规则：** 对每项重要局限，写明其来源、对结果或结论的影响、可考虑的替代方法，以及已采取的减轻措施；不要只罗列“小样本”等标签。[出处](https://pmc.ncbi.nlm.nih.gov/articles/PMC6684501/)
 
-
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
 [副本及 Stars](vendor/README.md) · [网页 Markdown](vendor/articles/README.md) · [同步说明](SYNC.md) · [参与整理](CONTRIBUTING.md)
