@@ -159,6 +159,11 @@ class PageTests(unittest.TestCase):
         with self.assertRaises(m.ArchiveError):
             m.url_ok('https://www.notmfa.com.evil.example/craft/form-not-formula-subtext-design')
 
+    def test_reviewed_pmc_article_host_and_unreviewed_lookalike(self):
+        m.url_ok('https://pmc.ncbi.nlm.nih.gov/articles/PMC6684501/')
+        with self.assertRaises(m.ArchiveError):
+            m.url_ok('https://pmc.ncbi.nlm.nih.gov.evil.example/articles/PMC6684501/')
+
     def test_symlink_output_rejected(self):
         outside = self.root/'outside'
         outside.mkdir()
