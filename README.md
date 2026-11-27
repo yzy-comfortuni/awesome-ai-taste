@@ -4,7 +4,7 @@
 
 文体与任务优先。改稿保留事实、限定和完成状态；来源中的角色、权限与强制流程不自动继承。
 
-<!-- catalog-count: 103 -->
+<!-- catalog-count: 104 -->
 
 [界面](vendor/tasks/界面设计.md) · [文字](vendor/tasks/文字表达.md) · [工程文档](vendor/tasks/软件工程文档.md) · [图表](vendor/tasks/图表与图解.md) · [演示](vendor/tasks/演示文稿.md) · [海报](vendor/tasks/学术海报.md) · [动画](vendor/tasks/动画与视频.md)
 
@@ -105,6 +105,11 @@
 - [Limited by our limitations](https://pmc.ncbi.nlm.nih.gov/articles/PMC6684501/) — Paula T. Ross 与 Nikki L. Bibler Zaidi 用具体研究示例拆解局限讨论，区分研究设计、数据收集、分析与结果效度，并给出从识别、解释影响到替代方案和减轻措施的写法；案例主要来自医学教育研究，不是期刊通用格式。[正文](https://pmc.ncbi.nlm.nih.gov/articles/PMC6684501/)
 
   **规则：** 对每项重要局限，写明其来源、对结果或结论的影响、可考虑的替代方法，以及已采取的减轻措施；不要只罗列“小样本”等标签。[出处](https://pmc.ncbi.nlm.nih.gov/articles/PMC6684501/)
+
+
+- [CNIPA《专利审查指南》2026 修订：AI 模型披露](https://www.cnipa.gov.cn/art/2025/11/13/art_74_202560.html) — 国家知识产权局令第84号（2026年1月1日起施行）对 AI／算法发明说明书的模型构建、训练参数及场景输入输出披露要求；限中国发明专利审查，不是法律意见或授权保证。[正文](https://www.cnipa.gov.cn/art/2025/11/13/art_74_202560.html)
+
+  **规则：** 若方案涉及模型构建或训练，说明书一般应写清必要模块、层级／连接、训练步骤和参数；若模型用于具体领域或场景，还应说明场景结合方式及输入、输出数据的设置关系，不能只写“使用模型得到结果”。[出处](https://www.cnipa.gov.cn/art/2025/11/13/art_74_202560.html)
 
 [完整目录](CATALOG.md) · [使用说明](USAGE.md) · [可选示例](examples/README.md) · [勘误](ERRATA.md)
 
