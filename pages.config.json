@@ -1208,6 +1208,21 @@
       ],
       "min_chars": 6500,
       "scope_note": "© 2019 Paula T Ross and Nikki L Bibler Zaidi. Perspectives on Medical Education 8(4):261–264, DOI: 10.1007/s40037-019-00530-x. The PMC page explicitly identifies this single article as CC BY 4.0; this archive converts the full English article, including its limitation categories, four-part guidance and references, while excluding site navigation and unrelated pages. Markdown conversion is by awesome-ai-taste and is not author endorsement. The examples are rooted in medical education research; apply the reasoning to other empirical papers only where the design and claims fit. This is a writing aid, not a substitute for study-specific evidence or journal instructions. License: https://creativecommons.org/licenses/by/4.0/."
+    },
+    {
+      "id": "cnipa-ai-model-disclosure",
+      "title": "CNIPA《专利审查指南》2026 修订：AI 模型披露",
+      "author": "国家知识产权局",
+      "url": "https://www.cnipa.gov.cn/art/2025/11/13/art_74_202560.html",
+      "catalog_urls": [
+        "https://www.cnipa.gov.cn/art/2025/11/13/art_74_202560.html"
+      ],
+      "kind": "summary",
+      "license": "官方公告未标明可再利用的开放许可；仅存中文编辑摘要",
+      "license_evidence_url": "https://www.cnipa.gov.cn/art/2025/11/13/art_74_202560.html",
+      "reviewed_on": "2026-11-28",
+      "scope_note": "范围仅为国家知识产权局令第84号公布、2026年1月1日起施行的《专利审查指南》相关修订，重点是第二部分第九章第6.3.1节及其审查示例；不是完整《专利审查指南》全文。官方页面未见可据以转载全文的开放许可，本文件仅为中文编辑摘要，不复制公告全文。适用于中国发明专利申请审查，不替代专利代理师或律师意见。",
+      "summary": "## 2026 年修订要点\n\n国家知识产权局令第84号于2025年11月10日公布，自2026年1月1日起施行。修订后的《专利审查指南》第二部分第九章第6.3.1节指出：涉及人工智能模型构建或训练时，说明书一般需要清楚记载模型必要的模块、层级或连接关系，以及训练所需的具体步骤和参数；模型或算法用于具体领域、场景时，还应说明它如何与该领域或场景结合，以及输入、输出数据如何设置并体现内在关联，使本领域技术人员能够实现方案。\n\n新增审查示例还区分了“把常见模型流程用于另一对象”与“针对具体技术问题调整数据、特征或模型层级”的差别：仅更换识别对象而没有相应技术改进，不会自然产生创造性贡献；确有相互作用的算法特征与技术特征，则应结合其技术效果评价。\n\n## 可采用的检查方法\n\n对 AI 专利说明书建立披露对照表：模型构建或训练逐项对应必要模块、层级、连接、训练步骤和参数；具体场景应用逐项对应输入、输出及其内在关系。若缺少这些信息会使本领域技术人员无法实现权利要求所述方案，就不能只用“采用深度学习模型得到结果”带过。"
     }
   ]
 }
